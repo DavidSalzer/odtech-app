@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html data-ng-app="odtechApp">
+    <head>
+        <meta charset="utf-8" />
+        <title>Odtech</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <link href="css/reset.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/colorsAndIcons.css" rel="stylesheet" />
+
+
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body>
+        <!-- BEGIN HEADER -->
+        <!--<ng-include src="'components/header/header.html'"></ng-include>-->
+        <!-- END HEADER -->
+        <!-- BEGIN PAGE CONTENT-->
+        <div id="main-container">
+            <div id="main-view" class="main-view" data-ui-view="main"></div>
+        </div>
+
+
+        <!-- Jquery -->
+        <script src="js/jquery-1.8.3.min.js"></script>
+
+        <!-- Angular -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-ui-router.min.js"></script>
+                    <!--<script src="./js/angular-file-upload-shim.min.js"></script>
+                                <script src="./js/angular-file-upload.min.js"></script>-->
+
+         <script src="js/leaflet.js"></script>
+
+
+        <!-- odtech  components-->
+        <script src="app.js"></script>
+        <script src="components/welcome/welcome.js"></script>
+        <script src="components/dayDescription/dayDescription.js"></script>
+        <script src="components/mainNav/mainNav.js"></script>
+        <script src="components/mission/mission.js"></script>
+         
+        <!-- odtech  directives-->
+        <script src="directives/didYouKnow/didYouKnow.js"></script>
+        <script src="directives/featureIcon/featureIcon.js"></script>
+        <script src="directives/missionDeatails/missionDeatails.js"></script>
+        <script src="directives/missionIntroduction/missionIntroduction.js"></script>
+        <script src="directives/monitor/monitor.js"></script>
+        <script src="directives/points/points.js"></script>
+        <script src="directives/timer/timer.js"></script>
+
+        <!-- odtech  features-->
+        <script src="features/multiQuestion/multiQuestion.js"></script>
+        <script src="features/navigation/navigation.js"></script>
+        <script src="features/openQuestion/openQuestion.js"></script>
+        <script src="features/takePhoto/takePhoto.js"></script>
+        <script src="features/takeVideo/takeVideo.js"></script>
+        <script src="features/watchVideo/watchVideo.js"></script>
+
+        
+        <script src="./services/missions.js"></script>
+        <!-- END JAVASCRIPTS -->
+    </body>
+    <!-- END BODY -->
+</html>
