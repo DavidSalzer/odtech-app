@@ -8,55 +8,12 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', f
     { type: "watchVideo", id: "6" }
     ];
 
-    missions.test();
-    //missions.getMissions("690")
-    //.then(function (data) {
-    //    $scope.tasks = data;
-    //    for (var i = 0; i < $scope.tasks.long; i++) {
-    //        switch ($scope.tasks[i]["wpcf-type"][0]) {
-    //            case "navigate":
-    //                {
+    missions.getMissions().then(function (data) {
+        console.log(data);
+        $scope.tasks = data.res;
+    });
 
-    //                    $scope.tasks[i].type = "navigation";
-    //                    break;
-    //                }
-    //            case "take-photo":
-    //                {
-
-    //                    $scope.tasks[i].type = "takePhoto";
-    //                    break;
-    //                }
-    //            case "capture-video":
-    //                {
-
-    //                    $scope.tasks[i].type = "takeVideo";
-    //                    break;
-    //                }
-    //            case "watch-video":
-    //                {
-
-    //                    $scope.tasks[i].type = "watchVideo";
-    //                    break;
-    //                }
-    //            case "quiz":
-    //                {
-
-    //                    $scope.tasks[i].type = "multiQuestion";
-    //                    break;
-    //                }
-    //            case "write-text":
-    //                {
-
-    //                    $scope.tasks[i].type = "openQuestion";
-    //                    break;
-    //                }
-    //        }
-    //    }
-
-    //});
-
-    // console.log($scope.tasks);
-
+   
     $scope.goToMission = function ($index) {
         //alert($scope.tasks[$index].id);
         $state.transitionTo('mission', { missionId: $scope.tasks[$index].id });

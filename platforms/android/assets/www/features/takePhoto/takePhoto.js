@@ -1,8 +1,11 @@
-odtechApp.directive('takePhoto', [ function () {
+odtechApp.directive('takePhoto', ['camera', function (camera) {
     return {
         restrict: 'E',
         templateUrl: './features/takePhoto/takePhoto.html',
-        link: function (scope, el, attrs) {           
+        link: function (scope, el, attrs) {
+            el.on('click', function () {
+                camera.captureImage();
+            });
         },
         replace: true
     };

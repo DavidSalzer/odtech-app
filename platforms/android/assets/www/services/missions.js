@@ -1,56 +1,12 @@
-odtechApp.factory('missions', ['$rootScope', '$stateParams', '$http', '$q', function ($rootScope, $stateParams, $http, $q) {
+odtechApp.factory('missions', ['$rootScope', '$stateParams', 'server', function ($rootScope, $stateParams, server) {
 
-    //var domain = "http://odtech.com.tigris.nethost.co.il/";
-    var domain = "http://odtech.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+      return {
 
-    //var allTags = [];
+        getMissions: function () {
+                        
+            return server.request({ "type": "getMissionOfActivitie", "req": { "aid": "2"} });
+            
 
-    return {
-
-        getMissions: function (dayId) {
-
-            var deferred = $q.defer();
-
-            $http({
-                url: domain + "api/cube/get_mission_date/?id=" + dayId + "",
-                contentType: "application/json",
-                dataType: 'jsonp'
-            }).
-            success(function (json) {
-                deferred.resolve(json);
-                console.log(json);
-            }).
-            error(function (data) {
-                deferred.resolve(data);
-                console.log(data);
-            });
-
-            return deferred.promise;
-
-
-        },
-
-        test:function(){
-             var deferred = $q.defer();
-            $http({
-                url: domain ,
-                method:"POST",
-                data:{"type":"getMissionOfActivitie","req":{"aid":"2"}},
-                contentType: "application/json"
-                //dataType: 'jsonp'
-            }).
-            success(function (json) {
-                deferred.resolve(json);
-                console.log(json);
-            }).
-            error(function (data) {
-                deferred.resolve(data);
-                console.log(data);
-            });
-
-            return deferred.promise;
         }
-
-
     }
 } ]);
