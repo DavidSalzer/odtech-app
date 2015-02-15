@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DB89F34A-01E1-478E-B398-081D89F4596F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>odtechApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>26391A35-4F76-4E70-AFEA-EBC14D4A2620</key>
+		<string>https://github.com/DavidSalzer/odtech-app</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/odtechApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>26391A35-4F76-4E70-AFEA-EBC14D4A2620</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DavidSalzer/odtech-app</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>26391A35-4F76-4E70-AFEA-EBC14D4A2620</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>26391A35-4F76-4E70-AFEA-EBC14D4A2620</string>
+			<key>IDESourceControlWCCName</key>
+			<string>odtech-app</string>
+		</dict>
+	</array>
+</dict>
+</plist>
