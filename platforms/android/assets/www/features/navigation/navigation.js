@@ -1,8 +1,61 @@
-odtechApp.directive('navigation', [ function () {
+odtechApp.directive('navigation', [function () {
     return {
         restrict: 'E',
         templateUrl: './features/navigation/navigation.html',
-        link: function (scope, el, attrs) {           
+        link: function (scope, el, attrs) {
+
+            scope.myMarker = {
+                id: 1,
+                coords: {}
+            };
+
+            //get current location of user.
+            scope.getCurrentLocation = function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(scope.setMyPosition);
+                } else {
+
+                }
+            }
+
+            //init center of map in user location.
+            scope.setMyPosition = function (position) {
+                scope.myMarker.coords.latitude = position.coords.latitude;
+                scope.myMarker.coords.longitude = position.coords.longitude;
+                console.log(scope.myMarker);
+                scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+            }
+            scope.getCurrentLocation();
+            //scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+            scope.options = { scrollwheel: true };
+
+            //mark destination on map.
+            scope.destinationMarker = {
+                id: 0,
+                coords: {
+                    latitude: scope.task.Latitude,
+                    longitude: scope.task.Longitude
+                }
+                
+            };
+
+            //get user location while it change.
+            scope.getLocation = function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.watchPosition(scope.showPosition);
+                } else {
+
+                }
+            }
+
+            //update user location on map.
+            scope.showPosition = function (position) {
+                scope.myMarker.coords.latitude = position.coords.latitude;
+                scope.myMarker.coords.longitude = position.coords.longitude;
+                console.log(scope.myMarker);
+            }
+
+            scope.getLocation();
         },
         replace: true
     };

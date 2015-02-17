@@ -1,1 +1,31 @@
-<div>navigation mission</div>
+<div class="navigation-container">
+    <div id="map_canvas">
+        <!--display map directive-->
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+            <!--display my position on map-->
+            <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id">
+            </ui-gmap-marker>
+            <!--display destination position-->
+            <ui-gmap-marker coords="destinationMarker.coords" idkey="destinationMarker.id">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+
+    <style type="text/css">
+        html, body, #map_canvas, .navigation-container {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+        #map_canvas {
+            position: relative;
+        }
+        .angular-google-map-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+</div>

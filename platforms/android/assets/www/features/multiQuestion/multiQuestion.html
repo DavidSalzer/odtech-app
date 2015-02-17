@@ -1,1 +1,34 @@
-<div>multiQuestion mission</div>
+
+<section id="mission-quiz" class="feature">
+    <!--<div class="cover" id="quiz-cover"></div>-->
+    <div class="main" data-ng-repeat="question in task.questions" data-ng-show="$index==currentQuestion">
+        <div class="question">
+            <p>{{question.question}}</p>
+        </div>
+        <div id="answers-wrapper">
+            <div class="answer" data-ng-repeat="answer in question.answers"><span>{{$index}}</span><p>{{answer}}</p></div>                           
+        </div>
+    </div>
+
+            <!--<div class="message-text-popup popup" style="display: none;">
+                <div class="textMessage">
+                    <h2 style="color: rgb(255, 153, 0);">תשובה שגויה</h2>
+                    <p>התשובה הנכונה היא : <br>ויקרא: "לֹא תְקַלֵּל חֵרֵשׁ וְלִפְנֵי עִוֵּר לֹא תִתֵּן מִכְשֹׁל"</p>
+                </div>
+            </div>
+        
+            <section id="closer" style="display: block;" class="">
+                <header class="closerHeader">
+                    <span class="x" style="display: block;"></span>
+                    <div class="headerText">
+                        <figure class="icon-closer"></figure>
+                        <div id="header-text-wrapper">
+                            <h2>שאלונים</h2>
+                            <p>החליקו בכדי לצפות בכל השאלות והתשובות הנכונות</p>
+                        </div>
+                    </div>
+                </header>
+                <div class="summary"><div class="summary_con"><span class="pograss">1/2</span><div class="question">באיזה שלב בהיסטוריה החלה התייחסות רשמית לתחום הנגישות?</div><div class="answer"><span>01</span><p>ויקרא: "לֹא תְקַלֵּל חֵרֵשׁ וְלִפְנֵי עִוֵּר לֹא תִתֵּן מִכְשֹׁל"</p></div></div><div class="summary_con"><span class="pograss">2/2</span><div class="question">אילו מהפעולות והאמצעים הבאים מקדמים נגישות?</div><div class="answer"><span>01</span><p>כל התשובות נכונות</p></div></div></div>
+        
+            </section>-->
+</section>

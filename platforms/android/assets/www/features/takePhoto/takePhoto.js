@@ -1,11 +1,48 @@
-odtechApp.directive('takePhoto', ['camera', function (camera) {
+odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './features/takePhoto/takePhoto.html',
         link: function (scope, el, attrs) {
-            el.on('click', function () {
-                camera.captureImage();
-            });
+            scope.photoSaved = {};
+            scope.pictures = {};
+            scope.photoCenter = 'photoCenter';
+            scope.photoUp = 'photoUp';
+            scope.photoDown = 'photoDown';
+            scope.photoLeft = 'photoLeft';
+            scope.photoRight = 'photoRight';
+            scope.task.countPhoto = 3;
+            scope.countPhotos = 0;
+            scope.captureImage = function (photoClicked) { // take photo
+
+                camera.captureImage(photoClicked)
+                .then(function (data) {
+                    $timeout(function () {
+                        scope.pictures = camera.getPictures();
+                        scope.photoClicked = photoClicked; //camera.getPhotoClicked();
+                        scope.openImg = true;
+                    }, 0);
+                });
+            }
+            scope.addDescription = function () { // add description to photo
+                camera.addDescription(scope.description);
+                scope.description = '';
+                $timeout(function () {
+                    scope.openImg = false;
+                    scope.photoSaved[scope.photoClicked] = true;
+                    scope.countPhotos++;
+                    if (scope.countPhotos == scope.task.countPhoto) {
+                        alert("סיימת את המשימה:)");
+                    }
+                }, 0);
+            }
+            scope.deletePhoto = function (photoClicked) { // delete photo 
+                camera.deletePhoto(photoClicked);
+                $timeout(function () {
+                    scope.pictures = camera.getPictures();
+                    scope.photoSaved[photoClicked] = false;
+                    scope.countPhotos--;
+                }, 0);
+            }
         },
         replace: true
     };

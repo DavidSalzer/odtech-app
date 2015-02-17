@@ -1,13 +1,15 @@
-<div class="animate-switch-container" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow}" style="height: 100%;">
-    <multi-question data-ng-switch-when="multiQuestion"></multi-question>
-    <navigation data-ng-switch-when="navigation"></navigation>
-    <open-question data-ng-switch-when="openQuestion"></open-question>
-    <take-photo data-ng-switch-when="takePhoto"></take-photo>
-    <take-video data-ng-switch-when="takeVideo"></take-video>
-    <watch-video data-ng-switch-when="watchVideo"></watch-video>
-</div>
 
-<section id="popup" class="{{task.type}}">
-    <mission-introduction></mission-introduction>
-    <!--<mission-deatails></mission-deatails>-->
-</section>
+    <div class="animate-switch-container" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow}" style="height: 100%;">
+        <multi-question data-ng-switch-when="multiQuestion"></multi-question>
+        <navigation data-ng-switch-when="navigation"></navigation>
+        <open-question data-ng-switch-when="openQuestion"></open-question>
+        <take-photo data-ng-switch-when="takePhoto"></take-photo>
+        <take-video data-ng-switch-when="takeVideo"></take-video>
+        <watch-video data-ng-switch-when="watchVideo"></watch-video>
+    </div>
+
+    <section id="popup" class="{{task.type}}">
+        <mission-introduction></mission-introduction>
+        <mission-deatails></mission-deatails>
+    </section>
+
