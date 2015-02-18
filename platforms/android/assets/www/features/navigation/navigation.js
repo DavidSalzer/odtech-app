@@ -28,10 +28,13 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
 
             //init center of map in user location.
             scope.setMyPosition = function (position) {
-                scope.myMarker.coords.latitude = position.coords.latitude;
-                scope.myMarker.coords.longitude = position.coords.longitude;
-                console.log(scope.myMarker);
-                scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                $timeout(function () {
+                    scope.myMarker.coords.latitude = position.coords.latitude;
+                    scope.myMarker.coords.longitude = position.coords.longitude;
+                    console.log(scope.myMarker);
+                    scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                }, 0)
+
             }
             scope.getCurrentLocation();
 
@@ -60,9 +63,13 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
 
             //update user location on map.
             scope.showPosition = function (position) {
-                scope.myMarker.coords.latitude = position.coords.latitude;
-                scope.myMarker.coords.longitude = position.coords.longitude;
-                console.log(scope.myMarker);
+                $timeout(function () {
+                    scope.myMarker.coords.latitude = position.coords.latitude;
+                    scope.myMarker.coords.longitude = position.coords.longitude;
+                    console.log(scope.myMarker);
+                    checkDistance(position, scope.destinationMarker);
+                }, 0)
+
                 checkDistance(position, scope.destinationMarker);
             }
 
@@ -86,8 +93,8 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
             //exec while user click on destination btn.
             scope.sendDestination = function () {
                 $timeout(function () {
-                        scope.isDestination = false;
-                    }, 0)
+                    scope.isDestination = false;
+                }, 0)
             }
         },
         replace: true
