@@ -94,7 +94,8 @@
     color: #fff;
     top: 130px;
     background-position: center;
-    /* left: 150px; */
+    width: 230px;
+    height: 190px;
 }
 
 .photoLeft {
@@ -106,6 +107,8 @@
     top: 310px;
     left: 150px;
     background-position: center;
+    width: 230px;
+    height: 190px;
 }
 
 .photoRight {
@@ -117,6 +120,8 @@
     top: 345px;
     left: 712px;
     background-position: center;
+    width: 230px;
+    height: 190px;
 }
 
 .photoDown {
@@ -127,6 +132,8 @@
     top: 510px;
     left: 425px;
     background-position: center;
+    width: 230px;
+    height: 190px;
 }
 
 .openImgDialog {
@@ -179,6 +186,38 @@
     bottom: 35%;
     right: 0px;
 }
+    .photoUp p span {
+        display: block;
+        text-align: center;
+        padding-top: 75px;
+        font-size: 85px;
+        font-size: 4.2em;
+    }
+
+    .photoDown p span {
+        display: block;
+        text-align: center;
+        padding-top: 75px;
+        font-size: 85px;
+        font-size: 4.2em;
+    }
+
+    .photoRight p span {
+        display: block;
+        text-align: center;
+        padding-top: 75px;
+        font-size: 85px;
+        font-size: 4.2em;
+    }
+
+    .photoLeft p span {
+        display: block;
+        text-align: center;
+        padding-top: 75px;
+        font-size: 85px;
+        font-size: 4.2em;
+    }
+
 
 div.openImgDialog > div > span {
     position: relative;
@@ -246,38 +285,6 @@ div.openImgDialog > div > span {
 
     .photoCenter p span {
         margin: 0px;
-    }
-
-    .photoUp p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
-
-    .photoDown p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
-
-    .photoRight p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
-
-    .photoLeft p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
     }
 
     .openImgDialog {

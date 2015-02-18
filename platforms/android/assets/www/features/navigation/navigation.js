@@ -1,12 +1,16 @@
-odtechApp.directive('navigation', [function () {
+odtechApp.directive('navigation', ['$timeout', function ($timeout) {
     return {
         restrict: 'E',
         templateUrl: './features/navigation/navigation.html',
         link: function (scope, el, attrs) {
 
+            scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
+            scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to fet from server.
+
             scope.myMarker = {
                 id: 1,
-                coords: {}
+                coords: {},
+                icon: './img/position2.png'
             };
 
             //get current location of user.
@@ -35,8 +39,8 @@ odtechApp.directive('navigation', [function () {
                 coords: {
                     latitude: scope.task.Latitude,
                     longitude: scope.task.Longitude
-                }
-                
+                },
+                icon: './img/position4.png'
             };
 
             //get user location while it change.
@@ -53,19 +57,42 @@ odtechApp.directive('navigation', [function () {
                 scope.myMarker.coords.latitude = position.coords.latitude;
                 scope.myMarker.coords.longitude = position.coords.longitude;
                 console.log(scope.myMarker);
+                checkDistance(position, scope.destinationMarker);
             }
 
             scope.getLocation();
+
+            //pitagoras, distance between self position and destination
+            function checkDistance(selfPosition, destination) {
+                var x = selfPosition.coords.latitude - destination.coords.latitude;
+                var y = selfPosition.coords.longitude - destination.coords.longitude;
+                x2 = Math.pow(x, 2);
+                y2 = Math.pow(y, 2);
+                z = Math.sqrt(x2 + y2);
+                if (z < scope.destinationRadius) {
+                    $timeout(function () {
+                        scope.isDestination = true;
+                    }, 0)
+
+                }
+            }
+
+            //exec while user click on destination btn.
+            scope.sendDestination = function () {
+                $timeout(function () {
+                        scope.isDestination = false;
+                    }, 0)
+            }
         },
         replace: true
     };
 
-    //איתחול המפה עם הקודינטות של המשימה.
-    //מירכזו מיקומי על המסך
+    //איתחול המפה עם הקודינטות של המשימה. V
+    //מירכזו מיקומי על המסך V
     //טיפול במצב של גיפאס סגור
-    //הצבת המיקום שלי ומיקום היעד
-    //במידה והמפה נטענת מאוחר
-    //, להציב גם את היעד וגם את המיקום תמיד..
+    //הצבת המיקום שלי ומיקום היעד V
+    //במידה והמפה נטענת מאוחר V
+    //, להציב גם את היעד וגם את המיקום תמיד.. V
     //לזהות התקדמות של המיקום שלי ולעדכן על המפה
     //זיהוי התקרבות לנקודת היעד והצגת פופאפ סיום
     //

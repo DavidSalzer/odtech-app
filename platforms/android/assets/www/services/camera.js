@@ -5,6 +5,8 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
     */
     //var Up, Down, Left, Right;
     //var vid = '';
+
+    //for photo
     var photoCenterD;
     var photoRightD;
     var photoDownD;
@@ -12,6 +14,10 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
     var photoUpD;
     var photoClicked;
     var pictures = {};
+
+    //for video
+    var videos = {};
+    var videoClicked;
 
 
     return {
@@ -32,19 +38,37 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
 
             navigator.camera.getPicture(onImageSuccess, onFail, //take photo options and use plugin
                 {
-                    quality: 49,
-                    destinationType: Camera.PictureSourceType.FILE_URI,
-                    targetWidth: 584,
-                    correctOrientation: true,
-                    saveToPhotoAlbum: true
-                }
+                quality: 49,
+                destinationType: Camera.PictureSourceType.FILE_URI,
+                targetWidth: 584,
+                correctOrientation: true,
+                saveToPhotoAlbum: true
+            }
             );
             // return a promise
             return deferred.promise;
         },
-        captureVideo: function (e) { //take video
-            e.stopPropagation();
-            navigator.device.capture.captureVideo(self.onVideoSuccess, onFail, { limit: 1 });
+        captureVideo: function (_videoClicked) { //take video
+            var deferred = $q.defer();
+            videoClicked = _videoClicked;
+
+            var onVideoSuccess = function (videoURI) { //take photo success
+
+                path = videoURI[0].fullPath;
+                alert(path);
+                videos[_videoClicked] = { videoUri: path };
+
+                deferred.resolve(path);
+            }
+            var onFail = function (message) { //take photo failed
+                alert('Failed because: ' + message);
+                deferred.reject(message);
+            }
+
+            navigator.device.capture.captureVideo(onVideoSuccess, onFail, { limit: 1 });
+            
+            // return a promise
+            return deferred.promise;
         },
         getPictures: function () { // get saved photos
             return pictures;
@@ -52,10 +76,16 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
         getPhotoClicked: function () { // get last clicked photos
             return photoClicked;
         },
+        getVideos: function () { // get saved photos
+            return videos;
+        },
+        getVideoClicked: function () { // get last clicked photos
+            return videoClicked;
+        },
         addDescription: function (description) { // add description to photo and save object for send to server
             pictures[photoClicked].description = description;
 
-            imgUrlF = pictures[photoClicked].imgUri; 
+            imgUrlF = pictures[photoClicked].imgUri;
 
             switch (photoClicked) {
                 case 'photoCenter':
@@ -78,6 +108,9 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
         },
         deletePhoto: function (_photoClicked) { // delete photo
             pictures[_photoClicked] = undefined;
+        },
+        deleteVideo: function (_photoClicked) { // delete photo
+            videos[_photoClicked] = undefined;
         }
     }
 
@@ -176,39 +209,6 @@ finalObj.push(self.photoUpD);
 }
 
 
-$scope.onVideoSuccess = function (videoURI) {
-var i, path, len;
-newVid = self.vid;
-
-path = videoURI[0].fullPath;
-//alert(path);
-var missionId = generalMissionController.currentMission.id;
-if (generalMissionController.results[missionId].video) {
-generalMissionController.results[missionId].video.push({ cap: self.vid, src: path });
-self.setVideoOnMenu(self.vid, path);
-} else {
-generalMissionController.results[missionId].video = [];
-generalMissionController.results[missionId].video.push({ cap: self.vid, src: path });
-self.setVideoOnMenu(self.vid, path);
-}
-
-generalMissionController.results[generalMissionController.currentMission.id].photoCenter = "./img/temp/main_nav_vid.jpg";
-//show tumbnaill
-$('#' + self.vid + '').html('<video poster src="' + path + '" class="capVidPoster"></video>');
-
-
-//if all are full
-if ($('#mission-capture-video .capVidPoster').length == 3) {
-//$('#'+missionId+'').css('left','340px');
-navigationController.showMainMenu();
-}
-
-$(".mission-menu-item").show();
-
-newId = finalObj.length + 1;
-data = { id: 'finalObj' + newId +'', content: path, title: 'צילום סרטון', type: 'mov' }
-finalObj.push(data);
-}
 
 
 $scope.setVideoOnMenu = function (pos, src) {
