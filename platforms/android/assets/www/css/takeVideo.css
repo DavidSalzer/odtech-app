@@ -111,6 +111,26 @@
     left: 782px;
 }
 
+.deleteOrbit {
+    border-radius: 100%;
+    border-color: #46c4b4;;
+    width: 9px;
+    height: 10px;
+    position: absolute;
+    border: 4px solid #46c4b4;;
+    background-color: white;
+    color: #46c4b4;;
+    z-index: 12;
+    padding: 4px;
+    font-size: 9px;
+    font-size: 0.5em;
+    padding-right: 6PX;
+    font-family: arial;
+    font-weight: bold;
+    right: -10px;
+    top: -10px;
+}
+
 .capture-video.left {
     background-color: rgba(70,196,180,.55);
     z-index: 1;
@@ -178,10 +198,12 @@
         width: 280px;
         height: 215px;
     }
-#mission-capture-video #capture-video-clip span {
-    margin-top: 0px;
-}
-#capture-video-right span, #capture-video-left span {
-    top: 80px;
-}
+
+    #mission-capture-video #capture-video-clip span {
+        margin-top: 0px;
+    }
+
+    #capture-video-right span, #capture-video-left span {
+        top: 80px;
+    }
 }

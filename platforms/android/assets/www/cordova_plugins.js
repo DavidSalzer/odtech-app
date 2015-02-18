@@ -78,6 +78,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js",
+        "id": "com.phonegap.plugins.barcodescanner.BarcodeScanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -229,6 +236,7 @@ module.exports.metadata =
 {
     "org.apache.cordova.camera": "0.3.5",
     "org.apache.cordova.media-capture": "0.3.7-dev",
+    "com.phonegap.plugins.barcodescanner": "2.0.1",
     "org.apache.cordova.file": "1.3.3"
 }
 // BOTTOM OF METADATA
