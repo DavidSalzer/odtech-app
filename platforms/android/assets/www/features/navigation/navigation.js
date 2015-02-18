@@ -6,7 +6,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
 
             scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
             scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to fet from server.
-
+            
             scope.myMarker = {
                 id: 1,
                 coords: {},
