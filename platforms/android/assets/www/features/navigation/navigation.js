@@ -20,7 +20,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
             //get current location of user.
             scope.getCurrentLocation = function () {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(scope.setMyPosition);
+                    navigator.geolocation.getCurrentPosition(scope.setMyPosition, scope.errorGetLocation);
                 } else {
 
                 }
@@ -32,7 +32,20 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
                     console.log(scope.myMarker);
+                    scope.noLocation = false;
                     scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                }, 0)
+
+            }
+
+            //error in get user location.
+            scope.errorGetLocation = function () {
+                //alert('errorGetLocation');
+                $timeout(function () {
+                    if (!scope.map) {
+                        scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+                    }
+                    scope.noLocation = true;
                 }, 0)
 
             }
@@ -55,7 +68,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
             //get user location while it change.
             scope.getLocation = function () {
                 if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(scope.showPosition);
+                    navigator.geolocation.watchPosition(scope.showPosition, scope.errorGetLocation);
                 } else {
 
                 }
@@ -67,10 +80,10 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
                     console.log(scope.myMarker);
+                    scope.noLocation = false;
                     checkDistance(position, scope.destinationMarker);
                 }, 0)
 
-                checkDistance(position, scope.destinationMarker);
             }
 
             scope.getLocation();
