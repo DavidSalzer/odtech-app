@@ -70,6 +70,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     checkDistance(position, scope.destinationMarker);
                 }, 0)
 
+                checkDistance(position, scope.destinationMarker);
             }
 
             scope.getLocation();
