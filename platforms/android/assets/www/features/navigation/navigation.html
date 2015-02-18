@@ -11,6 +11,19 @@
         </ui-gmap-google-map>
     </div>
 
+    <!--You have reached the destination popup-->
+    <div data-ng-show="isDestination" class="mission-repeat-popup popup">
+        <!--<div class="triangle"></div>-->
+        <!--<span class="barcode"></span>-->
+        <h2>הגעת ליעד</h2>
+        <p>{{destinationText}}</p>
+        <!--<div class="permission navigate barcode-scanner" id="permission-navigate">לסריקת הקוד<span class="arrow"></span></div>-->
+        <div class="mission-popup-continue">
+                לחצו כאן
+            <span class="arrow" data-ng-click="sendDestination()"> </span>
+        </div>
+    </div>
+
     <style type="text/css">
         html, body, #map_canvas, .navigation-container {
             height: 100%;
@@ -27,5 +40,22 @@
             right: 0;
             left: 0;
         }
+        
+        .destination-btn{
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+        }
+        
+        .navigation-container .mission-popup-continue .arrow {
+            background-image: url("../img/svg/arrow/navigation.svg");
+        }
+        
+        .navigation-container .mission-popup-continue {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+        }
+        
     </style>
 </div>

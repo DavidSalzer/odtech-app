@@ -15,24 +15,24 @@
             </p>
         </div>
 
-        <div data-ng-if="task.countPhoto>1" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].imgUri}})">
-            <div data-ng-show="photoSaved['photoDown']" class="deleteOrbit" id="delphotoDown" pos="photoDown" data-ng-click="deletePhoto(photoDown)">X</div>
-            <p data-ng-hide="photoSaved['photoDown']">
-                <span data-ng-click="captureImage(photoDown)">+</span>
-            </p>
-        </div>
-
-        <div data-ng-if="task.countPhoto>2" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].imgUri}})">
+        <div data-ng-if="task.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].imgUri}})">
             <div data-ng-show="photoSaved['photoLeft']" class="deleteOrbit" id="delphotoLeft" pos="photoLeft" data-ng-click="deletePhoto(photoLeft)">X</div>
             <p data-ng-hide="photoSaved['photoLeft']">
                 <span data-ng-click="captureImage(photoLeft)">+</span>
             </p>
         </div>
 
-        <div data-ng-if="task.countPhoto>3" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].imgUri}})">
+        <div data-ng-if="task.countPhoto>2" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].imgUri}})">
             <div data-ng-show="photoSaved['photoRight']" class="deleteOrbit" id="delphotoRight" pos="photoRight" data-ng-click="deletePhoto(photoRight)">X</div>
             <p data-ng-hide="photoSaved['photoRight']">
                 <span data-ng-click="captureImage(photoRight)">+</span>
+            </p>
+        </div>
+        
+        <div data-ng-if="task.countPhoto>3" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].imgUri}})">
+            <div data-ng-show="photoSaved['photoDown']" class="deleteOrbit" id="delphotoDown" pos="photoDown" data-ng-click="deletePhoto(photoDown)">X</div>
+            <p data-ng-hide="photoSaved['photoDown']">
+                <span data-ng-click="captureImage(photoDown)">+</span>
             </p>
         </div>
 

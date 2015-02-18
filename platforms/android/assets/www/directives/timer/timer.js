@@ -13,7 +13,15 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
                 if (hours < 10) { hours = "0" + hours; }
                 if (minutes < 10) { minutes = "0" + minutes; }
                 if (seconds < 10) { seconds = "0" + seconds; }
-                var time = hours + ':' + minutes + ':' + seconds;
+                var time;
+                if (hours == 0) {
+                    time =  minutes + ':' + seconds;
+                }
+                else {
+                    time = hours + ':' + minutes + ':' + seconds;
+                }
+
+
                 $timeout(function () {
                     scope.displayFormat = time;
                 }, 0)
@@ -26,7 +34,7 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
                 //update the dom
                 scope.displayTimer(scope.currentTime);
                 if (scope.currentTime == 0) {
-                    alert('timer ended!!')
+                    // alert('timer ended!!')
                     clearInterval(scope.timerInterval);
 
                 }
