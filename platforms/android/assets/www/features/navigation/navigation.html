@@ -3,14 +3,15 @@
         <!--display map directive-->
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
             <!--display my position on map-->
-            <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id">
+            <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id" icon="myMarker.icon">
             </ui-gmap-marker>
             <!--display destination position-->
-            <ui-gmap-marker coords="destinationMarker.coords" idkey="destinationMarker.id">
+            <ui-gmap-marker coords="destinationMarker.coords" idkey="destinationMarker.id" icon="destinationMarker.icon">
             </ui-gmap-marker>
         </ui-gmap-google-map>
     </div>
 
+    <!--You have reached the destination popup-->
     <div data-ng-show="isDestination" class="mission-repeat-popup popup">
         <!--<div class="triangle"></div>-->
         <!--<span class="barcode"></span>-->

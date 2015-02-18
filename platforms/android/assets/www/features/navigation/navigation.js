@@ -6,11 +6,15 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
 
             scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
             scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to fet from server.
-
+            
             scope.myMarker = {
                 id: 1,
                 coords: {},
-                icon: './img/position2.png'
+                icon: {
+                    url: './img/position2.png'
+                    //size: new google.maps.Size(80, 80),
+                    //origin: new google.maps.Point(50, 50)
+                }
             };
 
             //get current location of user.
@@ -30,7 +34,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                 scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
             }
             scope.getCurrentLocation();
-            //scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+
             scope.options = { scrollwheel: true };
 
             //mark destination on map.
@@ -40,7 +44,9 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     latitude: scope.task.Latitude,
                     longitude: scope.task.Longitude
                 },
-                icon: './img/position4.png'
+                icon: {
+                    url: './img/position4.png'
+                }
             };
 
             //get user location while it change.
@@ -94,7 +100,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
     //במידה והמפה נטענת מאוחר V
     //, להציב גם את היעד וגם את המיקום תמיד.. V
     //לזהות התקדמות של המיקום שלי ולעדכן על המפה
-    //זיהוי התקרבות לנקודת היעד והצגת פופאפ סיום
+    //זיהוי התקרבות לנקודת היעד והצגת פופאפ סיום V
     //
     //כניסה אחרי ביצוע,
     //מציג את הנקודות ואת המפה
