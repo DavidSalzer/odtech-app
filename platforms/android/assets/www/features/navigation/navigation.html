@@ -12,16 +12,19 @@
     </div>
 
     <!--You have reached the destination popup-->
-    <div data-ng-show="isDestination" class="mission-repeat-popup popup">
-        <!--<div class="triangle"></div>-->
-        <!--<span class="barcode"></span>-->
+    <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup">
         <h2>הגעת ליעד</h2>
         <p>{{destinationText}}</p>
-        <!--<div class="permission navigate barcode-scanner" id="permission-navigate">לסריקת הקוד<span class="arrow"></span></div>-->
         <div class="mission-popup-continue">
                 לחצו כאן
             <span class="arrow" data-ng-click="sendDestination()"> </span>
         </div>
+    </div>
+
+    <!--Unknown user location popup-->
+    <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
+        <h2>המיקום שלך לא ידוע</h2>
+        <p>אנא בידקו שה GPS פועל או שהמכשיר מאפשר קבלת מיקום</p>
     </div>
 
     <style type="text/css">
@@ -55,6 +58,10 @@
             position: absolute;
             bottom: 5px;
             left: 5px;
+        }
+        
+        .mission-repeat-popup.navigation-popup {
+            z-index: 4;
         }
         
     </style>

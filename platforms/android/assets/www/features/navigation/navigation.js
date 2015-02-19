@@ -6,7 +6,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
 
             scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
             scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to fet from server.
-            
+
             scope.myMarker = {
                 id: 1,
                 coords: {},
@@ -17,10 +17,13 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                 }
             };
 
+            scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+            scope.options = { scrollwheel: true };
+
             //get current location of user.
             scope.getCurrentLocation = function () {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(scope.setMyPosition);
+                    navigator.geolocation.getCurrentPosition(scope.setMyPosition, scope.errorGetLocation, { timeout: 5000, enableHighAccuracy: true });
                 } else {
 
                 }
@@ -32,14 +35,26 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
                     console.log(scope.myMarker);
+                    scope.noLocation = false;
                     scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                }, 0)
+
+            }
+
+            //error in get user location.
+            scope.errorGetLocation = function () {
+                //alert('errorGetLocation');
+                $timeout(function () {
+                    if (!scope.map) {
+                        scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+                    }
+                    scope.noLocation = true;
                 }, 0)
 
             }
             scope.getCurrentLocation();
 
-            scope.options = { scrollwheel: true };
-
+            
             //mark destination on map.
             scope.destinationMarker = {
                 id: 0,
@@ -55,7 +70,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
             //get user location while it change.
             scope.getLocation = function () {
                 if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(scope.showPosition);
+                    navigator.geolocation.watchPosition(scope.showPosition, scope.errorGetLocation, { timeout: 5000, enableHighAccuracy: true });
                 } else {
 
                 }
@@ -67,10 +82,10 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
                     console.log(scope.myMarker);
+                    scope.noLocation = false;
                     checkDistance(position, scope.destinationMarker);
                 }, 0)
 
-                checkDistance(position, scope.destinationMarker);
             }
 
             scope.getLocation();
