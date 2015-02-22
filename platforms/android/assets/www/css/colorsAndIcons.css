@@ -706,3 +706,100 @@ background-color: rgba(246,189,225,0.9);
 .last-mission .mission-repeat-popup .close{
     background-image: url("../img/svg/x/text.svg");
 }
+
+
+/*****capture video************************************************************/
+
+.qrCode .mission-menu-center {
+    background-color: rgba(101,225,209,0.9);
+}
+
+ .qrCode .popup,.qrCode .item-number {
+    color: #46c4b4;
+}
+
+.qrCode .mission-icon {
+    background-color: #46c4b4;
+}
+
+#popup.qrCode .mission-icon {
+    background-image: url("../img/qrCode.png");
+}
+/*mission-popup*/
+
+.qrCode .mission-popup-timer {
+    background-color: rgba(101,225,209,0.45);
+}
+
+.qrCode .mission-popup-scoring {
+    background-color: rgba(101,225,209,0.28);
+}
+
+.qrCode .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/qrCode.svg");
+}
+
+/*mission bottom*/
+
+.qrCode .mission-deatails-timer {
+    background-color: rgba(147,238,236,1);
+}
+
+.qrCode .mission-deatails-timer span.clock {
+    background-image: url( ../img/svg/clock/qrCode.svg);
+}
+
+
+/*mission-repeat*/
+
+.qrCode .mission-repeat-popup .close{
+    background-image: url("../img/svg/x/qrCode.svg");
+}
+
+/*****scala video************************************************************/
+
+.scala .mission-menu-center {
+    background-color: rgba(101,225,209,0.9);
+}
+
+ .scala .popup,.scala .item-number {
+    color: #46c4b4;
+}
+
+.scala .mission-icon {
+    background-color: #46c4b4;
+}
+
+#popup.scala .mission-icon {
+    background-image: url("../img/scala.png");
+}
+/*mission-popup*/
+
+.scala .mission-popup-timer {
+    background-color: rgba(101,225,209,0.45);
+}
+
+.scala .mission-popup-scoring {
+    background-color: rgba(101,225,209,0.28);
+}
+
+.scala .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/scala.svg");
+}
+
+/*mission bottom*/
+
+.scala .mission-deatails-timer {
+    background-color: rgba(147,238,236,1);
+}
+
+.qrCode .mission-deatails-timer span.clock {
+    background-image: url( ../img/svg/clock/scala.svg);
+}
+
+
+/*mission-repeat*/
+
+.scala .mission-repeat-popup .close{
+    background-image: url("../img/svg/x/scala.svg");
+}

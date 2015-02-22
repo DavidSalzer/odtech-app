@@ -55,7 +55,6 @@
 		74F81963FA3C42CEB53BDB90 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02AA1E83D66E4050840CD775 /* AVFoundation.framework */; };
 		991FC5C53398479095964694 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE0F8B68BDB412DBAA7B0B2 /* CoreVideo.framework */; };
 		1C779D8DD3A6482584FC36A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B1F85C68AA463297D3F722 /* QuartzCore.framework */; };
-		DFB4F49442AF4498A3051CF0 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6BB1F2B4CE4653902CE31C /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,8 +141,6 @@
 		02AA1E83D66E4050840CD775 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		6BE0F8B68BDB412DBAA7B0B2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreVideo.framework"; path = "System/Library/Frameworks/CoreVideo.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		C8B1F85C68AA463297D3F722 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		9F6BB1F2B4CE4653902CE31C /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "Plugins\org.apache.cordova.geolocation\CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		6D8415C2F29145098C2EE614 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "Plugins\org.apache.cordova.geolocation\CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,8 +289,6 @@
 				52141F8FAE4846208239A218 /* CDVBarcodeScanner.mm */,
 				C4836E03C84D4A10A6FC4653 /* zxing-all-in-one.cpp */,
 				1B7E9018D8844732A1C5714B /* zxing-all-in-one.h */,
-				9F6BB1F2B4CE4653902CE31C /* CDVLocation.m */,
-				6D8415C2F29145098C2EE614 /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "odtechApp/Plugins";
@@ -490,7 +485,6 @@
 				4BAA78D3E35B4FE2925AB94B /* CDVCapture.m in Sources */,
 				3289E7B470BE4ACEA84CFBAE /* CDVBarcodeScanner.mm in Resources */,
 				B4F438F0CC584668AD35DD2E /* zxing-all-in-one.cpp in Resources */,
-				DFB4F49442AF4498A3051CF0 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,10 +1,15 @@
-<section id="mission-container">
+<div id="day-description" data-ng-show="isDescription" data-ng-click="closeDescription()">
+    <p>{{description}}</p>
+</div>
+
+<section id="mission-container" data-ng-hide="isDescription">
     <div id="call-for-action">לחצו על המשימה הראשונה כדי להתחיל</div>
     <div class="mission-wrap">
         <div id="mission-menu">
-            <div data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}" data-ng-class="{'start':$index==0}" data-ng-click="goToMission($index)">
+            <div data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}" data-ng-class="{'start':$index==currentMission}" data-ng-click="goToMission($index)">
                 <div class="mission-menu-center">
-                    <span class="">
+                    <!--if linear -->
+                    <span data-ng-show="$index>currentMission">
                         <img class="lock" src="img/nav_lock.png" alt="no-image">
                     </span>
                 </div>

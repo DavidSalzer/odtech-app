@@ -8,17 +8,18 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             write main function
             */
             //youtubeApiReady = false;
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/player_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            //var tag = document.createElement('script');
+            //tag.src = "https://www.youtube.com/player_api";
+            //var firstScriptTag = document.getElementsByTagName('script')[0];
+           // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             scope.player;
             scope.startYoutube = false;
             var player;
             scope.endMovie = false;
 
+
             //init youtube player
-            $window.onYouTubeIframeAPIReady = function () {
+            scope.initPlayer = function () {
                 if (!scope.youtubeReset) {
                     scope.youtubeReset = true;
                     scope.player = new YT.Player('youtube-url-video', {
@@ -32,6 +33,11 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
                         }
                     });
                 }
+            }
+
+            //init event
+            $window.onYouTubeIframeAPIReady = function () {
+                scope.initPlayer();
             }
             //youtube player is ready and user allready press on continue
             scope.playerReady = function () {
@@ -72,7 +78,9 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
                 //if youtyube player initialize befor get youtyubeID - update now
                 if (scope.task.youtubeID && scope.player) {
                     scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.task.youtubeID + "?version=3");
-                } else if(scope.task.videoURL){
+                } else if (scope.task.youtubeID) {
+                    scope.initPlayer();
+                } else if (scope.task.videoURL) {
                     $("#fullMovie").html('<source src="' + scope.task.videoURL + '" type="video/mp4"></source>');
                 }
             });
@@ -92,11 +100,11 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             scope.play = function () {
                 scope.removeBlur();
                 scope.endMovie = false;
-                if (!scope.movie && scope.task.youtubeID) {
+                if (!scope.task.videoURL && scope.task.youtubeID) {
                     scope.player.playVideo();
                     scope.startYoutube = true;
                 } else {
-                document.getElementById('fullMovie').play();
+                    document.getElementById('fullMovie').play();
                 }
             }
 

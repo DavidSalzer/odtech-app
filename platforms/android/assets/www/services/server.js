@@ -1,7 +1,5 @@
 odtechApp.factory('server', ['$rootScope', '$stateParams','$http', '$q', function ($rootScope, $stateParams,$http, $q) {
 
-     //var domain = "http://odtech.com.tigris.nethost.co.il/";
-    var domain = "http://odtech.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
 
     return {
 
@@ -20,7 +18,7 @@ odtechApp.factory('server', ['$rootScope', '$stateParams','$http', '$q', functio
                 //console.log(json);
             }).
             error(function (data) {
-                deferred.resolve(data);
+                deferred.reject(data);
                 //console.log(data);
             });
 

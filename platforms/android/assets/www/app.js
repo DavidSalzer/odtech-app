@@ -1,3 +1,7 @@
+//var domain = "http://odtech.com.tigris.nethost.co.il/";
+var domain = "http://odtech.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+var cid = 1;
+
 var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
 
 /**** UI Router ****/
@@ -14,15 +18,15 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
 		        }
 		    }
 		})
-        .state("dayDescription", {
-            url: "/dayDescription",
-            views: {
-                "main": {
-                    templateUrl: "./components/dayDescription/dayDescription.html",
-                    controller: "dayDescription"
-                }
-            }
-        })
+        //.state("dayDescription", {
+        //    url: "/dayDescription",
+        //    views: {
+        //        "main": {
+        //            templateUrl: "./components/dayDescription/dayDescription.html",
+        //            controller: "dayDescription"
+        //        }
+        //    }
+        //})
         .state("mainNav", {
             url: "/mainNav",
             views: {
@@ -40,12 +44,11 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
                      controller: "mission"
                  }
              }
-         })
-
+         })        
 });
 
 //for google maps
-odtechApp.config(function(uiGmapGoogleMapApiProvider) {
+odtechApp.config(function (uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
         //    key: 'your api key',
         v: '3.17',

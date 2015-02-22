@@ -46,10 +46,10 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                     scope.countVideos--;
                 }, 0);
             }
-            var video = document.getElementById('fullMovieClip');
+            /*var video = document.getElementById('fullMovieClip');
             video.addEventListener('click', function () {
                 video.play();
-            }, false);
+            }, false);*/
         },
         replace: true
     };
