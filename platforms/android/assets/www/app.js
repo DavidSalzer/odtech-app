@@ -5,12 +5,12 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
     $urlRouterProvider.otherwise("/mainNav");
 
     $stateProvider
-		.state("welcome", {
-		    url: "/welcome",
+		.state("login", {
+		    url: "/login",
 		    views: {
 		        "main": {
-		            templateUrl: "./components/welcome/welcome.html",
-		            controller: "welcome"
+		            templateUrl: "./components/login/login.html",
+		            controller: "login"
 		        }
 		    }
 		})
