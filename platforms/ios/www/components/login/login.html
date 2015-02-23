@@ -1,0 +1,85 @@
+<div class="login-container">
+    <div class="login-page" data-ng-show="loginFirstPage">
+        <div class="login-welcome">ברוכים הבאים</div>
+        <div class="login-app-name">לאפליקציית {{appName}}</div>
+
+        <form name="loginForm">
+            <input name="emailBox" class="login-input" type="email" placeholder="הזן תיבת דואר אלקטרוני" data-ng-model="email" required data-ng-class="{'not-valid': !loginForm.emailBox.$valid}" />
+            <input name="code" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupCode" required data-ng-class="{'not-valid': !loginForm.code.$valid}" minlength="6" maxlength="6" />
+            <div class="login-error" data-ng-show="!loginForm.emailBox.$valid">* שדה דואר אלקטרוני לא הוזן כראוי</div>
+            <div class="login-error" data-ng-show="!loginForm.code.$valid">* שדה קוד קבוצה לא הוזן כראוי</div>
+            <div class="login-error" data-ng-show="loginError">* {{loginErrorMsg}}</div>
+        </form>
+
+        <div class="mission-popup-continue">
+                היכנס
+            <span class="arrow" data-ng-click="sendLogin()"></span>
+        </div>
+    </div>
+
+    <div class="login-page" data-ng-hide="loginFirstPage">
+        <form name="userForm">
+            <div class="img-plus">
+                <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0)" type="file" class="user-upload-img" name="img" />
+                <input data-ng-if="androidVersion.indexOf('4.4.2') === 0" type="file" name="img" data-ng-click="takePicture()" class="user-upload-img" />
+            </div>
+            <div class="login-app-name">הוסף תמונה</div>
+
+            <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" required data-ng-class="{'not-valid': !userForm.nickName.$valid}" />
+            <div class="login-error" data-ng-show="!userForm.nickName.$valid">* שדה שם לא הוזן כראוי</div>
+        </form>
+        <div class="mission-popup-continue">
+                הירשם
+            <span class="arrow" data-ng-click="sendUsername()"></span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-page {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .login-welcome {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .login-app-name {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .login-input {
+        width: 80%;
+        margin-bottom: 10px;
+        border: none;
+        padding-right: 5px;
+        height: 20px;
+    }
+    
+    .not-valid {
+        border: red 2px solid;
+    }
+    
+    .login-container .mission-popup-continue .arrow {
+            background-image: url("../img/svg/arrow/navigation.svg");
+        }
+    
+    .img-plus {
+        display: inline-block;
+        background-color: #fff;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        border: solid 6px #abd1e0;
+        font-size: 60px;
+        color: #abd1e0;
+        text-align: center;
+        background-image: url(../img/RegistrationPlus.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+</style>

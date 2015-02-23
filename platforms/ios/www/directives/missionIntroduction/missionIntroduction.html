@@ -1,12 +1,12 @@
-<div class="mission-popup popup" data-ng-show="showIntroduction">
+<div class="mission-popup popup" data-ng-if="!startMission">
     <div class="mission-popup-header">
         <span class="mission-icon"></span>
-        <timer></timer>
+        <timer ng-if="task.timer"></timer>
         <points></points>
     </div>
     <div class="mission-description-wrap">
         <span class="missionPopUpImage"></span>
-        <p>צפו בסרט וכתבו מה הטענה המרכזית של הדובר בסרט</p>
+        <p>{{task.description}}</p>
     </div>
     <div class="mission-popup-footer">
         <div class="mission-popup-continue" data-ng-click="hideIntroduction()">צאו לדרך

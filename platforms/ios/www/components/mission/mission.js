@@ -1,14 +1,18 @@
-odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', function ($rootScope, $scope, $state, $stateParams) {
-    $scope.tasks = {
-        "1": { type: "multiQuestion", id: "1" },
-        "2": { type: "navigation", id: "2" },
-        "3": { type: "openQuestion", id: "3" },
-        "4": { type: "takePhoto", id: "4" },
-        "5": { type: "takeVideo", id: "5" },
-        "6": { type: "watchVideo", id: "6" }
-    };
+odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', 'missions', function ($rootScope, $scope, $state, $stateParams, missions) {
 
+    //set mission from server
+    missions.getMissionById($stateParams.missionId).then(function (data) {
+        console.log(data);
+        $scope.task = data.res;
+
+    });
+
+    //mission general parameters
     $scope.startMission = false;
+    $scope.finishMission = false;
+    $scope.successMission = false;
     $scope.popupShow = false;
-    $scope.task = $scope.tasks[$stateParams.missionId];
+    $scope.showDidYouKnow = true;
+    //$scope.task = $scope.tasks[$stateParams.missionId];
+
 } ]);

@@ -3,12 +3,12 @@ odtechApp.directive('missionIntroduction', [function () {
         restrict: 'E',
         templateUrl: './directives/missionIntroduction/missionIntroduction.html',
         link: function (scope, el, attrs) {
-            scope.showIntroduction = true;
+            //scope.showIntroduction = true;
             scope.popupShow = true;
             scope.hideIntroduction = function () {
-                scope.showIntroduction = false;
+                //scope.showIntroduction = false;
                 scope.startMission = true;
-                 scope.popupShow = false;
+                scope.popupShow = false;
             }
         },
         replace: true
