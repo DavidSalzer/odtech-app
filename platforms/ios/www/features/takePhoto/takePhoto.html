@@ -1,1 +1,56 @@
-<div>takePhoto mission</div>
+<div>
+    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="" data-ng-if="startMission">
+        <div class="photo-order" style="display: none;">
+            <h2>סיימתם?</h2>
+            <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
+            <div class="photo-continue">לחצו לאישור
+                <span class="arrow"> </span>
+            </div>
+        </div>
+        <div class="photoCenter photo" id="mainPhoto" style="background-image: url({{pictures['photoCenter'].imgUri}})">
+            <div data-ng-show="photoSaved['photoCenter']" class="deleteOrbit" pos="photoCenter" data-ng-click="deletePhoto(photoCenter)">X</div>
+            <p data-ng-hide="photoSaved['photoCenter']">
+                <span data-ng-click="captureImage(photoCenter)">+</span>
+            לחצו להוספת תמונה
+            </p>
+        </div>
+
+        <div data-ng-if="task.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].imgUri}})">
+            <div data-ng-show="photoSaved['photoLeft']" class="deleteOrbit" id="delphotoLeft" pos="photoLeft" data-ng-click="deletePhoto(photoLeft)">X</div>
+            <p data-ng-hide="photoSaved['photoLeft']">
+                <span data-ng-click="captureImage(photoLeft)">+</span>
+            </p>
+        </div>
+
+        <div data-ng-if="task.countPhoto>2" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].imgUri}})">
+            <div data-ng-show="photoSaved['photoRight']" class="deleteOrbit" id="delphotoRight" pos="photoRight" data-ng-click="deletePhoto(photoRight)">X</div>
+            <p data-ng-hide="photoSaved['photoRight']">
+                <span data-ng-click="captureImage(photoRight)">+</span>
+            </p>
+        </div>
+        
+        <div data-ng-if="task.countPhoto>3" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].imgUri}})">
+            <div data-ng-show="photoSaved['photoDown']" class="deleteOrbit" id="delphotoDown" pos="photoDown" data-ng-click="deletePhoto(photoDown)">X</div>
+            <p data-ng-hide="photoSaved['photoDown']">
+                <span data-ng-click="captureImage(photoDown)">+</span>
+            </p>
+        </div>
+
+        <div data-ng-if="task.countPhoto>4" class="photoUp orbit photo" id="photoUp" style="z-index: 1; background-image: url({{pictures['photoUp'].imgUri}})">
+            <div data-ng-show="photoSaved['photoUp']" class="deleteOrbit" id="delphotoUp" pos="photoUp" data-ng-click="deletePhoto(photoUp)">X</div>
+            <p data-ng-hide="photoSaved['photoUp']">
+                <span data-ng-click="captureImage(photoUp)">+</span>
+            </p>
+        </div>
+    </section>
+    <div data-ng-show="openImg" class="openImgDialog openImgDialog-wrapper" id="photo-title" style="background-image: url({{pictures[photoClicked].imgUri}})">
+        <div class="img-description">
+            <span>תנו לתמונה שם</span>
+            <input type="text" id="img-description" data-ng-model="description">
+            <div class="description-continue" id="description-continue" data-ng-click="addDescription()">שמור
+                <span class="arrow"> </span>
+            </div>
+
+        </div>
+    </div>
+</div>

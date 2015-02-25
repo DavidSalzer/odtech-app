@@ -64,7 +64,7 @@ body {
     background-color: #f1c7e3;
 }
 
-.navigation .mission-deatails-timer span {
+.navigation .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/navigation.svg");
 }
 
@@ -108,6 +108,10 @@ body {
     background-color: #408fb0;
 }
 
+.takePhoto .openImgDialog {
+    background-color: rgba(178,219,236,.9);
+}
+
 #popup.takePhoto .mission-icon {
     background-image: url("../img/takePhoto.png");
 }
@@ -132,7 +136,7 @@ body {
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-deatails-timer span {
+.takePhoto .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/takePhoto.svg");
 }
 
@@ -180,7 +184,7 @@ body {
 .takePhoto.red .item-number { /*.takePhoto .popup,*/
     color: #e46051;
 }
-.takePhoto.red .mission-deatails-timer span {
+.takePhoto.red .mission-deatails-timer span.clock {
 background-image: url("../img/svg/clock/takePhoto-negative.svg");
 }
 
@@ -201,6 +205,7 @@ background-image: url("../img/takePhoto.png");
 .takePhoto.red .mission-popup-continue .arrow {
 	background-image: url("../img/svg/arrow/takePhoto-negative.svg");
 }
+
 /*****capture video************************************************************/
 
 .takeVideo .mission-menu-center {
@@ -238,7 +243,7 @@ background-image: url("../img/takePhoto.png");
     background-color: rgba(147,238,236,1);
 }
 
-.takeVideo .mission-deatails-timer span {
+.takeVideo .mission-deatails-timer span.clock {
     background-image: url( ../img/svg/clock/takeVideo.svg);
 }
 
@@ -289,7 +294,7 @@ background-image: url("../img/takePhoto.png");
     background-color: #e7d6fd;
 }
 
-.watchVideo .mission-deatails-timer span {
+.watchVideo .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/watchVideo.svg");
 }
 
@@ -341,7 +346,7 @@ background-image: url("../img/takePhoto.png");
     background-color: #FCE5C4;
 }
 
-.multiQuestion .mission-deatails-timer span {
+.multiQuestion .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/multiQuestion.svg");
 }
 
@@ -392,7 +397,7 @@ background-image: url("../img/takePhoto.png");
     background-color: #EDFABE;
 }
 /*fcf2c6*/
-.medicine-basket .mission-deatails-timer span {
+.medicine-basket .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/medicine-basket.svg");
 }
 
@@ -445,7 +450,7 @@ background-image: url("../img/takePhoto.png");
     background-color: #fcf2c6;
 }
 
-.openQuestion .mission-deatails-timer span,.read-text .mission-deatails-timer span {
+.openQuestion .mission-deatails-timer span.clock,.read-text .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/openQuestion.svg");
 }
 
@@ -485,7 +490,7 @@ background-color: #ffcc00;
     background-color: rgba(250,242,203,0.9);
 }
 
-.takePhoto.yellow .mission-deatails-timer span {
+.takePhoto.yellow .mission-deatails-timer span.clock {
 background-image: url("../img/svg/clock/takePhoto-yellow.svg");
 }
 .takePhoto.yellow .item-number { /*.takePhoto .popup,*/
@@ -529,7 +534,7 @@ background-color: rgba(249,237,189,0.96);
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-deatails-timer span {
+.takePhoto .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/takePhoto.svg");
 }
 
@@ -571,7 +576,7 @@ background-color: #e21d91;
     background-color: rgba(246,189,225,0.9);
 }
 
-.takePhoto.pink .mission-deatails-timer span {
+.takePhoto.pink .mission-deatails-timer span.clock {
 background-image: url("../img/svg/clock/takePhoto-pink.svg");
 }
 .takePhoto.pink .item-number { /*.takePhoto .popup,*/
@@ -632,7 +637,7 @@ background-color: rgba(246,189,225,0.9);
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-deatails-timer span {
+.takePhoto .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/takePhoto.svg");
 }
 
@@ -692,7 +697,7 @@ background-color: rgba(246,189,225,0.9);
     background-color: #fcf2c6;
 }
 
-.last-mission .mission-deatails-timer span {
+.last-mission .mission-deatails-timer span.clock {
     background-image: url("../img/svg/clock/text.svg");
 }
 
@@ -700,4 +705,101 @@ background-color: rgba(246,189,225,0.9);
 
 .last-mission .mission-repeat-popup .close{
     background-image: url("../img/svg/x/text.svg");
+}
+
+
+/*****capture video************************************************************/
+
+.qrCode .mission-menu-center {
+    background-color: rgba(101,225,209,0.9);
+}
+
+ .qrCode .popup,.qrCode .item-number {
+    color: #46c4b4;
+}
+
+.qrCode .mission-icon {
+    background-color: #46c4b4;
+}
+
+#popup.qrCode .mission-icon {
+    background-image: url("../img/qrCode.png");
+}
+/*mission-popup*/
+
+.qrCode .mission-popup-timer {
+    background-color: rgba(101,225,209,0.45);
+}
+
+.qrCode .mission-popup-scoring {
+    background-color: rgba(101,225,209,0.28);
+}
+
+.qrCode .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/qrCode.svg");
+}
+
+/*mission bottom*/
+
+.qrCode .mission-deatails-timer {
+    background-color: rgba(147,238,236,1);
+}
+
+.qrCode .mission-deatails-timer span.clock {
+    background-image: url( ../img/svg/clock/qrCode.svg);
+}
+
+
+/*mission-repeat*/
+
+.qrCode .mission-repeat-popup .close{
+    background-image: url("../img/svg/x/qrCode.svg");
+}
+
+/*****scala video************************************************************/
+
+.scala .mission-menu-center {
+    background-color: rgba(101,225,209,0.9);
+}
+
+ .scala .popup,.scala .item-number {
+    color: #46c4b4;
+}
+
+.scala .mission-icon {
+    background-color: #46c4b4;
+}
+
+#popup.scala .mission-icon {
+    background-image: url("../img/scala.png");
+}
+/*mission-popup*/
+
+.scala .mission-popup-timer {
+    background-color: rgba(101,225,209,0.45);
+}
+
+.scala .mission-popup-scoring {
+    background-color: rgba(101,225,209,0.28);
+}
+
+.scala .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/scala.svg");
+}
+
+/*mission bottom*/
+
+.scala .mission-deatails-timer {
+    background-color: rgba(147,238,236,1);
+}
+
+.qrCode .mission-deatails-timer span.clock {
+    background-image: url( ../img/svg/clock/scala.svg);
+}
+
+
+/*mission-repeat*/
+
+.scala .mission-repeat-popup .close{
+    background-image: url("../img/svg/x/scala.svg");
 }

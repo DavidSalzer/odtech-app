@@ -1,7 +1,7 @@
-odtechApp.directive('featureIcon', [ function () {
+odtechApp.directive('missionFinish', [ function () {
     return {
         restrict: 'E',
-        templateUrl: './directives/featureIcon/featureIcon.html',
+        templateUrl: './directives/missionFinish/missionFinish.html',
         link: function (scope, el, attrs) {           
         },
         replace: true
