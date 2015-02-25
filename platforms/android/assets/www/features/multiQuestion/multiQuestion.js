@@ -47,7 +47,7 @@ odtechApp.directive('multiQuestion', [function () {
                         //set the correct answer text and index
                         scope.currentCorrectAnswer = scope.task.questions[scope.currentQuestion].correctQuestionIndex;
                         scope.rightAnswerText = scope.task.questions[scope.currentQuestion].answers[scope.currentCorrectAnswer];
-                        
+
 
                     }
 
@@ -55,7 +55,9 @@ odtechApp.directive('multiQuestion', [function () {
                     else {
                         //the data for server
                         scope.clickedAnswers;
-                        alert('המשימה הסתיימה!')
+                        //alert('המשימה הסתיימה!');
+                        scope.endMission($scope.results);//the param is the answer of user
+
                     }
 
                 }, 3500);

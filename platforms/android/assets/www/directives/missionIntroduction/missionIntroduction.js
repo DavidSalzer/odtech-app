@@ -9,6 +9,7 @@ odtechApp.directive('missionIntroduction', [function () {
                 //scope.showIntroduction = false;
                 scope.startMission = true;
                 scope.popupShow = false;
+                console.log(scope);
             }
         },
         replace: true

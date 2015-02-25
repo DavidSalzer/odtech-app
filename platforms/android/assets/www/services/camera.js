@@ -66,7 +66,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             }
 
             navigator.device.capture.captureVideo(onVideoSuccess, onFail, { limit: 1 });
-            
+
             // return a promise
             return deferred.promise;
         },
@@ -111,6 +111,99 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
         },
         deleteVideo: function (_photoClicked) { // delete photo
             videos[_photoClicked] = undefined;
+        },
+        getPicture: function (options) {
+
+            // init $q
+            var deferred = $q.defer();
+
+            // set some default options
+            var defaultOptions = {
+                quality: 100,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                destinationType: Camera.DestinationType.FILE_URI,
+                mediaType: Camera.MediaType.PICTURE,
+                correctOrientation: false,
+                encodingType: Camera.EncodingType.JPEG
+            };
+
+            // allow overriding the default options
+            options = angular.extend(defaultOptions, options);
+            var failFile = function (e) { alert("error failFile"); };
+            var failSystem = function (e) { alert("error failSystem"); };
+            var gotFileEntry = function (fileEntry) {
+                console.log("got image file entry: " + fileEntry.fullPath);
+                var encodedData = {};
+
+                encodedData.imgData = fileEntry.toURL();
+                encodedData.fileText = fileEntry.name;
+
+                //get file type from name string and return MIME type
+                var regExp = /(?:\.([^.]+))?$/;
+                var type = regExp.exec(fileEntry.name)[1];
+                switch (type) {
+                    case 'png':
+                        encodedData.fileType = "image/png";
+                        break;
+                    case 'jpg':
+                        encodedData.fileType = "image/jpg";
+                        break;
+                    case 'jpeg':
+                        encodedData.fileType = "image/jpeg";
+                        break;
+                    case 'bmp':
+                        encodedData.fileType = "image/bmp";
+                        break;
+                    case 'gif':
+                        encodedData.fileType = "image/gif";
+                        break;
+                    default:
+                        encodedData.fileType = "image/png";
+                }
+
+
+                fileEntry.file(function (fileEntry) {
+                    console.log("Size = " + fileEntry.size);
+                    if (fileEntry.size > 4000000) {
+                        alert('בחרת תמונה גדולה מידי. עליך לבחור תמונה עד 4MB');
+                    }
+                    else {
+                        deferred.resolve(encodedData);
+                    }
+                });
+
+            };
+
+
+            // success callback
+            var success = function (imageURI) {
+                $rootScope.$apply(function () {
+                    console.log(imageURI);
+                    //A hack that you should include to catch bug on Android 4.4 (bug < Cordova 3.5):
+                    if (imageURI.substring(0, 21) == "content://com.android") {
+                        var photo_split = imageURI.split("%3A");
+                        imageURI = "content://media/external/images/media/" + photo_split[1];
+                    }
+                    window.resolveLocalFileSystemURI(imageURI, gotFileEntry, failSystem);
+
+                });
+            };
+
+            // fail callback
+            var fail = function (message) {
+                $rootScope.$apply(function () {
+                    deferred.reject(message);
+                });
+            };
+
+            // open camera via cordova
+            navigator.camera.getPicture(success, fail, options);
+
+
+
+            // return a promise
+            return deferred.promise;
+
         }
     }
 

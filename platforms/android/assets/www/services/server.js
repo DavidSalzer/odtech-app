@@ -1,18 +1,25 @@
-odtechApp.factory('server', ['$rootScope', '$stateParams','$http', '$q', function ($rootScope, $stateParams,$http, $q) {
+odtechApp.factory('server', ['$rootScope', '$stateParams', '$http', '$q', function ($rootScope, $stateParams, $http, $q) {
 
 
     return {
 
-       request: function (data) {
+        request: function (data) {
 
             var deferred = $q.defer();
+            var httpDetails = {
+                url: domain,
+                method: "POST",
+                data: data, //{"type":"getMissionOfActivitie","req":{"aid":"2"}},
+                contentType: "application/json"
+            };
 
-            $http({
-                url: domain ,
-                method:"POST",
-                data:data,//{"type":"getMissionOfActivitie","req":{"aid":"2"}},
-                contentType: "application/json"               
-            }).
+            if (!data.req) {//if it form data
+                httpDetails.transformRequest = angular.identity;
+                httpDetails.headers = { 'Content-Type': undefined };
+                httpDetails.contentType = undefined;
+            }
+
+            $http(httpDetails).
             success(function (json) {
                 deferred.resolve(json);
                 //console.log(json);

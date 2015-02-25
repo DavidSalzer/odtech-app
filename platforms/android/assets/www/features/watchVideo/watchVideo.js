@@ -11,7 +11,7 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             //var tag = document.createElement('script');
             //tag.src = "https://www.youtube.com/player_api";
             //var firstScriptTag = document.getElementsByTagName('script')[0];
-           // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             scope.player;
             scope.startYoutube = false;
             var player;
@@ -100,6 +100,7 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             scope.play = function () {
                 scope.removeBlur();
                 scope.endMovie = false;
+                scope.playing = true;
                 if (!scope.task.videoURL && scope.task.youtubeID) {
                     scope.player.playVideo();
                     scope.startYoutube = true;
@@ -110,7 +111,18 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
 
             //the mission finished
             scope.stop = function () {
-                alert("סימתי")
+                alert("סימתי");
+            }
+
+            //pause video or replay after starting the mission
+            scope.pause = function () {
+                if (scope.playing) {
+                    scope.playing = false;
+                    document.getElementById('fullMovie').pause();
+                } else {
+                    scope.playing = true;
+                    document.getElementById('fullMovie').play();
+                }
             }
 
         },

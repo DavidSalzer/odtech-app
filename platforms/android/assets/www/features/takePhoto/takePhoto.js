@@ -10,20 +10,23 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
             scope.photoDown = 'photoDown';
             scope.photoLeft = 'photoLeft';
             scope.photoRight = 'photoRight';
-            scope.task.countPhoto = 3;
+            //scope.task.countPhoto = 3;
             scope.countPhotos = 0;
-            scope.captureImage = function (photoClicked) { // take photo
 
+            // take photo
+            scope.captureImage = function (photoClicked) { 
                 camera.captureImage(photoClicked)
                 .then(function (data) {
                     $timeout(function () {
                         scope.pictures = camera.getPictures();
-                        scope.photoClicked = photoClicked; //camera.getPhotoClicked();
-                        scope.openImg = true;
+                        scope.photoClicked = photoClicked; 
+                        //scope.openImg = true;
                     }, 0);
                 });
             }
-            scope.addDescription = function () { // add description to photo
+
+            // add description to photo
+            scope.addDescription = function () { 
                 camera.addDescription(scope.description);
                 scope.description = '';
                 $timeout(function () {
@@ -35,7 +38,9 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                     }
                 }, 0);
             }
-            scope.deletePhoto = function (photoClicked) { // delete photo 
+
+             // delete photo
+            scope.deletePhoto = function (photoClicked) { 
                 camera.deletePhoto(photoClicked);
                 $timeout(function () {
                     scope.pictures = camera.getPictures();

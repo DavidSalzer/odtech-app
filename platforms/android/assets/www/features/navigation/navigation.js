@@ -1,4 +1,4 @@
-odtechApp.directive('navigation', ['$timeout', function ($timeout) {
+odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, $interval) {
     return {
         restrict: 'E',
         templateUrl: './features/navigation/navigation.html',
@@ -54,7 +54,7 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
             }
             scope.getCurrentLocation();
 
-            
+
             //mark destination on map.
             scope.destinationMarker = {
                 id: 0,
@@ -111,17 +111,38 @@ odtechApp.directive('navigation', ['$timeout', function ($timeout) {
                     scope.isDestination = false;
                 }, 0)
             }
+
+            //check if location is updated
+            isLocationConnect = $interval(function () {
+                if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
+                    $timeout(function () {
+                        scope.noLocation = true;
+                    }, 0)
+                }
+                else {
+                    $timeout(function () {
+                        scope.noLocation = false;
+                        scope.lastLat = scope.myMarker.coords.latitude;
+                        scope.lastLon = scope.myMarker.coords.longitude;
+                    }, 0)
+                }
+            }, 60000);
+
+            scope.$on('$destroy', function () {
+                $interval.cancel(isLocationConnect);
+                isLocationConnect = undefined;
+            });
         },
         replace: true
     };
 
     //איתחול המפה עם הקודינטות של המשימה. V
     //מירכזו מיקומי על המסך V
-    //טיפול במצב של גיפאס סגור
+    //טיפול במצב של גיפאס סגור V
     //הצבת המיקום שלי ומיקום היעד V
     //במידה והמפה נטענת מאוחר V
     //, להציב גם את היעד וגם את המיקום תמיד.. V
-    //לזהות התקדמות של המיקום שלי ולעדכן על המפה
+    //לזהות התקדמות של המיקום שלי ולעדכן על המפה V
     //זיהוי התקרבות לנקודת היעד והצגת פופאפ סיום V
     //
     //כניסה אחרי ביצוע,

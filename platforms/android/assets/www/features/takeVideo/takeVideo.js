@@ -19,7 +19,7 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 .then(function (data) {
                     $timeout(function () {
                         scope.videos = camera.getVideos();
-                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls> <source src="' + scope.videos['videoCenter'].videoUri + '" type="video/mp4" /></video>');
+                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls poster="img/poster.png"> <source src="' + scope.videos['videoCenter'].videoUri + '" type="video/mp4" /></video>');
                         //var video = angular.element('<video class="fullMovie" id="fullMovieClip" controls> <source src="'+scope.videos['videoCenter'].videoUri+'" type="video/mp4" /></video>');
                         //el.children.append(video);
                         //scope.videos['videoCenter'].videoTag = ;

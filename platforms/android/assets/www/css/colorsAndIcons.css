@@ -21,7 +21,16 @@ body {
     border-radius: 30px;
     z-index: 200;
 }
-
+/***********day description and main nav***********/
+#day-description .next-text{
+   color:  #17507f;
+}
+#day-description .arrow {
+    background-image: url("../img/svg/arrow/dayDesc.svg");
+}
+#call-for-action{
+   color:  #17507f; 
+}
 /*****navigation**************************************************************/
 
 .navigation .mission-menu-center {

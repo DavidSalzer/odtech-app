@@ -1,12 +1,13 @@
-odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', function ($rootScope, $scope, $state, server, $timeout) {
+odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera', function ($scope, $state, server, $timeout, camera) {
 
-    $scope.appName = 'מסע ישראלי';
+    //$scope.appName = 'מסע ישראלי';
     $scope.loginFirstPage = true;
 
     //general error need to pass to global file.
     $scope.errorMsg = {};
     $scope.errorMsg.generalError = 'אירעה שגיאה, בדקו חיבור לאינטרנט או נסו שנית';
 
+    //Send login details to server.
     $scope.sendLogin = function () {
         if (!$scope.loginForm.emailBox.$valid || !$scope.loginForm.code.$valid) {
             return;
@@ -54,20 +55,24 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     }
 
+    //Send user details (userName and image) to servver.
     $scope.sendUsername = function () {
         if (!$scope.userForm.nickName.$valid) {
             return;
         }
-
         request = {
             type: "updateAppUser",
             req: {
                 name: $scope.userName,
-                imgUrl: ''
+                imgfiled: 'img'
             }
         }
 
-        server.request(request)
+        var file = new FormData(document.forms.namedItem("userForm"));
+        file.append('reqArray', JSON.stringify(request));
+        console.log(file);
+
+        server.request(file)
         .then(function (data) {
             console.log(data);
             if (!data.res.error) {
@@ -79,6 +84,14 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
         },
         function () {
+
+        })
+    }
+
+    //For 4.4.2, get image from device.
+    $scope.takePicture = function () {
+        camera.getPicture()
+        .then(function (data) {
 
         })
     }

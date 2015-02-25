@@ -18,9 +18,13 @@
     </div>
 
     <div class="login-page" data-ng-hide="loginFirstPage">
-        <div class="img-plus"></div>
-        <div class="login-app-name">הוסף תמונה</div>
         <form name="userForm">
+            <div class="img-plus">
+                <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0)" type="file" class="user-upload-img" name="img" />
+                <input data-ng-if="androidVersion.indexOf('4.4.2') === 0" type="file" name="img" data-ng-click="takePicture()" class="user-upload-img" />
+            </div>
+            <div class="login-app-name">הוסף תמונה</div>
+
             <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" required data-ng-class="{'not-valid': !userForm.nickName.$valid}" />
             <div class="login-error" data-ng-show="!userForm.nickName.$valid">* שדה שם לא הוזן כראוי</div>
         </form>
@@ -63,7 +67,7 @@
     .login-container .mission-popup-continue .arrow {
             background-image: url("../img/svg/arrow/navigation.svg");
         }
-
+    
     .img-plus {
         display: inline-block;
         background-color: #fff;

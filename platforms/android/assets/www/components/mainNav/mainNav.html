@@ -1,5 +1,11 @@
-<div id="day-description" data-ng-show="isDescription" data-ng-click="closeDescription()">
+<div id="day-description" data-ng-show="isDescription" >
     <p>{{description}}</p>
+    <div class="next" data-ng-click="closeDescription()">
+        
+        <span class="next-text">להמשך</span>
+        <span class="arrow"></span>
+        
+    </div>
 </div>
 
 <section id="mission-container" data-ng-hide="isDescription">
@@ -14,10 +20,10 @@
                     </span>
                 </div>
                 <div class="mission-menu-icon mission-icon">
-                    <img src="img/{{task.type}}.png" alt="{{task.type}}"/>
+                    <img src="img/{{task.type}}.png" alt="{{task.type}}" />
                 </div>
 
-                <span class="item-number">{{$index+1}}</span>
+                <span class="item-number">{{$index+1 > "9" ? $index+1 :'0' +($index+1) }}</span>
             </div>
         </div>
     </div>
