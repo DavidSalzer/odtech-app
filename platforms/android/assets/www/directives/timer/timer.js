@@ -1,4 +1,4 @@
-odtechApp.directive('timer', ['$timeout', function ($timeout) {
+odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './directives/timer/timer.html',
@@ -6,7 +6,7 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
 
             //display the time in the correct format
             scope.displayTimer = function (minutes) {
-                var sec_num = minutes * 60;
+                var sec_num = minutes //* 60;
                 var hours = Math.floor(sec_num / 3600);
                 var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
                 var seconds = sec_num - (hours * 3600) - (minutes * 60);
@@ -15,7 +15,7 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
                 if (seconds < 10) { seconds = "0" + seconds; }
                 var time;
                 if (hours == 0) {
-                    time =  minutes + ':' + seconds;
+                    time = minutes + ':' + seconds;
                 }
                 else {
                     time = hours + ':' + minutes + ':' + seconds;
@@ -33,15 +33,16 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
                 scope.currentTime = scope.currentTime - 1;
                 //update the dom
                 scope.displayTimer(scope.currentTime);
+                //if timer ended
                 if (scope.currentTime == 0) {
                     // alert('timer ended!!')
                     clearInterval(scope.timerInterval);
-
+                    $rootScope.$broadcast('endTimer', {});
                 }
             }
             //init the timer run
             scope.initTimer = function () {
-                scope.currentTime = scope.task.timer;
+                scope.currentTime = scope.task.timer*60;
                 clearInterval(scope.timerInterval);
             }
             //start run the timer
@@ -51,7 +52,7 @@ odtechApp.directive('timer', ['$timeout', function ($timeout) {
                 }, 1000);
             }
             //init the current time value and display
-            scope.currentTime = scope.task.timer;
+            scope.currentTime = scope.task.timer*60;//convert the minutes to seconds
             scope.displayTimer(scope.currentTime);
             scope.$watch('startMission', function () {
                 if (scope.startMission == true) {

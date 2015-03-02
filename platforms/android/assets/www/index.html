@@ -11,12 +11,19 @@
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/multiQuestions.css" rel="stylesheet" />
         <link href="css/colorsAndIcons.css" rel="stylesheet" />
+        <link href="css/qrCode.css" rel="stylesheet" />
 
         <!-- directives style-->
         <link href="css/timer.css" rel="stylesheet" />
+        <link href="css/missionFinish.css" rel="stylesheet" />
 
         <!-- features style-->
         <link href="css/takePhoto.css" rel="stylesheet" />
+        <link href="css/takeVideo.css" rel="stylesheet" />
+        <link href="css/watchVideo.css" rel="stylesheet" />
+        <link href="css/mainQ.css" rel="stylesheet" />
+        <link href="css/login.css" rel="stylesheet" />
+        <link href="css/openQuestion.css" rel="stylesheet" />
         
         <script src="cordova.js"></script>
 
@@ -28,12 +35,19 @@
         <!--<ng-include src="'components/header/header.html'"></ng-include>-->
         <!-- END HEADER -->
         <!-- BEGIN PAGE CONTENT-->
+        
         <div id="main-container">
+            <ng-include src="'components/header/header.html'"></ng-include>
             <div id="main-view" class="main-view" data-ui-view="main"></div>
         </div>
-
+       <ng-include src="'components/footer/footer.html'"></ng-include>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
-
+         <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+        <!--<script>
+            function onYouTubePlayerAPIReady() {
+                alert("player");
+            }
+</script>-->
         <!-- Jquery -->
         <script src="js/jquery-1.8.3.min.js"></script>
 
@@ -44,6 +58,7 @@
         <script src="js/angular-google-maps.js"></script>
         
         <script src="app.js"></script>
+        <script src="globals.js"></script>
 
         <!-- odtech  services-->
         <script src="./services/server.js"></script>
@@ -53,14 +68,14 @@
 
         <!-- odtech  components-->
         
-        <script src="components/welcome/welcome.js"></script>
+        <script src="components/login/login.js"></script>
         <script src="components/dayDescription/dayDescription.js"></script>
         <script src="components/mainNav/mainNav.js"></script>
         <script src="components/mission/mission.js"></script>
          
         <!-- odtech  directives-->
         <script src="directives/didYouKnow/didYouKnow.js"></script>
-        <script src="directives/featureIcon/featureIcon.js"></script>
+        <script src="directives/missionFinish/missionFinish.js"></script>
         <script src="directives/missionDeatails/missionDeatails.js"></script>
         <script src="directives/missionIntroduction/missionIntroduction.js"></script>
         <script src="directives/monitor/monitor.js"></script>
@@ -74,7 +89,7 @@
         <script src="features/takePhoto/takePhoto.js"></script>
         <script src="features/takeVideo/takeVideo.js"></script>
         <script src="features/watchVideo/watchVideo.js"></script>
-
+        <script src="features/qrCode/qrCode.js"></script>
         
         
         <!-- END JAVASCRIPTS -->

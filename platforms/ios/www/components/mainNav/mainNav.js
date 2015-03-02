@@ -1,66 +1,47 @@
-odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', function ($rootScope, $scope, $state, missions) {
-    $scope.tasks = [
-    { type: "multiQuestion", id: "1" },
-    { type: "navigation", id: "2" },
-    { type: "openQuestion", id: "3" },
-    { type: "takePhoto", id: "4" },
-    { type: "takeVideo", id: "5" },
-    { type: "watchVideo", id: "6" }
-    ];
+odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', function ($rootScope, $scope, $state, missions, $timeout, server) {
 
-    missions.test();
-    //missions.getMissions("690")
-    //.then(function (data) {
-    //    $scope.tasks = data;
-    //    for (var i = 0; i < $scope.tasks.long; i++) {
-    //        switch ($scope.tasks[i]["wpcf-type"][0]) {
-    //            case "navigate":
-    //                {
+    $scope.currentMission = 0;
+    //$scope.isDescription = true;
 
-    //                    $scope.tasks[i].type = "navigation";
-    //                    break;
-    //                }
-    //            case "take-photo":
-    //                {
+    //$scope.description = 'תיאור יום הפעילות'; //need to get from server
 
-    //                    $scope.tasks[i].type = "takePhoto";
-    //                    break;
-    //                }
-    //            case "capture-video":
-    //                {
-
-    //                    $scope.tasks[i].type = "takeVideo";
-    //                    break;
-    //                }
-    //            case "watch-video":
-    //                {
-
-    //                    $scope.tasks[i].type = "watchVideo";
-    //                    break;
-    //                }
-    //            case "quiz":
-    //                {
-
-    //                    $scope.tasks[i].type = "multiQuestion";
-    //                    break;
-    //                }
-    //            case "write-text":
-    //                {
-
-    //                    $scope.tasks[i].type = "openQuestion";
-    //                    break;
-    //                }
-    //        }
-    //    }
-
-    //});
-
-    // console.log($scope.tasks);
-
-    $scope.goToMission = function ($index) {
-        //alert($scope.tasks[$index].id);
-        $state.transitionTo('mission', { missionId: $scope.tasks[$index].id });
+    $scope.closeDescription = function () {
+        $timeout(function () {
+            $rootScope.showDescription = false;
+        }, 0)
     }
+
+    //set missions from server
+    missions.getMissions().then(function (data) {
+        //if success.
+        if (data.res.activitie && data.res.activitie.mission) {
+            $scope.tasks = data.res.activitie.mission;
+            $scope.description = data.res.activitie.description;
+        }
+    });
+
+    //go to mission
+    $scope.goToMission = function ($index) {
+        $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
+    }
+
+    //log out, it here temporarly
+    $scope.logout = function () {
+        server.request({ "type": "appUserLogout", "req": {} })
+        .then(function (data) {
+            $state.transitionTo('login');
+        })
+    }
+
+
     //
+    //האם המסלול לינארי או לא.
+    //האם שמים מנעול עבור כל משימה או שזה לא לינארי
+
+    //מה הסטטוס של כל משימה
+    //האם התבצעה או לא וכך להראות מנעול או כבר בוצע...
+
+
+
 } ]);
 

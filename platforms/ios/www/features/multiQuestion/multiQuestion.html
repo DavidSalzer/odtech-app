@@ -1,1 +1,56 @@
-<div>multiQuestion mission</div>
+
+<section id="mission-quiz" class="feature">
+    <div class="blur-wrapper" ng-class="{'blur':showAnswerIndication}" ng-show="firstTime">
+        <!--<div class="cover" id="quiz-cover"></div>-->
+        <div class="main" data-ng-repeat="question in task.questions" data-ng-show="$index==currentQuestion">
+
+            <div class="question">
+                <p>{{question.question}}</p>
+            </div>
+            <div id="answers-wrapper">
+                <div class="answers-wrapper-scroll">
+                    <div class="answer" ng-click="answerClick($index)" data-iscorrect="question.correctQuestionIndex == $index+1" data-ng-repeat="answer in question.answers"><span>{{'0' +($index+1)}}</span><p>{{answer}}</p></div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="claim-text-next next-time" ng-hide="firstTime">
+        <div class="next-title-wrap general">
+            <div class="next-icon"></div>                                             <!--
+                                                         -->
+            <div class="next-title-left">
+                <div class="next-title">ראיונות פתוחים</div>
+            </div>
+        </div>
+        <div class="next-answer-slide">
+
+            <div class="next-answer-slide-wrap">
+            <div class="next-main-content" ng-if="task.answer" ng-repeat="question in task.questions">
+                <div class="next-content">
+                    <div class="number">{{$index+1+'/'+task.questions.length}}</div>
+                    <div class="next-question">
+                        <div class="next-question-scroll">
+                            {{question.question}}
+                        </div></div>
+
+                    <div class="answer"><span>{{'0' +(question.correctQuestionIndex+1)}}</span><p>{{question.answers[question.correctQuestionIndex]}}</p></div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="message-text-popup popup" ng-show="showAnswerIndication">
+        <div class="textMessage">
+            <h2 ng-show="showAnswerIndication && !showAnswerRight">תשובה שגויה</h2>
+            <h2 ng-show="showAnswerIndication && showAnswerRight">תשובה נכונה</h2>
+            <p ng-show="showAnswerIndication && !showAnswerRight">התשובה הנכונה היא : <br>{{rightAnswerText}}</p>
+            <p ng-show="showAnswerIndication && showAnswerRight">כל הכבוד!</p>
+        </div>
+    </div>
+
+</section>

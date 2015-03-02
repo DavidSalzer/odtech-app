@@ -1,0 +1,109 @@
+#mission-movie .fullMovie {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.writeClaim {
+    background-image: url(../img/stop.png);
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 100px;
+    /*left: 55%;
+    top: 37%;*/
+    cursor: pointer;
+    background-size: 100% 100%;
+    /*position: absolute;*/
+    display: inline-block;
+    /* float: right; */
+    margin: auto;
+}
+
+.playAgain {
+    background-image: url(../img/play.png);
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 100px;
+    /*top: 37%;
+    left: 30%;*/
+    cursor: pointer;
+    background-size: 100% 100%;
+    /*position: absolute;*/
+    display: inline-block;
+    /* float: left; */
+    margin: auto;
+    /*background-position: -8px;*/
+}
+
+.blur {
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.movieCtl {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 20%;
+    /* max-height: 100%; */
+    max-width: 784px;
+    width: 76%;
+    z-index: 2;
+    text-align: center;
+    display: none;
+}
+
+.watch-video.write-claim .mission-bottom-menu {
+    margin-top: 79px;
+    margin-left: 20px;
+    bottom: initial;
+}
+
+#popup.watch-video.write-claim .mission-repeat-popup {
+    position: fixed;
+    background: #fff;
+    box-shadow: 0 0 0px 8px rgba(255,255,255,.35);
+    width: 365px;
+    padding-bottom: 25px;
+    bottom: 484px;
+    right: 500px;
+    border-radius: 8px;
+    display: none;
+}
+
+#popup.watch-video.write-claim .triangle {
+    -webkit-transform: rotateZ(0deg);
+    bottom: 115px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+}
+
+.playButton {
+    background-image: url("../img/play_button.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

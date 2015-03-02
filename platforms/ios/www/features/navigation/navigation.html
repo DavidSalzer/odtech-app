@@ -1,1 +1,85 @@
-<div>navigation mission</div>
+<div class="navigation-container">
+    
+    <div id="map_canvas">
+        <!--display map directive-->
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+            <!--display my position on map-->
+            <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id" icon="myMarker.icon">
+            </ui-gmap-marker>
+            <!--display destination position-->
+            <ui-gmap-marker coords="destinationMarker.coords" idkey="destinationMarker.id" icon="destinationMarker.icon">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+
+    <!--You have reached the destination popup-->
+    <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup">
+        <h2 class="popup-title">הגעת ליעד</h2>
+        <p class="popup-text">{{destinationText}}</p>
+        <div class="mission-popup-continue">
+              <span>לחצו כאן</span>  
+            <span class="arrow" data-ng-click="sendDestination()"> </span>
+        </div>
+    </div>
+
+    <!--Unknown user location popup-->
+    <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
+        <div class="close" data-ng-click="noLocation=false"></div>
+        <h2>המיקום שלכם לא התעדכן בזמן האחרון</h2>
+        <p class="popup-text">אנא בידקו שה GPS פועל או שהמכשיר מאפשר קבלת מיקום</p>
+    </div>
+
+    <style type="text/css">
+        html, body, #map_canvas, .navigation-container {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+        #map_canvas {
+            position: relative;
+        }
+        .angular-google-map-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        
+        .destination-btn{
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+        }
+        
+        /*.navigation-container .mission-popup-continue .arrow {
+            background-image: url("../img/svg/arrow/navigation.svg");
+        }*/
+        
+        .navigation-container .mission-popup-continue {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            
+            position: relative;
+bottom: initial;
+left: initial;
+height: 30px;
+line-height: 30px;
+float: initial;
+vertical-align: top;
+text-align: left;
+margin-top: 5px;
+        }
+        
+        .mission-repeat-popup.navigation-popup {
+            z-index: 4;
+        }
+
+        /*.mission-repeat-popup.navigation-popup .close {
+            background-image: url("../img/svg/x/navigation.svg");
+        }*/
+        
+        
+    </style>
+</div>

@@ -1,14 +1,67 @@
-odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', function ($rootScope, $scope, $state, $stateParams) {
-    $scope.tasks = {
-        "1": { type: "multiQuestion", id: "1" },
-        "2": { type: "navigation", id: "2" },
-        "3": { type: "openQuestion", id: "3" },
-        "4": { type: "takePhoto", id: "4" },
-        "5": { type: "takeVideo", id: "5" },
-        "6": { type: "watchVideo", id: "6" }
-    };
+odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', 'missions', '$timeout', 'server', function ($rootScope, $scope, $state, $stateParams, missions, $timeout, server) {
 
+    //set mission from server
+    missions.getMissionById($stateParams.missionId).then(function (data) {
+        console.log(data);
+        $scope.task = data.res;
+        //if the mission has been made
+        if ($scope.task.status == 'answer') {
+            $scope.missionAnswered = true;
+            $scope.startMission = true;
+            $scope.popupShow = false;
+        }
+
+    });
+
+    //mission general parameters
     $scope.startMission = false;
+    $scope.finishMission = false;
+    $scope.successMission = false;
     $scope.popupShow = false;
-    $scope.task = $scope.tasks[$stateParams.missionId];
+    $scope.showDidYouKnow = false;
+    $scope.results;
+    //$scope.task = $scope.tasks[$stateParams.missionId];
+
+    //this function is performed in the end of mission. 
+    $scope.endMission = function (results) {
+        request = {
+            type: "sendAnswer",
+            req: {
+                data: results,
+                mid: $stateParams.missionId
+            }
+        }
+
+        server.request(request)
+        .then(function (data) {
+            $scope.task.status = 'answer';
+        })
+
+        //if the mission has did you know.
+        if ($scope.task.didYouKnow && $scope.task.didYouKnow != '') {
+            $timeout(function () {
+                //$scope.showDidYouKnow = true;
+            }, 0)
+        }
+        else {
+            //if need to go to next mission automatically.
+            if ($scope.task.next) {
+
+            }
+            else {
+                $state.transitionTo('mainNav');
+            }
+        }
+    }
+
+    $scope.$on('endTimer', function (event, data) {
+        $timeout(function () {
+            $scope.endTimer = true;
+        }, 0)
+    });
+
+    //user can close inactive mission
+    $scope.closeMission = function () {
+        $state.transitionTo('mainNav');
+    }
 } ]);

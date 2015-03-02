@@ -1,1 +1,9 @@
-<div>watchVideo mission</div>
+<div  class="mission-popup popup" data-ng-if="showDidYouKnow">
+    <div class="feelings-popup popup">
+        <h2>הידעת?</h2>
+        <p>{{task.didYouKnow}}</p>
+        <div class="permission" id="permission-feel" data-ng-click="hideDidYouKnow()">אישור
+            <span class="arrow"></span>
+        </div>
+    </div>
+</div>

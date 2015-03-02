@@ -1,46 +1,48 @@
-var odtechApp = angular.module('odtechApp', ['ui.router'])
+
+var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
 
 /**** UI Router ****/
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/welcome");
+    $urlRouterProvider.otherwise("/login");
 
     $stateProvider
-		.state("welcome", {
-		    url: "/welcome",
+		.state("login", {
+		    url: "/login",
 		    views: {
 		        "main": {
-		            templateUrl: "./components/welcome/welcome.html",
-		            controller: "welcome"
-		        }
-		    }
-		})
-        .state("dayDescription", {
-		    url: "/dayDescription",
-		    views: {
-		        "main": {
-		            templateUrl: "./components/dayDescription/dayDescription.html",
-		            controller: "dayDescription"
+		            templateUrl: "./components/login/login.html",
+		            controller: "login"
 		        }
 		    }
 		})
         .state("mainNav", {
-		    url: "/mainNav",
-		    views: {
-		        "main": {
-		            templateUrl: "./components/mainNav/mainNav.html",
-		            controller: "mainNav"
-		        }
-		    }
-		})
+            url: "/mainNav",
+            views: {
+                "main": {
+                    templateUrl: "./components/mainNav/mainNav.html",
+                    controller: "mainNav"
+                }
+            }
+        })
          .state("mission", {
-		    url: "/mission/:missionId",
-		    views: {
-		        "main": {
-		            templateUrl: "./components/mission/mission.html",
-		            controller: "mission"
-		        }
-		    }
-		})
+             url: "/mission/:missionId",
+             views: {
+                 "main": {
+                     templateUrl: "./components/mission/mission.html",
+                     controller: "mission"
+                 }
+             }
+         })
 });
+
+//for google maps
+odtechApp.config(function (uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        //    key: 'your api key',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization'
+    });
+})
+
 
 

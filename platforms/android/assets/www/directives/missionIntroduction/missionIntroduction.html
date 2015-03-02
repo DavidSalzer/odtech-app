@@ -5,11 +5,12 @@
         <points></points>
     </div>
     <div class="mission-description-wrap">
-        <span class="missionPopUpImage"></span>
+        <span data-ng-show="task.imgUrl" class="missionPopUpImage"  style="background-image:url('{{task.imgUrl}}')"></span>
         <p>{{task.description}}</p>
     </div>
     <div class="mission-popup-footer">
-        <div class="mission-popup-continue" data-ng-click="hideIntroduction()">צאו לדרך
+        <div class="mission-popup-continue" data-ng-click="hideIntroduction()">
+            <span>צאו לדרך</span>
             <span class="arrow"> </span>
         </div>
     </div>
