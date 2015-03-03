@@ -3,6 +3,12 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
         restrict: 'E',
         templateUrl: './features/watchVideo/watchVideo.html',
         link: function (scope, el, attrs) {
+
+            //if the mission has been made
+            if (scope.task.status == 'answer') {
+                // alert('This task has been made');
+            }
+
             /*ver 1.1 include youtubeURL*/
             /*write what the function does.
             write main function
@@ -43,6 +49,8 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             scope.playerReady = function () {
                 if (scope.startYoutube) {
                     scope.player.playVideo();
+                } else {
+                    // $('.fullMovie').addClass('blur');
                 }
             }
 
@@ -68,8 +76,8 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             //play video when the missiom start
             scope.$watch('startMission', function (newVal, oldVal) {
                 console.log('changed');
-                if (newVal == true && oldVal == false) { // the mission start
-                    scope.play();
+                if (newVal == true && oldVal == false && scope.task.videoURL) { // the mission start
+                    //scope.play();
                 }
             });
 
@@ -111,7 +119,7 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
 
             //the mission finished
             scope.stop = function () {
-                alert("סימתי");
+                scope.endMission('end mission');
             }
 
             //pause video or replay after starting the mission
@@ -119,10 +127,16 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
                 if (scope.playing) {
                     scope.playing = false;
                     document.getElementById('fullMovie').pause();
+
                 } else {
                     scope.playing = true;
                     document.getElementById('fullMovie').play();
+                    $('.playButton').hide();
                 }
+            }
+            scope.showPlay = function () {
+                scope.pause();
+                $('.playButton').show();
             }
 
         },

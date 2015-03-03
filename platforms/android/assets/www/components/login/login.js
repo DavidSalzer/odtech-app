@@ -1,7 +1,21 @@
-odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera', function ($scope, $state, server, $timeout, camera) {
-
-    //$scope.appName = 'מסע ישראלי';
+odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', 'camera', function ($rootScope, $scope, $state, server, $timeout, camera) {
     $scope.loginFirstPage = true;
+    $scope.userName = '';
+    //check if the user login
+    server.request({ "type": "getAppUser", "req": {} })
+    .then(function (data) {
+        //if user login
+        if (data.res && data.res.name) {
+            $rootScope.showDescription = true;//show day description in mainNav.
+            $state.transitionTo('mainNav');
+        }
+        //if logged in user has no userName
+        else if (data.res && data.res.email) {
+            $timeout(function () {
+                $scope.loginFirstPage = false;
+            }, 0)
+        }
+    })
 
     //general error need to pass to global file.
     $scope.errorMsg = {};
@@ -9,7 +23,10 @@ odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera
 
     //Send login details to server.
     $scope.sendLogin = function () {
+        //validations
         if (!$scope.loginForm.emailBox.$valid || !$scope.loginForm.code.$valid) {
+            $scope.mailnotValid = true;
+            $scope.codenotValid = true;
             return;
         }
 
@@ -25,8 +42,11 @@ odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera
         server.request(request)
         .then(function (data) {
             console.log(data);
+            //if success.
             if (!data.res.error) {
+                //if it old user go to missions else update user details. 
                 if (data.res.name) {
+                    $rootScope.showDescription = true;//show day description in mainNav.
                     $state.transitionTo('mainNav');
                 }
                 else {
@@ -57,7 +77,9 @@ odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera
 
     //Send user details (userName and image) to servver.
     $scope.sendUsername = function () {
+        //validations
         if (!$scope.userForm.nickName.$valid) {
+            $scope.namenotValid = true;
             return;
         }
         request = {
@@ -75,7 +97,9 @@ odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera
         server.request(file)
         .then(function (data) {
             console.log(data);
+            //if success.
             if (!data.res.error) {
+                $rootScope.showDescription = true;//show day description in mainNav.
                 $state.transitionTo('mainNav');
             }
             else {
@@ -92,8 +116,52 @@ odtechApp.controller('login', ['$scope', '$state', 'server', '$timeout', 'camera
     $scope.takePicture = function () {
         camera.getPicture()
         .then(function (data) {
-
+            //set the preview image
+            $scope.setPreviewImg();
         })
     }
+    $scope.email = '';
+    $scope.groupCode = '';
+    $scope.mailnotValid = false;
+    $scope.codenotValid = false;
+    $scope.namenotValid = false;
+    $scope.changeInput = function (type) {
+        switch (type) {
+            case 'mail':
+                $scope.mailnotValid = true;
+                break;
+            case 'code':
+                $scope.codenotValid = true;
+                break;
+            case 'name':
+                $scope.namenotValid = true;
+                break;
+        }
+    }
 
+
+    $scope.uploadImg = '';
+    $scope.imageChosen = function (input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                //set the preview image
+                $scope.setPreviewImg(e.target.result);
+                // $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    //set the preview image after the user chose an image
+    $scope.showPreviewSrc = false;
+    $scope.setPreviewImg = function (src) {
+        $scope.previewSrc = src;
+        
+        $timeout(function () {
+                $scope.showPreviewSrc = true;
+            }, 0)
+       
+    }
 } ]);

@@ -19,6 +19,10 @@
             </p>
         </div>
 
+        <!-- for browsers -->
+        <!--<input type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />-->
+                 
+
         <!--center photo-->
         <div data-ng-if="task.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].imgUri}})" >
             <div data-ng-show="photoSaved['photoLeft']" class="deleteOrbit" id="delphotoLeft" pos="photoLeft" data-ng-click="deletePhoto(photoLeft)">X</div>

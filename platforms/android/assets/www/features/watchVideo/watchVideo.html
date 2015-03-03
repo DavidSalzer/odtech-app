@@ -7,11 +7,12 @@
     </div>
     <!--view video from yuotube-->
     <div class="fullMovie" id="youtube-url-video" data-ng-show="task.youtubeID">
-        <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+        <iframe  width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
     </div>
     <!--view video not yuotube-->
-    <video class="fullMovie" id="fullMovie" data-ng-show="task.videoURL" data-ng-click="pause()">
+    <video class="fullMovie" id="fullMovie" data-ng-show="task.videoURL" data-ng-click="showPlay()">
         <!--poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg"-->
         <source src="{{task.videoURL}}" type="video/mp4" /><!--mov/homeless.mp4-->
     </video>
+    <div class="playButton" data-ng-click="pause()"></div>
 </section>

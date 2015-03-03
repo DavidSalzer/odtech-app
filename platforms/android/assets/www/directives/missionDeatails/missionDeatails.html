@@ -1,5 +1,5 @@
 <div data-ng-if="startMission">
-    <div class="mission-deatails-menu popup" data-ng-show="startMission">
+    <div class="mission-deatails-menu popup" data-ng-show="startMission && !missionAnswered">
         <span class="mission-icon" data-ng-click="showDeatails=!showDeatails"></span>
         <span class="mission-deatails-timer">
             <timer ng-if="task.timer"></timer>
@@ -7,7 +7,7 @@
         </span>
     </div>
 
-    <div class="mission-repeat-popup popup" data-ng-show="startMission&&showDeatails">
+    <div class="mission-repeat-popup popup" data-ng-show="startMission&&showDeatails && !missionAnswered"">
         <div class="triangle"></div>
         <div class="close" data-ng-click="showDeatails=false">
         </div>

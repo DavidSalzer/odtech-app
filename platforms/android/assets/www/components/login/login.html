@@ -1,85 +1,43 @@
-<div class="login-container">
+<div class="login-container general">
     <div class="login-page" data-ng-show="loginFirstPage">
-        <div class="login-welcome">ברוכים הבאים</div>
-        <div class="login-app-name">לאפליקציית {{appName}}</div>
+        <div class="login-wrap">
+            <div class="login-welcome fs-14">ברוכים הבאים</div>
+            <div class="login-app-name  fs-9">לאפליקציית {{appName}}</div>
 
-        <form name="loginForm">
-            <input name="emailBox" class="login-input" type="email" placeholder="הזן תיבת דואר אלקטרוני" data-ng-model="email" required data-ng-class="{'not-valid': !loginForm.emailBox.$valid}" />
-            <input name="code" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupCode" required data-ng-class="{'not-valid': !loginForm.code.$valid}" minlength="6" maxlength="6" />
-            <div class="login-error" data-ng-show="!loginForm.emailBox.$valid">* שדה דואר אלקטרוני לא הוזן כראוי</div>
-            <div class="login-error" data-ng-show="!loginForm.code.$valid">* שדה קוד קבוצה לא הוזן כראוי</div>
-            <div class="login-error" data-ng-show="loginError">* {{loginErrorMsg}}</div>
-        </form>
+            <form name="loginForm">
+                <input name="emailBox" class="login-input" type="email" placeholder="הזן תיבת דואר אלקטרוני" data-ng-model="email" ng-change="changeInput('mail')" required data-ng-class="{'not-valid': !loginForm.emailBox.$valid && mailnotValid}" />
+                <input name="code" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupCode"  ng-change="changeInput('code')" required data-ng-class="{'not-valid': !loginForm.code.$valid && codenotValid}" minlength="6" maxlength="6" />
+                <div class="login-error fs-5" data-ng-show="!loginForm.emailBox.$valid && mailnotValid">* שדה דואר אלקטרוני לא הוזן כראוי</div>
+                <div class="login-error fs-5" data-ng-show="!loginForm.code.$valid && codenotValid">* שדה קוד קבוצה לא הוזן כראוי</div>
+                <div class="login-error fs-5" data-ng-show="loginError">* {{loginErrorMsg}}</div>
+            </form>
 
-        <div class="mission-popup-continue">
+            <div class="mission-popup-continue"  data-ng-click="sendLogin()">
                 היכנס
-            <span class="arrow" data-ng-click="sendLogin()"></span>
+                <span class="arrow"></span>
+            </div>
         </div>
     </div>
 
     <div class="login-page" data-ng-hide="loginFirstPage">
-        <form name="userForm">
-            <div class="img-plus">
-                <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0)" type="file" class="user-upload-img" name="img" />
-                <input data-ng-if="androidVersion.indexOf('4.4.2') === 0" type="file" name="img" data-ng-click="takePicture()" class="user-upload-img" />
-            </div>
-            <div class="login-app-name">הוסף תמונה</div>
+        <div class="login-wrap">
+            <form name="userForm">
+                <div class="img-plus"   data-ng-class="{'hidePlus':showPreviewSrc}">
+                    <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0)" type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />
+                    <input data-ng-if="androidVersion.indexOf('4.4.2') === 0" type="file" name="img" data-ng-click="takePicture()" class="user-upload-img" />
 
-            <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" required data-ng-class="{'not-valid': !userForm.nickName.$valid}" />
-            <div class="login-error" data-ng-show="!userForm.nickName.$valid">* שדה שם לא הוזן כראוי</div>
-        </form>
-        <div class="mission-popup-continue">
+                    <div class="preview-img" style="background-image:url('{{previewSrc}}')" data-ng-show="showPreviewSrc">
+                    </div>
+                </div>
+                <div class="login-app-name fs-6">הוסף תמונה</div>
+
+                <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" ng-change="changeInput('name')" required data-ng-class="{'not-valid': !userForm.nickName.$valid && namenotValid}" />
+                <div class="login-error fs-5" data-ng-show="!userForm.nickName.$valid && namenotValid">* שדה שם לא הוזן כראוי</div>
+            </form>
+            <div class="mission-popup-continue" data-ng-click="sendUsername()">
                 הירשם
-            <span class="arrow" data-ng-click="sendUsername()"></span>
+                <span class="arrow"></span>
+            </div>
         </div>
     </div>
 </div>
-
-<style>
-    .login-page {
-        margin: auto;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .login-welcome {
-        font-size: 30px;
-        margin-bottom: 10px;
-    }
-    
-    .login-app-name {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-    
-    .login-input {
-        width: 80%;
-        margin-bottom: 10px;
-        border: none;
-        padding-right: 5px;
-        height: 20px;
-    }
-    
-    .not-valid {
-        border: red 2px solid;
-    }
-    
-    .login-container .mission-popup-continue .arrow {
-            background-image: url("../img/svg/arrow/navigation.svg");
-        }
-    
-    .img-plus {
-        display: inline-block;
-        background-color: #fff;
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
-        border: solid 6px #abd1e0;
-        font-size: 60px;
-        color: #abd1e0;
-        text-align: center;
-        background-image: url(../img/RegistrationPlus.png);
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-</style>
