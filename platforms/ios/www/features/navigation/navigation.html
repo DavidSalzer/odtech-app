@@ -1,4 +1,5 @@
 <div class="navigation-container">
+    
     <div id="map_canvas">
         <!--display map directive-->
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
@@ -13,10 +14,10 @@
 
     <!--You have reached the destination popup-->
     <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup">
-        <h2>הגעת ליעד</h2>
-        <p>{{destinationText}}</p>
+        <h2 class="popup-title">הגעת ליעד</h2>
+        <p class="popup-text">{{destinationText}}</p>
         <div class="mission-popup-continue">
-                לחצו כאן
+              <span>לחצו כאן</span>  
             <span class="arrow" data-ng-click="sendDestination()"> </span>
         </div>
     </div>
@@ -25,7 +26,7 @@
     <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
         <div class="close" data-ng-click="noLocation=false"></div>
         <h2>המיקום שלכם לא התעדכן בזמן האחרון</h2>
-        <p>אנא בידקו שה GPS פועל או שהמכשיר מאפשר קבלת מיקום</p>
+        <p class="popup-text">אנא בידקו שה GPS פועל או שהמכשיר מאפשר קבלת מיקום</p>
     </div>
 
     <style type="text/css">
@@ -51,23 +52,33 @@
             bottom: 5px;
         }
         
-        .navigation-container .mission-popup-continue .arrow {
+        /*.navigation-container .mission-popup-continue .arrow {
             background-image: url("../img/svg/arrow/navigation.svg");
-        }
+        }*/
         
         .navigation-container .mission-popup-continue {
             position: absolute;
             bottom: 5px;
             left: 5px;
+            
+            position: relative;
+bottom: initial;
+left: initial;
+height: 30px;
+line-height: 30px;
+float: initial;
+vertical-align: top;
+text-align: left;
+margin-top: 5px;
         }
         
         .mission-repeat-popup.navigation-popup {
             z-index: 4;
         }
 
-        .mission-repeat-popup.navigation-popup .close {
+        /*.mission-repeat-popup.navigation-popup .close {
             background-image: url("../img/svg/x/navigation.svg");
-        }
+        }*/
         
         
     </style>

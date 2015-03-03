@@ -44,9 +44,10 @@
     background-color: rgba(122,199,234,.9);
     height: 312px;
     width: 425px;
+    max-height: 100%;
     position: absolute;
     top: 235px;
-    left: 320px;
+    /* left: 320px; */
     color: #fff;
     font-size: 35px;
     font-size: 1.8em;
@@ -55,6 +56,12 @@
     background-repeat: no-repeat;
     z-index: 5;
     background-position: center;
+    margin: auto;
+    overflow: auto;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
 }
 
 .deleteOrbit {
@@ -186,37 +193,38 @@
     bottom: 35%;
     right: 0px;
 }
-    .photoUp p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
 
-    .photoDown p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
+.photoUp p span {
+    display: block;
+    text-align: center;
+    padding-top: 75px;
+    font-size: 85px;
+    font-size: 4.2em;
+}
 
-    .photoRight p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
+.photoDown p span {
+    display: block;
+    text-align: center;
+    padding-top: 75px;
+    font-size: 85px;
+    font-size: 4.2em;
+}
 
-    .photoLeft p span {
-        display: block;
-        text-align: center;
-        padding-top: 75px;
-        font-size: 85px;
-        font-size: 4.2em;
-    }
+.photoRight p span {
+    display: block;
+    text-align: center;
+    padding-top: 75px;
+    font-size: 85px;
+    font-size: 4.2em;
+}
+
+.photoLeft p span {
+    display: block;
+    text-align: center;
+    padding-top: 75px;
+    font-size: 85px;
+    font-size: 4.2em;
+}
 
 
 div.openImgDialog > div > span {
@@ -237,7 +245,7 @@ div.openImgDialog > div > span {
         overflow: auto;
     }
 
-    #mainPhoto {
+    .photoCenter {
         position: relative;
         left: 0px;
         top: 0px;

@@ -22,6 +22,8 @@
         <link href="css/takeVideo.css" rel="stylesheet" />
         <link href="css/watchVideo.css" rel="stylesheet" />
         <link href="css/mainQ.css" rel="stylesheet" />
+        <link href="css/login.css" rel="stylesheet" />
+        <link href="css/openQuestion.css" rel="stylesheet" />
         
         <script src="cordova.js"></script>
 
@@ -33,7 +35,9 @@
         <!--<ng-include src="'components/header/header.html'"></ng-include>-->
         <!-- END HEADER -->
         <!-- BEGIN PAGE CONTENT-->
+        
         <div id="main-container">
+            <ng-include src="'components/header/header.html'"></ng-include>
             <div id="main-view" class="main-view" data-ui-view="main"></div>
         </div>
        <ng-include src="'components/footer/footer.html'"></ng-include>
@@ -54,6 +58,7 @@
         <script src="js/angular-google-maps.js"></script>
         
         <script src="app.js"></script>
+        <script src="globals.js"></script>
 
         <!-- odtech  services-->
         <script src="./services/server.js"></script>

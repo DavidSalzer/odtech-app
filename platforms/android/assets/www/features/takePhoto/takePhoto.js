@@ -28,7 +28,6 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                 .then(function (data) {
                     $timeout(function () {
                         scope.pictures = camera.getPictures();
-                        camera.uploadPhoto(scope.pictures['photoCenter'].imgUri, "image");
                         scope.photoClicked = photoClicked;
                         //scope.openImg = true;
                         scope.openImg = false;

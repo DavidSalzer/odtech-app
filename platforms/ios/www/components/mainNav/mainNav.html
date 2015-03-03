@@ -1,9 +1,16 @@
-<div id="day-description" data-ng-show="isDescription" data-ng-click="closeDescription()">
+<div id="day-description" data-ng-show="showDescription" class="general" >
     <p>{{description}}</p>
+    <div class="next" data-ng-click="closeDescription()">
+        
+        <span class="next-text">להמשך</span>
+        <span class="arrow"></span>
+        
+    </div>
 </div>
 
-<section id="mission-container" data-ng-hide="isDescription">
-    <div id="call-for-action">לחצו על המשימה הראשונה כדי להתחיל</div>
+<section id="mission-container" data-ng-hide="showDescription">
+    <div class="logout" style="float: left;" data-ng-click="logout()">logout</div><!--logout btn temporarily-->
+    <div id="call-for-action" class="general">לחצו על המשימה הראשונה כדי להתחיל</div>
     <div class="mission-wrap">
         <div id="mission-menu">
             <div data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}" data-ng-class="{'start':$index==currentMission}" data-ng-click="goToMission($index)">
@@ -14,7 +21,7 @@
                     </span>
                 </div>
                 <div class="mission-menu-icon mission-icon">
-                    <img src="img/{{task.type}}.png" alt="{{task.type}}"/>
+                    <img src="img/{{task.type}}.png" alt="{{task.type}}" />
                 </div>
 
                 <span class="item-number">{{$index+1 > "9" ? $index+1 :'0' +($index+1) }}</span>
@@ -22,3 +29,4 @@
         </div>
     </div>
 </section>
+<!---->

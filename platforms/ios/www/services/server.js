@@ -9,7 +9,7 @@ odtechApp.factory('server', ['$rootScope', '$stateParams', '$http', '$q', functi
             var httpDetails = {
                 url: domain,
                 method: "POST",
-                data: data, //{"type":"getMissionOfActivitie","req":{"aid":"2"}},
+                data: data,
                 contentType: "application/json"
             };
 

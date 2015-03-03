@@ -5,7 +5,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
         link: function (scope, el, attrs) {
 
             scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
-            scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to fet from server.
+            scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to get from server.
 
             scope.myMarker = {
                 id: 1,
@@ -108,6 +108,9 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             //exec while user click on destination btn.
             scope.sendDestination = function () {
                 $timeout(function () {
+                    if (scope.task.status != 'answer') {
+                        scope.endMission('destination');
+                    }
                     scope.isDestination = false;
                 }, 0)
             }

@@ -21,7 +21,16 @@ body {
     border-radius: 30px;
     z-index: 200;
 }
-
+/***********day description and main nav***********/
+.general{
+    color:  #17507f;
+}
+.general .arrow {
+    background-image: url("../img/svg/arrow/general.svg");
+}
+.img-plus{
+     border: solid 6px #17507f;
+}
 /*****navigation**************************************************************/
 
 .navigation .mission-menu-center {
@@ -42,6 +51,19 @@ body {
 
 #popup.navigation .mission-icon {
     background-image: url("../img/navigation.png");
+}
+.navigation .next-icon {
+    background-image: url("../img/navigation.png");
+}
+.navigation .next-title-left{
+background-color: #e21d91;
+}
+
+.navigation .next-icon{
+     background-color: #ffd200; 
+}
+.navigation .number{
+    color: #ff9900;
 }
 
 /*mission-popup*/
@@ -70,7 +92,7 @@ body {
 
 /*mission-repeat*/
 
-.navigation .mission-repeat-popup .close{
+.navigation .close{
     background-image: url("../img/svg/x/navigation.svg");
 }
 
@@ -115,7 +137,18 @@ body {
 #popup.takePhoto .mission-icon {
     background-image: url("../img/takePhoto.png");
 }
-
+.takePhoto .next-icon{
+    background-image: url("../img/takePhoto.png");
+}
+.takePhoto .next-title-left{
+background-color: #408fb0;
+}
+.takePhoto .next-icon{
+     background-color: #ffd200; 
+}
+.takePhoto .number{
+    color: #408fb0;
+}
 /*mission-popup*/
 
 .takePhoto .mission-popup-timer {
@@ -142,7 +175,7 @@ body {
 
 /*mission-repeat*/
 
-.takePhoto .mission-repeat-popup .close{
+.takePhoto .close{
     background-image: url("../img/svg/x/takePhoto.svg");
 }
 
@@ -199,6 +232,19 @@ background-color: rgba(251,227,224,0.9);
     background-color: #e46051;
 background-image: url("../img/takePhoto.png");
 }
+.takePhoto.red .next-icon {
+    background-image: url("../img/takePhoto.png");
+}
+.takePhoto.red .next-title-left{
+background-color: #e46051;
+}
+
+.takeVideo.red .next-icon{
+     background-color: #ffd200; 
+}
+.takeVideo.red .number{
+    color: #e46051;
+}
 .takePhoto.red #timer{
 	color: #e46051;
 }
@@ -222,6 +268,18 @@ background-image: url("../img/takePhoto.png");
 
 #popup.takeVideo .mission-icon {
     background-image: url("../img/takeVideo.png");
+}
+.takeVideo .next-icon {
+    background-image: url("../img/takeVideo.png");
+}
+.takeVideo .next-title-left{
+background-color: #46c4b4;
+}
+.takeVideo .next-icon{
+     background-color: #ffd200; 
+}
+.takeVideo .number{
+    color: #46c4b4;
 }
 /*mission-popup*/
 
@@ -250,7 +308,7 @@ background-image: url("../img/takePhoto.png");
 
 /*mission-repeat*/
 
-.takeVideo .mission-repeat-popup .close{
+.takeVideo .close{
     background-image: url("../img/svg/x/takeVideo.svg");
 }
 
@@ -270,7 +328,19 @@ background-image: url("../img/takePhoto.png");
 .watchVideo .mission-icon {
     background-color: #a985e6;
 }
+.watchVideo .next-icon {
+    background-image: url("../img/watchVideo.png");
+}
 
+.watchVideo .next-title-left{
+background-color: #a985e6;
+}
+.watchVideo .next-icon{
+     background-color: #ffd200; 
+}
+.watchVideo .number{
+    color: #a985e6;
+}
 #popup.watchVideo .mission-icon {
     background-image: url("../img/watchVideo.png");
 }
@@ -301,7 +371,7 @@ background-image: url("../img/takePhoto.png");
 
 /*mission-repeat*/
 
-.watchVideo .mission-repeat-popup .close{
+.watchVideo .close{
     background-image: url("../img/svg/x/watchVideo.svg");
 }
 
@@ -316,6 +386,24 @@ background-image: url("../img/takePhoto.png");
 
 .multiQuestion .mission-icon {
     background-color: #ff9900;
+}
+.multiQuestion .next-icon {
+    background-image: url("../img/multiQuestion.png");
+}
+.multiQuestion .next-title-left{
+background-color: #FCE5C4;
+}
+.multiQuestion .next-icon{
+     background-color: #ff9900; 
+}
+.multiQuestion .number{
+    color: #ff9900;
+}
+.multiQuestion .next-answer-slide .answer p{
+    background-color: #ff9900
+}
+.multiQuestion .answer span{
+    background: #fce5c4;
 }
 #popup.multiQuestion .mission-icon {
     background-image: url("../img/multiQuestion.png");
@@ -352,7 +440,7 @@ background-image: url("../img/takePhoto.png");
 
 /*mission-repeat*/
 
-.multiQuestion .mission-repeat-popup .close{
+.multiQuestion .close{
     background-image: url("../img/svg/x/multiQuestion.svg");
 }
 
@@ -373,7 +461,18 @@ background-image: url("../img/takePhoto.png");
 .medicine-basket .mission-icon {
     background-color: #b5dc2d;
 }
-
+.medicine-basket .next-icon {
+    background-image: url("../img/medicine-basket.png");
+}
+.medicine-basket .next-title-left{
+background-color: #b5dc2d;
+}
+.medicine-basket .next-icon{
+     background-color: #ffd200; 
+}
+.medicine-basket .number{
+    color: #b5dc2d;
+}
 #popup.medicine-basket .mission-icon {
     background-image: url("../img/medicine-basket.png");
 }
@@ -403,7 +502,7 @@ background-image: url("../img/takePhoto.png");
 
 /*mission-repeat*/
 
-.medicine-basket .mission-repeat-popup .close{
+.medicine-basket .close{
     background-image: url("../img/svg/x/medicine-basket.svg");
 }
 
@@ -425,9 +524,27 @@ background-image: url("../img/takePhoto.png");
     background-color: #ffd200;
 }
 
+
+.openQuestion .next-icon, .read-text .next-icon {
+    background-image: url("../img/openQuestion.png");
+}
+
+.openQuestion .next-title-left{
+background-color: #fcf2c6;
+}
+
+.openQuestion .next-icon{
+     background-color: #ffd200; 
+}
+
+.openQuestion .number{
+    color: #ffd200;
+}
+
 #popup.openQuestion .mission-icon,#popup.read-text .mission-icon {
     background-image: url("../img/openQuestion.png");
 }
+
 /*mission-popup*/
 
 .openQuestion .mission-popup-timer,.read-text .mission-popup-timer {
@@ -456,7 +573,7 @@ background-image: url("../img/takePhoto.png");
 
 /*mission-repeat*/
 
-.openQuestion .mission-repeat-popup .close,.read-text .mission-repeat-popup .close{
+.openQuestion .close,.read-text .close{
     background-image: url("../img/svg/x/openQuestion.svg");
 }
 
@@ -540,11 +657,11 @@ background-color: rgba(249,237,189,0.96);
 
 /*mission-repeat*/
 
-.takePhoto.yellow .mission-repeat-popup .close{
+.takePhoto.yellow .close{
     background-image: url("../img/svg/x/takePhoto-yellow.svg");
 }
 
-.takePhoto.red .mission-repeat-popup .close{
+.takePhoto.red .close{
     background-image: url("../img/svg/x/feelings.svg");
 }
 /*****takePhoto -pink******************************************************************************************/
@@ -606,7 +723,7 @@ background-color: rgba(246,189,225,0.9);
     color: #e21d91;
 }
 
-.takePhoto.pink .mission-repeat-popup .close{
+.takePhoto.pink .close{
     background-image: url("../img/svg/x/takePhoto-pink.svg");
 }
 
@@ -675,6 +792,9 @@ background-color: rgba(246,189,225,0.9);
 #popup.last-mission .mission-icon {
     background-image: url("../img/openQuestion.png");
 }
+.last-mission .next-icon {
+    background-image: url("../img/last-mission.png");
+}
 /*mission-popup*/
 
 .last-mission .mission-popup-timer {
@@ -703,7 +823,7 @@ background-color: rgba(246,189,225,0.9);
 
 /*mission-repeat*/
 
-.last-mission .mission-repeat-popup .close{
+.last-mission .close{
     background-image: url("../img/svg/x/text.svg");
 }
 
@@ -723,6 +843,9 @@ background-color: rgba(246,189,225,0.9);
 }
 
 #popup.qrCode .mission-icon {
+    background-image: url("../img/qrCode.png");
+}
+.qrCode .next-icon {
     background-image: url("../img/qrCode.png");
 }
 /*mission-popup*/
@@ -752,7 +875,7 @@ background-color: rgba(246,189,225,0.9);
 
 /*mission-repeat*/
 
-.qrCode .mission-repeat-popup .close{
+.qrCode .close{
     background-image: url("../img/svg/x/qrCode.svg");
 }
 
@@ -768,6 +891,9 @@ background-color: rgba(246,189,225,0.9);
 
 .scala .mission-icon {
     background-color: #46c4b4;
+}
+.scala .next-icon {
+    background-image: url("../img/scala.png");
 }
 
 #popup.scala .mission-icon {
@@ -800,6 +926,6 @@ background-color: rgba(246,189,225,0.9);
 
 /*mission-repeat*/
 
-.scala .mission-repeat-popup .close{
+.scala .close{
     background-image: url("../img/svg/x/scala.svg");
 }

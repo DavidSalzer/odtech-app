@@ -1,12 +1,9 @@
-var domain = "http://odtech.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
-var imgDomain = "http://odtech.co.il.tigris.nethost.co.il/";
-var cid = 1;
 
 var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
 
 /**** UI Router ****/
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/mainNav");
+    $urlRouterProvider.otherwise("/login");
 
     $stateProvider
 		.state("login", {
@@ -18,15 +15,6 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
 		        }
 		    }
 		})
-    //.state("dayDescription", {
-    //    url: "/dayDescription",
-    //    views: {
-    //        "main": {
-    //            templateUrl: "./components/dayDescription/dayDescription.html",
-    //            controller: "dayDescription"
-    //        }
-    //    }
-    //})
         .state("mainNav", {
             url: "/mainNav",
             views: {
@@ -56,14 +44,5 @@ odtechApp.config(function (uiGmapGoogleMapApiProvider) {
     });
 })
 
-odtechApp.run(function ($rootScope) {
-    $rootScope.getAndoidVersion = function () {
-        var ua = ua || navigator.userAgent;
-        var match = ua.match(/Android\s([0-9\.]*)/);
-        return match ? match[1] : false;
-    };
-
-    $rootScope.androidVersion = $rootScope.getAndoidVersion();
-});
 
 
