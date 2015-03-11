@@ -70,6 +70,37 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             // return a promise
             return deferred.promise;
         },
+        uploadPhoto: function (imageURI, type) {
+            var win = function (r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+                alert(r.response);
+            }
+
+            var fail = function (error) {
+                alert("An error has occurred: Code = " + error.code);
+            }
+
+            var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+            if (type == "image") {
+                options.mimeType = "image/jpeg";
+            } else if (type == "video"){
+                options.mimeType = "video/mp4";
+            }
+
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+
+            options.params = params;
+            options.chunkedMode = false;
+
+            var ft = new FileTransfer();
+            ft.upload(imageURI, imgDomain + "/roitest/upload.php", win, fail, options);
+        },
         getPictures: function () { // get saved photos
             return pictures;
         },

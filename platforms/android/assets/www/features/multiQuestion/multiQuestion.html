@@ -19,11 +19,13 @@
     </div>
     <div class="claim-text-next next-time" ng-hide="firstTime">
         <div class="next-title-wrap general">
-            <div class="next-icon"></div>                                             <!--
-                                                         -->
-            <div class="next-title-left">
-                <div class="next-title">ראיונות פתוחים</div>
+            <div class="next-title-back">
+                <div class="next-icon"></div>
+                <div class="next-title-left">
+                    <div class="next-title">ראיונות פתוחים</div>
+                </div>
             </div>
+
         </div>
         <div class="next-answer-slide">
 
@@ -36,7 +38,11 @@
                             {{question.question}}
                         </div></div>
 
-                    <div class="answer"><span>{{'0' +(question.correctQuestionIndex+1)}}</span><p>{{question.answers[question.correctQuestionIndex]}}</p></div>
+                    <div class="answer">
+                        <div>
+                        <span>{{'0' +(question.correctQuestionIndex+1)}}</span><p>{{question.answers[question.correctQuestionIndex]}}</p>
+                    </div>
+                    </div>
                 </div>
 
             </div>

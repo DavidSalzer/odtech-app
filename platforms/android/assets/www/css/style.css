@@ -32,6 +32,7 @@ html, body {
     height: 100%;
     font-family: fbprozalight;
     direction: rtl;
+    overflow: hidden;
 }
 
 input {
@@ -220,6 +221,10 @@ input {
     font-size: 30px;
 }
 
+.mainnav-wrap {
+    width: 100%;
+    height: 100%;
+}
 
 .mission-wrap {
     overflow-x: auto;
@@ -227,6 +232,8 @@ input {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     padding-right: 75px;
 }
 
@@ -240,6 +247,7 @@ input {
     height: 328px;
     margin-left: 30px;
     width: 367px;
+    z-index: 20;
 }
 
 .mission-menu-item.not-visited {
@@ -304,6 +312,63 @@ input {
     right: 37px;
     font-weight: 100;
 }
+
+.no-missions-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: auto;
+    height: 3em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.no-missions-data {
+}
+/***********main nav*************/
+.mission-menu-item.done .mission-menu-center {
+    background-size: cover;
+}
+
+.done .lock {
+    display: none;
+}
+
+.scala.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/GRADING.jpg');
+}
+
+.navigation.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/navigation.jpg');
+}
+
+.takePhoto.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/scala.jpg');
+}
+
+.watchVideo.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/video_view.jpg');
+}
+
+.takeVideo.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/video.jpg');
+}
+
+.openQuestion.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/open_question.jpg');
+}
+
+.multiQuestion.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/multi.jpg');
+}
+
+.qrCode.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/qr.jpg');
+}
+
 
 
 /********************* mission-introduction **************************/
@@ -493,8 +558,8 @@ input {
     padding: 15px;
     min-height: 70px;
     max-height: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /*overflow-y: auto;
+    overflow-x: hidden;*/
 }
 
 .popup-text {
@@ -561,35 +626,50 @@ input {
 
 .next-title-wrap {
     font-size: 36px;
-    width: 100%;
+    width: 70%;
     margin: auto;
-    height: 51px;
+    height: 73px;
     display: inline-block;
     overflow: hidden;
     position: relative;
     z-index: 10;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.next-title-back {
+    height: 100%;
 }
 
 .next-icon {
     width: 73px;
-    height: 51px;
+    height: 73px;
     display: inline-block;
     vertical-align: top;
     background-size: 100%;
     background-color: #ffd200;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    float: right;
 }
 
 .next-title-left {
     display: inline-block;
-    height: 51px;
+    height: 73px;
+    float: right;
     padding: 0px 20px;
+    /*margin-right: -8px;*/
 }
 
 .next-title {
-    font-size: 27px;
+    font-size: 32px;
     /* height: 100%; */
     /* line-height: 27px; */
     padding-top: 11px;
+    line-height: 52px;
 }
 
 .next-subtitle {
@@ -605,7 +685,7 @@ input {
     text-align: right;
     position: absolute;
     top: 0;
-    padding-top: 72px;
+    padding-top: 88px;
     box-sizing: border-box;
     height: 100%;
     margin-top: 0;
@@ -620,7 +700,6 @@ input {
     /*overflow-y: auto;
     overflow-y: hidden;*/
     position: relative;
-    
 }
 
 /********************* features **************************/
@@ -638,7 +717,7 @@ input {
     margin: 100px auto 0 auto;
     width: 100%;
     display: block;
-    background: #fff;
+    background: #FCFCFA;
     border: transparent;
     text-align: right;
     resize: none;
@@ -815,6 +894,8 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #main-help {
@@ -901,7 +982,7 @@ header {
         top: 0;
         left: 0;
         right: 0;
-        padding-bottom: 60px;
+        padding-bottom: 56px;
         overflow-y: scroll;
     }
 
@@ -915,6 +996,7 @@ header {
         padding-right: initial;
         height: auto;
         padding-bottom: 60px;
+        min-height: 280px;
     }
 
     /********************* mission-container **************************/
@@ -965,6 +1047,11 @@ header {
 
     .popup-text {
         font-size: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+        margin-left: 0;
+        width: 100%;
+        font-size: 15px;
     }
 
     .mission-repeat-popup h2 {
@@ -980,12 +1067,16 @@ header {
         display: none;
     }
 
+
     .mission-wrap {
         padding-right: 0;
         padding-top: 30px;
         transform: initial;
         top: inherit;
         width: 100%;
+        transform: initial;
+        -webkit-transform: initial;
+        -ms-transform: initial;
     }
 
     .mission-menu-item {
@@ -1069,8 +1160,9 @@ header {
 
     .next-title-left {
         font-size: 0.7em;
-        padding-top: 4px;
         box-sizing: border-box;
+        padding-top: 0;
+        padding-right: 10px;
     }
 
     .next-subtitle {
@@ -1079,15 +1171,27 @@ header {
     }
 
     .next-title {
-        padding-top: 9px;
+        padding-top: 0px;
+        font-size: 20px;
     }
 
     .next-main-content {
         padding-bottom: 56px;
+        padding-top: 64px;
     }
 
     .next-time {
-    height: 80%;
+        height: 80%;
+    }
+
+    .next-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .next-title-wrap {
+        width: 100%;
+        height: 50px;
     }
 }
 
@@ -1106,13 +1210,8 @@ header {
 }
 
 .x {
-    /*background-image: url('../img/x.png');
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;*/
-  top: 10px;
-right: 10px;
+    top: 10px;
+    right: 10px;
     position: absolute;
-    /*background-size: 100% 100%;*/
     z-index: 9999;
 }

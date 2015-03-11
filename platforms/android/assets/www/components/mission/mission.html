@@ -1,5 +1,5 @@
 
-    <div class="animate-switch-container {{task.type}}" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow}" style="height: 100%;" data-ng-hide="finishMission">
+    <div class="animate-switch-container {{task.type}}" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow && !startMission}" style="height: 100%;" data-ng-hide="finishMission">
         <multi-question data-ng-switch-when="multiQuestion"></multi-question>
         <navigation data-ng-switch-when="navigation"></navigation>
         <open-question data-ng-switch-when="openQuestion"></open-question>
@@ -7,7 +7,7 @@
         <take-video data-ng-switch-when="takeVideo"></take-video>
         <watch-video data-ng-switch-when="watchVideo"></watch-video>
         <qr-code data-ng-switch-when="qrCode"></qr-code>
-        <div data-ng-class="{'mask':popupShow}"></div>
+        <div data-ng-class="{'mask':popupShow && !startMission}"></div>
     </div>
 
     <section id="popup" class="{{task.type}}">

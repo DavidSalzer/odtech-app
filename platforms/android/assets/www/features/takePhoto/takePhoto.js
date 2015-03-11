@@ -13,6 +13,8 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
             //scope.task.countPhoto = 3;
             scope.countPhotos = 0;
 
+            scope.results = {};
+
             //check if this first time that we doing the mission or we made made it befor
             if (scope.task.status == 'answer') {
                 //alert('This task has been made');
@@ -28,6 +30,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                 .then(function (data) {
                     $timeout(function () {
                         scope.pictures = camera.getPictures();
+                        camera.uploadPhoto(scope.pictures['photoCenter'].imgUri, "image");
                         scope.photoClicked = photoClicked;
                         //scope.openImg = true;
                         scope.openImg = false;
@@ -81,6 +84,10 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
         },
         replace: true
     };

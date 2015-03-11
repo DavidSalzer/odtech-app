@@ -1,16 +1,16 @@
-<section id="mission-finish" class="timeUp"  data-ng-show="finishMission">
+<section id="mission-finish" class="timeUp" data-ng-class="{'finish':successMission}" data-ng-show="finishMission">
     <div class="message-time">
         <span class="time-icon"  data-ng-hide="successMission">
         </span>
         <span class="time-result" data-ng-if="task.points" data-ng-show="successMission">
-               {{task.points}}
+               {{recievedpoints}}
         </span>
 
         <div class="timeText">
-            <h2>נגמר הזמן.</h2>
+            <h2>{{finishMissionTitle}}</h2>
             <p>
-                         הזמן שנותר לביצוע המשימה תם.<br>
-                        נסו שוב במשימה הבאה...
+                         {{finishMissionL1}}<br>
+                        {{finishMissionL2}}
             </p>
         </div>
     </div>

@@ -1,4 +1,4 @@
-odtechApp.factory('server', ['$rootScope', '$stateParams', '$http', '$q', function ($rootScope, $stateParams, $http, $q) {
+odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($rootScope, $http, $q, $state) {
 
 
     return {
@@ -21,6 +21,10 @@ odtechApp.factory('server', ['$rootScope', '$stateParams', '$http', '$q', functi
 
             $http(httpDetails).
             success(function (json) {
+                //if user no login, go to login page
+                if(json.res && json.res.error == 'not appUser login'){
+                    $state.transitionTo('login');
+                }
                 deferred.resolve(json);
                 //console.log(json);
             }).

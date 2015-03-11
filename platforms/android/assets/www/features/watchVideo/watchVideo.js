@@ -4,6 +4,8 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
         templateUrl: './features/watchVideo/watchVideo.html',
         link: function (scope, el, attrs) {
 
+            scope.results = {};
+
             //if the mission has been made
             if (scope.task.status == 'answer') {
                 // alert('This task has been made');
@@ -119,7 +121,13 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
 
             //the mission finished
             scope.stop = function () {
-                scope.endMission('end mission');
+                scope.results.answer = 'end mission';
+                //get point, if the answer was sent in time
+                if (!scope.endTimer) {
+                    scope.results.points = scope.task.points;
+                }
+
+                scope.endMission(scope.results);
             }
 
             //pause video or replay after starting the mission
@@ -138,6 +146,10 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
                 scope.pause();
                 $('.playButton').show();
             }
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
 
         },
         replace: true

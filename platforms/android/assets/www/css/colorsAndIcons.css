@@ -55,7 +55,7 @@ body {
 .navigation .next-icon {
     background-image: url("../img/navigation.png");
 }
-.navigation .next-title-left{
+.navigation .next-title-back{
 background-color: #e21d91;
 }
 
@@ -140,7 +140,7 @@ background-color: #e21d91;
 .takePhoto .next-icon{
     background-image: url("../img/takePhoto.png");
 }
-.takePhoto .next-title-left{
+.takePhoto .next-title-back{
 background-color: #408fb0;
 }
 .takePhoto .next-icon{
@@ -235,7 +235,7 @@ background-image: url("../img/takePhoto.png");
 .takePhoto.red .next-icon {
     background-image: url("../img/takePhoto.png");
 }
-.takePhoto.red .next-title-left{
+.takePhoto.red .next-title-back{
 background-color: #e46051;
 }
 
@@ -272,7 +272,7 @@ background-color: #e46051;
 .takeVideo .next-icon {
     background-image: url("../img/takeVideo.png");
 }
-.takeVideo .next-title-left{
+.takeVideo .next-title-back{
 background-color: #46c4b4;
 }
 .takeVideo .next-icon{
@@ -332,7 +332,7 @@ background-color: #46c4b4;
     background-image: url("../img/watchVideo.png");
 }
 
-.watchVideo .next-title-left{
+.watchVideo .next-title-back{
 background-color: #a985e6;
 }
 .watchVideo .next-icon{
@@ -390,7 +390,7 @@ background-color: #a985e6;
 .multiQuestion .next-icon {
     background-image: url("../img/multiQuestion.png");
 }
-.multiQuestion .next-title-left{
+.multiQuestion .next-title-back{
 background-color: #FCE5C4;
 }
 .multiQuestion .next-icon{
@@ -464,7 +464,7 @@ background-color: #FCE5C4;
 .medicine-basket .next-icon {
     background-image: url("../img/medicine-basket.png");
 }
-.medicine-basket .next-title-left{
+.medicine-basket .next-title-back{
 background-color: #b5dc2d;
 }
 .medicine-basket .next-icon{
@@ -529,7 +529,7 @@ background-color: #b5dc2d;
     background-image: url("../img/openQuestion.png");
 }
 
-.openQuestion .next-title-left{
+.openQuestion .next-title-back{
 background-color: #fcf2c6;
 }
 

@@ -3,6 +3,8 @@ odtechApp.directive('qrCode', [function () {
         restrict: 'E',
         templateUrl: './features/qrCode/qrCode.html',
         link: function (scope, el, attrs) {
+            scope.results = {};
+
             scope.scancode = function () {
 
                 //use barcodeScanner plugin and get the result scan
@@ -13,12 +15,24 @@ odtechApp.directive('qrCode', [function () {
                         "Result: " + result.text + "\n" +
                         "Format: " + result.format + "\n" +
                         "Cancelled: " + result.cancelled);
+                        scope.results.answer = result;
+
+                        //get point, if the answer was sent in time
+                        if (!scope.endTimer) {
+                            scope.results.points = scope.task.points;
+                        }
+
+                        scope.endMission(scope.results);
                     },
                     function (error) {
                         alert("Scanning failed: " + error);
                     }
                 );
             }
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
         },
         replace: true
     };
