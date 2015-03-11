@@ -79,7 +79,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             }
 
             var fail = function (error) {
-                alert("An error has occurred: Code = " + error.code);
+                alert("An error has occurred: Code = " = error.code);
             }
 
             var options = new FileUploadOptions();

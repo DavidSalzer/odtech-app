@@ -23,6 +23,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -32,7 +36,7 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 3
+                            "count": 4
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
@@ -565,6 +569,9 @@
             "PACKAGE_NAME": "com.cambium.odtechApp"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.cambium.odtechApp"
+        },
+        "org.apache.cordova.file-transfer": {
             "PACKAGE_NAME": "com.cambium.odtechApp"
         }
     },

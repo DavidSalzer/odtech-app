@@ -85,6 +85,20 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransferError.js",
+        "id": "org.apache.cordova.file-transfer.FileTransferError",
+        "clobbers": [
+            "window.FileTransferError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransfer.js",
+        "id": "org.apache.cordova.file-transfer.FileTransfer",
+        "clobbers": [
+            "window.FileTransfer"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -237,6 +251,7 @@ module.exports.metadata =
     "org.apache.cordova.camera": "0.3.5",
     "org.apache.cordova.media-capture": "0.3.7-dev",
     "com.phonegap.plugins.barcodescanner": "2.0.1",
+    "org.apache.cordova.file-transfer": "0.5.0",
     "org.apache.cordova.file": "1.3.3"
 }
 // BOTTOM OF METADATA

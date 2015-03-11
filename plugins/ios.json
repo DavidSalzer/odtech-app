@@ -28,7 +28,7 @@
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
-                            "count": 3
+                            "count": 4
                         }
                     ],
                     "MobileCoreServices.framework": [
@@ -85,6 +85,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -109,6 +113,9 @@
             "PACKAGE_NAME": "com.cambium.odtechApp"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.cambium.odtechApp"
+        },
+        "org.apache.cordova.file-transfer": {
             "PACKAGE_NAME": "com.cambium.odtechApp"
         }
     },

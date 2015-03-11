@@ -14,8 +14,6 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             scope.countVideos = 0;
             scope.task.countVideo = 1;
 
-            scope.results = {};
-
             //check if this first time that we doing the mission or we made made it befor
             if (scope.task.status == 'answer') {
                 //alert('This task has been made');
@@ -32,7 +30,7 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 .then(function (data) {
                     $timeout(function () {
                         scope.videos = camera.getVideos();
-                        camera.uploadPhoto(scope.videos['videoCenter'].videoUri, "video");
+                        camera.uploadPhoto(scope.videos['photoCenter'].videoUri, "video");
                         $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls poster="img/poster.png"> <source src="' + scope.videos['videoCenter'].videoUri + '" type="video/mp4" /></video>');
                         //var video = angular.element('<video class="fullMovie" id="fullMovieClip" controls> <source src="'+scope.videos['videoCenter'].videoUri+'" type="video/mp4" /></video>');
                         //el.children.append(video);
@@ -64,11 +62,6 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             video.addEventListener('click', function () {
             video.play();
             }, false);*/
-
-            scope.$on('closeMission', function (event, data) {
-                scope.endMission(scope.results);
-            });
-
         },
         replace: true
     };
