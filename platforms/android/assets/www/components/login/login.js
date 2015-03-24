@@ -6,7 +6,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     .then(function (data) {
         //if user login
         if (data.res && data.res.name) {
-            $rootScope.showDescription = true;//show day description in mainNav.
+            $rootScope.showDescription = true; //show day description in mainNav.
             $state.transitionTo('mainNav');
         }
         //if logged in user has no userName
@@ -46,7 +46,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             if (!data.res.error) {
                 //if it old user go to missions else update user details. 
                 if (data.res.name) {
-                    $rootScope.showDescription = true;//show day description in mainNav.
+                    $rootScope.showDescription = true; //show day description in mainNav.
                     $state.transitionTo('mainNav');
                 }
                 else {
@@ -86,8 +86,15 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             type: "updateAppUser",
             req: {
                 name: $scope.userName,
-                imgfiled: 'img'
+                imgfiled: 'img',
+                isFile: true
             }
+        }
+
+        //if has url to user image on server. for android 4.4.2
+        if ($scope.imgServerUrl) {
+            request.req.imgfiled = $scope.imgServerUrl;
+            request.req.isFile = false;
         }
 
         var file = new FormData(document.forms.namedItem("userForm"));
@@ -99,7 +106,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             console.log(data);
             //if success.
             if (!data.res.error) {
-                $rootScope.showDescription = true;//show day description in mainNav.
+                $rootScope.showDescription = true; //show day description in mainNav.
                 $state.transitionTo('mainNav');
             }
             else {
@@ -113,13 +120,23 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     }
 
     //For 4.4.2, get image from device.
-    $scope.takePicture = function () {
+    $scope.captureImage = function () {
         camera.getPicture()
         .then(function (data) {
-            //set the preview image
-            $scope.setPreviewImg();
-        })
+            $timeout(function () {
+                $scope.imgurl = data.imgData;
+                $scope.setPreviewImg($scope.imgurl);
+                $scope.pictures = [];
+                $scope.pictures.push({ uri: $scope.imgurl })
+                camera.uploadPhoto($scope.pictures, "img", 1)
+                .then(function (data) {
+                    $scope.imgServerUrl = data[0][0];
+
+                });
+            }, 0);
+        });
     }
+
     $scope.email = '';
     $scope.groupCode = '';
     $scope.mailnotValid = false;
@@ -158,10 +175,10 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     $scope.showPreviewSrc = false;
     $scope.setPreviewImg = function (src) {
         $scope.previewSrc = src;
-        
+
         $timeout(function () {
-                $scope.showPreviewSrc = true;
-            }, 0)
-       
+            $scope.showPreviewSrc = true;
+        }, 0)
+
     }
 } ]);

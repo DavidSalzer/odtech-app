@@ -15,8 +15,8 @@
 }
 
 .photo-continue {
-    color: #408fb0;
-    width: 200px;
+    /*color: #408fb0;*/
+    width: 240px;
     height: 45px;
     position: absolute;
     bottom: 0;
@@ -41,7 +41,7 @@
 }
 
 .photoCenter {
-    background-color: rgba(122,199,234,.9);
+    /*background-color: rgba(122,199,234,.9);*/
     height: 312px;
     width: 425px;
     max-height: 100%;
@@ -57,7 +57,7 @@
     z-index: 5;
     background-position: center;
     margin: auto;
-    overflow: auto;
+    /*overflow: auto;*/
     top: 0px;
     bottom: 0px;
     right: 0px;
@@ -85,7 +85,7 @@
 }
 
 #mission-photo .photo {
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .photoUp {
-    background-color: rgba(169,226,250,.9);
+    /*background-color: rgba(169,226,250,.9);*/
     left: 375px;
     position: absolute;
     top: 130px;
@@ -106,7 +106,7 @@
 }
 
 .photoLeft {
-    background-color: rgba(165,225,250,.9);
+    /*background-color: rgba(165,225,250,.9);*/
     top: 310px;
     left: 150px;
     position: absolute;
@@ -119,7 +119,7 @@
 }
 
 .photoRight {
-    background-color: rgba(210,238,249,.9);
+    /*background-color: rgba(210,238,249,.9);*/
     top: 345px;
     left: 712px;
     position: absolute;
@@ -132,7 +132,7 @@
 }
 
 .photoDown {
-    background-color: rgba(178,219,236,.9);
+    /*background-color: rgba(178,219,236,.9);*/
     bottom: 80px;
     left: 425px;
     color: #fff;
@@ -238,11 +238,17 @@ div.openImgDialog > div > span {
     font-weight: bold;
 }
 
-@media all and (max-width: 600px) {
+.photo-order h2 {
+    font-size: 2em;
+}
+
+@media all and (max-width: 670px) {
 
 
     #mission-photo {
         overflow: auto;
+        position: relative;
+        padding-bottom: 60px;
     }
 
     .photoCenter {
@@ -343,5 +349,36 @@ div.openImgDialog > div > span {
         font-size: 23px;
         bottom: 12px;
         display: inline-block;
+    }
+
+    .photo-order {
+        right: initial;
+        left: 15px;
+        margin: auto;
+        top: 20%;
+        width: 30%;
+        height: 6%;
+        z-index: 100000;
+        bottom: 60px;
+        top: initial;
+    }
+
+    .photo-order h2 {
+        font-size: 1.2em;
+    }
+
+    .photo-continue {
+         width: 110px;
+  height: 34px;
+  left: 4px;
+  text-align: left;
+    }
+
+    .photo-order .next-text {
+        font-size: 16px;
+    }
+
+    .photo-order .arrow {
+        width: 20px;
     }
 }

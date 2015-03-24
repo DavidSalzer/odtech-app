@@ -3,14 +3,15 @@
     <head>
         <meta charset="utf-8" />
         <title>Odtech</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <!--<meta content="width=device-width, initial-scale=1.0" name="viewport" />-->
+         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" >
         <meta content="" name="description" />
         <meta content="" name="author" />
         <link href="css/reset.css" rel="stylesheet" />
         
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/multiQuestions.css" rel="stylesheet" />
-        <link href="css/colorsAndIcons.css" rel="stylesheet" />
+       
         <link href="css/qrCode.css" rel="stylesheet" />
 
         <!-- directives style-->
@@ -24,7 +25,12 @@
         <link href="css/mainQ.css" rel="stylesheet" />
         <link href="css/login.css" rel="stylesheet" />
         <link href="css/openQuestion.css" rel="stylesheet" />
-        
+        <link href="css/scala.css" rel="stylesheet" />
+
+         <link href="css/colorsAndIcons.css" rel="stylesheet" />
+        <!--<link href="css/colorsAndIconsMasa.css" rel="stylesheet" />-->
+         
+
         <script src="cordova.js"></script>
 
     </head>
@@ -38,7 +44,7 @@
         
         <div id="main-container">
             <ng-include src="'components/header/header.html'"></ng-include>
-            <div id="main-view" class="main-view" data-ui-view="main"></div>
+            <div id="main-view"  class="main-view" data-ui-view="main"></div>
         </div>
        <ng-include src="'components/footer/footer.html'"></ng-include>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
@@ -81,6 +87,7 @@
         <script src="directives/monitor/monitor.js"></script>
         <script src="directives/points/points.js"></script>
         <script src="directives/timer/timer.js"></script>
+        
 
         <!-- odtech  features-->
         <script src="features/multiQuestion/multiQuestion.js"></script>
@@ -90,6 +97,7 @@
         <script src="features/takeVideo/takeVideo.js"></script>
         <script src="features/watchVideo/watchVideo.js"></script>
         <script src="features/qrCode/qrCode.js"></script>
+        <script src="features/scala/scala.js"></script>
         
         
         <!-- END JAVASCRIPTS -->

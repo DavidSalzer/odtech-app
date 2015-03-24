@@ -55,7 +55,8 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
             scope.currentTime = scope.task.timer*60;//convert the minutes to seconds
             scope.displayTimer(scope.currentTime);
             scope.$watch('startMission', function () {
-                if (scope.startMission == true) {
+                //check if timer have to start. only on first enter and after 'start' click.
+                if (scope.startMission == true && scope.task.status == 'notAnswer') {
                     scope.startTimer()
                 }
                 //init (stop) the timer

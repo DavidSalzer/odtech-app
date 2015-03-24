@@ -12,14 +12,24 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
             scope.photoRight = 'photoRight';
             //scope.task.countPhoto = 3;
             scope.countPhotos = 0;
+            scope.showFinishQuestion = false;
 
+            scope.results = {};
+            scope.results.answer = {};
+            scope.results.points = 0;
+            scope.firstTime = true;
             //check if this first time that we doing the mission or we made made it befor
             if (scope.task.status == 'answer') {
                 //alert('This task has been made');
-                scope.pictures = camera.getPictures();
-                for (p in scope.pictures) {
-                    scope.photoSaved[p] = true;
-                }
+                $timeout(function () {
+                    scope.firstTime = false;
+                    scope.task.answer.data = JSON.parse(scope.task.answer.data);
+                    for (pic in scope.task.answer.data) {
+                        scope.photoSaved[pic] = true;
+                        scope.pictures[pic] = { uri: imgDomain + scope.task.answer.data[pic] };
+                    }
+                }, 0)
+
             }
 
             // take photo
@@ -34,12 +44,34 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                         scope.photoSaved[scope.photoClicked] = true;
                         scope.countPhotos++;
                         if (scope.countPhotos == scope.task.countPhoto) {
-                            alert("סיימת את המשימה:)");
+                            //alert("סיימת את המשימה:)");
+                            //if the user take the last photo - display the "is finished question popup"
+
+                            $timeout(function () {
+                                scope.showFinishQuestion = true;
+                            }, 0);
                         }
                     }, 0);
                 });
             }
-
+            //after the user click on the finish question poopup - upload to server
+            scope.uploadImages = function () {
+                scope.showFinishQuestion = false;
+                camera.uploadPhoto(scope.pictures, "img", scope.task.countPhoto)
+                            .then(function (data) {
+                                //  result = {};
+                                for (index in data) {
+                                    for (field in data[index]) {
+                                        scope.results.answer[field] = data[index][field];
+                                        //get point, if the answer was sent in time
+                                        if (!scope.endTimer) {
+                                            scope.results.points = scope.task.points;
+                                        }
+                                    }
+                                }
+                                scope.endMission(scope.results);
+                            });
+            }
             // add description to photo
             scope.addDescription = function () {
                 camera.addDescription(scope.description);
@@ -67,20 +99,24 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
 
             ///////////////////////////////////////////////////////////////////////////////////////// for browsers
             scope.imageChosen = function (input) {
-                alert('d');
+                //  alert('d');
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
                     reader.onload = function (e) {
                         //set the preview image
                         //$scope.setPreviewImg(e.target.result);
-                        alert(0);
+                        // alert(0);
                         // $('#blah').attr('src', e.target.result);
                     }
 
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
         },
         replace: true
     };

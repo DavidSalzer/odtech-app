@@ -11,14 +11,19 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 id: 1,
                 coords: {},
                 icon: {
-                    url: './img/position2.png'
+                    url: './img/position2.png',
                     //size: new google.maps.Size(80, 80),
+                    scaledSize: new google.maps.Size(75, 93)
                     //origin: new google.maps.Point(50, 50)
                 }
             };
 
             scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
             scope.options = { scrollwheel: true };
+
+            scope.results = {};
+            scope.results.answer;
+            scope.results.points = 0;
 
             //get current location of user.
             scope.getCurrentLocation = function () {
@@ -63,7 +68,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                     longitude: scope.task.Longitude
                 },
                 icon: {
-                    url: './img/position4.png'
+                    url: './img/position4.png',
+                    scaledSize: new google.maps.Size(75, 93)
                 }
             };
 
@@ -99,6 +105,10 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 z = Math.sqrt(x2 + y2);
                 if (z < scope.destinationRadius) {
                     $timeout(function () {
+                        if (!scope.endTimer) {
+                            scope.results.answer = 'destination';
+                            scope.results.points = scope.task.points;
+                        }
                         scope.isDestination = true;
                     }, 0)
 
@@ -108,8 +118,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             //exec while user click on destination btn.
             scope.sendDestination = function () {
                 $timeout(function () {
-                    if (scope.task.status != 'answer') {
-                        scope.endMission('destination');
+                    if (scope.task.status != 'answer' && !scope.endTimer) {
+                        scope.endMission(scope.results);
                     }
                     scope.isDestination = false;
                 }, 0)
@@ -130,6 +140,10 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                     }, 0)
                 }
             }, 60000);
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
 
             scope.$on('$destroy', function () {
                 $interval.cancel(isLocationConnect);

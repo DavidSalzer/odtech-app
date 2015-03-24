@@ -1,13 +1,13 @@
-odtechApp.directive('multiQuestion', ['$timeout',function ($timeout) {
+odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
     return {
         restrict: 'E',
         templateUrl: './features/multiQuestion/multiQuestion.html',
         link: function (scope, el, attrs) {
-           //if the mission has been made
-            scope.firstTime =true;
+            //if the mission has been made
+            scope.firstTime = true;
             if (scope.task.status == 'answer') {
-               $timeout(function () {
-                    scope.firstTime =false;
+                $timeout(function () {
+                    scope.firstTime = false;
                 }, 0)
             }
 
@@ -19,7 +19,10 @@ odtechApp.directive('multiQuestion', ['$timeout',function ($timeout) {
             //set the correct answer text
             scope.rightAnswerTextIndex = scope.task.questions[scope.currentQuestion].correctQuestionIndex;
             scope.rightAnswerText = scope.task.questions[scope.currentQuestion].answers[scope.rightAnswerTextIndex]
-            scope.clickedAnswers = [];
+            scope.results = {};
+            scope.results.answer=[] ;
+            scope.results.points = 0;
+            scope.pointsPerQuestion = scope.task.points / scope.task.questions.length;
 
             scope.answerClick = function (index) {
                 //if the answer that clicked is correct
@@ -29,8 +32,11 @@ odtechApp.directive('multiQuestion', ['$timeout',function ($timeout) {
                     scope.showAnswerRight = true;
 
                     //save the data to the server
-                    scope.clickedAnswers[scope.currentQuestion] = true;
-
+                    scope.results.answer[scope.currentQuestion] = true;
+                    //get point, if the answer was sent in time
+                    if (!scope.endTimer) {
+                        scope.results.points += scope.pointsPerQuestion;
+                    }
                     //TODO: play the right sound
 
 
@@ -40,7 +46,7 @@ odtechApp.directive('multiQuestion', ['$timeout',function ($timeout) {
                     scope.showAnswerIndication = true;
                     scope.showAnswerRight = false;
                     //save the data to the server
-                    scope.clickedAnswers[scope.currentQuestion] = false;
+                    scope.results.answer[scope.currentQuestion] = false;
 
                     //TODO: play the wrong sound
 
@@ -62,15 +68,15 @@ odtechApp.directive('multiQuestion', ['$timeout',function ($timeout) {
                     //if there are no more questions -show the end screen
                     else {
                         //Perform end mission function.
-                        scope.endMission(scope.clickedAnswers); //the param is the answers of user
+                        scope.endMission(scope.results); //the param is the answers of user
 
                     }
 
                 }, 3500);
             }
 
-            scope.$on('endTimer', function () {
-
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
             });
 
         },

@@ -9,6 +9,18 @@ body {
     background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(188,227,244,1) 100%); /* W3C */   
 }
 
+header {  
+ /*top: 10px;
+    left: 1%;*/
+  /*height: 110px;*/
+}
+
+#logo {
+   height: 50px;
+  width: 150px;
+  background-image: url("../img/logo.png"); 
+}
+
 #small-left-logo {
     position: fixed;
     top: 30px;
@@ -30,6 +42,10 @@ body {
 }
 .img-plus{
      border: solid 6px #17507f;
+}
+
+#day-description > p{
+    color: #ffffff;
 }
 /*****navigation**************************************************************/
 
@@ -55,7 +71,7 @@ body {
 .navigation .next-icon {
     background-image: url("../img/navigation.png");
 }
-.navigation .next-title-left{
+.navigation .next-title-back{
 background-color: #e21d91;
 }
 
@@ -118,6 +134,25 @@ background-color: #e21d91;
     background-color: rgba(178,219,236,0.9);
 }
 
+.takePhoto .photoCenter {
+    background-color: rgba(122,199,234,.9);
+}
+
+.takePhoto .photoLeft {
+    background-color: rgba(165,225,250,.9);
+}
+
+.takePhoto .photoRight {
+    background-color: rgba(210,238,249,.9);
+}
+
+.takePhoto .photoDown {
+    background-color: rgba(178,219,236,.9);
+}
+
+.takePhoto .photoUp {
+     background-color: rgba(169,226,250,.9);
+}
 .takePhoto .popup .pink, .takePhoto .item-number {
     color: #e21d91;
 }
@@ -140,7 +175,7 @@ background-color: #e21d91;
 .takePhoto .next-icon{
     background-image: url("../img/takePhoto.png");
 }
-.takePhoto .next-title-left{
+.takePhoto .next-title-back{
 background-color: #408fb0;
 }
 .takePhoto .next-icon{
@@ -159,7 +194,7 @@ background-color: #408fb0;
     background-color: #e6f4fa;
 }
 
-.takePhoto .mission-popup-continue .arrow {
+.takePhoto  .arrow {
     background-image: url("../img/svg/arrow/takePhoto.svg");
 }
 
@@ -235,7 +270,7 @@ background-image: url("../img/takePhoto.png");
 .takePhoto.red .next-icon {
     background-image: url("../img/takePhoto.png");
 }
-.takePhoto.red .next-title-left{
+.takePhoto.red .next-title-back{
 background-color: #e46051;
 }
 
@@ -272,7 +307,7 @@ background-color: #e46051;
 .takeVideo .next-icon {
     background-image: url("../img/takeVideo.png");
 }
-.takeVideo .next-title-left{
+.takeVideo .next-title-back{
 background-color: #46c4b4;
 }
 .takeVideo .next-icon{
@@ -332,7 +367,7 @@ background-color: #46c4b4;
     background-image: url("../img/watchVideo.png");
 }
 
-.watchVideo .next-title-left{
+.watchVideo .next-title-back{
 background-color: #a985e6;
 }
 .watchVideo .next-icon{
@@ -390,7 +425,7 @@ background-color: #a985e6;
 .multiQuestion .next-icon {
     background-image: url("../img/multiQuestion.png");
 }
-.multiQuestion .next-title-left{
+.multiQuestion .next-title-back{
 background-color: #FCE5C4;
 }
 .multiQuestion .next-icon{
@@ -399,7 +434,7 @@ background-color: #FCE5C4;
 .multiQuestion .number{
     color: #ff9900;
 }
-.multiQuestion .next-answer-slide .answer p{
+.multiQuestion .next-answer-slide .answer .answer-wrap{
     background-color: #ff9900
 }
 .multiQuestion .answer span{
@@ -464,7 +499,7 @@ background-color: #FCE5C4;
 .medicine-basket .next-icon {
     background-image: url("../img/medicine-basket.png");
 }
-.medicine-basket .next-title-left{
+.medicine-basket .next-title-back{
 background-color: #b5dc2d;
 }
 .medicine-basket .next-icon{
@@ -529,7 +564,7 @@ background-color: #b5dc2d;
     background-image: url("../img/openQuestion.png");
 }
 
-.openQuestion .next-title-left{
+.openQuestion .next-title-back{
 background-color: #fcf2c6;
 }
 
@@ -663,6 +698,10 @@ background-color: rgba(249,237,189,0.96);
 
 .takePhoto.red .close{
     background-image: url("../img/svg/x/feelings.svg");
+}
+.takePhoto .photo-order
+{
+      color: #408fb0;
 }
 /*****takePhoto -pink******************************************************************************************/
 .pink .photo-order h2,.pink .photo-continue{

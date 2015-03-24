@@ -32,6 +32,7 @@ html, body {
     height: 100%;
     font-family: fbprozalight;
     direction: rtl;
+    overflow: hidden;
 }
 
 input {
@@ -42,6 +43,21 @@ input {
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.animate-switch-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+#main-container.keyboard, body.keyboard, #main-view.keyboard {
+    overflow: initial;
+}
+
+.keyboard .mission-write-text {
+    position: relative;
 }
 /****************************** font size class ********************************/
 .fs-1 {
@@ -206,8 +222,8 @@ input {
     position: relative;
     height: 100%;
     /*top: 50%;
-    transform: translateY(-50%);
-    padding-right: 75px;*/
+     transform: translateY(-50%);
+     padding-right: 75px;*/
 }
 
 #call-for-action {
@@ -220,6 +236,10 @@ input {
     font-size: 30px;
 }
 
+.mainnav-wrap {
+    width: 100%;
+    height: 100%;
+}
 
 .mission-wrap {
     overflow-x: auto;
@@ -227,7 +247,10 @@ input {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     padding-right: 75px;
+    -webkit-overflow-scrolling: touch;
 }
 
 #mission-menu {
@@ -240,6 +263,7 @@ input {
     height: 328px;
     margin-left: 30px;
     width: 367px;
+    z-index: 20;
 }
 
 .mission-menu-item.not-visited {
@@ -260,6 +284,7 @@ input {
 
 .mission-menu-item.start .mission-menu-center {
     background-image: url("../img/nav_start.png");
+    background-size: contain;
 }
 
 .lock {
@@ -305,12 +330,70 @@ input {
     font-weight: 100;
 }
 
+.no-missions-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: auto;
+    height: 3em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.no-missions-data {
+}
+/***********main nav*************/
+.mission-menu-item.done .mission-menu-center {
+    background-size: cover;
+}
+
+.done .lock {
+    display: none;
+}
+
+.scala.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/GRADING.jpg');
+}
+
+.navigation.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/navigation.jpg');
+}
+
+.takePhoto.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/scala.jpg');
+}
+
+.watchVideo.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/video_view.jpg');
+}
+
+.takeVideo.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/video.jpg');
+}
+
+.openQuestion.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/open_question.jpg');
+}
+
+.multiQuestion.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/multi.jpg');
+}
+
+.qrCode.done .mission-menu-center {
+    background-image: url('../img/mainNav-done/qr.jpg');
+}
+
+
 
 /********************* mission-introduction **************************/
 .blur-wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
+    overflow-y: auto;
 }
 
 .blur {
@@ -418,8 +501,8 @@ input {
     /* color: #e21d91; */
     cursor: pointer;
 }
-
-.mission-popup-continue .arrow {
+/*.mission-popup-continue .arrow {*/
+.arrow {
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -493,8 +576,9 @@ input {
     padding: 15px;
     min-height: 70px;
     max-height: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: 10;
+    /*overflow-y: auto;
+     overflow-x: hidden;*/
 }
 
 .popup-text {
@@ -561,35 +645,50 @@ input {
 
 .next-title-wrap {
     font-size: 36px;
-    width: 100%;
+    width: 70%;
     margin: auto;
-    height: 51px;
+    height: 73px;
     display: inline-block;
     overflow: hidden;
     position: relative;
     z-index: 10;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.next-title-back {
+    height: 100%;
 }
 
 .next-icon {
     width: 73px;
-    height: 51px;
+    height: 73px;
     display: inline-block;
     vertical-align: top;
     background-size: 100%;
     background-color: #ffd200;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    float: right;
 }
 
 .next-title-left {
     display: inline-block;
-    height: 51px;
+    height: 73px;
+    float: right;
     padding: 0px 20px;
+    /*margin-right: -8px;*/
 }
 
 .next-title {
-    font-size: 27px;
+    font-size: 32px;
     /* height: 100%; */
     /* line-height: 27px; */
     padding-top: 11px;
+    line-height: 52px;
 }
 
 .next-subtitle {
@@ -605,7 +704,7 @@ input {
     text-align: right;
     position: absolute;
     top: 0;
-    padding-top: 72px;
+    padding-top: 88px;
     box-sizing: border-box;
     height: 100%;
     margin-top: 0;
@@ -618,9 +717,9 @@ input {
     padding: 10px;
     box-sizing: border-box;
     /*overflow-y: auto;
-    overflow-y: hidden;*/
+     overflow-y: hidden;*/
     position: relative;
-    
+    overflow: auto;
 }
 
 /********************* features **************************/
@@ -630,6 +729,7 @@ input {
     position: relative;
     width: 65%;
     margin: auto;
+    top: 100px;
 }
 
 .claimText {
@@ -638,16 +738,17 @@ input {
     margin: 100px auto 0 auto;
     width: 100%;
     display: block;
-    background: #fff;
+    background: #FCFCFA;
     border: transparent;
     text-align: right;
     resize: none;
     overflow: hidden;
     color: #666666;
     overflow-y: scroll;
-    height: 34%;
+    height: 100%;
     padding: 15px;
     box-sizing: border-box;
+    margin-top: 0;
 }
 
 
@@ -735,9 +836,10 @@ input {
 }
 
 .answers-wrapper-scroll {
-    max-height: 60%;
+    /*max-height: 60%;*/
     overflow-x: hidden;
     overflow-y: scroll;
+    max-height: 500px;
 }
 
 #mission-quiz .answer {
@@ -815,6 +917,8 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #main-help {
@@ -860,18 +964,30 @@ footer {
 /*************header****************/
 header {
     position: absolute;
+    /*top: 10px;
+    left: 1%;*/
+    /*height: 50px;
+    width: auto;*/
+    z-index: 10;
     top: 10px;
     left: 1%;
-    height: 50px;
-    width: auto;
-    z-index: 10;
+    height: 110px;
 }
 
-.logo {
-    height: 100%;
-    width: auto;
+#logo {
+    /*height: 50px;
+  width: 150px;*/
+    /*background-image: url("../img/logo.png");*/
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
+.x {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    z-index: 9999;
+}
 /*********************************/
 
 /*@media all and (max-width: 600px) {*/
@@ -893,16 +1009,20 @@ header {
         padding: 5px;
     }
 
+    #logo {
+        margin: auto;
+    }
+
     #main-container {
         display: block;
         position: absolute;
-        height: auto;
         bottom: 0;
         top: 0;
         left: 0;
         right: 0;
-        padding-bottom: 60px;
-        overflow-y: scroll;
+        padding-bottom: 56px;
+        box-sizing: border-box;
+        overflow: initial;
     }
 
     #mission-container {
@@ -915,8 +1035,21 @@ header {
         padding-right: initial;
         height: auto;
         padding-bottom: 60px;
+        min-height: 280px;
+        height: 100%;
+        /*
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;*/
     }
 
+    .mainnav-wrap {
+        overflow-y: scroll; /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+        height: 100%;
+        position: relative;
+    }
     /********************* mission-container **************************/
 
     .mission-holder {
@@ -965,6 +1098,11 @@ header {
 
     .popup-text {
         font-size: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+        margin-left: 0;
+        width: 100%;
+        font-size: 15px;
     }
 
     .mission-repeat-popup h2 {
@@ -980,12 +1118,20 @@ header {
         display: none;
     }
 
+
     .mission-wrap {
         padding-right: 0;
         padding-top: 30px;
         transform: initial;
         top: inherit;
         width: 100%;
+        transform: initial;
+        -webkit-transform: initial;
+        -ms-transform: initial;
+        overflow-x: initial;
+        overflow-y: initial;
+        padding-bottom: 60px;
+        box-sizing: border-box;
     }
 
     .mission-menu-item {
@@ -1026,7 +1172,7 @@ header {
     footer {
         background-color: rgba(225,225,225,0.8);
         height: 56px;
-        z-index: 10;
+        z-index: 20;
         webkit-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
@@ -1046,7 +1192,7 @@ header {
         bottom: 0;
         margin: auto;
         min-height: 200px;
-        max-height: 262px;
+        max-height: 30%;
     }
 
     .next {
@@ -1055,6 +1201,8 @@ header {
 
     .claim-text-wrap {
         width: 80%;
+        position: relative;
+        height: 59%;
     }
 
     /*******next time****/
@@ -1069,8 +1217,9 @@ header {
 
     .next-title-left {
         font-size: 0.7em;
-        padding-top: 4px;
         box-sizing: border-box;
+        padding-top: 0;
+        padding-right: 10px;
     }
 
     .next-subtitle {
@@ -1079,15 +1228,41 @@ header {
     }
 
     .next-title {
-        padding-top: 9px;
+        padding-top: 0px;
+        font-size: 20px;
     }
 
     .next-main-content {
         padding-bottom: 56px;
+        padding-top: 64px;
     }
 
     .next-time {
-    height: 80%;
+        height: 80%;
+    }
+
+    .next-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .next-title-wrap {
+        width: 100%;
+        height: 50px;
+    }
+
+    .animate-switch-container {
+        overflow-y: auto;
+        padding-bottom: 56px;
+        box-sizing: border-box;
+    }
+
+    .answers-wrapper-scroll {
+        max-height: initial;
+    }
+
+    .x {
+        top: 22px;
     }
 }
 
@@ -1103,16 +1278,4 @@ header {
     #call-for-action {
         display: none;
     }
-}
-
-.x {
-    /*background-image: url('../img/x.png');
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;*/
-  top: 10px;
-right: 10px;
-    position: absolute;
-    /*background-size: 100% 100%;*/
-    z-index: 9999;
 }
