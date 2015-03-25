@@ -1,0 +1,201 @@
+.main-scala {
+    height: 52px;
+    width: 750px;
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+    font-size: 1.8em;
+    z-index: 5;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+#scala {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#scala-max {
+    float: left;
+    position: relative;
+    left: -35px;
+}
+
+#scala-min {
+    float: right;
+    position: relative;
+    right: -41px;
+}
+
+#scala-max-num {
+    float: left;
+}
+
+#scala-min-num {
+    float: right;
+}
+
+.scala-text {
+    color: #000000;
+}
+
+.taskEnd-wrapper {
+    text-align: center;
+    margin-top: 108px;
+}
+
+/******************************************************/
+input {
+    height: 12px;
+    width: 256px;
+}
+/*********************** reset  */
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; /* Hides the slider so custom styles can be added */
+    border-color: transparent;
+    color: transparent;
+}
+
+/******************* track*/
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;*/
+    background: #aaaaaa; /* Old browsers */
+    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* IE10+ */
+    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #aaaaaa; /* Old browsers */
+    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* IE10+ */
+    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.mobile-down-input, .mobile-up-input {
+    display: none;
+}
+
+#scala-max-num-mobile {
+    display: none;
+}
+
+#scala-min-mobile {
+    display: none;
+}
+
+@media all and (max-width: 736px) and (max-height: 736px) {
+
+    .mobile-down-input {
+        height: 20px;
+        display: block;
+    }
+
+    .mobile-up-input {
+        display: block;
+        height: 20px;
+    }
+
+
+    #scala-max-num {
+        float: none;
+    }
+
+    #scala-min-num {
+        float: none;
+        text-align: center;
+        text-indent: 33px;
+        position: relative;
+        /* margin-top: -18px; */
+    }
+
+    #scala-max-num-mobile {
+        display: block;
+        text-align: center;
+        text-indent: 37px;
+        position: relative;
+        /* margin-top: -19px; */
+        /* margin-bottom: -16px; */
+    }
+
+    #scala-max-num {
+        display: none;
+    }
+
+    .taskEnd-wrapper {
+        margin-top: 10px;
+    }
+
+    #scala-min-mobile {
+        display: block;
+        /* margin-top: -23px; */
+        text-indent: -98px;
+        position: relative;
+    }
+
+    #scala-min {
+        display: none;
+    }
+
+    #scala {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        background: none;
+        /* margin-bottom: 0px; */
+        position: relative;
+        margin: auto;
+        display: block;
+    }
+
+    .scala-text {
+        text-align: center;
+        text-indent: -75px;
+    }
+
+    .main-scala {
+        height: auto;
+        width: 100%;
+    }
+
+    #scala-max {
+        float: none;
+        left: 0px;
+        margin-top: 90px;
+    }
+}
