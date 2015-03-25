@@ -1,6 +1,6 @@
 odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($rootScope, $http, $q, $state) {
 
-    
+
     return {
 
         request: function (data) {
@@ -9,12 +9,12 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
 
             var deferred = $q.defer();
 
-            var resFromStorage = self.getStorage(data);
+            //var resFromStorage = self.getStorage(data);
 
-            if (resFromStorage) {
-                deferred.resolve(resFromStorage);
-                return deferred.promise;
-            }
+            //if (resFromStorage) {
+            //    deferred.resolve(resFromStorage);
+            //    return deferred.promise;
+            //}
 
             var httpDetails = {
                 url: domain,
@@ -36,7 +36,7 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
                     $state.transitionTo('login');
                 }
                 //set response to localStorage if necessary
-                self.setStorage(data, json);
+                // self.setStorage(data, json);
                 deferred.resolve(json);
                 //console.log(json);
             }).
@@ -132,7 +132,7 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
             itemObject = JSON.parse(localStorage.getItem(item));
             itemObject.res.status = 'answer';
             itemObject.res.answer = {};
-            itemObject.res.answer.data = data.req.data;
+            itemObject.res.answer.data = data.req.data.answer;
             localStorage.setItem(item, JSON.stringify(itemObject));
 
             //change status of mission in mission list
@@ -143,6 +143,8 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
                     if (missions.res.activitie.isLinear) {
                         missions.res.activitie.mission[i + 1].status = 'notAnswer';
                     }
+                    //set the answer in storage
+                    missions.res.activitie.mission[i].answer = data.req.data.answer;
                     break;
                 }
             }

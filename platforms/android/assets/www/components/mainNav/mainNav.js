@@ -116,6 +116,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
     $scope.getBackgroundPhoto = function (task) {
         var background = '';
+        console.log('getBackgroundPhoto')
          if (task.type == 'takePhoto' && task.answer) {
              //parse the data string to object
             var data = JSON.parse(task.answer.data)

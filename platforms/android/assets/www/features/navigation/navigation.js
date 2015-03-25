@@ -87,7 +87,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 $timeout(function () {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
-                    console.log(scope.myMarker);
+                    //console.log(scope.myMarker);
                     scope.noLocation = false;
                     checkDistance(position, scope.destinationMarker);
                 }, 0)

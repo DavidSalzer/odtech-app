@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.file-transfer.FileTransferError", function(require, exports, module) { /*
+cordova.define("org.apache.cordova.file-transfer.FileTransferError", function(require, exports, module) {/*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -39,5 +39,4 @@ FileTransferError.ABORT_ERR = 4;
 FileTransferError.NOT_MODIFIED_ERR = 5;
 
 module.exports = FileTransferError;
-
 });

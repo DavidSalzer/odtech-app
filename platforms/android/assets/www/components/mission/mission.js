@@ -62,7 +62,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
             //if the mission has did you know.
             if ($scope.task.didYouKnow && $scope.task.didYouKnow != '') {
-                alert('did you know');
+               // alert('did you know');
                  $state.transitionTo('mainNav');
                 $timeout(function () {
                     // $scope.showDidYouKnow = true;

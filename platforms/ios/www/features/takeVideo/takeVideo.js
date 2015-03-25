@@ -5,7 +5,7 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
         link: function (scope, el, attrs) {
 
             scope.videoSaved = {};
-            scope.pictures = {};
+            scope.videos = {};
             scope.videoCenter = 'videoCenter';
             scope.videoUp = 'videoUp';
             scope.videoDown = 'videoDown';
@@ -14,14 +14,23 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             scope.countVideos = 0;
             scope.task.countVideo = 1;
 
+            scope.results = {};
+            scope.results.answer={};
+            scope.results.points = 0;
+            scope.firstTime = true;
             //check if this first time that we doing the mission or we made made it befor
             if (scope.task.status == 'answer') {
                 //alert('This task has been made');
-                scope.videos = camera.getVideos();
-                $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls poster="img/poster.png"> <source src="' + scope.videos['videoCenter'].videoUri + '" type="video/mp4" /></video>');
-                for (v in scope.videos) {
-                    scope.videoSaved[v] = true;
-                }
+                //scope.videos = camera.getVideos();
+                $timeout(function () {
+                    scope.firstTime = false;
+                    scope.task.answer.data = JSON.parse(scope.task.answer.data);
+                    for (video in scope.task.answer.data) {
+                        scope.videoSaved[video] = true;
+                        scope.videos[video] = { uri: imgDomain + scope.task.answer.data[video] };
+                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls > <source src="' + scope.videos[video].uri + '" type="video/mp4" /></video>');
+                    }
+                }, 0)
             }
 
             // take video
@@ -30,8 +39,8 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 .then(function (data) {
                     $timeout(function () {
                         scope.videos = camera.getVideos();
-                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls poster="img/poster.png"> <source src="' + scope.videos['videoCenter'].videoUri + '" type="video/mp4" /></video>');
-                        //var video = angular.element('<video class="fullMovie" id="fullMovieClip" controls> <source src="'+scope.videos['videoCenter'].videoUri+'" type="video/mp4" /></video>');
+                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls poster="img/poster.png"> <source src="' + scope.videos['videoCenter'].uri + '" type="video/mp4" /></video>');
+                        //var video = angular.element('<video class="fullMovie" id="fullMovieClip" controls> <source src="'+scope.videos['videoCenter'].uri+'" type="video/mp4" /></video>');
                         //el.children.append(video);
                         //scope.videos['videoCenter'].videoTag = ;
                         scope.videoClicked = videoClicked;
@@ -42,6 +51,20 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                         scope.countVideos++;
                         if (scope.countVideos == scope.task.countVideo) {
                             //alert("סיימת את המשימה:)");
+                            camera.uploadPhoto(scope.videos, "video", 1)
+                            .then(function (data) {
+                              //  result = {};
+                                for (index in data) {
+                                    for (field in data[index]) {
+                                        scope.results.answer[field] = data[index][field];
+                                        //get point, if the answer was sent in time
+                                        if (!scope.endTimer) {
+                                            scope.results.points = scope.task.points;
+                                        }
+                                    }
+                                }
+                                scope.endMission(scope.results);
+                            });
                         }
                     }, 0);
                 });
@@ -61,6 +84,11 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             video.addEventListener('click', function () {
             video.play();
             }, false);*/
+
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
+
         },
         replace: true
     };

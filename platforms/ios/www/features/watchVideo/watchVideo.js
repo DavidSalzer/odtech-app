@@ -1,56 +1,80 @@
-odtechApp.directive('watchVideo', ['$window', function ($window) {
+var mainPlayer;
+var player;
+odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './features/watchVideo/watchVideo.html',
         link: function (scope, el, attrs) {
 
+            scope.results = {};
+            scope.results.answer;
+            scope.results.points = 0;
             //if the mission has been made
             if (scope.task.status == 'answer') {
                 // alert('This task has been made');
             }
 
-            /*ver 1.1 include youtubeURL*/
-            /*write what the function does.
-            write main function
-            */
-            //youtubeApiReady = false;
-            //var tag = document.createElement('script');
-            //tag.src = "https://www.youtube.com/player_api";
-            //var firstScriptTag = document.getElementsByTagName('script')[0];
-            // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             scope.player;
             scope.startYoutube = false;
             var player;
             scope.endMovie = false;
+            scope.playing = false; //set the playing status
+            scope.showPoster = true; //  set the display of poster && 'continue' && 'finish' 
+            scope.movieCtrl = false;
+            scope.isYoutube = true;
+            scope.IsBlur = false; // set the blur class
+
+            scope.attachEventByVideoType = function () {
+                //if youtube player initialize befor get youtyubeID - update now
+                if (scope.isYoutube && scope.player) {
+                    scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.task.youtubeID + "?version=3");
+
+                    scope.posterImage = "http://img.youtube.com/vi/" + scope.task.youtubeID + "/0.jpg";
+                    scope.showPoster = false;
+                } else if (scope.isYoutube) {
+                    scope.initPlayer();
+                    scope.posterImage = " http://img.youtube.com/vi/" + scope.task.youtubeID + "/0.jpg";
+                    scope.showPoster = false;
+                    //attach general video events
+                } else if (!scope.isYoutube) {
+                    scope.generalVideoEvents();
+                    $("#fullMovie").html('<source src="' + scope.task.videoURL + '" type="video/mp4"></source>');
+                    //set the poster image from admin
+                    //scope.posterImage
+                }
 
 
+
+            };
+
+
+            /**********************youtube functions**************************/
             //init youtube player
             scope.initPlayer = function () {
-                if (!scope.youtubeReset) {
-                    scope.youtubeReset = true;
-                    scope.player = new YT.Player('youtube-url-video', {
-                        height: '100%',
-                        width: '100%',
-                        playerVars: { 'controls': 0 },
-                        videoId: scope.task.youtubeID,
-                        events: {
-                            'onReady': scope.playerReady,
-                            'onStateChange': scope.playerStateChange
-                        }
-                    });
-                }
+                scope.youtubeReset = true;
+                scope.player = new YT.Player('youtube-url-video', {
+                    height: '100%',
+                    width: '100%',
+                    playerVars: { 'controls': 0 },
+                    videoId: scope.task.youtubeID,
+                    events: {
+                        'onReady': scope.playerReady,
+                        'onStateChange': scope.playerStateChange
+                    }
+                });
+
+
             }
 
             //init event
             $window.onYouTubeIframeAPIReady = function () {
                 scope.initPlayer();
             }
+
             //youtube player is ready and user allready press on continue
             scope.playerReady = function () {
                 if (scope.startYoutube) {
                     scope.player.playVideo();
-                } else {
-                    // $('.fullMovie').addClass('blur');
                 }
             }
 
@@ -58,60 +82,102 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
             scope.playerStateChange = function (newState) {
                 //if finish
                 if (newState.data == 0) {
-                    scope.player.seekTo(0);
+                    scope.playing = false;
+
+
                     setTimeout(function () {
-                        scope.player.pauseVideo();
+                        scope.player.destroy();
+                        scope.initPlayer();
                     }, 100);
-                    $('.fullMovie').addClass('blur');
-                    $('.movieCtl').show();
-                    scope.endMovie = true;
+                    //if this is a second enter -hide the poster and buttons
+                    if (scope.task.status != 'answer') {
+                       
+                        $timeout(function () {
+                            scope.showPoster = true;
+                            scope.movieCtrl = true;
+                        }, 100)
+                        scope.endMovie = true;
+                    }
+                    else {
+                        scope.endMovie = true;
+                    }
+
                 }
-            }
-            // remove blur class and hide video controls
-            scope.removeBlur = function () {
-                $('.fullMovie').removeClass('blur');
-                $('.movieCtl').hide();
             }
 
-            //play video when the missiom start
-            scope.$watch('startMission', function (newVal, oldVal) {
-                console.log('changed');
-                if (newVal == true && oldVal == false && scope.task.videoURL) { // the mission start
-                    //scope.play();
+         
+            /********************general video functions**************************/
+            //listener for end mov
+            scope.fullMovieHandler = function (e) {
+                if (!e) { e = window.event; }
+                scope.endMovie = true;
+                scope.playing = false;
+                //if this is a first time enter and the movie end - show the poster and the buttons for exitand replay
+                if (scope.task.status != 'answer') {
+                    $timeout(function () {
+                        scope.showPoster = true;
+                        scope.showPlayBtn = false;
+                        scope.movieCtrl = true;
+
+                    }, 100)
                 }
+                else {
+                    $timeout(function () {
+                        scope.showPlayBtn = true;
+                    }, 100)
+                }
+
+
+
+            }
+            scope.generalVideoEvents = function () {
+
+                document.getElementById('fullMovie').addEventListener('ended', scope.fullMovieHandler, false);
+                scope.showPlayBtn = true;
+
+            }
+
+
+            /***********************geneal functions******************************/
+
+            // remove blur class and hide video controls
+            scope.removeBlur = function () {
+                 $timeout(function () {
+                    scope.showPoster = false;
+                    scope.movieCtrl = false;
+                }, 100)
+            }
+
+            scope.$watch('startMission', function (newVal, oldVal) {
+
             });
 
             //update the movie from server
             scope.$watch('task', function (newVal, oldVal) {
-                //if youtyube player initialize befor get youtyubeID - update now
-                if (scope.task.youtubeID && scope.player) {
-                    scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.task.youtubeID + "?version=3");
+                //check if the video type is yoputube or general
+                if (scope.task.videoURL) {
+                    scope.isYoutube = false;
                 } else if (scope.task.youtubeID) {
-                    scope.initPlayer();
-                } else if (scope.task.videoURL) {
-                    $("#fullMovie").html('<source src="' + scope.task.videoURL + '" type="video/mp4"></source>');
+                    scope.isYoutube = true;
                 }
+                scope.attachEventByVideoType();
+
             });
 
-            //listener for end mov
-            document.getElementById('fullMovie').addEventListener('ended', fullMovieHandler, false);
-            function fullMovieHandler(e) {
-                if (!e) { e = window.event; }
-                // What you want to do after the event
-                scope.endMovie = true;
-                $('.fullMovie').addClass('blur');
-                $('.movieCtl').show();
-
-            }
 
             //play video
             scope.play = function () {
-                scope.removeBlur();
+                scope.showPoster = false;
+                scope.movieCtrl = false;
                 scope.endMovie = false;
                 scope.playing = true;
-                if (!scope.task.videoURL && scope.task.youtubeID) {
-                    scope.player.playVideo();
+                if (scope.isYoutube) {
                     scope.startYoutube = true;
+                    //destroy the player and rebuild -for the red button - for ios
+                    scope.player.destroy();
+                    $(".youtube-url-video").attr("youtube-url-video");
+                    scope.initPlayer();
+
                 } else {
                     document.getElementById('fullMovie').play();
                 }
@@ -119,27 +185,46 @@ odtechApp.directive('watchVideo', ['$window', function ($window) {
 
             //the mission finished
             scope.stop = function () {
-                scope.endMission('end mission');
+                scope.results.answer = 'end mission';
+                //get point, if the answer was sent in time
+                if (!scope.endTimer) {
+                    scope.results.points = scope.task.points;
+                }
+
+                scope.endMission(scope.results);
             }
 
             //pause video or replay after starting the mission
-            scope.pause = function () {
+            scope.togglePause = function () {
                 if (scope.playing) {
                     scope.playing = false;
                     document.getElementById('fullMovie').pause();
+                    scope.showPlayBtn = true;
 
                 } else {
+                    scope.showPoster = false;
+                    scope.movieCtrl = false;
                     scope.playing = true;
                     document.getElementById('fullMovie').play();
-                    $('.playButton').hide();
+                    scope.showPlayBtn = false;
                 }
+
+
             }
-            scope.showPlay = function () {
-                scope.pause();
-                $('.playButton').show();
-            }
+           
+            scope.$on('closeMission', function (event, data) {
+                scope.endMission(scope.results);
+            });
 
         },
         replace: true
     };
 } ]);
+
+
+
+
+
+
+
+

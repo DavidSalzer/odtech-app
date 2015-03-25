@@ -11,8 +11,8 @@ odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
             //if the mission has been made
             scope.firstTime = true;
             if (scope.task.status == 'answer') {
-                //  alert('This task has been made');
-                // 
+              
+
                 $timeout(function () {
                     scope.firstTime = false;
                 }, 0)
