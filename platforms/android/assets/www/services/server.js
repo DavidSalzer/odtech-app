@@ -9,12 +9,12 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
 
             var deferred = $q.defer();
 
-            //var resFromStorage = self.getStorage(data);
+            var resFromStorage = self.getStorage(data);
 
-            //if (resFromStorage) {
-            //    deferred.resolve(resFromStorage);
-            //    return deferred.promise;
-            //}
+            if (resFromStorage) {
+                deferred.resolve(resFromStorage);
+                return deferred.promise;
+            }
 
             var httpDetails = {
                 url: domain,
@@ -36,7 +36,7 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
                     $state.transitionTo('login');
                 }
                 //set response to localStorage if necessary
-                // self.setStorage(data, json);
+                self.setStorage(data, json);
                 deferred.resolve(json);
                 //console.log(json);
             }).
@@ -47,7 +47,7 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
 
             return deferred.promise;
         },
-
+        
         //get data from localStorage
         getStorage: function (data) {
             self = this;
@@ -141,10 +141,18 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
                 if (missions.res.activitie.mission[i].mid == data.req.mid) {
                     missions.res.activitie.mission[i].status = 'answer';
                     if (missions.res.activitie.isLinear) {
-                        missions.res.activitie.mission[i + 1].status = 'notAnswer';
+                        //if there is more missions - set the next mission to notAnswer
+                        if(missions.res.activitie.mission[i + 1]){
+                            missions.res.activitie.mission[i + 1].status = 'notAnswer';
+                        }
+                        
                     }
+                    missions.res.activitie.mission[i].answer = {};
                     //set the answer in storage
-                    missions.res.activitie.mission[i].answer = data.req.data.answer;
+                    missions.res.activitie.mission[i].answer.data = data.req.data.answer;
+                    //set the points in storage
+                    missions.res.activitie.mission[i].answer.points = data.req.data.points;
+                    
                     break;
                 }
             }

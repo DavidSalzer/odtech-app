@@ -28,12 +28,20 @@ body, #day-description, .login-container {
 }
 
 header {
-     top: 0px;
-  left: 0px;
-  position: fixed;
- 
-  margin: initial;
-  right: initial;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    margin: initial;
+    right: initial;
+}
+#splash{
+    background-color: #35519b;
+     background-image: url("../img/mainBackground.png");
+}
+.splash-logo {
+    background-image: url("../img/logoMasa.png");
+    height: 366px;
+    
 }
 
 #logo {
@@ -56,11 +64,21 @@ header {
 }
 
 #main-view {
+}
+/*#mission-container{
+      background-image: url("../img/mainBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+.animate-switch-container, .blur-wrapper, #mission-container {
     background-image: url("../img/mainBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+#mission-container.blur {
+    -webkit-filter: blur(20px);
+}
 /***********login day description and main nav***********/
 .login-error {
     color: #ff9c00;
@@ -264,7 +282,7 @@ header {
     background-color: #e7eeff;
 }
 
-.takePhoto  .arrow {
+.takePhoto .arrow {
     background-image: url("../img/svgMasa/arrow/takePhoto.svg");
 }
 
@@ -1081,7 +1099,7 @@ header {
     background-color: #7bd6eb;
 }
 
-.scala .popup, .scala .item-number {
+.scala .popup, .scala .item-number, .scala .taskEnd-wrapper {
     color: #35c5ea;
 }
 
@@ -1110,7 +1128,7 @@ header {
     background-color: #e7faff;
 }
 
-.scala .mission-popup-continue .arrow {
+.scala .arrow {
     background-image: url("../img/svgMasa/arrow/scala.svg");
 }
 
@@ -1132,9 +1150,26 @@ header {
 }
 
 
+/********did you know********/
+.permission .arrow {
+    background-image: url("../img/svg/arrow/multiQuestion.svg");
+}
+
+.mission-popup-didyou h2 {
+    color: #ff9900;
+}
+
+.mission-popup-didyou .permission {
+    color: #ff9900;
+}
+
 /*meadia query*/
 
-@media all and (max-width: 736px) and (max-height: 736px) {
+@media all and (max-width: 736px) and (max-height: 960px) {
+    .splash-logo {
+        height: 229px;
+    }
+
     #logo {
         top: 0px;
         left: 0px;
@@ -1180,10 +1215,12 @@ header {
     #main-view {
         position: fixed;
     }
-.animate-switch-container {
-  padding-bottom: 56px;
-  box-sizing: border-box;
-}
+
+    .animate-switch-container {
+        padding-bottom: 56px;
+        box-sizing: border-box;
+        z-index: 0;
+    }
 }
 
 @media all and (max-width: 480px) and (max-height: 320px) {

@@ -23,7 +23,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', function (camera, $timeo
                 //alert('This task has been made');
                 $timeout(function () {
                     scope.firstTime = false;
-                    scope.task.answer.data = JSON.parse(scope.task.answer.data);
+                    scope.task.answer.data =scope.task.answer.data;
                     for (pic in scope.task.answer.data) {
                         scope.photoSaved[pic] = true;
                         scope.pictures[pic] = { uri: imgDomain + scope.task.answer.data[pic] };

@@ -19,6 +19,10 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
     var videos = {};
     var videoClicked;
 
+    //$rootScope.$on('logout', function (ngRepeatFinishedEvent) {
+    //    //clear the pictures from camera array
+    //        camera.setPicturesAndVideos({}, {});
+    //});
 
     return {
 
@@ -55,7 +59,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             var onVideoSuccess = function (uri) { //take photo success
 
                 path = uri[0].fullPath;
-             //   alert(path);
+                //   alert(path);
                 videos[_videoClicked] = { uri: path };
 
                 deferred.resolve(path);
@@ -78,8 +82,8 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
                 console.log("Code = " + r.responseCode);
                 console.log("Response = " + r.response);
                 console.log("Sent = " + r.bytesSent);
-            //    alert(r.response);
-                r.response = (JSON.parse(r.response.substr(1)));
+                //    alert(r.response);
+                r.response = (JSON.parse(r.response.trim()));
                 results.push(r.response.res);
                 uploaded++;
                 if (uploaded == num) {
@@ -125,10 +129,10 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
         getPictures: function () { // get saved photos
             return pictures;
         },
-       setPicturesAndVideos: function (pics, vids) { //set photos and videos
-             pictures = pics;
+        setPicturesAndVideos: function (pics, vids) { //set photos and videos
+            pictures = pics;
 
-             videos = vids
+            videos = vids
         },
         getPhotoClicked: function () { // get last clicked photos
             return photoClicked;
@@ -262,6 +266,9 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             return deferred.promise;
 
         }
+
+
+
     }
 
 } ]);

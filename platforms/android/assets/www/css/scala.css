@@ -1,6 +1,6 @@
 .main-scala {
-    height: 52px;
-    width: 750px;
+    height: 100px;
+    width: 80%;
     position: absolute;
     color: #fff;
     font-size: 35px;
@@ -14,11 +14,76 @@
 }
 
 #scala {
-    width: 100%;
+    width: 88%;
     margin: 0;
     margin-bottom: 10px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: transparent;
 }
 
+.scala-option-wrap {
+    display: inline-block;
+    text-align: center;
+    height: 117px;
+    position: relative;
+    Vertical-align: top;
+}
+
+.scala-option-index-wrap {
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.indexes-wrap {
+    margin: auto;
+    text-align: center;
+    width: 94%;
+    /* float: right; */
+    height: 30px;
+    margin-top: 10px;
+}
+
+.range-wrap {
+    height: 50px;
+}
+
+.scala-option-wrap.first {
+    /*text-align: right;*/
+}
+
+.double .scala-option-wrap.first {
+    text-align: right;
+}
+
+.double .scala-option-wrap.last {
+    text-align: left;
+}
+
+.scala-option-wrap.last .option-index, .scala-option-wrap.last .option-text {
+    left: 0;
+}
+
+.option-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.option-index {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/********to delete*********/
 #scala-max {
     float: left;
     position: relative;
@@ -38,13 +103,15 @@
 #scala-min-num {
     float: right;
 }
-
+/******end delete*******/
 .scala-text {
     color: #000000;
 }
 
 .taskEnd-wrapper {
     text-align: center;
+    width: 30%;
+    margin: auto;
     margin-top: 108px;
 }
 
@@ -81,28 +148,87 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 8.4px;
     cursor: pointer;
-    /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;*/
-    background: #aaaaaa; /* Old browsers */
-    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* IE10+ */
-    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-    border-radius: 1.3px;
+    /*background-color: red;*/
+    background: #aaaaaa;
+    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff));
+    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 );
+    border-radius: 20px;
     border: 0.2px solid #010101;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #aaaaaa; /* Old browsers */
-    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* IE10+ */
-    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    /*background-color: red;*/
+    background: #aaaaaa;
+    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff));
+    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 );
+    border-radius: 20px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    margin-top: -14px;
+    overflow: hidden;
+    background-size: cover;
+    background-position-y: 3px;
+    background-position-x: 3px;
+    background-image: url('../img/grading_scale.png');
+    background-repeat: no-repeat;
+    /*border-radius:100%;
+    background-color:red;*/
+    background-color: transparent;
+    border: none;
+}
+
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    margin-top: -14px;
+    overflow: hidden;
+    background-size: 100%;
+    background-position-y: 3px;
+    background-position-x: 5px;
+    background-image: url('../img/grading_scale.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+    -webkit-appearance: none;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    margin-top: -14px;
+    overflow: hidden;
+    background-size: 100%;
+    background-position-y: 3px;
+    background-position-x: 5px;
+    background-image: url('../img/grading_scale.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
 }
 
 .mobile-down-input, .mobile-up-input {
@@ -118,6 +244,28 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 @media all and (max-width: 736px) and (max-height: 736px) {
+    #demi-scala {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        /*background-color: red;*/
+        background: #aaaaaa;
+        background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff));
+        background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+        background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+        background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+        background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 );
+        border-radius: 20px;
+        border: 0.2px solid #010101;
+        position: absolute;
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
 
     .mobile-down-input {
         height: 20px;
@@ -157,6 +305,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
     .taskEnd-wrapper {
         margin-top: 10px;
+        width: 100%;
+        clear: both;
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 60px;
     }
 
     #scala-min-mobile {
@@ -171,16 +324,23 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     }
 
     #scala {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
+        -webkit-transform: rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        transform: rotate(270deg);
         background: none;
-        /* margin-bottom: 0px; */
-        position: relative;
+        /*position: relative;
         margin: auto;
-        display: block;
+        display: block;*/
+        margin: initial;
+        /*position: initial;*/
+        top: initial;
+        left: initial;
+        /*right: initial;*/
+        position: absolute;
+        right: -100px;
+        z-index: 1;
     }
 
     .scala-text {
@@ -189,13 +349,64 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     }
 
     .main-scala {
-        height: auto;
-        width: 100%;
+        height: 79%;
+        top: 0;
+        bottom: 0;
+        margin-top: 79px;
+        margin-bottom: 0;
+        padding-bottom: 60px;
+    }
+
+    .options-wrap {
+        width: 43%;
+        height: 85%;
+        float: right;
+        padding-top: 6px;
+    }
+
+    .scala-option-wrap {
+        display: block;
+        width: 100% !important;
+        margin-top: -3px;
+        text-align: left;
+    }
+
+    .double .scala-option-wrap.first {
+        text-align: left;
     }
 
     #scala-max {
-        float: none;
-        left: 0px;
-        margin-top: 90px;
+        display: block;
+        width: 100% !important;
+        margin-top: -3px;
+        text-align: left;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .range-wrap {
+        height: 85%;
+        width: 67px;
+        float: right;
+        position: relative;
+    }
+
+    .scala-option-index-wrap {
+        display: block;
+    }
+
+    .indexes-wrap {
+        margin: auto;
+        text-align: center;
+        width: 13px;
+        float: right;
+        height: 90%;
+        margin-top: -15px;
+    }
+
+    .double .scala-option-wrap.last {
+        text-align: left;
+        max-height: 50px;
+        overflow: auto;
     }
 }

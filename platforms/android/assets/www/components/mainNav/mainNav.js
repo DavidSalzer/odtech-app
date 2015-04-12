@@ -1,7 +1,7 @@
 odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
 
     $scope.currentMission = 0;
-   
+
     //close the description page - before main nav
     $scope.closeDescription = function () {
         $timeout(function () {
@@ -9,13 +9,13 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
         }, 0)
         $timeout(function () {
-           $scope.scrollToNextMiss()
+            $scope.scrollToNextMiss()
         }, 100)
     }
 
     //scroll to next mission 
     $scope.scrollToNextMiss = function () {
-       // the next mission index
+        // the next mission index
         var nextIndex = $(".mission-menu-item.start").attr('data-index');
 
         var oneItemDistance = 0;
@@ -32,7 +32,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         }
 
         //the animate function
-            //if this is a smartphone -scroll top
+        //if this is a smartphone -scroll top
         if ($.browser.isSmartphone) {
             $("#mainnav-wrap").animate({
                 //'oneItemDistance / 2' for center the next mission - not must.
@@ -73,6 +73,11 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         if (data.res.activitie && data.res.activitie.mission) {
             $scope.tasks = data.res.activitie.mission;
             $scope.description = data.res.activitie.description;
+            //has tasks - throw broadcast
+                //the timeout is for localstorage option
+            $timeout(function () {
+                $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
+            }, 500)
 
             //scroll to the next mission
             $timeout(function () {
@@ -98,11 +103,11 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         .then(function (data) {
             $state.transitionTo('login');
             //clear the pictures from camera array
-            camera.setPicturesAndVideos({},{});
+            camera.setPicturesAndVideos({}, {});
         })
     }
 
-    
+
     //call by directive
     $scope.$on('scrollToNext', function (ngRepeatFinishedEvent) {
         $scope.scrollToNextMiss();
@@ -116,21 +121,20 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
     $scope.getBackgroundPhoto = function (task) {
         var background = '';
-        console.log('getBackgroundPhoto')
-         if (task.type == 'takePhoto' && task.answer) {
-             //parse the data string to object
-            var data = JSON.parse(task.answer.data)
+        if (task.type == 'takePhoto' && task.answer && task.answer.data) {
+            //parse the data string to object
+            var data =task.answer.data
             background = task.type == 'takePhoto' ? data.photoCenter : '';
         }
         //if there is image - show it. else - return empty string
-       if(background == ''){
+        if (background == '') {
             return '';
-       }
-       else{
-          return 'background-image:url(' +imgDomain+ background+')'; 
-       }
-           
-       
+        }
+        else {
+            return 'background-image:url(' + imgDomain + background + ')';
+        }
+
+
 
 
     }

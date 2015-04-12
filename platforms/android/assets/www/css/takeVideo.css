@@ -159,6 +159,9 @@
     top: 310px;
     left: 70px;
 }
+#fullMovieClip{
+    width: 100%;
+}
 
 @media all and (max-width: 900px) {
     .fullMovie {

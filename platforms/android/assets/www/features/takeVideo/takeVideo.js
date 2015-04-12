@@ -24,7 +24,7 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 //scope.videos = camera.getVideos();
                 $timeout(function () {
                     scope.firstTime = false;
-                    scope.task.answer.data = JSON.parse(scope.task.answer.data);
+                    scope.task.answer.data = scope.task.answer.data;
                     for (video in scope.task.answer.data) {
                         scope.videoSaved[video] = true;
                         scope.videos[video] = { uri: imgDomain + scope.task.answer.data[video] };

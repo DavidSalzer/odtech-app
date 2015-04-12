@@ -33,6 +33,15 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
                  }
              }
          })
+          .state("groups", {
+             url: "/groups",
+             views: {
+                 "main": {
+                     templateUrl: "./components/groups/groups.html",
+                     controller: "groups"
+                 }
+             }
+         })
 });
 
 //for google maps

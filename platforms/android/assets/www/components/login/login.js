@@ -9,11 +9,15 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $rootScope.showDescription = true; //show day description in mainNav.
             $state.transitionTo('mainNav');
         }
-        //if logged in user has no userName
+        //if logged in user has no userName 
         else if (data.res && data.res.email) {
             $timeout(function () {
                 $scope.loginFirstPage = false;
             }, 0)
+        }
+        //if the user logout
+        else{
+           $rootScope.$broadcast('logout', {}); 
         }
     })
 
@@ -75,7 +79,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     }
 
-    //Send user details (userName and image) to servver.
+    //Send user details (userName and image) to server.
     $scope.sendUsername = function () {
         //validations
         if (!$scope.userForm.nickName.$valid) {

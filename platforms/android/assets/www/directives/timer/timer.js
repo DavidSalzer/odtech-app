@@ -47,9 +47,15 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
             }
             //start run the timer
             scope.startTimer = function () {
-                scope.timerInterval = setInterval(function () {
+                if(scope.task.timer == 0){
+                     $rootScope.$broadcast('endTimer', {});
+                }
+                else{
+                     scope.timerInterval = setInterval(function () {
                     scope.countDownTimer()
                 }, 1000);
+                }
+               
             }
             //init the current time value and display
             scope.currentTime = scope.task.timer*60;//convert the minutes to seconds

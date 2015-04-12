@@ -1,9 +1,12 @@
-<div  class="mission-popup popup" data-ng-if="showDidYouKnow">
-    <div class="feelings-popup popup">
-        <h2>הידעת?</h2>
-        <p>{{task.didYouKnow}}</p>
-        <div class="permission" id="permission-feel" data-ng-click="hideDidYouKnow()">אישור
-            <span class="arrow"></span>
+<div class="mission-popup-wrap" data-ng-if="showDidYouKnow">
+    <div class="mission-popup-didyou popup">
+        <div class="feelings-popup popup">
+            <h2>הידעת?</h2>
+            <p>{{didYouKnowText}}</p>
+            <div class="permission" id="permission-feel" data-ng-click="hideDidYouKnow()">
+                 <span class="next-text">אישור</span>
+        <span class="arrow"></span>
+            </div>
         </div>
     </div>
 </div>

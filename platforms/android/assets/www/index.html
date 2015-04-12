@@ -10,6 +10,8 @@
         <link href="css/reset.css" rel="stylesheet" />
         
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/splash.css" rel="stylesheet" />
+
         <link href="css/multiQuestions.css" rel="stylesheet" />
        
         <link href="css/qrCode.css" rel="stylesheet" />
@@ -41,11 +43,13 @@
         <!--<ng-include src="'components/header/header.html'"></ng-include>-->
         <!-- END HEADER -->
         <!-- BEGIN PAGE CONTENT-->
-        
-        <div id="main-container">
+         <ng-include src="'components/splash/splash.html'"></ng-include>
+        <div id="main-container" >
             <ng-include src="'components/header/header.html'"></ng-include>
             <div id="main-view"  class="main-view" data-ui-view="main"></div>
         </div>
+       
+        <ng-include src="'components/popup/popup.html'"></ng-include>
        <ng-include src="'components/footer/footer.html'"></ng-include>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
          <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
@@ -56,13 +60,14 @@
 </script>-->
         <!-- Jquery -->
         <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
 
         <!-- Angular -->
         <script src="js/angular.min.js"></script>
         <script src="js/angular-ui-router.min.js"></script>                    
         <script src="js/lodash.js"></script>
         <script src="js/angular-google-maps.js"></script>
-        
+        <script src="js/jquery.sglide.2.1.2.min.js"></script>
         <script src="app.js"></script>
         <script src="globals.js"></script>
 
@@ -73,9 +78,10 @@
         <script src="./services/camera.js"></script>
 
         <!-- odtech  components-->
-        
+        <script src="components/splash/splash.js"></script>
         <script src="components/login/login.js"></script>
-        <script src="components/dayDescription/dayDescription.js"></script>
+        <script src="components/groups/groups.js"></script>
+        <!--<script src="components/dayDescription/dayDescription.js"></script>-->
         <script src="components/mainNav/mainNav.js"></script>
         <script src="components/mission/mission.js"></script>
          

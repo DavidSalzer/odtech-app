@@ -5,9 +5,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
     $scope.finishMission = false;
     $scope.successMission = false;
     $scope.popupShow = false;
-    $scope.showDidYouKnow = false;
+    //$scope.showDidYouKnow = true;
+    //$scope.showDidYouKnow = false;
     $scope.results;
-
+    $rootScope.blurAll = false;
     //set mission from server
     missions.getMissionById($stateParams.missionId).then(function (data) {
         console.log(data);
@@ -43,6 +44,11 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         if (!$scope.endTimer) {
             $scope.successMission = true;
             $scope.finishMission = true;
+
+            //mission finished - throw broadcast
+            $rootScope.$broadcast('finishMission', { results: results });
+
+            //TODO:  להוציא את החלק הזה ל missionFinish
             if (results.points > 0) {
                 $scope.finishMissionTitle = 'כל הכבוד!';
                 $scope.finishMissionL1 = 'ביצעתם את המשימה בהצלחה';
@@ -55,20 +61,18 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             }
 
             $scope.recievedpoints = results.points;
+
         }
 
         $timeout(function () {
             $scope.finishMission = false;
 
             //if the mission has did you know.
-            if ($scope.task.didYouKnow && $scope.task.didYouKnow != '') {
-               // alert('did you know');
-                 $state.transitionTo('mainNav');
-                $timeout(function () {
-                    // $scope.showDidYouKnow = true;
-                }, 0)
-            }
-            else {
+           // if ($scope.task.didYouKnow && $scope.task.didYouKnow != '') {
+                $rootScope.$broadcast('finishMissionHide', {task:$scope.task});
+
+           //}
+           // else {
                 //if need to go to next mission automatically.
                 if ($scope.task.next) {
 
@@ -76,7 +80,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 else {
                     $state.transitionTo('mainNav');
                 }
-            }
+            //}
 
         }, 4000)
 
@@ -103,6 +107,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
     $scope.closeMission = function () {
         if ($scope.task.status != 'answer') {
             $rootScope.$broadcast('closeMission', {});
+        }
+        //if the mission answered
+        else{
+            $rootScope.$broadcast('closeMissionAnswered', {task:$scope.task}); 
         }
         $state.transitionTo('mainNav');
     }

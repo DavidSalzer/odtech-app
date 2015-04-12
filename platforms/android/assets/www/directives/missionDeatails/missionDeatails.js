@@ -1,9 +1,9 @@
-odtechApp.directive('missionDeatails', ['$state', function ($state) {
+odtechApp.directive('missionDeatails', ['$state', '$timeout', function ($state, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './directives/missionDeatails/missionDeatails.html',
         link: function (scope, el, attrs) {
-            scope.showDeatails = true;
+
 
             $(".clock").on('touchstart', scope.startTimingPress);
             $(".clock").on('touchend', scope.checkTimingPress);
@@ -20,6 +20,21 @@ odtechApp.directive('missionDeatails', ['$state', function ($state) {
             scope.checkTimingPress = function () {
                 clearTimeout(adminBreturnMainNavuttonTimer);
             }
+            scope.showDetailAutomatic = function () {
+                //show the details popup and hide it after 3 minutes
+                scope.showDeatails = true;
+                $timeout(function () {
+                    scope.showDeatails = false;
+                }, 3000)
+            }
+            scope.$watch('startMission', function () {
+                //on start mission - show the mission details
+                if(scope.startMission == true){
+                     scope.showDetailAutomatic()
+                }
+               
+
+            })
         },
         replace: true
     };
