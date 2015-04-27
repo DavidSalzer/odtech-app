@@ -1,9 +1,9 @@
-odtechApp.directive('missionDeatails', ['$state', '$timeout', function ($state, $timeout) {
+odtechApp.directive('missionDeatails', ['$state', '$timeout','$rootScope', function ($state, $timeout,$rootScope) {
     return {
         restrict: 'E',
         templateUrl: './directives/missionDeatails/missionDeatails.html',
         link: function (scope, el, attrs) {
-
+            scope.imgDomain = imgDomain;
 
             $(".clock").on('touchstart', scope.startTimingPress);
             $(".clock").on('touchend', scope.checkTimingPress);
@@ -20,21 +20,25 @@ odtechApp.directive('missionDeatails', ['$state', '$timeout', function ($state, 
             scope.checkTimingPress = function () {
                 clearTimeout(adminBreturnMainNavuttonTimer);
             }
-            scope.showDetailAutomatic = function () {
-                //show the details popup and hide it after 3 minutes
-                scope.showDeatails = true;
-                $timeout(function () {
-                    scope.showDeatails = false;
-                }, 3000)
-            }
-            scope.$watch('startMission', function () {
-                //on start mission - show the mission details
-                if(scope.startMission == true){
-                     scope.showDetailAutomatic()
-                }
-               
+            //scope.showDetailAutomatic = function () {
+            //    //show the details popup and hide it after 3 minutes
+            //    scope.showDeatails = true;
+            //    $timeout(function () {
+            //        scope.showDeatails = false;
+            //    }, 3000)
+            //}
+            //scope.$watch('startMission', function () {
+            //    //on start mission - show the mission details
+            //    if(scope.startMission == true){
+            //         scope.showDetailAutomatic()
+            //    }
+            //   
 
-            })
+            //})
+
+            scope.openLargeImage=function(){
+                $rootScope.$broadcast('openLargeImage');
+            }
         },
         replace: true
     };

@@ -1,4 +1,4 @@
-odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($rootScope, $http, $q, $state) {
+odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', function ($rootScope, $http, $q, $state, $timeout) {
 
 
     return {
@@ -31,23 +31,32 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
 
             $http(httpDetails).
             success(function (json) {
+                $rootScope.$broadcast('hasNetwork', {});
                 //if user no login, go to login page
-                if (json.res && json.res.error == 'not appUser login') {
+                if (json.res && (json.res.error == 'non permission' || json.res.error == 'not appUser login')) {
                     $state.transitionTo('login');
                 }
                 //set response to localStorage if necessary
-                self.setStorage(data, json);
-                deferred.resolve(json);
+                else {
+                    self.setStorage(data, json);
+                    deferred.resolve(json);
+                }
+                
+                
                 //console.log(json);
             }).
-            error(function (data) {
-                deferred.reject(data);
+            error(function (err) {
+                $rootScope.$broadcast('networkFail', {});
+                $timeout(function () {
+                    self.request(data).then(function (json) { deferred.resolve(json); });
+                }, 5000)
+
+                //deferred.reject(data);
                 //console.log(data);
             });
-
             return deferred.promise;
         },
-        
+
         //get data from localStorage
         getStorage: function (data) {
             self = this;
@@ -142,17 +151,17 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', function ($r
                     missions.res.activitie.mission[i].status = 'answer';
                     if (missions.res.activitie.isLinear) {
                         //if there is more missions - set the next mission to notAnswer
-                        if(missions.res.activitie.mission[i + 1]){
+                        if (missions.res.activitie.mission[i + 1]) {
                             missions.res.activitie.mission[i + 1].status = 'notAnswer';
                         }
-                        
+
                     }
                     missions.res.activitie.mission[i].answer = {};
                     //set the answer in storage
                     missions.res.activitie.mission[i].answer.data = data.req.data.answer;
                     //set the points in storage
                     missions.res.activitie.mission[i].answer.points = data.req.data.points;
-                    
+
                     break;
                 }
             }

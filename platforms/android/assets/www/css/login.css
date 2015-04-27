@@ -2,26 +2,43 @@
     margin: auto;
     width: 100%;
     text-align: center;
-    top: 13%;
-position: relative;
-height:100%;
-
+    top: 0;
+    position: relative;
+    height: 100%;
 }
 
 .login-wrap {
     width: 95%;
     margin: auto;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    margin: auto;
+    /* top: 0; */
+    /* bottom: 0; */
+    /* position: absolute; */
+    /* margin: auto; */
     height: 60%;
-    left: 0;
-    right: 0;
-    height:100%;
-    padding-bottom: 80px;
+    /* left: 0; */
+    /* right: 0; */
+    height: 100%;
+    /* padding-bottom: 80px; */
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    /* margin: auto; */
+    top: 50%;
+    position: absolute;
+     height: auto;
+  left: 0;
+  right: 0;
 }
-.login-container{
+.keyboard .login-wrap {
+    /*top:0;
+    -webkit-transform: initial;*/
+   /* transition: top 0.3s ease-out;
+    -webkit-transition: top 0.3s ease-out;*/
+}
+
+.login-container {
     height: 100%;
 }
 
@@ -46,7 +63,6 @@ height:100%;
 .login-error {
     margin-bottom: 10px;
     color: rgb(171, 39, 39);
-
 }
 
 .not-valid {
@@ -58,20 +74,20 @@ height:100%;
         }*/
 
 .img-plus {
-       display: inline-block;
-  background-color: #fff;
-  width: 150px;
-  height: 150px;
-  font-size: 60px;
-  color: #abd1e0;
-  text-align: center;
-  background-image: url(../img/svg/addImg/add.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  border-radius: 100%;
-  overflow: hidden;
-  /* background-size: 100%; */
+    display: inline-block;
+    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    font-size: 60px;
+    color: #abd1e0;
+    text-align: center;
+    background-image: url(../img/svg/addImg/add.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    /* background-size: 100%; */
 }
 
 .img-plus.hidePlus {
@@ -93,6 +109,7 @@ height:100%;
     bottom: initial;
     width: 143px;
     margin: auto;
+    position: relative;
 }
 
 .login-page form {
@@ -110,7 +127,7 @@ height:100%;
 }
 
 @media all and (max-width: 670px) and (max-height: 667px) {
-    
+
     .login-input {
         height: 25px;
         margin-bottom: 17px;
@@ -128,18 +145,24 @@ height:100%;
         overflow-y: auto;
         height: 100%;
     }
-.img-plus{
-    margin-bottom: 5px;
-width: 115px;
-height: 115px;
-}
-.login-wrap {
+
+    .img-plus {
+        margin-bottom: 5px;
+        width: 115px;
+        height: 115px;
+    }
+
+    .login-wrap {
         bottom: initial;
         /*margin-top: 13%;*/
         position: relative;
+        overflow: auto;
+    }
+    .keyboard .login-wrap{
+        /*top:0;
+        -webkit-transform:initial;*/
     }
 }
 /******iphone 4*********/
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (max-device-height: 480px) {
-    
 }

@@ -7,11 +7,11 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
             scope.didYouKnowText = "";
             scope.missionIdLastShown = 0; // the mission id that the 'di you know' text was display. 
             scope.hideDidYouKnow = function () {
-                $rootScope.blurAll = false;
+              //  $rootScope.blurAll = false;
                 //hide did you know
                 scope.showDidYouKnow = false;
                 //transition to  mainnav
-                $state.transitionTo('mainNav');
+                //$state.transitionTo('mainNav');
 
 
             }
@@ -30,8 +30,8 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
                         $timeout(function () {
                             scope.missionIdLastShown = task.mid;
                             scope.didYouKnowText = task.didYouKnow;
-                            $rootScope.blurAll = true;
-                            $state.transitionTo('mainNav');
+                           // $rootScope.blurAll = true;
+                            //$state.transitionTo('mainNav');
                             scope.showDidYouKnow = true;
 
                         }, 0)

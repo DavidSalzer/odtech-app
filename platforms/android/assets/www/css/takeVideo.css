@@ -34,7 +34,7 @@
 }
 
 #mission-capture-video .photo-order {
-    display: none;
+ 
 }
 
 
@@ -63,7 +63,7 @@
     /*background-image: url(../img/help.jpg);*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index: 5;
+      z-index: 3;
     margin: auto;
     top: 0px;
     bottom: 0px;
@@ -71,7 +71,7 @@
     left: 0px;
 }
 
-.single-video{
+.single-video {
     background-color: rgba(70,196,180,.9);
     height: 442px;
     width: 611px;
@@ -159,11 +159,12 @@
     top: 310px;
     left: 70px;
 }
-#fullMovieClip{
+
+#fullMovieClip {
     width: 100%;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 736px) and (max-height: 960px) {
     .fullMovie {
         position: absolute;
         top: 0px;
@@ -187,13 +188,13 @@
         left: 0px;
     }
 
-    .writeClaim {
+  .writeClaim {
         margin: auto;
         top: 176px;
         left: 0px;
         right: 0px;
+        margin-top: initial;
     }
-
     .capture-video.right {
         position: relative;
         display: block;
@@ -241,5 +242,9 @@
 
     #capture-video-right span, #capture-video-left span {
         top: 80px;
+    }
+
+    #mission-capture-video .photo-order {
+        bottom: 20px;
     }
 }

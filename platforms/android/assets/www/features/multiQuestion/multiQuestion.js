@@ -20,7 +20,7 @@ odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
             scope.rightAnswerTextIndex = scope.task.questions[scope.currentQuestion].correctQuestionIndex;
             scope.rightAnswerText = scope.task.questions[scope.currentQuestion].answers[scope.rightAnswerTextIndex]
             scope.results = {};
-            scope.results.answer=[] ;
+            scope.results.answer = [];
             scope.results.points = 0;
             scope.pointsPerQuestion = scope.task.points / scope.task.questions.length;
 
@@ -61,21 +61,23 @@ odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
                         //set the correct answer text and index
                         scope.currentCorrectAnswer = scope.task.questions[scope.currentQuestion].correctQuestionIndex;
                         scope.rightAnswerText = scope.task.questions[scope.currentQuestion].answers[scope.currentCorrectAnswer];
-
-
                     }
 
                     //if there are no more questions -show the end screen
                     else {
+                        //round the results points 
+                        scope.results.points = Math.round(scope.results.points);
                         //Perform end mission function.
                         scope.endMission(scope.results); //the param is the answers of user
 
                     }
 
-                }, 3500);
+                }, 1500);
             }
 
             scope.$on('closeMission', function (event, data) {
+                //round the results points 
+                scope.results.points = Math.round(scope.results.points);
                 scope.endMission(scope.results);
             });
 

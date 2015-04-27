@@ -2,13 +2,12 @@
      <!-- first time - before the user answer -->
     <div class="claim-text-wrap" ng-show="firstTime">
         <textarea cols="60" rows="10" class="claimText" placeholder="לחצו כאן לכתיבת התשובה..." data-ng-model="ans"></textarea>
-
-        <div class="permission claim" ng-show="ans.length > 0" id="permission-claim" ng-click="taskEnd()"><span class="text">סיום</span>
+        
+    </div>
+    <div class="permission claim" ng-show="ans.length > 0 && firstTime" id="permission-claim" ng-click="taskEnd()">
+            <span class="text">סיום</span>
             <span class="arrow"></span>
         </div>
-       
-
-    </div>
      <!-- second time - after the user answer -->
     <div class="claim-text-next next-time" ng-hide="firstTime">
         <div class="next-title-wrap general">

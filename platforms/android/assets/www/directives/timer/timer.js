@@ -29,36 +29,41 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                 return time;
             }
             scope.countDownTimer = function () {
+                d = new Date();
+                d = parseInt(d.getTime() / 1000);
                 //decrease the seconds
-                scope.currentTime = scope.currentTime - 1;
+                scope.currentTime = scope.endTime - d;
                 //update the dom
                 scope.displayTimer(scope.currentTime);
                 //if timer ended
-                if (scope.currentTime == 0) {
+                if (scope.currentTime <= 0) {
                     // alert('timer ended!!')
                     clearInterval(scope.timerInterval);
+                    scope.currentTime = 0;
                     $rootScope.$broadcast('endTimer', {});
                 }
             }
             //init the timer run
             scope.initTimer = function () {
-                scope.currentTime = scope.task.timer*60;
+                scope.currentTime = scope.task.timer * 60;
                 clearInterval(scope.timerInterval);
             }
             //start run the timer
             scope.startTimer = function () {
-                if(scope.task.timer == 0){
-                     $rootScope.$broadcast('endTimer', {});
+                if (scope.task.timer == 0) {
+                    $rootScope.$broadcast('endTimer', {});
                 }
-                else{
-                     scope.timerInterval = setInterval(function () {
-                    scope.countDownTimer()
-                }, 1000);
+                else {
+                    scope.endTime = new Date();
+                    scope.endTime = parseInt(scope.endTime.getTime() / 1000) + (scope.task.timer * 60);
+                    scope.timerInterval = setInterval(function () {
+                        scope.countDownTimer()
+                    }, 1000);
                 }
-               
+
             }
             //init the current time value and display
-            scope.currentTime = scope.task.timer*60;//convert the minutes to seconds
+            scope.currentTime = scope.task.timer * 60; //convert the minutes to seconds
             scope.displayTimer(scope.currentTime);
             scope.$watch('startMission', function () {
                 //check if timer have to start. only on first enter and after 'start' click.

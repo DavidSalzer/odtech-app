@@ -1,5 +1,5 @@
 
-var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
+var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', 'ngAnimate','ngSanitize'])
 
 /**** UI Router ****/
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -33,15 +33,35 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps'])
                  }
              }
          })
-          .state("groups", {
-             url: "/groups",
+          .state("group", {
+              url: "/group",
+              views: {
+                  "main": {
+                      templateUrl: "./components/group/group.html",
+                      controller: "group"
+                  }
+              }
+          })
+         .state("groupsScore", {
+             url: "/groupsScore",
              views: {
                  "main": {
-                     templateUrl: "./components/groups/groups.html",
-                     controller: "groups"
+                     templateUrl: "./components/group/groupsScore.html",
+                     controller: "groupsScore"
+                     //type:"score"
                  }
              }
          })
+         .state("info", {
+             url: "/info",
+             views: {
+                 "main": {
+                     templateUrl: "./components/info/info.html",
+                     controller: "info"
+                     //type:"score"
+                 }
+             }
+         });
 });
 
 //for google maps

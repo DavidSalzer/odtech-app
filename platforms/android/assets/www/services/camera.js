@@ -1,4 +1,4 @@
-odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($rootScope, $stateParams, $q) {
+odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', function ($rootScope, $stateParams, $q, $http) {
 
     /*write what the function does.
     write main function
@@ -65,7 +65,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
                 deferred.resolve(path);
             }
             var onFail = function (message) { //take photo failed
-                alert('Failed because: ' + message);
+                alert('Failed because: ' + message.message);
                 deferred.reject(message);
             }
 
@@ -92,7 +92,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             }
 
             var fail = function (error) {
-                alert("An error has occurred: Code = " + error.exception);
+              //  alert("An error has occurred: Code = " + error.exception);
                 deferred.reject(error);
             }
 
@@ -121,6 +121,51 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
                 params.reqArray = JSON.stringify(request);
                 options.fileName = pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1);
                 ft.upload(pictures[p].uri, domain, win, fail, options);
+            }
+
+            return deferred.promise;
+
+        },
+        uploadPhotoFormData: function (pictures, type, num) {
+            var deferred = $q.defer();
+            var uploaded = 0;
+            results = [];
+
+            for (p in pictures) {
+                request = {
+                    type: "sendFileAnswer",
+                    req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
+                        mid: $stateParams.missionId,
+                        fileName: pictures[p].uri,
+                        field: p,
+                        type: type
+                    }
+                }
+
+                //fd.append('file', pictures[p].file);
+                //fd.append(fileName, pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1));
+                pictures[p].fd.append('reqArray', JSON.stringify(request));
+
+                if (type == "img") {
+                    pictures[p].fd.append('mimeType', "image/jpeg");
+                } else if (type == "video") {
+                    pictures[p].fd.append('mimeType', "video/mp4");
+                }
+                $http.post(domain, pictures[p].fd, { //imgDomain+'uloadImage.php'
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                })
+                .success(function (data) {
+                    results.push(data.res);
+                    uploaded++;
+                    if (uploaded == num) {
+                        deferred.resolve(results);
+                    }
+                })
+                .error(function (error) {
+                 //   alert("An error has occurred: Code = " + error.exception);
+                    deferred.reject(error);
+                })
             }
 
             return deferred.promise;

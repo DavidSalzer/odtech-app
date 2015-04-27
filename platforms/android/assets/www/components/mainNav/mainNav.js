@@ -22,13 +22,18 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         var number = 0;
         //if this is a smartphone -the distance is mission's height
         if ($.browser.isSmartphone) {
-            oneItemDistance = $($(".mission-menu-item")[1]).offset().top - $($(".mission-menu-item")[0]).offset().top;
-            number = nextIndex;
+            if ($(".mission-menu-item")[0]) {
+                oneItemDistance = $($(".mission-menu-item")[1]).offset().top - $($(".mission-menu-item")[0]).offset().top;
+                number = nextIndex;
+            }
         }
         //else - the distance is mission's width
         else {
-            oneItemDistance = $($(".mission-menu-item")[0]).offset().left - $($(".mission-menu-item")[1]).offset().left;
-            number = $(".mission-menu-item").length - nextIndex;
+            if ($(".mission-menu-item")[0]) {
+                oneItemDistance = $($(".mission-menu-item")[0]).offset().left - $($(".mission-menu-item")[1]).offset().left;
+                number = $(".mission-menu-item").length - nextIndex;
+            }
+
         }
 
         //the animate function
@@ -71,10 +76,13 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
     missions.getMissions().then(function (data) {
         //if success.
         if (data.res.activitie && data.res.activitie.mission) {
+            //save mission list in sevice.
+            missions.setMissions(data.res);
+
             $scope.tasks = data.res.activitie.mission;
             $scope.description = data.res.activitie.description;
             //has tasks - throw broadcast
-                //the timeout is for localstorage option
+            //the timeout is for localstorage option
             $timeout(function () {
                 $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
             }, 500)
@@ -84,27 +92,38 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
                 $scope.scrollToNextMiss()
             }, 0)
 
+            $scope.endActivity = false;
+            for (var i in $scope.tasks) {
+                if ($scope.tasks[i].status != 'answer') {
+                    break;
+                }
+                $scope.endActivity = (parseInt(i) == $scope.tasks.length - 1);
+            }
+            if ($scope.endActivity) {
+                $rootScope.$broadcast('lastMissionFinished', {});
+            }
         }
     });
 
     //go to mission
     $scope.goToMission = function ($index) {
-        //prevent enter to mission when the status is not open
-        // if($scope.tasks[$index].status == "done" || $scope.tasks[$index].status == "notAnswer"){
-        $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
-        //  }
+        //prevent enter to mission when the status is block
+        if ($scope.tasks[$index].status != "block") {
+            $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
+        }
+        //get indication to block missiob
+        //else {
+        //    alert('משימה זו חסומה, אנא בצע את המשימות ע"פ הסדר.');
+        //}
+
+        //to do: remove this line!!!!!!!!!!
+        // $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
 
 
     }
 
-    //log out, it here temporarly
-    $scope.logout = function () {
-        server.request({ "type": "appUserLogout", "req": {} })
-        .then(function (data) {
-            $state.transitionTo('login');
-            //clear the pictures from camera array
-            camera.setPicturesAndVideos({}, {});
-        })
+    $scope.itemOnLongPress = function ($index) {
+        $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
     }
 
 
@@ -123,15 +142,25 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         var background = '';
         if (task.type == 'takePhoto' && task.answer && task.answer.data) {
             //parse the data string to object
-            var data =task.answer.data
-            background = task.type == 'takePhoto' ? data.photoCenter : '';
+            var data = task.answer.data
+            //if the data have uri field - the url is local path
+            //else - the path is from server
+            background = data.photoCenter ? data.photoCenter.uri ? data.photoCenter.uri : data.photoCenter : '';
         }
         //if there is image - show it. else - return empty string
         if (background == '') {
             return '';
         }
         else {
-            return 'background-image:url(' + imgDomain + background + ')';
+            var fullBack = '';
+            //if the data have uri field - the url is local path - return it -without domain
+            if (data.photoCenter.uri) {
+                fullBack = 'background-image:url(' + background + ')';
+            }
+            else {
+                fullBack = 'background-image:url(' + imgDomain + background + ')';
+            }
+            return fullBack;
         }
 
 

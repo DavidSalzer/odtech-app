@@ -15,18 +15,24 @@
     <!--You have reached the destination popup-->
     <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup">
         <h2 class="popup-title">הגעת ליעד</h2>
-        <p class="popup-text">{{destinationText}}</p>
+        <!--<p class="popup-text">{{destinationText}}</p>-->
         <div class="mission-popup-continue">
-              <span>לחצו כאן</span>  
+            <span>לחצו כאן</span>  
             <span class="arrow" data-ng-click="sendDestination()"> </span>
         </div>
     </div>
 
     <!--Unknown user location popup-->
-    <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
-        <div class="close" data-ng-click="noLocation=false"></div>
-        <h2>המיקום שלכם לא התעדכן בזמן האחרון</h2>
-        <p class="popup-text">אנא בידקו שה GPS פועל או שהמכשיר מאפשר קבלת מיקום</p>
+   <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
+        <div class="x" data-ng-click="noLocation=false"></div>
+        <h2>המיקום שלכם לא התעדכן בזמן האחרון, נסו לשנות מיקום  </h2>
+        <p class="popup-text" >אנא בידקו שה<span> GPS פועל או שהמכשיר מאפשר קבלת מיקום. </span><br><span>במידה וזה עדיין לא עובד נסו לכבות ולהדליק את הGPS במכשיר או להפעיל מחדש את המכשיר.</span></p>
+
+        <p class="popup-text" data-ng-show="longNoLocation > 3">האם ברצונכם לסיים את המשימה? הגיעו לנקודת היעד ולחצו על החץ</p>
+        <div class="mission-popup-continue" data-ng-show="longNoLocation > 3"  data-ng-click="closeMission()">
+            <span>ליציאה לחצו כאן</span>  
+            <span class="arrow"> </span>
+        </div>
     </div>
 
     <style type="text/css">
@@ -62,14 +68,14 @@
             left: 5px;
             
             position: relative;
-bottom: initial;
-left: initial;
-height: 30px;
-line-height: 30px;
-float: initial;
-vertical-align: top;
-text-align: left;
-margin-top: 5px;
+            bottom: initial;
+            left: initial;
+            height: 30px;
+            line-height: 30px;
+            float: initial;
+            vertical-align: top;
+            text-align: left;
+            margin-top: 5px;
         }
         
         .mission-repeat-popup.navigation-popup {
