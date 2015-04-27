@@ -33,6 +33,10 @@ html, body {
     font-family: fbprozalight;
     direction: rtl;
     overflow: hidden;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 input {
@@ -43,6 +47,18 @@ input {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    /*padding-bottom: 90px;
+    box-sizing: border-box;*/
+}
+
+
+#main-view {
+    /* overflow: auto; */
+}
+
+#main-container {
+    padding-bottom: 90px;
+    box-sizing: border-box;
 }
 
 .animate-switch-container {
@@ -50,15 +66,39 @@ input {
     height: 100%;
     position: relative;
     display: block;
+    /* padding-bottom: 90px; */
+    box-sizing: border-box;
+    /* padding-top: 73px; */
+    margin-top: 73px;
 }
 
 #main-container.keyboard, body.keyboard, #main-view.keyboard {
-    overflow: initial;
+    overflow: auto;
+    height: 140%;
+}
+
+body.keyboard {
+    height: 140%;
 }
 
 .keyboard .mission-write-text {
     position: relative;
 }
+
+.upload-loader {
+    position: fixed;
+    z-index: 1;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    /* opacity: 0.35; */
+    display: block !important;
+    z-index: 10;
+}
+
 /****************************** font size class ********************************/
 .fs-1 {
     font-size: 0.5em;
@@ -120,7 +160,21 @@ input {
 .feature {
     width: 100%;
     height: 100%;
+    position: relative;
+    background-color: #ffffff;
+    border-top: 5px solid rgba(255, 254, 255, 0.5);
+    background-clip: padding-box;
+    margin-top: 5px;
+}
+
+.opacity-mask {
     position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.35);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
 }
 /****************************** welcome ********************************/
 
@@ -177,23 +231,41 @@ input {
     /*background-image: url(../img/openStory-popUp.jpg);*/
     background-repeat: no-repeat;
     background-size: 100%;
+      overflow-y: auto;
 }
 
 #day-description > p {
-    position: absolute;
-    top: 207px;
     width: 609px;
-    left: 0;
-    right: 0;
     margin: 0 auto;
-    max-height: 400px;
     font-size: 35px;
     font-size: 1.8em;
+    line-height: 1.30em;
     overflow-y: auto;
-    text-indent: 40px;
     overflow: hidden;
-    overflow-y: scroll;
-    min-height: 300px;
+    overflow-y: auto;
+}
+
+#day-description .next {
+    position: relative;
+    bottom: 0px;
+}
+
+.next-text-wrapper {
+    text-align: center;
+}
+
+
+#day-description p.pOffDay-description {
+}
+
+.day-description-img {
+    width: 100%;
+    height: 175px;
+    background-image: url('../img/Main_Nav.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 25px;
 }
 
 #day-description .arrow {
@@ -224,6 +296,16 @@ input {
     /*top: 50%;
      transform: translateY(-50%);
      padding-right: 75px;*/
+}
+
+.logout {
+    z-index: 20;
+}
+
+#mission-container.blur {
+    /*-webkit-filter: blur(13px);
+    filter: blur(13px);
+    -webkit-transform: translate3d(0, 0, 0);*/
 }
 
 #call-for-action {
@@ -282,9 +364,25 @@ input {
     background-position: center;
 }
 
+.scala-taskEnd-wrapper .text {
+    display: inline-block;
+}
+
+.scala-taskEnd-wrapper span {
+    display: inline-block;
+}
+
 .mission-menu-item.start .mission-menu-center {
+    /*bottom: 2px;
+    margin: 0;   
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    right: initial;
+    top: initial;*/
     background-image: url("../img/nav_start.png");
-    background-size: contain;
+    background-size: 100%;
 }
 
 .lock {
@@ -397,22 +495,24 @@ input {
 }
 
 .blur {
-    -webkit-filter: blur(20px);
+    /*-webkit-filter: blur(20px);
     filter: blur(20px);
-    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);*/
 }
 
 .mission-popup {
-    width: 90%;
-    height: 70%;
+    /*width: 90%;*/
+    /* height: 70%; */
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 75px;
+    bottom: 90px;
     right: 0;
     left: 0;
     margin: auto;
     background-color: white;
     z-index: 3;
+    border-top: 5px solid rgba(255, 254, 255, 0.5);
+    background-clip: padding-box;
 }
 
 
@@ -429,15 +529,24 @@ input {
     display: block;
     float: right;
     height: 70px;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
-
+.mission-popup-header .mission-icon-triangle {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 13px 15px 13px;
+    /*border-color: transparent transparent #00e6ff transparent;*/
+    bottom: 0;
+    position: absolute;
+    right: 9%;
+}
 /*.mission-popup-icon {*/
 .mission-deatails-menu .mission-icon, .mission-popup .mission-icon {
     width: 20%;
     background-position: center;
-    background-size: 100px;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -449,9 +558,25 @@ input {
     width: 30%;
 }
 
+.mission-popup-help-text {
+    width: 100%;
+    padding: 90px 15px 20px;
+    color: #666666;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    z-index: 1;
+    position: absolute;
+}
+
+.mission-description-wrap-scroll {
+    overflow-y: auto;
+    height: 100%;
+    margin: 25px;
+}
+
 .mission-description-wrap {
     position: absolute;
-    padding: 85px 0;
+    padding: 175px 0 80px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -459,32 +584,32 @@ input {
 
 .missionPopUpImage {
     /*background-image: url(../img/pyramid.jpg);*/
-    display: inline-block;
-    width: 30%;
-    margin-left: 7px;
     height: 160px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin: auto;
     background-position: center;
-    margin: 0px 10px;
+    /*margin: auto;*/
+    margin-bottom: 10px;
+    position: relative;
+    width: 36%;
+    display: inline-block;
 }
 
 .mission-popup p {
-    font-size: 1.5em;
-    margin-right: 15px;
-    margin-left: 15px;
+    font-size: 2em;
+    margin: 00px 20px 20px 20px;
+    /* margin-left: 15px; */
     color: #666666;
     line-height: 1.1em;
     display: inline-block;
     vertical-align: top;
-    height: 100%;
-    overflow-y: scroll;
-    width: 60%;
+    /* height: 100%; */
+    overflow-y: auto;
+    width: 58%;
 }
 
 .mission-popup-footer {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     z-index: 2;
     background-color: white;
@@ -493,13 +618,14 @@ input {
 }
 
 .mission-popup-continue {
-    float: left;
-    position: absolute;
+    /*float: left;
+    position: absolute;*/
     bottom: 30px;
     left: 20px;
     font-size: 2em;
     /* color: #e21d91; */
     cursor: pointer;
+    text-align: center;
 }
 /*.mission-popup-continue .arrow {*/
 .arrow {
@@ -508,9 +634,10 @@ input {
     height: 40px;
     background-repeat: no-repeat;
     position: relative;
-    /*bottom: -10px;*/
-    background-size: 100% 100%;
+    /* bottom: -10px; */
+    background-size: 100%;
     vertical-align: middle;
+    background-position: center;
 }
 
 /********************* mission-deatails **************************/
@@ -523,6 +650,7 @@ input {
     height: 50px;
     max-width: 260px;
     width: 66%;
+    z-index: 200;
 }
 
 .mission-deatails-menu .mission-icon {
@@ -531,13 +659,16 @@ input {
     float: right;
     width: 33%;
     cursor: pointer;
+    margin-left: 2px;
+    background-image: url("../img/ques.png") !important;
+    background-size: 18px 27px !important;
 }
 
 .mission-deatails-timer {
     display: block;
     height: 100%;
     float: right;
-    width: 67%;
+    width: 55%;
     font-size: 25px;
     text-align: center;
 }
@@ -562,12 +693,12 @@ input {
 }
 
 .mission-repeat-popup {
-    position: fixed;
+    position: absolute;
     background: #fff;
     box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
     max-width: 500px;
     padding-bottom: 25px;
-    border-radius: 7px;
+    border-radius: 5px;
     width: 96%;
     left: 0;
     top: 105px;
@@ -577,12 +708,20 @@ input {
     min-height: 70px;
     max-height: 50%;
     z-index: 10;
+    overflow-y: auto;
     /*overflow-y: auto;
      overflow-x: hidden;*/
 }
 
 .popup-text {
     margin-top: 10px;
+}
+
+.triangle.triangle-pc {
+}
+
+.triangle.triangle-mobile {
+    display: none !important;
 }
 
 .triangle {
@@ -610,15 +749,18 @@ input {
 
 /*.mission-repeat-popup .close {*/
 .close {
-    float: left;
-    /*margin: 7px;*/
     background-position: center;
     background-repeat: no-repeat;
-    width: 34px;
-    height: 34px;
+    width: 50px;
+    height: 50px;
     display: inline-block;
-    position: relative;
+    position: absolute;
     background-size: 100% 100%;
+    left: 30px;
+    bottom: 0;
+    z-index: 10;
+    border-radius: 100%;
+    bottom: 21px;
 }
 
 .mission-repeat-popup h2 {
@@ -628,14 +770,75 @@ input {
     z-index: 100;
     position: relative;
 }
+
+
+/*************did you know popup*****************/
+.mission-popup-wrap {
+    /* position: absolute; */
+    /* top: 0; */
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: auto;
+}
+
+.mission-popup-didyou div {
+    height: 100%;
+}
+
+.mission-popup-wrap .mission-popup-didyou {
+    width: 63%;
+    height: 35%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: white;
+    z-index: 10000;
+    box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
+    border-radius: 0px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 2.5em;
+}
+
+.mission-popup-wrap.did-you-know-popup {
+    z-index: 20000;
+}
+
+.mission-popup-didyou p {
+    font-size: 0.8em;
+    height: 57%;
+    overflow: auto;
+    line-height: 1.3em;
+}
+
+.mission-popup-didyou .permission {
+    height: auto;
+    font-size: 1em;
+    position: relative;
+    margin: 10px auto 10px auto;
+}
+
+.mission-popup-didyou .next-text {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.mission-popup-didyou .permission .arrow {
+    vertical-align: bottom;
+    left: initial;
+}
+
 /*************mission-next time************************/
 .next-time {
     width: 60%;
     margin: auto;
     position: absolute;
-    top: 10%;
-    bottom: 10%;
-    height: 70%;
+    height: 90%;
     text-align: center;
     margin: auto;
     left: 0;
@@ -660,6 +863,7 @@ input {
 
 .next-title-back {
     height: 100%;
+    color: #000;
 }
 
 .next-icon {
@@ -711,7 +915,7 @@ input {
 }
 
 .next-content {
-    background-color: white;
+    background: rgba(241, 241, 241, 0.6);
     height: 100%;
     width: 100%;
     padding: 10px;
@@ -722,6 +926,16 @@ input {
     overflow: auto;
 }
 
+/********************* show end activity **************************/
+#end-activity-logo {
+    background-image: url("../img/ODTech_Logo _black.png");
+    width: 57px;
+    height: 50px;
+    display: block;
+    background-size: 100%;
+    margin: auto;
+}
+
 /********************* features **************************/
 
 /********************* open question **************************/
@@ -729,7 +943,7 @@ input {
     position: relative;
     width: 65%;
     margin: auto;
-    top: 100px;
+    top: 40px;
 }
 
 .claimText {
@@ -739,16 +953,17 @@ input {
     width: 100%;
     display: block;
     background: #FCFCFA;
-    border: transparent;
+   border: #7d7d7d 1px solid;
     text-align: right;
     resize: none;
     overflow: hidden;
     color: #666666;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
     padding: 15px;
     box-sizing: border-box;
     margin-top: 0;
+    font-family: fbprozalight;
 }
 
 
@@ -787,7 +1002,6 @@ input {
 .permission .arrow {
     position: absolute;
     left: 0;
-    background-image: url("../img/svg/arrow/navigate.svg");
     height: 40px;
     width: 40px;
     background-size: 100% 100%;
@@ -811,7 +1025,7 @@ input {
 }
 
 #mission-quiz .question {
-    width: 49%;
+    /* width: 49%; */
     color: #666;
     padding: 5px;
     display: table-cell;
@@ -823,7 +1037,7 @@ input {
     line-height: 0.9em;
     padding: 52px 45px;
     font-size: 32px;
-    font-size: 1.7em;
+    font-size: 2em;
     background-color: #fff;
     margin: auto;
 }
@@ -838,21 +1052,21 @@ input {
 .answers-wrapper-scroll {
     /*max-height: 60%;*/
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 500px;
 }
 
 #mission-quiz .answer {
     position: relative;
-    width: 80%;
+    /* width: 80%; */
     /* height: 97px; */
-    box-shadow: rgba(0,0,0,.35) 7px 8px 21px -3px;
+    box-shadow: rgba(0,0,0,0.05) 0px 0px 32px -3px;
     font-size: 26px;
-    font-size: 1.5em;
+    font-size: 1.8em;
     line-height: 1.1em;
     color: #666;
     font-weight: normal;
-    background: #fff;
+    background: rgba(241, 241, 241, 0.6);
     cursor: pointer;
     text-align: center;
     margin: auto;
@@ -860,15 +1074,16 @@ input {
 }
 
 #mission-quiz .answer span {
-    color: #fff;
+    color: #c64b2c;
     display: inline-block;
-    width: 25%;
+    /* width: 25%; */
     height: 100%;
     font-size: 50px;
     font-size: 2.5em;
     line-height: 1em;
     text-align: center;
     vertical-align: middle;
+    padding: 8px;
 }
 
 #mission-quiz .answer p {
@@ -882,7 +1097,7 @@ input {
 .message-text-popup {
     max-width: 460px;
     height: 208px;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -914,11 +1129,17 @@ input {
 
 /*********footer**************/
 footer {
-    position: fixed;
+    position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
+    height: 90px;
+    /* border-top: 1px solid #C5D7DB; */
+    background-color: rgba(255,255,255,0.85);
+    webkit-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 #main-help {
@@ -943,23 +1164,29 @@ footer {
 }
 
 #main-score {
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
+    /* width: 40px; */
+    height: 31px;
+    font-size: 27px;
+    line-height: 25px;
+    position: absolute;
+    top: 12px;
+    vertical-align: top;
+    word-spacing: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     text-align: center;
-    line-height: 40px;
-    color: white;
-    background: #f9ab32;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9ab32), color-stop(100%, #c87c05));
-    background: -webkit-linear-gradient(top, #f9ab32 0%, #c87c05 100%);
-    background: linear-gradient(to bottom, #f9ab32 0%, #c87c05 100%);
-    border-radius: 100%;
-    position: relative;
-    float: right;
-    margin-right: 2%;
-    z-index: 100000;
-    margin-bottom: 25px;
-    display: none;
+    left: 43px;
+    width: 60px;
+}
+
+.open-user-data #main-score {
+    /*top: 15px;*/
+}
+
+.nek {
+    font-size: 16px;
+    margin-right: -7px;
 }
 /*************header****************/
 header {
@@ -972,6 +1199,7 @@ header {
     top: 10px;
     left: 1%;
     height: 110px;
+    width: 100%;
 }
 
 #logo {
@@ -980,27 +1208,145 @@ header {
     /*background-image: url("../img/logo.png");*/
     background-size: contain;
     background-repeat: no-repeat;
+    float: left;
+}
+
+
+.mission-popup-didyou h2 {
+    margin-bottom: 10px;
+}
+
+#menu {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+#menu-btn {
+    background-image: url("../img/menu.png");
+    width: 55px;
+    height: 55px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.menu-wrap {
+    display: inline-block;
+    vertical-align: top;
+ /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
+    border: 1px solid #CFC0C8;
+}
+
+.menu-item-wrap {
+    background-color: #fff;
+    background-color: #fff;
+    padding: 10px 10px 10px 20px;
+}
+
+.menu-img {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+}
+
+.menu-item-name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.trophy .menu-img {
+    background-image: url('../img/score.png');
+}
+
+.home .menu-img {
+    background-image: url('../img/home.png');
+}
+
+.logout .menu-img {
+    background-image: url('../img/log_out.png');
 }
 
 .x {
-    top: 10px;
-    right: 10px;
+    width: 37px;
+    height: 37px;
     position: absolute;
-    z-index: 9999;
+    left: 10px;
+    top: 10px;
+    background-size: 100%;
 }
+
+/************* larger image ****************/
+
+.magnifying-glass {
+    background-image: url('../img/magni.png');
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#larger-image {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.92);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1000;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: none;
+}
+
+#larger-image-x {
+    background-image: url('../img/x.png');
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 /*********************************/
 
 /*@media all and (max-width: 600px) {*/
-@media all and (max-width: 736px) and (max-height: 736px) {
+@media all and (max-width: 736px) and (max-height: 960px) {
     html, body {
         font-size: 10px;
     }
+
+    #permission-feel {
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        right: 0px;
+}
 
     header {
         top: initial;
         left: 0%;
         bottom: 0;
-        z-index: 100;
+        z-index: 300;
         right: 0%;
         margin: auto;
         text-align: center;
@@ -1013,6 +1359,29 @@ header {
         margin: auto;
     }
 
+    #menu {
+        right: 28px;
+        width: 85%;
+        text-align: right;
+        font-size: 2em;
+    }
+
+    #menu-btn {
+        /*top: 20px;
+        right: 13px;*/
+        width: 45px;
+        height: 45px;
+    }
+
+    .menu-wrap {
+        display: block;
+        margin-top: 5px;
+    }
+
+    #menu-btn {
+        display: block;
+    }
+
     #main-container {
         display: block;
         position: absolute;
@@ -1023,6 +1392,12 @@ header {
         padding-bottom: 56px;
         box-sizing: border-box;
         overflow: initial;
+    }
+
+    #main-view {
+        padding-bottom: 0;
+        /*padding-top: 73px;
+  box-sizing: border-box;*/
     }
 
     #mission-container {
@@ -1044,7 +1419,7 @@ header {
     }
 
     .mainnav-wrap {
-        overflow-y: scroll; /* has to be scroll, not auto */
+        overflow-y: auto; /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
         box-sizing: border-box;
         height: 100%;
@@ -1053,7 +1428,7 @@ header {
     /********************* mission-container **************************/
 
     .mission-holder {
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
     }
 
@@ -1075,13 +1450,49 @@ header {
 
     /********************* mission-popup **************************/
     .mission-description-wrap {
-        overflow-y: scroll;
+        /*overflow-y: scroll;*/
+        padding: 70px 0 0px 0;
     }
+
+    .mission-description-wrap-scroll {
+        margin: 0px;
+    }
+
 
     .missionPopUpImage {
         display: block;
+        width: 69%;
+        /* margin-bottom: 30px; */
+        /* margin: auto; */
+        /* height: auto; */
+        max-height: 80%;
+        margin: auto;
+    }
+
+    img.img-missionPopUpImage {
+        display: block;
         width: 80%;
-        margin-bottom: 30px;
+        position: relative;
+        margin: 20px auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .mission-popup {
+        bottom: 55px;
+    }
+
+    .mission-popup-header {
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .mission-popup-header span {
+        height: 50px;
+    }
+
+    .mission-popup-help-text {
+        padding: 60px 15px 10px;
     }
 
     .mission-popup p {
@@ -1090,28 +1501,74 @@ header {
         margin: auto;
         height: auto;
         overflow: hidden;
+        padding: 25px;
     }
 
     .mission-repeat-popup {
-        max-width: 253px;
+        border-radius: 0px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        top: 86px;
     }
 
     .popup-text {
         font-size: 15px;
-        max-height: 200px;
+        /* max-height: 100px; */
         overflow-y: auto;
-        margin-left: 0;
+        color: black;
         width: 100%;
-        font-size: 15px;
+        font-size: 2em;
+        margin-top: 15px;
     }
 
     .mission-repeat-popup h2 {
         max-width: 216px;
-    }
+        color: #000000;
+        margin-bottom: 15px;
+    
+        font-size: 2.5em;
+}
 
     .triangle {
         width: 82px;
         height: 60px;
+    }
+
+
+    .triangle.triangle-pc {
+        display: none;
+    }
+
+    .triangle.triangle-mobile {
+        display: block !important;
+        top: 54px;
+        -webkit-transform: rotateZ(0deg);
+        margin: auto;
+        bottom: 0px;
+    }
+
+    .mission-popup-footer {
+        height: 50px;
+    }
+
+    .mission-popup-continue {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .mission-popup-header .mission-icon-triangle {
+        border-width: 0 10px 12px 10px;
+        right: 6%;
+    }
+
+    .mission-repeat-popup .triangle {
+        margin-right: 5%;
+    }
+
+    .mission-deatails-menu {
+        height: 38px;
     }
     /*****************main nav*****************/
     #call-for-action {
@@ -1183,16 +1640,25 @@ header {
     }
 
     #main-score {
-        margin-top: 8px;
+        /* margin-top: 8px; */
+        left: 65px;
+        top: 7px;
+        font-size: 21px;
+        word-spacing: 7px;
+        text-align: left;
+        max-width: 50px;
     }
+
+    /*#main-score {
+        left: 65px;
+        text-align: left;
+        max-width: 50px;
+        top: 7px;
+    }*/
 
     #day-description > p {
         width: 75%;
-        top: 0;
-        bottom: 0;
         margin: auto;
-        min-height: 200px;
-        max-height: 30%;
     }
 
     .next {
@@ -1238,7 +1704,7 @@ header {
     }
 
     .next-time {
-        height: 80%;
+        height: 100%;
     }
 
     .next-icon {
@@ -1252,17 +1718,41 @@ header {
     }
 
     .animate-switch-container {
-        overflow-y: auto;
-        /*padding-bottom: 56px;
-        box-sizing: border-box;*/
+        /* overflow-y: auto; */
+        padding-bottom: 0;
+        margin-top: 73px;
+        box-sizing: border-box;
+        padding-bottom: 73px;
+        box-sizing: border-box;
+        padding-top: initial;
     }
 
     .answers-wrapper-scroll {
         max-height: initial;
     }
 
-    .x {
-        top: 22px;
+    .close {
+        z-index: 100;
+        width: 38px;
+        height: 38px;
+        top: initial;
+        bottom: 8px;
+        left: 17px;
+    }
+
+    .mission-popup-wrap .mission-popup-didyou {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0px 0px 0px 0px;
+        min-height: 80%;
+        top: 20%;
+    
+        padding-bottom: 67px;
+}
+
+    .mission-popup-didyou p {
+        height: auto;
     }
 }
 
@@ -1277,5 +1767,9 @@ header {
 @media all and (max-width: 736px) and (max-height: 414px) {
     #call-for-action {
         display: none;
+    }
+
+    .next {
+        bottom: 30px;
     }
 }

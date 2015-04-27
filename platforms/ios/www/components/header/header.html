@@ -1,4 +1,22 @@
-<header>
-    <div id="logo"></div>
-    <!--<img class="logo" src="img/logo.png"/>-->
+<header data-ng-controller="header" >
+    <div id="menu" data-ng-show="!$state.includes('info') && !$state.includes('login') && !$state.includes('group') && !showDescription">
+        <div id="menu-btn" data-ng-click="showMenuFunc($event)"></div>
+        <div class="menu-wrap" data-ng-show="showMenu" data-ng-init="showMenu=false">
+            <div class="menu-item-wrap home" data-ng-click="goToMaiNav()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">עמוד המשימות</div>
+            </div>
+            <div class="menu-item-wrap trophy" data-ng-click="goToScorePage()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">לוח ניקוד</div>
+            </div>
+            <div class="menu-item-wrap logout" data-ng-click="logout()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">התנתק</div>
+            </div>
+        </div>
+
+    </div>
+    <div id="logo" data-ng-show="!$state.includes('info')"></div>
+
 </header>

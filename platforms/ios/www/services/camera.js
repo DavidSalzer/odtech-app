@@ -1,4 +1,4 @@
-odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($rootScope, $stateParams, $q) {
+odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', function ($rootScope, $stateParams, $q, $http) {
 
     /*write what the function does.
     write main function
@@ -19,6 +19,10 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
     var videos = {};
     var videoClicked;
 
+    //$rootScope.$on('logout', function (ngRepeatFinishedEvent) {
+    //    //clear the pictures from camera array
+    //        camera.setPicturesAndVideos({}, {});
+    //});
 
     return {
 
@@ -55,13 +59,13 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             var onVideoSuccess = function (uri) { //take photo success
 
                 path = uri[0].fullPath;
-             //   alert(path);
+                //   alert(path);
                 videos[_videoClicked] = { uri: path };
 
                 deferred.resolve(path);
             }
             var onFail = function (message) { //take photo failed
-                alert('Failed because: ' + message);
+                alert('Failed because: ' + message.message);
                 deferred.reject(message);
             }
 
@@ -78,8 +82,8 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
                 console.log("Code = " + r.responseCode);
                 console.log("Response = " + r.response);
                 console.log("Sent = " + r.bytesSent);
-            //    alert(r.response);
-                r.response = (JSON.parse(r.response.substr(1)));
+                //    alert(r.response);
+                r.response = (JSON.parse(r.response.trim()));
                 results.push(r.response.res);
                 uploaded++;
                 if (uploaded == num) {
@@ -88,7 +92,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             }
 
             var fail = function (error) {
-                alert("An error has occurred: Code = " + error.exception);
+              //  alert("An error has occurred: Code = " + error.exception);
                 deferred.reject(error);
             }
 
@@ -122,13 +126,58 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             return deferred.promise;
 
         },
+        uploadPhotoFormData: function (pictures, type, num) {
+            var deferred = $q.defer();
+            var uploaded = 0;
+            results = [];
+
+            for (p in pictures) {
+                request = {
+                    type: "sendFileAnswer",
+                    req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
+                        mid: $stateParams.missionId,
+                        fileName: pictures[p].uri,
+                        field: p,
+                        type: type
+                    }
+                }
+
+                //fd.append('file', pictures[p].file);
+                //fd.append(fileName, pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1));
+                pictures[p].fd.append('reqArray', JSON.stringify(request));
+
+                if (type == "img") {
+                    pictures[p].fd.append('mimeType', "image/jpeg");
+                } else if (type == "video") {
+                    pictures[p].fd.append('mimeType', "video/mp4");
+                }
+                $http.post(domain, pictures[p].fd, { //imgDomain+'uloadImage.php'
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                })
+                .success(function (data) {
+                    results.push(data.res);
+                    uploaded++;
+                    if (uploaded == num) {
+                        deferred.resolve(results);
+                    }
+                })
+                .error(function (error) {
+                 //   alert("An error has occurred: Code = " + error.exception);
+                    deferred.reject(error);
+                })
+            }
+
+            return deferred.promise;
+
+        },
         getPictures: function () { // get saved photos
             return pictures;
         },
-       setPicturesAndVideos: function (pics, vids) { //set photos and videos
-             pictures = pics;
+        setPicturesAndVideos: function (pics, vids) { //set photos and videos
+            pictures = pics;
 
-             videos = vids
+            videos = vids
         },
         getPhotoClicked: function () { // get last clicked photos
             return photoClicked;
@@ -262,6 +311,9 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', function ($root
             return deferred.promise;
 
         }
+
+
+
     }
 
 } ]);

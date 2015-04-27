@@ -1,6 +1,10 @@
 odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', 'camera', function ($rootScope, $scope, $state, server, $timeout, camera) {
     $scope.loginFirstPage = true;
     $scope.userName = '';
+    $scope.btn_text = 'הירשם';
+    //set the state - for hide and show the footer
+    // $scope.$state = $state;
+
     //check if the user login
     server.request({ "type": "getAppUser", "req": {} })
     .then(function (data) {
@@ -9,11 +13,15 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $rootScope.showDescription = true; //show day description in mainNav.
             $state.transitionTo('mainNav');
         }
-        //if logged in user has no userName
+        //if logged in user has no userName 
         else if (data.res && data.res.email) {
             $timeout(function () {
                 $scope.loginFirstPage = false;
             }, 0)
+        }
+        //if the user logout
+        else {
+            $rootScope.$broadcast('logout', {});
         }
     })
 
@@ -44,10 +52,11 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             console.log(data);
             //if success.
             if (!data.res.error) {
-                //if it old user go to missions else update user details. 
+                //if it old user go to groups page else update user details. 
                 if (data.res.name) {
                     $rootScope.showDescription = true; //show day description in mainNav.
                     $state.transitionTo('mainNav');
+
                 }
                 else {
                     $timeout(function () {
@@ -72,11 +81,15 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             }, 0)
         })
 
-
+        $("input").blur();
     }
+    $scope.showLoader = false;
 
-    //Send user details (userName and image) to servver.
+    //Send user details (userName and image) to server.
     $scope.sendUsername = function () {
+        if (!$scope.imgServerUrl && $scope.imgurl) {
+            return;
+        }
         //validations
         if (!$scope.userForm.nickName.$valid) {
             $scope.namenotValid = true;
@@ -100,14 +113,21 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         var file = new FormData(document.forms.namedItem("userForm"));
         file.append('reqArray', JSON.stringify(request));
         console.log(file);
+        //if there is an image- show the loader
+        if ($scope.imgurl) {
+            $scope.showLoader = true;
+        }
 
         server.request(file)
         .then(function (data) {
+            $scope.showLoader = false;
             console.log(data);
-            //if success.
+            //if success- go to group page
             if (!data.res.error) {
-                $rootScope.showDescription = true; //show day description in mainNav.
-                $state.transitionTo('mainNav');
+                // alert(1);
+                localStorage.removeItem('userProfile'); //for check if upload image crash
+                $state.transitionTo('group');
+
             }
             else {
 
@@ -121,20 +141,32 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     //For 4.4.2, get image from device.
     $scope.captureImage = function () {
-        camera.getPicture()
+        if (camera) {
+            $scope.btn_text = 'התמונה עולה..';
+            camera.getPicture()
         .then(function (data) {
             $timeout(function () {
                 $scope.imgurl = data.imgData;
                 $scope.setPreviewImg($scope.imgurl);
                 $scope.pictures = [];
-                $scope.pictures.push({ uri: $scope.imgurl })
+                $scope.pictures.push({ uri: $scope.imgurl });
+                $timeout(function () {
+                    $scope.uploadText = "ממשיך בהעלאה..";
+                }, 5000);
+                $timeout(function () {
+                    $scope.uploadText = "ההעלאה נמשכת..";
+                }, 15000);
+                $timeout(function () {
+                    $scope.uploadText = "התמונה שלך אכותית, ההעלאה תמשך עוד כמה שניות..";
+                }, 25000);
                 camera.uploadPhoto($scope.pictures, "img", 1)
                 .then(function (data) {
                     $scope.imgServerUrl = data[0][0];
-
+                    $scope.btn_text = 'הירשם';
                 });
             }, 0);
         });
+        }
     }
 
     $scope.email = '';
@@ -156,29 +188,70 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         }
     }
 
-
+    $scope.uploadText = "בהעלאה..";
     $scope.uploadImg = '';
     $scope.imageChosen = function (input) {
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
+            /*var reader = new FileReader();
 
             reader.onload = function (e) {
-                //set the preview image
-                $scope.setPreviewImg(e.target.result);
-                // $('#blah').attr('src', e.target.result);
+            //set the preview image
+            $scope.setPreviewImg(e.target.result);
+            // $('#blah').attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);
+            */
+            $scope.imgurl = window.URL.createObjectURL(input.files[0]);
+            $scope.setPreviewImg($scope.imgurl);
+            $scope.btn_text = 'התמונה עולה';
+            $scope.pictures = {};
+            $scope.pictures[0] = { uri: $scope.imgurl };
+
+            $timeout(function () {
+                $scope.uploadText = "ממשיך בהעלאה..";
+            }, 5000);
+            $timeout(function () {
+                $scope.uploadText = "ההעלאה נמשכת..";
+            }, 15000);
+            $timeout(function () {
+                $scope.uploadText = "התמונה שלך אכותית, ההעלאה תמשך עוד כמה שניות..";
+            }, 25000);
+            $scope.pictures[0]['fd'] = new FormData(document.forms.namedItem('userForm'));
+            camera.uploadPhotoFormData($scope.pictures, "img", 1)
+                .then(function (data) {
+                    $scope.imgServerUrl = data[0][0];
+                    $scope.btn_text = 'הירשם';
+                });
         }
     }
     //set the preview image after the user chose an image
     $scope.showPreviewSrc = false;
     $scope.setPreviewImg = function (src) {
-        $scope.previewSrc = src;
+
 
         $timeout(function () {
             $scope.showPreviewSrc = true;
+            $scope.previewSrc = src;
         }, 0)
 
+    }
+
+    $scope.isApp = isApp();
+
+    //for check if upload image crash
+    if (localStorage.getItem('userProfile') == 'start') {
+        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
+        $rootScope.generalPopupArgs = {generalPopupText: 'טיפ: אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה', generalPopupEvent: true}
+        //alert('אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה');
+    }
+
+    $scope.clickOnImage = function () {
+        if (localStorage.getItem('userProfile') == 'start') {
+            //localStorage.removeItem('startMission' + scope.task.mid);
+        }
+        else {
+            localStorage.setItem('userProfile', 'start');
+        }
     }
 } ]);

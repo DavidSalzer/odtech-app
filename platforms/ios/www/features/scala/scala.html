@@ -1,25 +1,46 @@
 
-<div class="main-scala">
-    <!--<input id="scala" type="range" name="points" min="0" max="10">-->
-    <div id="scala-max" class="scala-text">מרוצה</div>
-    <div id="scala-max-num-mobile" class="scala-text-num">10</div>
-    <div id="scala-min" class="scala-text">לא מרוצה</div>
-    <div class="mobile-up-input"></div>
-    <input id="scala" type="range" min="0" max="10" list="steplist" >
-    <div class="mobile-down-input"></div> 
-    <div id="scala-max-num" class="scala-text-num">10</div>
-    <div id="scala-min-mobile" class="scala-text">לא מרוצה</div>
-     <div id="scala-min-num" class="scala-text-num">0</div>
-    <datalist id="steplist">
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-    </datalist>
+<div class="main-scala" ng-class="{'double':task.options.length==2, 'multi':task.options.length>2}">
 
-    <div class="taskEnd-wrapper" ng-click="taskEnd()">
-        <span class="text">סיימת לדרג</span>
-        <span class="arrow"></span>
+    <div class="scala-wrap">
+
+
+
+        <div class="options-wrap">
+            <div ng-repeat="opt in task.options" class="scala-option-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / task.options.length+'%','height':100/(task.options.length-1)+'%'}">
+                <div class="option-text">{{opt}}</div>
+
+            </div>
+        </div>
+        <div class="range-wrap">
+            <input id="scala" type="range" min="0" max="{{max}}" ng-model="ans" ng-disabled="isDisabled" style="{{getHeight()}}">
+            <div id="demi-scala" style="{{getHeight()}}"></div>
+        </div>
+        <div class="indexes-wrap" ng-if="task.options.length==2">
+            <div ng-repeat="i in getNumber(number) track by $index" class="scala-option-index-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / 10+'%','height':100/number+'%'}">
+                <div class="option-index">{{$index+1}}</div>
+            </div>
+        </div>
+
+
+
+        <div class="taskEnd-wrapper scala-taskEnd-wrapper" ng-show="firstTime" ng-click="answerClick()">
+            <div class="text">סיימת לדרג?</div>
+            <span>לחץ כאן</span>
+            <span class="arrow"></span>
+        </div>
+
+        <!-- the answers indicators - right or wrong answer popup -->
+       
+
     </div>
+     <div ng-show="showAnswerIndication" class="opacity-mask">
+            <div class="message-text-popup popup">
+                <div class="textMessage">
+                    <h2 ng-show="showAnswerIndication && !showAnswerRight">תשובה שגויה</h2>
+                    <h2 ng-show="showAnswerIndication && showAnswerRight">תשובה נכונה</h2>
+                    <p ng-show="showAnswerIndication && !showAnswerRight">התשובה הנכונה היא : <br>{{rightAnswerText}}</p>
+                    <p ng-show="showAnswerIndication && showAnswerRight">כל הכבוד!</p>
+                </div>
+            </div>
+        </div>
 </div>

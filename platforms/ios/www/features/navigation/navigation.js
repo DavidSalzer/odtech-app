@@ -4,8 +4,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
         templateUrl: './features/navigation/navigation.html',
         link: function (scope, el, attrs) {
 
-            scope.destinationRadius = 0.0012; //distance fron destination for finish mission (need to get from server?).
-            scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to get from server.
+            scope.destinationRadius = 0.0005; //distance fron destination for finish mission (need to get from server?).
+            //scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to get from server.
 
             scope.myMarker = {
                 id: 1,
@@ -118,7 +118,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             //exec while user click on destination btn.
             scope.sendDestination = function () {
                 $timeout(function () {
-                    if (scope.task.status != 'answer' && !scope.endTimer) {
+                    //if (scope.task.status != 'answer' && !scope.endTimer) {
+                        if (scope.task.status != 'answer') {
                         scope.endMission(scope.results);
                     }
                     scope.isDestination = false;
@@ -126,20 +127,23 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             }
 
             //check if location is updated
+            scope.longNoLocation = 0;
             isLocationConnect = $interval(function () {
                 if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
                     $timeout(function () {
                         scope.noLocation = true;
+                        scope.longNoLocation += 1;
                     }, 0)
                 }
                 else {
                     $timeout(function () {
                         scope.noLocation = false;
+                        scope.longNoLocation = 0;
                         scope.lastLat = scope.myMarker.coords.latitude;
                         scope.lastLon = scope.myMarker.coords.longitude;
                     }, 0)
                 }
-            }, 60000);
+            }, 15000);
 
             scope.$on('closeMission', function (event, data) {
                 scope.endMission(scope.results);

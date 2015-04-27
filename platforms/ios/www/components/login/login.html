@@ -24,24 +24,27 @@
     <!--login second page, if it is new user, enter userName and image-->
     <div class="login-page" data-ng-hide="loginFirstPage">
         <div class="login-wrap">
-            <form name="userForm">
-                <div class="img-plus"   data-ng-class="{'hidePlus':showPreviewSrc}">
-                    <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0)" type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />
-                    <input data-ng-if="androidVersion.indexOf('4.4.2') === 0" type="file" name="img" data-ng-click="captureImage()" class="user-upload-img" /><!--if the device is android ver 4.4.2-->
+            <form name="userForm" enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" >
+                <div class="img-plus" style="display: none;"  data-ng-class="{'hidePlus':showPreviewSrc}">
+                    <input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0) || !isApp()" type="file" accept="image/*" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" data-ng-click="clickOnImage()" class="user-upload-img" name="file" />
+                    <input data-ng-if="androidVersion.indexOf('4.4.2') === 0 && isApp()" type="file" accept="image/*" name="img" data-ng-click="captureImage()" class="user-upload-img" /><!--if the device is android ver 4.4.2-->
 
                     <div class="preview-img" style="background-image:url('{{previewSrc}}')" data-ng-show="showPreviewSrc">
                     </div>
                 </div>
-                <div class="login-app-name fs-6">הוסף תמונה</div>
+                <!--<div class="login-app-name fs-6">הוסף תמונה</div>-->
 
                 <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" ng-change="changeInput('name')" required data-ng-class="{'not-valid': !userForm.nickName.$valid && namenotValid}" />
                 <!--validation-->
                 <div class="login-error fs-5" data-ng-show="!userForm.nickName.$valid && namenotValid">* שדה שם לא הוזן כראוי</div>
             </form>
             <div class="mission-popup-continue" data-ng-click="sendUsername()">
-                הירשם
-                <span class="arrow"></span>
+                {{btn_text}}
+                <span class="arrow" data-ng-show="btn_text=='הירשם'"></span>
             </div>
         </div>
+        <div class="upload-loader" ng-show="showLoader">
+           <div>{{uploadText}}</div>
+        </div>      
     </div>
 </div>

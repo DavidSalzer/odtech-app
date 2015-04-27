@@ -9,6 +9,8 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             scope.results = {};
             scope.results.answer;
             scope.results.points = 0;
+           // scope.showLoader = false;
+            scope.uploadText = "הסרטון בטעינה, אנא המתן"
             //if the mission has been made
             if (scope.task.status == 'answer') {
                 // alert('This task has been made');
@@ -23,6 +25,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             scope.movieCtrl = false;
             scope.isYoutube = true;
             scope.IsBlur = false; // set the blur class
+            scope.imgDomain = imgDomain;
 
             scope.attachEventByVideoType = function () {
                 //if youtube player initialize befor get youtyubeID - update now
@@ -38,7 +41,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     //attach general video events
                 } else if (!scope.isYoutube) {
                     scope.generalVideoEvents();
-                    $("#fullMovie").html('<source src="' + scope.task.videoURL + '" type="video/mp4"></source>');
+                    $("#fullMovie").html('<source src="' + imgDomain + scope.task.videoURL + '" type="video/mp4"></source>');
                     //set the poster image from admin
                     //scope.posterImage
                 }
@@ -55,7 +58,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 scope.player = new YT.Player('youtube-url-video', {
                     height: '100%',
                     width: '100%',
-                    playerVars: { 'controls': 0 },
+                    playerVars: { 'controls': 1 },
                     videoId: scope.task.youtubeID,
                     events: {
                         'onReady': scope.playerReady,
@@ -76,6 +79,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 if (scope.startYoutube) {
                     scope.player.playVideo();
                 }
+                scope.showLoader = false;
             }
 
             //handel event that player is change->need to know when finish
@@ -91,7 +95,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     }, 100);
                     //if this is a second enter -hide the poster and buttons
                     if (scope.task.status != 'answer') {
-                       
+
                         $timeout(function () {
                             scope.showPoster = true;
                             scope.movieCtrl = true;
@@ -105,7 +109,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 }
             }
 
-         
+
             /********************general video functions**************************/
             //listener for end mov
             scope.fullMovieHandler = function (e) {
@@ -130,25 +134,41 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
 
             }
+            //scope.finishloaded = function () {
+            //     scope.showLoader = true;
+            //}
             scope.generalVideoEvents = function () {
 
                 document.getElementById('fullMovie').addEventListener('ended', scope.fullMovieHandler, false);
+               // document.getElementById('fullMovie').addEventListener('canplay', scope.finishloaded, false);
                 scope.showPlayBtn = true;
 
             }
 
-
+            scope.getPoster = function () {
+                var background = "";
+                if (scope.posterImage && scope.posterImage.length > 0) {
+                    background = 'url(' + scope.posterImage + ')';
+                }
+                else {
+                    background = 'url(~/../img/poster.png)';
+                }
+                return { 'background-image': background }
+            }
             /***********************geneal functions******************************/
 
             // remove blur class and hide video controls
             scope.removeBlur = function () {
-                 $timeout(function () {
+                $timeout(function () {
                     scope.showPoster = false;
                     scope.movieCtrl = false;
                 }, 100)
             }
 
             scope.$watch('startMission', function (newVal, oldVal) {
+                if (scope.startMission == true && scope.task.status == 'notAnswer') {
+                    //scope.showLoader = true;
+                }
 
             });
 
@@ -211,7 +231,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
 
             }
-           
+
             scope.$on('closeMission', function (event, data) {
                 scope.endMission(scope.results);
             });

@@ -1,7 +1,7 @@
 odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
 
     $scope.currentMission = 0;
-   
+
     //close the description page - before main nav
     $scope.closeDescription = function () {
         $timeout(function () {
@@ -9,30 +9,35 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
         }, 0)
         $timeout(function () {
-           $scope.scrollToNextMiss()
+            $scope.scrollToNextMiss()
         }, 100)
     }
 
     //scroll to next mission 
     $scope.scrollToNextMiss = function () {
-       // the next mission index
+        // the next mission index
         var nextIndex = $(".mission-menu-item.start").attr('data-index');
 
         var oneItemDistance = 0;
         var number = 0;
         //if this is a smartphone -the distance is mission's height
         if ($.browser.isSmartphone) {
-            oneItemDistance = $($(".mission-menu-item")[1]).offset().top - $($(".mission-menu-item")[0]).offset().top;
-            number = nextIndex;
+            if ($(".mission-menu-item")[0]) {
+                oneItemDistance = $($(".mission-menu-item")[1]).offset().top - $($(".mission-menu-item")[0]).offset().top;
+                number = nextIndex;
+            }
         }
         //else - the distance is mission's width
         else {
-            oneItemDistance = $($(".mission-menu-item")[0]).offset().left - $($(".mission-menu-item")[1]).offset().left;
-            number = $(".mission-menu-item").length - nextIndex;
+            if ($(".mission-menu-item")[0]) {
+                oneItemDistance = $($(".mission-menu-item")[0]).offset().left - $($(".mission-menu-item")[1]).offset().left;
+                number = $(".mission-menu-item").length - nextIndex;
+            }
+
         }
 
         //the animate function
-            //if this is a smartphone -scroll top
+        //if this is a smartphone -scroll top
         if ($.browser.isSmartphone) {
             $("#mainnav-wrap").animate({
                 //'oneItemDistance / 2' for center the next mission - not must.
@@ -71,38 +76,57 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
     missions.getMissions().then(function (data) {
         //if success.
         if (data.res.activitie && data.res.activitie.mission) {
+            //save mission list in sevice.
+            missions.setMissions(data.res);
+
             $scope.tasks = data.res.activitie.mission;
             $scope.description = data.res.activitie.description;
+            //has tasks - throw broadcast
+            //the timeout is for localstorage option
+            $timeout(function () {
+                $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
+            }, 500)
 
             //scroll to the next mission
             $timeout(function () {
                 $scope.scrollToNextMiss()
             }, 0)
 
+            $scope.endActivity = false;
+            for (var i in $scope.tasks) {
+                if ($scope.tasks[i].status != 'answer') {
+                    break;
+                }
+                $scope.endActivity = (parseInt(i) == $scope.tasks.length - 1);
+            }
+            if ($scope.endActivity) {
+                $rootScope.$broadcast('lastMissionFinished', {});
+            }
         }
     });
 
     //go to mission
     $scope.goToMission = function ($index) {
-        //prevent enter to mission when the status is not open
-        // if($scope.tasks[$index].status == "done" || $scope.tasks[$index].status == "notAnswer"){
+        //prevent enter to mission when the status is block
+        if ($scope.tasks[$index].status != "block") {
+            $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
+        }
+        //get indication to block missiob
+        //else {
+        //    alert('משימה זו חסומה, אנא בצע את המשימות ע"פ הסדר.');
+        //}
+
+        //to do: remove this line!!!!!!!!!!
+        // $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
+
+
+    }
+
+    $scope.itemOnLongPress = function ($index) {
         $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
-        //  }
-
-
     }
 
-    //log out, it here temporarly
-    $scope.logout = function () {
-        server.request({ "type": "appUserLogout", "req": {} })
-        .then(function (data) {
-            $state.transitionTo('login');
-            //clear the pictures from camera array
-            camera.setPicturesAndVideos({},{});
-        })
-    }
 
-    
     //call by directive
     $scope.$on('scrollToNext', function (ngRepeatFinishedEvent) {
         $scope.scrollToNextMiss();
@@ -116,21 +140,30 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
     $scope.getBackgroundPhoto = function (task) {
         var background = '';
-        console.log('getBackgroundPhoto')
-         if (task.type == 'takePhoto' && task.answer) {
-             //parse the data string to object
-            var data = JSON.parse(task.answer.data)
-            background = task.type == 'takePhoto' ? data.photoCenter : '';
+        if (task.type == 'takePhoto' && task.answer && task.answer.data) {
+            //parse the data string to object
+            var data = task.answer.data
+            //if the data have uri field - the url is local path
+            //else - the path is from server
+            background = data.photoCenter ? data.photoCenter.uri ? data.photoCenter.uri : data.photoCenter : '';
         }
         //if there is image - show it. else - return empty string
-       if(background == ''){
+        if (background == '') {
             return '';
-       }
-       else{
-          return 'background-image:url(' +imgDomain+ background+')'; 
-       }
-           
-       
+        }
+        else {
+            var fullBack = '';
+            //if the data have uri field - the url is local path - return it -without domain
+            if (data.photoCenter.uri) {
+                fullBack = 'background-image:url(' + background + ')';
+            }
+            else {
+                fullBack = 'background-image:url(' + imgDomain + background + ')';
+            }
+            return fullBack;
+        }
+
+
 
 
     }

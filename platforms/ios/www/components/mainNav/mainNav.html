@@ -1,21 +1,23 @@
-<div id="day-description" data-ng-show="showDescription" class="general">
-    <p>{{description}}</p>
+<div id="day-description" data-ng-show="showDescription" class="general"> 
+    <div class="day-description-img"></div>   
+    <p class="pOffDay-description"  data-ng-if="description" ng-bind-html="description | newlines"></p>
+    <p data-ng-show="!description"><br> בטעינה...</p>
     <div class="next" data-ng-click="closeDescription()">
-
-        <span class="next-text">להמשך</span>
-        <span class="arrow"></span>
-
+        <div class="next-text-wrapper" data-ng-show="description">
+            <span class="next-text">להמשך</span>
+            <span class="arrow"></span>
+         </div>
     </div>
 </div>
 <!-- main nav  -->
-<section id="mission-container" data-ng-hide="showDescription">
-    <div class="logout" style="position: absolute;" data-ng-click="logout()">logout</div><!--logout btn temporarily-->
+<section id="mission-container" data-ng-hide="showDescription"  data-ng-class="{'blur':blurAll}">
+    <!--<div class="logout" style="position: absolute;" data-ng-click="logout()">logout</div>--><!--logout btn temporarily-->
     <div id="mainnav-wrap" class="mainnav-wrap" ng-show="tasks.length > 0">
         <div id="call-for-action" class="general">לחצו על המשימה הראשונה כדי להתחיל</div>
         <div class="mission-wrap">
             <div id="mission-menu">
                 <!-- mission item -->
-                <div data-index ="{{$index+1}}" on-finish-render="scrollToNext" data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}"  data-ng-class="{'start':task.status == 'notAnswer','done':task.status == 'answer','block': task.status == 'block'}" data-ng-click="goToMission($index)">
+                <div data-index ="{{$index+1}}" on-finish-render="scrollToNext" data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}"  data-ng-class="{'start':task.status == 'notAnswer','done':task.status == 'answer','block': task.status == 'block'}" data-ng-click="goToMission($index)" >
                     <div class="mission-menu-center" style="{{getBackgroundPhoto(task) }}">
                         <!--if linear -->
                         <span data-ng-show="$index>currentMission">

@@ -4,19 +4,22 @@
         <meta charset="utf-8" />
         <title>Odtech</title>
         <!--<meta content="width=device-width, initial-scale=1.0" name="viewport" />-->
-         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" >
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <meta content="" name="description" />
         <meta content="" name="author" />
         <link href="css/reset.css" rel="stylesheet" />
-        
+
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/splash.css" rel="stylesheet" />
+
         <link href="css/multiQuestions.css" rel="stylesheet" />
-       
+
         <link href="css/qrCode.css" rel="stylesheet" />
 
         <!-- directives style-->
         <link href="css/timer.css" rel="stylesheet" />
         <link href="css/missionFinish.css" rel="stylesheet" />
+        <link href="css/info.css" rel="stylesheet" />
 
         <!-- features style-->
         <link href="css/takePhoto.css" rel="stylesheet" />
@@ -26,45 +29,53 @@
         <link href="css/login.css" rel="stylesheet" />
         <link href="css/openQuestion.css" rel="stylesheet" />
         <link href="css/scala.css" rel="stylesheet" />
+        <link href="css/groups.css" rel="stylesheet" />
+        <link href="css/groupMembers.css" rel="stylesheet" />
 
-         <!--<link href="css/colorsAndIcons.css" rel="stylesheet" />-->
+        <!--<link href="css/colorsAndIcons.css" rel="stylesheet" />-->
         <link href="css/colorsAndIconsMasa.css" rel="stylesheet" />
-         
-
         <script src="cordova.js"></script>
 
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     <body>
-        <!-- BEGIN HEADER -->
-        <!--<ng-include src="'components/header/header.html'"></ng-include>-->
-        <!-- END HEADER -->
+
         <!-- BEGIN PAGE CONTENT-->
-        
+        <ng-include src="'components/splash/splash.html'"></ng-include><!--client splash-->
         <div id="main-container">
-            <ng-include src="'components/header/header.html'"></ng-include>
-            <div id="main-view"  class="main-view" data-ui-view="main"></div>
+            <ng-include src="'components/header/header.html'"></ng-include><!--header-logo-->
+            <!--group member and profile-->
+           
+            <!--main content-->
+            <div id="main-view" class="main-view" data-ui-view="main"></div>
         </div>
-       <ng-include src="'components/footer/footer.html'"></ng-include>
+        <!--score button-->
+        <!--<ng-include src="'components/group/groupScoreButton.html'"></ng-include>-->
+        <ng-include src="'components/popup/popup.html'"></ng-include><!--popup-->
+        <ng-include src="'components/footer/footer.html'"></ng-include><!--footer-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
-         <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
-        <!--<script>
-            function onYouTubePlayerAPIReady() {
-                alert("player");
-            }
-</script>-->
+        <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+                    <!--<script>
+                                    function onYouTubePlayerAPIReady() {
+                                        alert("player");
+                                    }
+                        </script>-->
         <!-- Jquery -->
         <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
 
         <!-- Angular -->
+       
         <script src="js/angular.min.js"></script>
-        <script src="js/angular-ui-router.min.js"></script>                    
+        <script src="js/angular-ui-router.min.js"></script>
         <script src="js/lodash.js"></script>
         <script src="js/angular-google-maps.js"></script>
-        
+        <script src="js/jquery.sglide.2.1.2.min.js"></script>
+        <script src="js/angular-animate.js"></script>
         <script src="app.js"></script>
         <script src="globals.js"></script>
+         <script src="js/angular-sanitize.js"></script>
 
         <!-- odtech  services-->
         <script src="./services/server.js"></script>
@@ -73,13 +84,20 @@
         <script src="./services/camera.js"></script>
 
         <!-- odtech  components-->
-        
+        <script src="components/splash/splash.js"></script>
         <script src="components/login/login.js"></script>
-        <script src="components/dayDescription/dayDescription.js"></script>
+        <script src="components/group/group.js"></script>
+        <script src="components/group/groupsScore.js"></script>
+        <!--<script src="components/dayDescription/dayDescription.js"></script>-->
         <script src="components/mainNav/mainNav.js"></script>
         <script src="components/mission/mission.js"></script>
-         
+        <script src="components/footer/footer.js"></script>
+        <script src="components/header/header.js"></script>
+        <script src="components/info/info.js"></script>
+
+
         <!-- odtech  directives-->
+        <script src="directives/checkNetwork/checkNetwork.js"></script>
         <script src="directives/didYouKnow/didYouKnow.js"></script>
         <script src="directives/missionFinish/missionFinish.js"></script>
         <script src="directives/missionDeatails/missionDeatails.js"></script>
@@ -87,7 +105,11 @@
         <script src="directives/monitor/monitor.js"></script>
         <script src="directives/points/points.js"></script>
         <script src="directives/timer/timer.js"></script>
-        
+        <script src="directives/groupMembers/groupMembers.js"></script>
+        <script src="directives/endActivity/endActivity.js"></script>
+        <script src="directives/generalPopup/generalPopup.js"></script>
+        <script src="directives/onLongPress/onLongPress.js"></script>
+        <script src="directives/largeImage/largeImage.js"></script>
 
         <!-- odtech  features-->
         <script src="features/multiQuestion/multiQuestion.js"></script>
@@ -98,8 +120,8 @@
         <script src="features/watchVideo/watchVideo.js"></script>
         <script src="features/qrCode/qrCode.js"></script>
         <script src="features/scala/scala.js"></script>
-        
-        
+
+
         <!-- END JAVASCRIPTS -->
     </body>
     <!-- END BODY -->

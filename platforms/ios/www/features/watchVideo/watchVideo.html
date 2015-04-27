@@ -8,8 +8,13 @@
         </div>
     </div>-->
 
-
-    <div class="poster" data-ng-if="showPoster" style="background-image: url({{posterImage}})"></div>
+    <!--<div class="upload-loader" ng-show="showLoader">
+           <div>{{uploadText}}</div>
+        </div>-->
+    <div class="load" style="  margin: auto; width: 100px;font-size: 2em; position: absolute;top: 0;bottom: 0;left: 0; right: 0; height: 30px;text-align: center">
+   טוען את הסרטון...
+    </div>
+    <div class="poster" data-ng-if="showPoster" ng-style="getPoster()"></div>
     <!--show movie controls for play again or finish the mission-->
     <div class="movieCtl"  data-ng-show="movieCtrl"><!--data-ng-show="endMovie"-->
         <span class="writeClaim" data-ng-click="stop();"></span>
@@ -23,9 +28,10 @@
     </div>
 
     <!--view video not yuotube-->
-    <video data-ng-if="task.videoURL" ng-class="{'blur': IsBlur}" class="fullMovie" id="fullMovie" data-ng-show="task.videoURL && !showPoster && startMission" data-ng-click="togglePause()" data-ng-init="!showPoster?showPlayBtn=true:showPlayBtn=falses">
+    <video  data-ng-if="task.videoURL" ng-class="{'blur': IsBlur}" class="fullMovie" id="fullMovie" data-ng-show="task.videoURL && !showPoster && startMission" data-ng-click="togglePause()" data-ng-init="!showPoster?showPlayBtn=true:showPlayBtn=falses" controls>
         <!--poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg"-->
-        <source src="{{task.videoURL}}" type="video/mp4" /><!--mov/homeless.mp4-->
+        <source src="{{imgDomain+task.videoURL}}" type="video/mp4" /><!--mov/homeless.mp4-->
     </video>
+     
     <div class="playButton"  data-ng-show="task.videoURL && showPlayBtn" data-ng-click="togglePause()"></div>
 </section>
