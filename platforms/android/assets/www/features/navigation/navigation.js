@@ -110,6 +110,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                             scope.results.points = scope.task.points;
                         }
                         scope.isDestination = true;
+                        $rootScope.$broadcast('reachedTheDestination', {});
                     }, 0)
 
                 }
@@ -119,7 +120,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             scope.sendDestination = function () {
                 $timeout(function () {
                     //if (scope.task.status != 'answer' && !scope.endTimer) {
-                        if (scope.task.status != 'answer') {
+                    if (scope.task.status != 'answer') {
                         scope.endMission(scope.results);
                     }
                     scope.isDestination = false;

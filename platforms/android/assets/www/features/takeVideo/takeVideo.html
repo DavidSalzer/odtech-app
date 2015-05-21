@@ -26,10 +26,7 @@
 
         <!--main button for captur and view video-->
         <div id="capture-video-movie" data-ng-show="videoSaved[videoCenter];">
-            <!--<span class="playAgain"></span> <span class="writeClaim video"></span>-->
-                            <!--<video class="fullMovie" id="fullMovieClip" controls>
-                                                                                <source src="{{videos[videoCenter].uri}}" type="video/mp4" />
-                                                                            </video>-->
+          
         </div>
     </div>
 
@@ -39,7 +36,6 @@
         <div id="capture-video-movie" data-ng-show="videoSaved[videoRight]">
             <span class="playAgain"></span> <span class="writeClaim video"></span>
             <video class="fullMovie" id="fullMovieClip" controls><!--poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg"-->
-                <!--<source src="mov/big_buck_bunny.mp4" type="video/mp4" />-->
                 <source src="{{videos[videoRight].uri}}" type="video/mp4" />
             </video>
         </div>
@@ -49,7 +45,6 @@
         <div id="capture-video-movie" data-ng-show="videoSaved[videoLeft]">
             <span class="playAgain"></span> <span class="writeClaim video"></span>
             <video autobuffer class="fullMovie" id="fullMovieClip" controls><!--controls-->
-                <!--<source src="mov/big_buck_bunny.mp4" type="video/mp4" />-->
                 <source src="{{videos[videoLeft].uri}}" type="video/mp4" />
             </video>
         </div>

@@ -1,4 +1,4 @@
-odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
+odtechApp.directive('multiQuestion', ['$rootScope','$timeout', function ($rootScope,$timeout) {
     return {
         restrict: 'E',
         templateUrl: './features/multiQuestion/multiQuestion.html',
@@ -37,8 +37,8 @@ odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
                     if (!scope.endTimer) {
                         scope.results.points += scope.pointsPerQuestion;
                     }
-                    //TODO: play the right sound
-
+                    //play the right sound
+                    $rootScope.$broadcast('multiQuestionAnswerRight', {});
 
                 }
                 else {
@@ -48,8 +48,8 @@ odtechApp.directive('multiQuestion', ['$timeout', function ($timeout) {
                     //save the data to the server
                     scope.results.answer[scope.currentQuestion] = false;
 
-                    //TODO: play the wrong sound
-
+                    //play the wrong sound
+                    $rootScope.$broadcast('multiQuestionAnswerWrong', {});
                 }
 
                 setTimeout(function () {

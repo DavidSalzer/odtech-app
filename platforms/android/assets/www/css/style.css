@@ -228,7 +228,6 @@ body.keyboard {
 #day-description {
     width: 100%;
     height: 100%;
-    /*background-image: url(../img/openStory-popUp.jpg);*/
     background-repeat: no-repeat;
     background-size: 100%;
       overflow-y: auto;
@@ -582,8 +581,7 @@ body.keyboard {
   height: 100%;
 }
 
-.missionPopUpImage {
-    /*background-image: url(../img/pyramid.jpg);*/
+.missionPopUpImage {   
     height: 160px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1333,6 +1331,9 @@ header {
 
 /*********************************/
 
+section.audio{
+    display: none;
+}
 /*@media all and (max-width: 600px) {*/
 @media all and (max-width: 736px) and (max-height: 960px) {
     html, body {

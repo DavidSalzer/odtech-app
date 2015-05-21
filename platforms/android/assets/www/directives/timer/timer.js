@@ -37,7 +37,6 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                 scope.displayTimer(scope.currentTime);
                 //if timer ended
                 if (scope.currentTime <= 0) {
-                    // alert('timer ended!!')
                     clearInterval(scope.timerInterval);
                     scope.currentTime = 0;
                     $rootScope.$broadcast('endTimer', {});
