@@ -1,13 +1,13 @@
 /********production********/
-var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
-var imgDomain = "http://admin.odtech.co.il/";
+//var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
+//var imgDomain = "http://admin.odtech.co.il/";
 /******QA******/
-//var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-//var imgDomain = "http://adminqa.odtech.co.il/";
+ var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+ var imgDomain = "http://adminqa.odtech.co.il/";
 
 /********!1client number!!************/
 var cid = 4; // production
-//var cid = 1; // QA
+ var cid = 1; // QA
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
@@ -42,6 +42,12 @@ odtechApp.filter('newlines', function () {
         return output;
     };
 });
+
+odtechApp.filter('trustedurl', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
 
 /**********prevent footer movement on input focus*************/
 
@@ -96,40 +102,52 @@ function isApp() {
 }
 
 function iOSversion() {
+
     if (/iP(hone|od|ad)/.test(navigator.platform)) {
-        $("body").delegate("input", "focus",
 
-function (e) {
-
-    var self = $(this);
-
-    $("body").height(screen.availHeight + 50 + self.offset().top / 2);
-
-
-
-    setTimeout(function () {
-
-        $("html, body").animate({ scrollTop: $(document).height() }, 1000)
-    }, 1000);
-
-});
-
-
-
-
-
-
-
-        $("body").delegate("input", "blur", function (e) { document.body.style.height = screen.availHeight + 'px'; });
         // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+
         var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+
         var ver = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+
         if (ver[0] === 8 & ver[1] === 2) alert("גרסת מערכת ההפעלה הזו אינה מאפשרת העלאת תמונות. אנחנו ממליצים לשדרג לגרסה 8.3");
+
+        if (ver[0] === 8) {
+
+            $("body").delegate("input", "focus",
+
+                               function(e) {
+
+                               var self = $(this);
+
+                               $("body").height(screen.availHeight + 50 + self.offset().top/2);
+
+                               setTimeout(function() {
+
+                                          $("html, body").animate({ scrollTop: $(document).height() }, 1000)}, 10);
+
+                               });
+
+            
+
+            
+
+            
+
+            $("body").delegate("input", "blur", resetBodyHeight);
+
+        }
+
     }
+
 }
+
 iOSversion();
 
-
+function resetBodyHeight(){
+    document.body.style.height = '100%';
+}
 
 
 function anodoidVersion() {

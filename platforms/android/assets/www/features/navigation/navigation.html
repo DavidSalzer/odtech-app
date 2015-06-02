@@ -7,7 +7,11 @@
             <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id" icon="myMarker.icon">
             </ui-gmap-marker>
             <!--display destination position-->
-            <ui-gmap-marker coords="destinationMarker.coords" idkey="destinationMarker.id" icon="destinationMarker.icon">
+            <ui-gmap-marker ng-if="!$last" ng-repeat="point in destinationMarkerArray" coords="point" idkey="destinationMarkerId" icon="subdestinationMarkerIcon">
+            <ui-gmap-marker  coords="destinationMarkerArray[destinationMarkerArray.length-1]" idkey="destinationMarkerId" icon="destinationMarkerIcon">
+            <ui-gmap-marker ng-repeat="point in interestMarkerArray" coords="point" idkey="interestMarkerId" icon="interestMarkerIcon">
+                 <!--<ui-gmap-marker coords="destinationMarkerArray[1].coords" idkey="destinationMarkerArray[1].id" icon="destinationMarkerArray[1].icon">
+                      <ui-gmap-marker coords="destinationMarkerArray[2].coords" idkey="destinationMarkerArray[2].id" icon="destinationMarkerArray[2].icon">-->
             </ui-gmap-marker>
         </ui-gmap-google-map>
     </div>

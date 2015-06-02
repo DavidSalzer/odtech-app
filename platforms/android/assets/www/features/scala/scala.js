@@ -1,4 +1,4 @@
-odtechApp.directive('scala', [function () {
+odtechApp.directive('scala', ['$rootScope',function ($rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/scala/scala.html',
@@ -84,8 +84,8 @@ odtechApp.directive('scala', [function () {
                                 scope.results.points = scope.task.points;
                             }
                         }
-                        //TODO: play the right sound
-
+                        //play the right sound
+                        $rootScope.$broadcast('multiQuestionAnswerRight', {});
 
                     }
                     else {
@@ -95,7 +95,8 @@ odtechApp.directive('scala', [function () {
                         //save the data to the server
                         scope.results.answer = scope.ans;
 
-                        //TODO: play the wrong sound
+                        //play the wrong sound
+                        $rootScope.$broadcast('multiQuestionAnswerWrong', {});
 
                     }
 

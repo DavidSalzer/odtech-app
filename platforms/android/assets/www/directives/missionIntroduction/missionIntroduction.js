@@ -8,8 +8,11 @@ odtechApp.directive('missionIntroduction',['$rootScope', function ($rootScope) {
             scope.popupShow = true;
             scope.hideIntroduction = function () {
                 //scope.showIntroduction = false;
+                  $("#odtech-audio-silence")[0].load();
+                    $("#odtech-audio-silence")[0].play();
                 scope.startMission = true;
                 scope.popupShow = false;
+                $rootScope.$broadcast('startMission');
             }
 
             scope.openLargeImage=function(){

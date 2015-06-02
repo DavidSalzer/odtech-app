@@ -27,6 +27,7 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
                         $timeout(function () {
                             scope.missionIdLastShown = task.mid;
                             scope.didYouKnowText = task.didYouKnow;
+                            scope.audioUrl = task.audioUrl2;
                             scope.showDidYouKnow = true;
 
                         }, 0)

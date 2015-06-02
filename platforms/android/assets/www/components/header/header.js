@@ -20,6 +20,7 @@ odtechApp.controller('header', ['$scope', '$state', 'server', '$timeout', functi
     }
 
     $scope.showMenuFunc = function (e) {
+          $("#odtech-audio-silence")[0].play();
         $timeout(function () {
             $scope.showMenu = !$scope.showMenu;
         }, 0);

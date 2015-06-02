@@ -18,7 +18,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 }
             };
 
-            scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+            //scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
+            scope.map = { center: { latitude: scope.task.coord[0].latitude, longitude: scope.task.coord[0].longitude }, zoom: 14 };
             scope.options = { scrollwheel: true };
 
             scope.results = {};
@@ -60,18 +61,35 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             scope.getCurrentLocation();
 
 
-            //mark destination on map.
+            ////mark destination on map.
+            //the last point its the destination
             scope.destinationMarker = {
                 id: 0,
                 coords: {
-                    latitude: scope.task.Latitude,
-                    longitude: scope.task.Longitude
+                    latitude: scope.task.coord[scope.task.coord.length-1].latitude,
+                    longitude: scope.task.coord[scope.task.coord.length-1].longitude
                 },
                 icon: {
                     url: './img/position4.png',
                     scaledSize: new google.maps.Size(75, 93)
                 }
             };
+
+            //set the destination marker points
+            //scope.destinationMarkerIcon = { url: './img/position4.png', scaledSize: new google.maps.Size(75,93) };
+            //scope.subdestinationMarkerIcon = { url: './img/subposition.png', scaledSize: new google.maps.Size(50,43) };
+
+           //if the invisibleTarget is true - hide the destinationTarget and subdestinationTarget icons
+            scope.subdestinationMarkerIcon =scope.task.invisibleTarget ? { url: '', scaledSize: new google.maps.Size(50,43) } :{ url: './img/subposition.png', scaledSize: new google.maps.Size(50,43) }  ;
+            scope.destinationMarkerIcon =scope.task.invisibleTarget ? { url: '', scaledSize: new google.maps.Size(75,93) } : { url: './img/position4.png', scaledSize: new google.maps.Size(75,93) }  ;
+            
+            scope.destinationMarkerId = 0;
+            scope.destinationMarkerArray = scope.task.coord;
+            //set theinterest marker points
+            scope.interestMarkerIcon = { url: './img/positionIcon.png', scaledSize: new google.maps.Size(20, 20) };
+            scope.interestMarkerId = 0;
+            scope.interestMarkerArray = scope.task.interestPoints;
+
 
             //get user location while it change.
             scope.getLocation = function () {
@@ -127,24 +145,26 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 }, 0)
             }
 
-            //check if location is updated
-            scope.longNoLocation = 0;
-            isLocationConnect = $interval(function () {
-                if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
-                    $timeout(function () {
-                        scope.noLocation = true;
-                        scope.longNoLocation += 1;
-                    }, 0)
-                }
-                else {
-                    $timeout(function () {
-                        scope.noLocation = false;
-                        scope.longNoLocation = 0;
-                        scope.lastLat = scope.myMarker.coords.latitude;
-                        scope.lastLon = scope.myMarker.coords.longitude;
-                    }, 0)
-                }
-            }, 15000);
+            scope.$on('startMission', function () {
+                //check if location is updated
+                scope.longNoLocation = 0;
+                isLocationConnect = $interval(function () {
+                    if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
+                        $timeout(function () {
+                            scope.noLocation = true;
+                            scope.longNoLocation += 1;
+                        }, 0)
+                    }
+                    else {
+                        $timeout(function () {
+                            scope.noLocation = false;
+                            scope.longNoLocation = 0;
+                            scope.lastLat = scope.myMarker.coords.latitude;
+                            scope.lastLon = scope.myMarker.coords.longitude;
+                        }, 0)
+                    }
+                }, 15000);
+            });
 
             scope.$on('closeMission', function (event, data) {
                 scope.endMission(scope.results);
