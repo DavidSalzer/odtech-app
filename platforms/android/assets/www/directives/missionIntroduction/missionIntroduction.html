@@ -1,30 +1,16 @@
-<div class="mission-popup popup" data-ng-if="!startMission">
-    <div class="mission-popup-wrap" data-ng-if="task">
-        <div class="mission-popup-header">
-            <span class="mission-icon"><span class="mission-icon-triangle"></span></span>
-            <timer ng-if="task.timer"></timer>
-            <points type="single"></points>
-        </div>
-        <!--<div class="mission-popup-help-text">לאורך ביצוע המשימה יש באפשרותכם לקבל תקציר משימה על ידי לחיצה על איקון המשימה</div>-->
-        <div class="mission-description-wrap">
-            <div class="mission-description-wrap-scroll">
-                <span data-ng-show="task.imgUrl">
-                    <span data-ng-show="task.imgUrl" class="missionPopUpImage" style="background-image:url('{{imgDomain+task.imgUrl}}')" data-ng-click="openLargeImage()">
-                        <large-image url="{{imgDomain+task.imgUrl}}"></large-image>
-                    </span>
-                </span>
-                <!--<span data-ng-show="true" class="missionPopUpImage"><span class="magnifying-glass" data-ng-click="openLargeImage()">לחץ להגדלה</span> </span>-->
-                <p ng-bind-html="task.description | newlines" data-ng-if="task.description"></p>
-                <div class="mission-popup-footer">
-                    <div class="mission-popup-continue" data-ng-click="hideIntroduction()">
-                        <span>צאו לדרך</span>
-                        <span class="arrow"> </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--<odtech-audio audio-src="{{task.audioUrl}}"></odtech-audio>-->
+<div class="mission-popup popup" data-ng-show="showIntroduction">
+    <div class="mission-popup-header">
+        <span class="mission-icon"></span>
+        <timer></timer>
+        <points></points>
     </div>
-    <p data-ng-show="!task.description"><br> בטעינה...</p>
-    
+    <div class="mission-description-wrap">
+        <span class="missionPopUpImage"></span>
+        <p>צפו בסרט וכתבו מה הטענה המרכזית של הדובר בסרט</p>
+    </div>
+    <div class="mission-popup-footer">
+        <div class="mission-popup-continue" data-ng-click="hideIntroduction()">צאו לדרך
+            <span class="arrow"> </span>
+        </div>
+    </div>
 </div>

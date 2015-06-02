@@ -1,172 +1,66 @@
-odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
+odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', function ($rootScope, $scope, $state, missions) {
+    $scope.tasks = [
+    { type: "multiQuestion", id: "1" },
+    { type: "navigation", id: "2" },
+    { type: "openQuestion", id: "3" },
+    { type: "takePhoto", id: "4" },
+    { type: "takeVideo", id: "5" },
+    { type: "watchVideo", id: "6" }
+    ];
 
-    $scope.currentMission = 0;
+    missions.test();
+    //missions.getMissions("690")
+    //.then(function (data) {
+    //    $scope.tasks = data;
+    //    for (var i = 0; i < $scope.tasks.long; i++) {
+    //        switch ($scope.tasks[i]["wpcf-type"][0]) {
+    //            case "navigate":
+    //                {
 
-    //close the description page - before main nav
-    $scope.closeDescription = function () {
-        $timeout(function () {
-            $rootScope.showDescription = false;
+    //                    $scope.tasks[i].type = "navigation";
+    //                    break;
+    //                }
+    //            case "take-photo":
+    //                {
 
-        }, 0)
-        $timeout(function () {
-            $scope.scrollToNextMiss()
-        }, 100)
-    }
+    //                    $scope.tasks[i].type = "takePhoto";
+    //                    break;
+    //                }
+    //            case "capture-video":
+    //                {
 
-    //scroll to next mission 
-    $scope.scrollToNextMiss = function () {
-        // the next mission index
-        var nextIndex = $(".mission-menu-item.start").attr('data-index');
+    //                    $scope.tasks[i].type = "takeVideo";
+    //                    break;
+    //                }
+    //            case "watch-video":
+    //                {
 
-        var oneItemDistance = 0;
-        var number = 0;
-        //if this is a smartphone -the distance is mission's height
-        if ($.browser.isSmartphone) {
-            if ($(".mission-menu-item")[0]) {
-                oneItemDistance = $($(".mission-menu-item")[1]).offset().top - $($(".mission-menu-item")[0]).offset().top;
-                number = nextIndex;
-            }
-        }
-        //else - the distance is mission's width
-        else {
-            if ($(".mission-menu-item")[0]) {
-                oneItemDistance = $($(".mission-menu-item")[0]).offset().left - $($(".mission-menu-item")[1]).offset().left;
-                number = $(".mission-menu-item").length - nextIndex;
-            }
+    //                    $scope.tasks[i].type = "watchVideo";
+    //                    break;
+    //                }
+    //            case "quiz":
+    //                {
 
-        }
+    //                    $scope.tasks[i].type = "multiQuestion";
+    //                    break;
+    //                }
+    //            case "write-text":
+    //                {
 
-        //the animate function
-        //if this is a smartphone -scroll top
-        if ($.browser.isSmartphone) {
-            $("#mainnav-wrap").animate({
-                //'oneItemDistance / 2' for center the next mission - not must.
-                scrollTop: number * oneItemDistance - oneItemDistance
-            }, {
-                duration: nextIndex * 1500 / 10, //the speed set by the distance
-                specialEasing: {
-                    width: "linear",
-                    height: "easeOutBounce"
-                },
-                complete: function () {
+    //                    $scope.tasks[i].type = "openQuestion";
+    //                    break;
+    //                }
+    //        }
+    //    }
 
-                }
-            });
-        }
-        //if this is NOT a smartphone -scroll left
-        else {
-            $(".mission-wrap").animate({
-                //'oneItemDistance / 2' for center the next mission - not must.
-                scrollLeft: number * oneItemDistance - oneItemDistance / 2
-            }, {
-                duration: nextIndex * 1500 / 10, //the speed set by the distance
-                specialEasing: {
-                    width: "linear",
-                    height: "easeOutBounce"
-                },
-                complete: function () {
+    //});
 
-                }
-            });
-        }
-    }
+    // console.log($scope.tasks);
 
-
-    //set missions from server
-    missions.getMissions().then(function (data) {
-        //if success.
-        if (data.res.activitie && data.res.activitie.mission) {
-            //save mission list in sevice.
-            missions.setMissions(data.res);
-
-            $scope.tasks = data.res.activitie.mission;
-            $scope.description = data.res.activitie.description;
-            //has tasks - throw broadcast
-            //the timeout is for localstorage option
-            $timeout(function () {
-                $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
-            }, 500)
-
-            //scroll to the next mission
-            $timeout(function () {
-                $scope.scrollToNextMiss()
-            }, 0)
-
-            $scope.endActivity = false;
-            for (var i in $scope.tasks) {
-                if ($scope.tasks[i].status != 'answer') {
-                    break;
-                }
-                $scope.endActivity = (parseInt(i) == $scope.tasks.length - 1);
-            }
-            if ($scope.endActivity) {
-                $rootScope.$broadcast('lastMissionFinished', {});
-            }
-        }
-    });
-
-    //go to mission
     $scope.goToMission = function ($index) {
-        //prevent enter to mission when the status is block
-        if ($scope.tasks[$index].status != "block") {
-            $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
-        }
-        //get indication to block missiob
-        //else {
-        //    alert('משימה זו חסומה, אנא בצע את המשימות ע"פ הסדר.');
-        //}
-
-        //to do: remove this line!!!!!!!!!!
-        // $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
-
-
+        //alert($scope.tasks[$index].id);
+        $state.transitionTo('mission', { missionId: $scope.tasks[$index].id });
     }
-
-    $scope.itemOnLongPress = function ($index) {
-        $state.transitionTo('mission', { missionId: $scope.tasks[$index].mid });
-    }
-
-
-    //call by directive
-    $scope.$on('scrollToNext', function (ngRepeatFinishedEvent) {
-        $scope.scrollToNextMiss();
-    });
-
-
-
-
-    //האם המסלול לינארי או לא.
-    //האם שמים מנעול עבור כל משימה או שזה לא לינארי
-
-    $scope.getBackgroundPhoto = function (task) {
-        var background = '';
-        if (task.type == 'takePhoto' && task.answer && task.answer.data) {
-            //parse the data string to object
-            var data = task.answer.data
-            //if the data have uri field - the url is local path
-            //else - the path is from server
-            background = data.photoCenter ? data.photoCenter.uri ? data.photoCenter.uri : data.photoCenter : '';
-        }
-        //if there is image - show it. else - return empty string
-        if (background == '') {
-            return '';
-        }
-        else {
-            var fullBack = '';
-            //if the data have uri field - the url is local path - return it -without domain
-            if (data.photoCenter.uri) {
-                fullBack = 'background-image:url(' + background + ')';
-            }
-            else {
-                fullBack = 'background-image:url(' + imgDomain + background + ')';
-            }
-            return fullBack;
-        }
-
-
-
-
-    }
-
+    //
 } ]);
 

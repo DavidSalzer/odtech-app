@@ -1,60 +1,56 @@
-odtechApp.factory('missions', ['server', function (server) {
+odtechApp.factory('missions', ['$rootScope', '$stateParams', '$http', '$q', function ($rootScope, $stateParams, $http, $q) {
 
-    missionList = {};
+    //var domain = "http://odtech.com.tigris.nethost.co.il/";
+    var domain = "http://odtech.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+
+    //var allTags = [];
 
     return {
-        //return tasks array of mission
-        getMissions: function () {
 
-            return server.request({ "type": "appUserGetGroup", "req": {} });
+        getMissions: function (dayId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                url: domain + "api/cube/get_mission_date/?id=" + dayId + "",
+                contentType: "application/json",
+                dataType: 'jsonp'
+            }).
+            success(function (json) {
+                deferred.resolve(json);
+                console.log(json);
+            }).
+            error(function (data) {
+                deferred.resolve(data);
+                console.log(data);
+            });
+
+            return deferred.promise;
 
 
         },
 
-        //set mission list in service
-        setMissions: function (list) {
-            missionList = list;
-        },
+        test:function(){
+             var deferred = $q.defer();
+            $http({
+                url: domain ,
+                method:"POST",
+                data:{"type":"getMissionOfActivitie","req":{"aid":"2"}},
+                contentType: "application/json"
+                //dataType: 'jsonp'
+            }).
+            success(function (json) {
+                deferred.resolve(json);
+                console.log(json);
+            }).
+            error(function (data) {
+                deferred.resolve(data);
+                console.log(data);
+            });
 
-        //check if go to next mission directly, return next mission
-        directlyNext: function (mid) {
-            if (!missionList) {
-                return false;
-            }
-            self = this;
-            for (var i in missionList.activitie.mission) {
-                if (missionList.activitie.mission[i].mid == mid) {
-                    if (missionList.activitie.mission[i].jumpToNext == '1') {
-                        var ans = self.getIdByOrder(parseInt(missionList.activitie.mission[i].order)+1);
-                        return ans;
-                    }
-                    else {
-                        return false;
-                    }
-                }
-            }
-        },
-
-        //get id of mission by order of mission
-        getIdByOrder: function (order) {
-            if (!missionList) {
-                return false;
-            }
-
-            for (var i in missionList.activitie.mission) {
-                if (missionList.activitie.mission[i].order == order) {
-                    return missionList.activitie.mission[i].mid;
-                }
-            }
-
-            return false;
-        },
-
-        //return task
-        getMissionById: function (mid) {
-            return server.request({ "type": "appGetMission", "req": { "mid": mid} });
+            return deferred.promise;
         }
 
-        //לדעת האם המשימה כבר בוצעה או לא
+
     }
 } ]);

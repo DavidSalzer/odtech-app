@@ -1,77 +1,46 @@
-
-var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', 'ngAnimate','ngSanitize'])
+var odtechApp = angular.module('odtechApp', ['ui.router'])
 
 /**** UI Router ****/
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/welcome");
 
     $stateProvider
-		.state("login", {
-		    url: "/login",
+		.state("welcome", {
+		    url: "/welcome",
 		    views: {
 		        "main": {
-		            templateUrl: "./components/login/login.html",
-		            controller: "login"
+		            templateUrl: "./components/welcome/welcome.html",
+		            controller: "welcome"
+		        }
+		    }
+		})
+        .state("dayDescription", {
+		    url: "/dayDescription",
+		    views: {
+		        "main": {
+		            templateUrl: "./components/dayDescription/dayDescription.html",
+		            controller: "dayDescription"
 		        }
 		    }
 		})
         .state("mainNav", {
-            url: "/mainNav",
-            views: {
-                "main": {
-                    templateUrl: "./components/mainNav/mainNav.html",
-                    controller: "mainNav"
-                }
-            }
-        })
+		    url: "/mainNav",
+		    views: {
+		        "main": {
+		            templateUrl: "./components/mainNav/mainNav.html",
+		            controller: "mainNav"
+		        }
+		    }
+		})
          .state("mission", {
-             url: "/mission/:missionId",
-             views: {
-                 "main": {
-                     templateUrl: "./components/mission/mission.html",
-                     controller: "mission"
-                 }
-             }
-         })
-          .state("group", {
-              url: "/group",
-              views: {
-                  "main": {
-                      templateUrl: "./components/group/group.html",
-                      controller: "group"
-                  }
-              }
-          })
-         .state("groupsScore", {
-             url: "/groupsScore",
-             views: {
-                 "main": {
-                     templateUrl: "./components/group/groupsScore.html",
-                     controller: "groupsScore"
-                     //type:"score"
-                 }
-             }
-         })
-         .state("info", {
-             url: "/info",
-             views: {
-                 "main": {
-                     templateUrl: "./components/info/info.html",
-                     controller: "info"
-                     //type:"score"
-                 }
-             }
-         });
+		    url: "/mission/:missionId",
+		    views: {
+		        "main": {
+		            templateUrl: "./components/mission/mission.html",
+		            controller: "mission"
+		        }
+		    }
+		})
 });
-
-//for google maps
-odtechApp.config(function (uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
-        //    key: 'your api key',
-        v: '3.17',
-        libraries: 'weather,geometry,visualization'
-    });
-})
-
 
 

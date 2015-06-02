@@ -1,43 +1,19 @@
-<div id="day-description" data-ng-show="showDescription" class="general"> 
-    <div class="day-description-img"></div>   
-    <p class="pOffDay-description"  data-ng-if="description" ng-bind-html="description | newlines"></p>
-    <p data-ng-show="!description"><br> בטעינה...</p>
-    <div class="next" data-ng-click="closeDescription()">
-        <div class="next-text-wrapper" data-ng-show="description">
-            <span class="next-text">להמשך</span>
-            <span class="arrow"></span>
-         </div>
-    </div>
-
-    <!--<odtech-audio data-ng-if="showDescription" src=""></odtech-audio>-->
-</div>
-<!-- main nav  -->
-<section id="mission-container" data-ng-hide="showDescription"  data-ng-class="{'blur':blurAll}">
-    <!--<div class="logout" style="position: absolute;" data-ng-click="logout()">logout</div>--><!--logout btn temporarily-->
-    <div id="mainnav-wrap" class="mainnav-wrap" ng-show="tasks.length > 0">
-        <div id="call-for-action" class="general">לחצו על המשימה הראשונה כדי להתחיל</div>
-        <div class="mission-wrap">
-            <div id="mission-menu">
-                <!-- mission item -->
-                <div data-index ="{{$index+1}}" on-finish-render="scrollToNext" data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}"  data-ng-class="{'start':task.status == 'notAnswer','done':task.status == 'answer','block': task.status == 'block'}" data-ng-click="goToMission($index)" ><!--on-long-press="itemOnLongPress($index)"-->
-                    <div class="mission-menu-center" style="{{getBackgroundPhoto(task) }}">
-                        <!--if linear -->
-                        <span data-ng-show="$index>currentMission">
-                            <img class="lock" src="img/nav_lock.png" alt="no-image">
-                        </span>
-                    </div>
-                    <div class="mission-menu-icon mission-icon">
-                        <img src="img/{{task.type}}.png" alt="{{task.type}}" />
-                    </div>
-                    <!-- mission number -->
-                    <span class="item-number">{{$index+1 > "9" ? $index+1 :'0' +($index+1) }}</span>
+<section id="mission-container">
+    <div id="call-for-action">לחצו על המשימה הראשונה כדי להתחיל</div>
+    <div class="mission-wrap">
+        <div id="mission-menu">
+            <div data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}" data-ng-class="{'start':$index==0}" data-ng-click="goToMission($index)">
+                <div class="mission-menu-center">
+                    <span class="">
+                        <img class="lock" src="img/nav_lock.png" alt="no-image">
+                    </span>
                 </div>
+                <div class="mission-menu-icon mission-icon">
+                    <img src="img/{{task.type}}.png" alt="{{task.type}}"/>
+                </div>
+
+                <span class="item-number">{{$index+1}}</span>
             </div>
         </div>
     </div>
-    <!-- no missions popup -->
-    <div class="no-missions-wrap" ng-show="tasks.length == 0">
-        <div class="no-missions-data">אין מידע עבור פעילות זו</div>
-    </div>
 </section>
-<!---->
