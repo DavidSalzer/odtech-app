@@ -1,0 +1,8 @@
+<ul class="categories-list full-screen-list" ng-init="setRelevantCategoryByMeal()">
+    <li  ng-repeat="cat in categoriesByMealList" ng-click="categoryChosen(categoriesByMealList[$index])" class="category-item category-item-{{categoriesByMealList[$index].id}}" ><!--style="{{getItemWidthFull()}}"-->
+        <div class="icon"></div> <!--style="{{getIconWidth()}}"-->
+        <div class="cat-name">{{categoriesByMealList[$index].name}}</div>
+        <div class="delimiter"></div>
+
+    </li>
+</ul>

@@ -1,0 +1,37 @@
+<div class="reportFields-wrap">
+
+
+    <accordion close-others="oneAtATime">
+
+        <accordion-group ng-show="!(field.isRequiredByAnother == true && (catFieldsData.fields[$index-1].options[catFieldsData.fields[$index-1].selectedIndex].name != 'טיגון')&& (catFieldsData.fields[$index-1].options[catFieldsData.fields[$index-1].selectedIndex].name != 'מבושל/חלוט/אפוי'))" ng-class="{'alert-option':field.options[field.selectedIndex].isAlert,'required':field.isRequired,'isOpen':fieldsOpenStatus[$index],'disable':isDisable(field) }" data-id="{{$index}}" class="accordion-parent" ng-repeat="field in catFieldsData.fields" is-open="fieldsOpenStatus[$index]">
+            <accordion-heading>
+                <div class="field-wrap">
+                  
+                    <span class="color asterisk" ng-if="field.isRequired">*</span>
+                    <span class="color field-title"> {{field.name}}: </span>
+                    <!--<span class="field-text"> {{fieldsData[$index].options[fieldsSelectedIndex[$index]].name}} </span>-->
+                     <span class="field-text"> {{field.options[field.selectedIndex].name}} </span>
+                    <span class="not-valid-text">שדה חובה לא הוזן</span>
+                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': !fieldsOpenStatus[$index], 'glyphicon-chevron-right': !status.open}"></i>
+                    <div class="comment-icon border" ng-class="{'full': field.addComment == true}" ng-show="field.name == 'שם המנה' " ng-click="open($event,'categoryPopup')"></div>
+                    <img class="alert-icon" src="img/exclamation_mark-01.png" />
+                </div>
+
+            </accordion-heading>
+            <div ng-if="field.options.length>0" ng-init="setSelectedIndexes($index)">
+                <div ng-repeat="item in field.options" class="option" ng-click="$(this).addClass('selected');optionSelected($index,$parent.$index,$event)">
+                    <span class="field-text-option"> {{item.name}} </span>            
+                </div>
+            </div>
+        </accordion-group>
+
+    </accordion>
+
+    <div class="category-btns-wrap">
+        <div class="main-btn" ng-click="endReport()"><div class="main-btn-back green"><span class="text">אישור</span><span class="v"></span></div></div>
+        <div class="main-btn" ng-click="endReport('duplicate')"><div class="main-btn-back green"><span class="text">אישור, שכפל תמונה לדיווח נוסף</span><span class="v duplicate"></span></div></div>
+    </div>
+    <div ng-show="showLoader" id="loader">
+    <span>בטעינה...</span>
+    </div>
+</div>

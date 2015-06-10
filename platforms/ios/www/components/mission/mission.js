@@ -122,6 +122,9 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 $scope.finishMissionTitle = 'נגמר הזמן.';
                 $scope.finishMissionL1 = 'הזמן שנותר לביצוע המשימה תם.';
                 $scope.finishMissionL2 = 'נסו שוב במשימה הבאה...';
+
+                //play the wrong sound
+                $rootScope.$broadcast('endMissionTimer', {});
             }
         }, 0)
         $timeout(function () {

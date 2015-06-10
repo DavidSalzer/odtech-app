@@ -1,12 +1,51 @@
-<div id="welcome-poster">
-    <div class="inner-wrapper-welcomeposter inner-good-morning">
-        <div class="center-box-div">
-            <!--<div class="good-morning-title">בוקר טוב</div>-->
-            <div class="good-morning-subtitle">ברוכים הבאים לאודיטק</div>
-            <div class="mission-popup-continue">
-                קראו עוד
-                <span class="arrow"> </span>
+<div class="welcome-wrap">
+
+    <div class="main-background"></div>
+    <div id="welcome">
+        <div id="place">
+            <img class="in-line" id="location" alt="location" src="img/location.png">
+
+            <p id="place-name" class="in-line">אמדוקס שדרות</p>
+        </div>
+        <div id="line-orange"></div>
+        <div id="line-red"></div>
+        <div id="information">
+            <div class="information-wrap">
+            <div id="address">
+                <p class="in-line address-headline">כתובת:</p>
+                <p class="in-line address-text">רחוב וייצמן 1 א.ת שדרות</p>
+            </div>
+            <div id="phone">
+                <p class="in-line phone-headline">טלפון:</p>
+                <p class="in-line">08-862562</p>
+            </div>
+            <div id="input-meal">
+                <select  id="meal-type" ng-change="selectChanged()" ng-class="{'not-valid':notValid}" ng-model="kindOfMeal"        
+        ng-options="opt.name for opt in opts">
+</select>
+
+                <!--<select required id="meal-type" ng-model="kindOfMeal" ng-change="selectChanged()" ng-class="{'not-valid':notValid}">-->
+                    <!--<option value="סוג" ng-repeat="opts" selected>{{title}}</option>-->
+                     <!--<option data-ng-repeat="opt in opts" ng-value="opt.id"> {{opt.name}} </option>-->  
+                    <!--<option value="חלבי">חלבי</option>
+                    <option value="בשרי">בשרי</option>
+                    <option value="פרווה">פרווה</option>-->
+                <!--</select>-->
+            </div>
+            <div id="navigate">
+                <div id="navigate-button">
+                    <span class="in-line">נווט למקום</span>
+
+                    <img class="in-line go-to-logo" id="logowaze" alt="logowaze" src="img/logowaze.png">
+                </div>
+            </div>
+            <div id="start" ng-click="startReport()">
+                <div id="start-button">
+                    <span class="in-line">התחל בסקירה</span>
+                    <img class="in-line go-to-logo" id="go" alt="go" src="img/go_to-05.png">
+                </div>
+            </div>
             </div>
         </div>
-    </div>
-</div>
+    
+

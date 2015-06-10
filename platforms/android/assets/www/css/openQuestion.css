@@ -1,0 +1,16 @@
+.next-main-content {
+    width: 70%;
+    left: 0;
+    right: 0;
+}
+
+
+
+@media (max-height: 736px) and (max-width: 736px) {
+   
+.next-main-content{
+     width: 100%;
+
+}
+}
+

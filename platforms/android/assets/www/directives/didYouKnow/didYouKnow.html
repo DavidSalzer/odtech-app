@@ -2,6 +2,9 @@
     <div class="mission-popup-didyou popup">
         <div class="feelings-popup popup">
             <h2>הידעת</h2>
+            <span data-ng-show="didYouKnowImg" class="missionPopUpImage img-missionPopUpImage" style="background-image:url('{{imgDomain+didYouKnowImg}}')" data-ng-click="openLargeImage()"> 
+                <large-image type="didyouknow" url="{{imgDomain+didYouKnowImg}}"></large-image>
+            </span>
             <p ng-bind-html="didYouKnowText | newlines"></p>
             <div class="permission" id="permission-feel" data-ng-click="hideDidYouKnow()">
                 <span class="next-text">אישור</span>

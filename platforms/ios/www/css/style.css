@@ -68,8 +68,8 @@ input {
     display: block;
     /* padding-bottom: 90px; */
     box-sizing: border-box;
-    /* padding-top: 73px; */
-    margin-top: 73px;
+     padding-top: 73px; 
+    /*margin-top: 73px;*/
 }
 
 #main-container.keyboard, body.keyboard, #main-view.keyboard {
@@ -228,7 +228,6 @@ body.keyboard {
 #day-description {
     width: 100%;
     height: 100%;
-    /*background-image: url(../img/openStory-popUp.jpg);*/
     background-repeat: no-repeat;
     background-size: 100%;
       overflow-y: auto;
@@ -569,21 +568,20 @@ body.keyboard {
 }
 
 .mission-description-wrap-scroll {
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 100%;
     margin: 25px;
 }
 
 .mission-description-wrap {
-    position: absolute;
-    padding: 175px 0 80px;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+     position: relative;
+  padding: 175px 0 80px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }
 
-.missionPopUpImage {
-    /*background-image: url(../img/pyramid.jpg);*/
+.missionPopUpImage {   
     height: 160px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -593,6 +591,7 @@ body.keyboard {
     position: relative;
     width: 36%;
     display: inline-block;
+      background-color: rgba(225,225,225,0.8);
 }
 
 .mission-popup p {
@@ -776,11 +775,13 @@ body.keyboard {
 .mission-popup-wrap {
     /* position: absolute; */
     /* top: 0; */
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    overflow-y: auto;
+   
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  overflow-y: hidden;
+  height: 100%;
 }
 
 .mission-popup-didyou div {
@@ -788,8 +789,8 @@ body.keyboard {
 }
 
 .mission-popup-wrap .mission-popup-didyou {
-    width: 63%;
-    height: 35%;
+    width: 83%;
+  height: 55%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -807,11 +808,12 @@ body.keyboard {
 
 .mission-popup-wrap.did-you-know-popup {
     z-index: 20000;
+    overflow-y: auto;
 }
 
 .mission-popup-didyou p {
     font-size: 0.8em;
-    height: 57%;
+    height: 70%;
     overflow: auto;
     line-height: 1.3em;
 }
@@ -1011,7 +1013,7 @@ body.keyboard {
 .permission.claim {
     float: left;
     color: #a985e6;
-    bottom: 20px;
+    bottom: 100px;
     left: 0;
     width: 195px;
     margin: 0;
@@ -1329,6 +1331,9 @@ header {
 
 /*********************************/
 
+section.audio{
+    display: none;
+}
 /*@media all and (max-width: 600px) {*/
 @media all and (max-width: 736px) and (max-height: 960px) {
     html, body {
@@ -1409,7 +1414,7 @@ header {
         position: absolute;
         padding-right: initial;
         height: auto;
-        padding-bottom: 60px;
+        /*padding-bottom: 60px;*/
         min-height: 280px;
         height: 100%;
         /*
@@ -1450,7 +1455,7 @@ header {
 
     /********************* mission-popup **************************/
     .mission-description-wrap {
-        /*overflow-y: scroll;*/
+        overflow-y: scroll;
         padding: 70px 0 0px 0;
     }
 
@@ -1499,8 +1504,8 @@ header {
         width: 80%;
         display: block;
         margin: auto;
-        height: auto;
-        overflow: hidden;
+      /*  height: auto;
+        overflow: hidden;*/
         padding: 25px;
     }
 

@@ -10,6 +10,7 @@ odtechApp.directive('missionIntroduction',['$rootScope', function ($rootScope) {
                 //scope.showIntroduction = false;
                 scope.startMission = true;
                 scope.popupShow = false;
+                $rootScope.$broadcast('startMission');
             }
 
             scope.openLargeImage=function(){

@@ -18,7 +18,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+1325
 @font-face {
     font-family: 'fbprozaregular';
     src: url(font/FbProza-Regular.otf);
@@ -816,6 +816,10 @@ body.keyboard {
     height: 70%;
     overflow: auto;
     line-height: 1.3em;
+      display: inline-block;
+  vertical-align: top;
+  margin-right: 5%;
+    width: 50%;
 }
 
 .mission-popup-didyou .permission {
@@ -1314,19 +1318,23 @@ header {
     background-size: contain;
     background-position: center;
     display: none;
+    
+      z-index: 10000
 }
 
 #larger-image-x {
-    background-image: url('../img/x.png');
-    width: 40px;
-    height: 40px;
-    display: block;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+     background-image: url('../img/x.png');
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: right;
+  background-position-y: top;
 }
 
 /*********************************/
@@ -1772,7 +1780,10 @@ section.audio{
 }
 
     .mission-popup-didyou p {
-        height: auto;
+         height: auto;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
     }
 }
 

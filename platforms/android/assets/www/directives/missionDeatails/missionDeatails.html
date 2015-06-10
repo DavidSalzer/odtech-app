@@ -1,13 +1,26 @@
- <!--<div class="mission-deatails-menu popup" data-ng-show="startMission">
-                <span class="mission-icon" data-ng-click="showDeatails=!showDeatails"></span><span class="mission-deatails-timer"><span id="timer"></span> <span class="clock"> </span> </span>
-            </div>
+<div data-ng-if="startMission" class="mission-deatails-wrap " ng-class="{'opacity-mask':startMission&&showDeatails && !missionAnswered}">
+    <div class="mission-deatails-menu timer-wrap popup" data-ng-show="startMission && !missionAnswered">
+        <span class="mission-icon" data-ng-click="showDeatails=!showDeatails"></span>
+        <span class="mission-deatails-timer">
+            <timer ng-if="task.timer"></timer>
+            <span class="clock"> </span>
+        </span>
+    </div>
+    <!--<div class="triangle triangle-mobile"></div>-->
+    <div class="mission-repeat-popup popup" data-ng-show="startMission&&showDeatails && !missionAnswered">
+        <!--<div class="triangle triangle-pc"></div>-->
+        <div class="x" data-ng-click="showDeatails=false">
+        </div>
+        <h2 class="popup-title">תקציר משימה</h2>
+        <!--<span>
+            <img style="max-width: 70%" data-ng-show="task.imgUrl" class="img-missionPopUpImage" src="{{imgDomain+task.imgUrl}}" data-ng-click="openLargeImage()" />
+            <large-image url="{{imgDomain+task.imgUrl}}"></large-image>
+        </span>-->
 
-<div class="mission-repeat-popup popup" data-ng-show="startMission&&showDeatails">
-                <div class="triangle"></div>
-                <div class="close"  data-ng-click="showDeatails=false">
-                </div>
-                <h2>תקציר משימה</h2>
-                <p></p>
-            </div>-->
+        <span data-ng-show="task.imgUrl" class="missionPopUpImage img-missionPopUpImage" style="background-image:url('{{imgDomain+task.imgUrl}}')" data-ng-click="openLargeImage()"> 
+                <large-image url="{{imgDomain+task.imgUrl}}"></large-image>
+            </span>
 
-<div>dddd</div>
+        <p class="popup-text" ng-bind-html="task.description | newlines"></p>
+    </div>
+</div>

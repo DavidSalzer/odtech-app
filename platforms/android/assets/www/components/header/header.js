@@ -1,4 +1,4 @@
-odtechApp.controller('header', ['$scope', '$state', 'server', '$timeout', function ($scope, $state, server, $timeout) {
+odtechApp.controller('header', ['$scope','$rootScope', '$state', 'server', '$timeout', function ($scope,$rootScope, $state, server, $timeout) {
     //set the state - for hide and show the footer
     //log out, it here temporarly
     $scope.$state = $state;
@@ -7,7 +7,7 @@ odtechApp.controller('header', ['$scope', '$state', 'server', '$timeout', functi
         $state.transitionTo('login');
         server.request({ "type": "appUserLogout", "req": {} })
         .then(function (data) {
-
+            $rootScope.missionIdLastShown = 0; 
             //clear the pictures from camera array
             camera.setPicturesAndVideos({}, {});
         })
@@ -20,7 +20,7 @@ odtechApp.controller('header', ['$scope', '$state', 'server', '$timeout', functi
     }
 
     $scope.showMenuFunc = function (e) {
-          $("#odtech-audio-silence")[0].play();
+     //     $("#odtech-audio-silence")[0].play();
         $timeout(function () {
             $scope.showMenu = !$scope.showMenu;
         }, 0);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>odtechApp</name>
+	<name>odtech</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -47,4 +47,15 @@
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/www</locationURI>
 		</link>
 	</linkedResources>
+	<filteredResources>
+		<filter>
+			<id>1433927809844</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-true-^(build.xml|ant-gen|ant-build|custom_rules.xml|CordovaLib|platform_www|cordova)</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>

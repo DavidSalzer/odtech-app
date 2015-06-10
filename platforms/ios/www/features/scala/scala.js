@@ -1,4 +1,4 @@
-odtechApp.directive('scala', [function () {
+odtechApp.directive('scala', ['$rootScope',function ($rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/scala/scala.html',
@@ -12,7 +12,7 @@ odtechApp.directive('scala', [function () {
             scope.getNumber = function (num) {
                 return new Array(num);
             }
-            //set the num of range options
+            //set the num of range options - 9 for double answer or by options length
             scope.max = scope.task.options.length == 2 ? 9 : parseFloat(scope.task.options.length - 1);
             scope.ans = 0; //init the range value
             scope.isDisabled = false;
@@ -28,7 +28,7 @@ odtechApp.directive('scala', [function () {
 
 
             }
-
+            //set the height of range input by code - vertical input type range 
             scope.getHeight = function () {
                 var height = 0;
                 var right = 0;
@@ -37,41 +37,11 @@ odtechApp.directive('scala', [function () {
                     height = $("#main-container").height() * 0.75;
                     right = (height / 2.4) * -1;
                     top = height / 2;
-                    //return height + 'px';
+                    //the width is height because of the rotate css
                     return "width:" + height + "px;right:" + right + "px;top:" + top + "px"
                 }
 
             }
-
-            //scope.taskEnd = function () {
-            //    //Perform end mission function. need validations
-            //    scope.results.answer = scope.ans;
-
-            //    //get point, if the answer was sent in time
-            //    if (!scope.endTimer) {
-            //        //if this is 'correct answer type' -check the answer and the points
-            //        if (scope.task.correct != -1) {
-            //            if (scope.ans == scope.task.correct) {
-            //                scope.results.points = scope.task.points;
-            //            }
-
-            //        }
-            //        //else - the user get all the points
-            //        else {
-            //            scope.results.points = scope.task.points;
-            //        }
-
-
-            //    }
-            //    scope.endMission(scope.results); //the param is the answers of user
-            //}
-
-
-            //scope.$on('closeMission', function (event, data) {
-            //    scope.endMission(scope.results);
-            //});
-
-
 
             /********************************************************************************/
 
@@ -114,8 +84,8 @@ odtechApp.directive('scala', [function () {
                                 scope.results.points = scope.task.points;
                             }
                         }
-                        //TODO: play the right sound
-
+                        //play the right sound
+                        $rootScope.$broadcast('multiQuestionAnswerRight', {});
 
                     }
                     else {
@@ -125,7 +95,8 @@ odtechApp.directive('scala', [function () {
                         //save the data to the server
                         scope.results.answer = scope.ans;
 
-                        //TODO: play the wrong sound
+                        //play the wrong sound
+                        $rootScope.$broadcast('multiQuestionAnswerWrong', {});
 
                     }
 

@@ -1,11 +1,29 @@
-<section id="mission-text" class="mission-write-text" style="height: 100%;">
-   
-    <textarea cols="60" rows="10" class="claimText" placeholder="לחצו כאן לכתיבת התשובה הראשונה..."></textarea>
-    <div>
-        <div class="chars"><span>0</span> תווים
-        </div>
-        <div class="permission claim" id="permission-claim"><span class="text">המשך</span>
+<section id="mission-text" class="mission-write-text feature">
+     <!-- first time - before the user answer -->
+    <div class="claim-text-wrap" ng-show="firstTime">
+        <textarea cols="60" rows="10" class="claimText" placeholder="לחצו כאן לכתיבת התשובה..." data-ng-model="ans"></textarea>
+        
+    </div>
+    <div class="permission claim" ng-show="ans.length > 0 && firstTime" id="permission-claim" ng-click="taskEnd()">
+            <span class="text">סיום</span>
             <span class="arrow"></span>
+        </div>
+     <!-- second time - after the user answer -->
+    <div class="claim-text-next next-time" ng-hide="firstTime">
+        <div class="next-title-wrap general">
+            <div class="next-title-back">
+                <div class="next-icon"></div>
+                <div class="next-title-left">
+                    <div class="next-title">ראיונות פתוחים</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="next-main-content" ng-if="task.answer">
+            <div class="next-content">
+            {{task.answer.data}}
+            </div>
+
         </div>
     </div>
 </section>

@@ -110,6 +110,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                             scope.results.points = scope.task.points;
                         }
                         scope.isDestination = true;
+                        $rootScope.$broadcast('reachedTheDestination', {});
                     }, 0)
 
                 }
@@ -119,31 +120,33 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             scope.sendDestination = function () {
                 $timeout(function () {
                     //if (scope.task.status != 'answer' && !scope.endTimer) {
-                        if (scope.task.status != 'answer') {
+                    if (scope.task.status != 'answer') {
                         scope.endMission(scope.results);
                     }
                     scope.isDestination = false;
                 }, 0)
             }
 
-            //check if location is updated
-            scope.longNoLocation = 0;
-            isLocationConnect = $interval(function () {
-                if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
-                    $timeout(function () {
-                        scope.noLocation = true;
-                        scope.longNoLocation += 1;
-                    }, 0)
-                }
-                else {
-                    $timeout(function () {
-                        scope.noLocation = false;
-                        scope.longNoLocation = 0;
-                        scope.lastLat = scope.myMarker.coords.latitude;
-                        scope.lastLon = scope.myMarker.coords.longitude;
-                    }, 0)
-                }
-            }, 15000);
+            scope.$on('startMission', function () {
+                //check if location is updated
+                scope.longNoLocation = 0;
+                isLocationConnect = $interval(function () {
+                    if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
+                        $timeout(function () {
+                            scope.noLocation = true;
+                            scope.longNoLocation += 1;
+                        }, 0)
+                    }
+                    else {
+                        $timeout(function () {
+                            scope.noLocation = false;
+                            scope.longNoLocation = 0;
+                            scope.lastLat = scope.myMarker.coords.latitude;
+                            scope.lastLon = scope.myMarker.coords.longitude;
+                        }, 0)
+                    }
+                }, 15000);
+            });
 
             scope.$on('closeMission', function (event, data) {
                 scope.endMission(scope.results);

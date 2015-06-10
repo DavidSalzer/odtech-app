@@ -1,0 +1,28 @@
+<div class="take-picture-wrap">
+    <!--<popup></popup>--><div ng-show="(isTakePic)" class="main-pic-take">
+        <div class="opacity-main-take"> 
+            <img class="finish-img" alt="top" src="./img/finish.png"  ng-click="goToToSummary()"/>
+            <div class="main-pic-button-wrapper">
+                <div class="inner-main-pic" style="float: right;" ng-click="getPicture(1,'CAMERA')">
+                    <img alt="pic" src="./img/photo2.png" />
+                    <div>צלם תמונות</div>
+                </div>
+                <div class="inner-main-pic" draggable style="float: left;" ng-click="getPicture(1,'PHOTOLIBRARY')">
+                    <img alt="pic" src="./img/photo1.png" />
+                    <div>גלריה</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="(!isTakePic)" class="main-pic-take" style="background-image: url('{{mainPic}}');">
+        <img class="finish-img" alt="top" src="./img/finish.png" ng-click="goToToSummary()"/>
+        <div class="change-pic top-pick-wrap" ng-hide="(smallpic == '')" ng-click="changePictures()"><span class="top-pick-take replace-icon"></span><span class="icon-text">החלף בין התמונות</span></div>
+        <div class="change-pic top-pick-wrap" ng-hide="!(smallpic == '')"><span class="top-pick-take camera-icon" ng-click="getPicture(2,'CAMERA')"></span><span class="top-pick-take gallery-icon" ng-click="getPicture(2,'PHOTOLIBRARY')"></span><span class="icon-text">הוסף תמונה</span></div>
+        <div class="trash-pic top-pick-take" ng-click="deleteImg('big')"></div>
+        <div class="smaill-pic-to-change" ng-hide="smallpic == ''" style="background-image: url('{{smallpic}}');">
+            <img class="trash-change" alt="trash" src="./img/icon-10.png" ng-click="deleteImg('small')" />
+        </div>
+        <input type="text" ng-model="commentText.text" class="input-take-pic" ng-click="open($event,'generalPopup')" placeholder="הוסף טקסט לתמונה...." />
+    </div>
+
+</div>

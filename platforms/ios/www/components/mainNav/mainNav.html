@@ -8,6 +8,8 @@
             <span class="arrow"></span>
          </div>
     </div>
+
+    <!--<odtech-audio data-ng-if="showDescription" src=""></odtech-audio>-->
 </div>
 <!-- main nav  -->
 <section id="mission-container" data-ng-hide="showDescription"  data-ng-class="{'blur':blurAll}">
@@ -17,7 +19,7 @@
         <div class="mission-wrap">
             <div id="mission-menu">
                 <!-- mission item -->
-                <div data-index ="{{$index+1}}" on-finish-render="scrollToNext" data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}"  data-ng-class="{'start':task.status == 'notAnswer','done':task.status == 'answer','block': task.status == 'block'}" data-ng-click="goToMission($index)" >
+                <div data-index ="{{$index+1}}" on-finish-render="scrollToNext" data-ng-repeat="task in tasks" class="mission-menu-item not-visited {{task.type}}"  data-ng-class="{'start':task.status == 'notAnswer','done':task.status == 'answer','block': task.status == 'block'}" data-ng-click="goToMission($index)" ><!--on-long-press="itemOnLongPress($index)"-->
                     <div class="mission-menu-center" style="{{getBackgroundPhoto(task) }}">
                         <!--if linear -->
                         <span data-ng-show="$index>currentMission">

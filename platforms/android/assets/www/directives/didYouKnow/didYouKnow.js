@@ -4,12 +4,13 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
         templateUrl: './directives/didYouKnow/didYouKnow.html',
         link: function (scope, el, attrs) {
             scope.showDidYouKnow = false;
+             scope.imgDomain = imgDomain;
             scope.didYouKnowText = "";
-            scope.missionIdLastShown = 0; // the mission id that the 'did you know' text was display. 
+            $rootScope.missionIdLastShown = 0; // the mission id that the 'did you know' text was display. 
             scope.hideDidYouKnow = function () {
                 //hide did you know
                 scope.showDidYouKnow = false;
-               
+                $rootScope.$broadcast('hideDidYouKnow');
             }
             //the did you know have to display after the finish popup display and hide
             //or when click on the x button on finish popup
@@ -23,10 +24,11 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
                 //if there is didyouknow field
                 if (task.didYouKnow && task.didYouKnow != '') {
                     //if the did you know of this mission id wasn't shown -show it
-                    if (task.mid != scope.missionIdLastShown) {
+                    if (task.mid != $rootScope.missionIdLastShown) {
                         $timeout(function () {
-                            scope.missionIdLastShown = task.mid;
+                            $rootScope.missionIdLastShown = task.mid;
                             scope.didYouKnowText = task.didYouKnow;
+                            scope.didYouKnowImg = task.imgUrlDyk;
                             scope.audioUrl = task.audioUrl2;
                             scope.showDidYouKnow = true;
 
@@ -34,6 +36,9 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
                     }
 
                 }
+            }
+             scope.openLargeImage=function(){
+                $rootScope.$broadcast('openLargeImage');
             }
         },
         replace: true

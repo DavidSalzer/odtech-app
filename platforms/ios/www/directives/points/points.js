@@ -14,6 +14,7 @@ odtechApp.directive('points', ['$rootScope',function ($rootScope) {
         },
         link: function (scope, element, attrs) {
             scope.globalPoints = 0;
+            //sum the points
             scope.addToGlobalPoints = function (points) {
                 if (points) {
                     scope.globalPoints = parseInt(scope.globalPoints) + parseInt(points);
@@ -38,10 +39,11 @@ odtechApp.directive('points', ['$rootScope',function ($rootScope) {
                 }
 
             }
-
+            //add the score when mission finished
             scope.$on('finishMission', function (event, data) {
                 scope.addToGlobalPoints(data.results.points);
             });
+            //when there are tasks - init the score by server - on re-login etc.
             scope.$on('hasTasks', function (event, data) {
                 scope.initPoints(data.tasks);
             });
@@ -50,10 +52,5 @@ odtechApp.directive('points', ['$rootScope',function ($rootScope) {
         replace: true
     }
 
-    //מציג כמה נקודות יש עבור משימה בתאור ובהקדמה
-    //במידה והצליחו את המשימה המשתמש מקבל את הנדוקות
-    //מוצג לו מסך כל הכבוד הצלחת ומספר הנקודות
-    //במידה ולא הצליח כותב לא נורא פעם הבאה
-    //מופיע בפוטר מספר הנקודות הכולל
 
 } ]);

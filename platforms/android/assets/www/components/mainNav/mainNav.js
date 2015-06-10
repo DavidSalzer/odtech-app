@@ -12,6 +12,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         $timeout(function () {
             $scope.scrollToNextMiss()
         }, 100)
+         $rootScope.$broadcast('startDayClick');
 
 
     }

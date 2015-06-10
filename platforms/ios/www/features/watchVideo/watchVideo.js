@@ -9,12 +9,10 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             scope.results = {};
             scope.results.answer;
             scope.results.points = 0;
-           // scope.showLoader = false;
             scope.uploadText = "הסרטון בטעינה, אנא המתן"
             //if the mission has been made
             if (scope.task.status == 'answer') {
-                // alert('This task has been made');
-            }
+             }
 
             scope.player;
             scope.startYoutube = false;
@@ -28,7 +26,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             scope.imgDomain = imgDomain;
 
             scope.attachEventByVideoType = function () {
-                //if youtube player initialize befor get youtyubeID - update now
+                //if youtube player initialize befor get youtubeID - update now
                 if (scope.isYoutube && scope.player) {
                     scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.task.youtubeID + "?version=3");
 
@@ -134,13 +132,10 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
 
             }
-            //scope.finishloaded = function () {
-            //     scope.showLoader = true;
-            //}
+         
             scope.generalVideoEvents = function () {
 
                 document.getElementById('fullMovie').addEventListener('ended', scope.fullMovieHandler, false);
-               // document.getElementById('fullMovie').addEventListener('canplay', scope.finishloaded, false);
                 scope.showPlayBtn = true;
 
             }
@@ -167,7 +162,6 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
             scope.$watch('startMission', function (newVal, oldVal) {
                 if (scope.startMission == true && scope.task.status == 'notAnswer') {
-                    //scope.showLoader = true;
                 }
 
             });

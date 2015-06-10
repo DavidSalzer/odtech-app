@@ -1,0 +1,77 @@
+<div class="sumamry-wrap">
+    <accordion close-others="oneAtATime">
+        <div class="accordion-parent" data-ng-click="servingClicked()">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <div class="category-item category-item-serving">
+                        <div class="icon" style="{{getIconWidth()}}"></div>
+                        <div class="cat-name">{{fieldsDataServing.catName}}</div>
+
+                    </div>
+                    <div class="delimiter ng-scope"></div>
+                </h4>
+            </div>
+        </div>
+        <div class="accordion-parent" data-ng-click="sanitationClicked()">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <div class="category-item category-item-sanitation">
+                        <div class="icon" style="{{getIconWidth()}}"></div>
+                        <div class="cat-name">{{fieldsDataSanitation.catName}}</div>
+
+                    </div>
+                    <div class="delimiter"></div>
+                </h4>
+            </div>
+        </div>
+        <accordion-group ng-if="field.id" data-id="{{$index}}" ng-class="{'isOpen':fieldsOpenStatus[$index] }" class="accordion-parent" ng-repeat="field in fieldsData" is-open="fieldsOpenStatus[$index]">
+            <accordion-heading>
+                <div ng-click="categoryChosen($index)" class="category-item category-item-{{field.id}}">
+                    <div class="icon" style="{{getIconWidth()}}"></div>
+                    <div class="cat-name">{{field.name}}</div>
+                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': !fieldsOpenStatus[$index], 'glyphicon-chevron-right': !status.open}"></i>
+
+                </div>
+                <div class="delimiter"></div>
+            </accordion-heading>
+            <div >
+                <div class="main-comment">{{field.mainComment}}</div>
+                <div ng-repeat="item in field.reportItems" class="option" ng-click="">
+                    <div class="option-wrap" ng-click="editFieldInCategory(item.id)"  ng-class="{'alert-option':fieldsData[{{field.id-1}}].options[{{$index}}].isAlert}">
+                        <span class="field-text-option"> {{item.reportSubjectName}} </span>
+                        <div class="" ng-class="{'alert-icon':fieldsData[{{field.id-1}}].options[{{$index}}].isAlert,'camera-icon':!fieldsData[{{field.id-1}}].options[{{$index}}].isAlert}"></div>
+                    </div>
+
+                </div>
+                <div class="const-data-wrap">
+                    <div class="const-title">
+                    מענה תזונתי
+                    </div>
+                    <div class="checkboxes-wrap">
+                        <div class="checkbox-item"><div class="checkbox"></div><div class="checkbox-text">מתאים לכל</div></div>
+                        <div class="checkbox-item"><div class="checkbox"></div><div class="checkbox-text">לכל למעט אחד</div></div>
+                    </div>
+                </div>
+            </div>
+        </accordion-group>
+
+    </accordion>
+    <div class="button-2 m" data-ng-click="finish()">
+        <div class="button-content-2">
+        סיום והגשת הדוח
+            </div>
+    </div>
+    <div class="button-1" data-ng-click="exit()">
+        <div class="button-content-1">
+        צא מבלי להגיש דו"ח
+            </div>
+    </div>
+    <div class="button-3" ng-click="goToCategoryReport()">
+    </div>
+
+
+            <!--<div ng-repeat="cat in categories" ng-click="categoryChosen($index)" class="category-item category-item-{{cat.id}}">
+                        <div class="icon" style="{{getIconWidth()}}"></div>
+                        <div class="cat-name">הגשה</div>
+                    </div>-->
+</div>

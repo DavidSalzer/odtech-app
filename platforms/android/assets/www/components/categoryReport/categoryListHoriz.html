@@ -1,0 +1,13 @@
+<ul class="categories-list horizontal-list" id="categories-list-horiz">
+    <li  ng-class="{'active':activeCategory.id == categoriesByMealList[$index].id}" ng-init="initList($last)" ng-repeat="cat in categoriesByMealList" ng-click="categoryChosen(categoriesByMealList[$index],$index)" class="category-item category-item-{{categoriesByMealList[$index].id}}">
+        <!--<div class="left-shadow"></div>-->
+        <div class="background-menu" ng-class="{'background':activeCategory.id == categoriesByMealList[$index].id}">
+            <div class="icon"></div>
+            <div class="cat-name">{{categoriesByMealList[$index].name}}</div>
+            <div class="delimiter"></div>
+        </div>
+        <!--<div class="right-shadow"></div>-->
+
+
+    </li>
+</ul>
