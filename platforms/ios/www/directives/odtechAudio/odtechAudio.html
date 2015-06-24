@@ -1,3 +1,10 @@
-<audio id="odtech-audio">
-    <source src="{{sorce|trustedurl}}" type="audio/mp3">
-</audio>
+<div>
+    <!--<audio id="odtech-audio">
+        <source src="{{sorce|trustedurl}}" type="audio/mp3">
+    </audio>-->
+    <div ng-show="audioSrc && audioSrc !='' " class="audio-func" ng-click="togglePlay()" ng-class="{'play' :!isPlaying}">
+
+    </div>
+
+    
+</div>

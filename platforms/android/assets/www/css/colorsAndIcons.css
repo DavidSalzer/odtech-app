@@ -386,6 +386,9 @@ header {
 .takeVideo .mission-popup-timer {
     background-color: rgba(101,225,209,0.45);
 }
+.takeVideo .mission-deatails-timer .mission-popup-timer {
+    background-color: transparent;
+}
 
 .takeVideo .mission-popup-scoring ,.takeVideo .mission-popup-help-text{
     background-color: rgba(101,225,209,0.28);

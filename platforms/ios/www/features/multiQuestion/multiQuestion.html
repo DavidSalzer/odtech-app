@@ -9,7 +9,7 @@
             </div>
             <div id="answers-wrapper">
                 <div class="answers-wrapper-scroll">
-                    <div class="answer" ng-click="answerClick($index)" data-iscorrect="question.correctQuestionIndex == $index+1" data-ng-repeat="answer in question.answers"><span>{{'0' +($index+1)}}</span><p>{{answer}}</p></div>
+                    <div class="answer" ng-click="answerClick($index)" data-iscorrect="question.correctQuestionIndex == $index+1" data-ng-repeat="answerItem in question.answers"><span>{{'0' +($index+1)}}</span><p>{{answerItem}}</p></div>
                 </div>
             </div>
 

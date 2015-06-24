@@ -57,7 +57,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             $scope.finishMission = true;
 
             //mission finished - throw broadcast
-            $rootScope.$broadcast('finishMission', { results: results,timeOver:false });
+            $rootScope.$broadcast('finishMission', { results: results, timeOver: false });
 
             //TODO:  להוציא את החלק הזה ל missionFinish
             if (results.points > 0) {
@@ -80,7 +80,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             $scope.finishMission = true;
 
             //mission finished - throw broadcast
-            $rootScope.$broadcast('finishMission', { results: results,timeOver:true });
+            $rootScope.$broadcast('finishMission', { results: results, timeOver: true });
 
             $scope.finishMissionTitle = 'כל הכבוד!';
             $scope.finishMissionL1 = '';
@@ -91,21 +91,29 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
         $scope.finishTimeout = $timeout(function () {
             $scope.finishMission = false;
+            //if this is not a subMission
+            if ($scope.task && $scope.task.isRouteMission == "0") {
+                $rootScope.$broadcast('finishMissionHide', { task: $scope.task });
 
-            //if the mission has did you know.
-            // if ($scope.task.didYouKnow && $scope.task.didYouKnow != '') {
-            $rootScope.$broadcast('finishMissionHide', { task: $scope.task });
+                //if need to go to next mission automatically.
+                $scope.next = missions.directlyNext($scope.task.mid);
+                if ($scope.next) {
+                    $state.transitionTo('mission', { missionId: $scope.next });
+                }
+                else {
+                    $state.transitionTo('mainNav');
+                }
 
-            //}
-            // else {
-            //if need to go to next mission automatically.
-            $scope.next = missions.directlyNext($scope.task.mid);
-            if ($scope.next) {
-                $state.transitionTo('mission', { missionId: $scope.next });
             }
+            //if its a subMission
             else {
-                $state.transitionTo('mainNav');
+               //call the parent scope (navigation mission) and close the subMission
+                $timeout(function () {
+                    parent.angular.element('#subMissionFrame').scope().closeSubMission()
+                }, 0)
+
             }
+
             //}
 
         }, 7000)
@@ -134,14 +142,22 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
     //user can close inactive mission
     $scope.closeMission = function () {
-        if ($scope.task.status != 'answer') {
-            $rootScope.$broadcast('closeMission', {});
+
+        ////if the sub mission open (in navigate) - close subMission
+        if ($scope.task.isRouteMission != "0") {
+            $rootScope.$broadcast('closeSubMission', { task: $scope.task });
         }
-        //if the mission answered
         else {
-            $rootScope.$broadcast('closeMissionAnswered', { task: $scope.task });
+            if ($scope.task.status != 'answer') {
+                $rootScope.$broadcast('closeMission', {});
+            }
+            //if the mission answered
+            else {
+                $rootScope.$broadcast('closeMissionAnswered', { task: $scope.task });
+            }
+            $state.transitionTo('mainNav');
         }
-        $state.transitionTo('mainNav');
+
     }
 
     //cancel the timer of finish popup on getout from this page

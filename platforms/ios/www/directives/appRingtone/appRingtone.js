@@ -1,40 +1,123 @@
-odtechApp.directive('appRingtone', ['$rootScope', function ($rootScope) {
+odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './directives/appRingtone/appRingtone.html',
-        link: function (scope, el, attrs) {            
-            //load all ringtones of app
-            scope.load = function () {
-                $(".audio audio").each(function () {
-                    $(this)[0].load();
-                });
-            }
-            scope.load();
+        link: function (scope, el, attrs) {
+            //   $rootScope.my_media = null;
+            scope.imgDomain = imgDomain;
+            $rootScope.mediaToPlay = null;
+            $timeout(function () {
+                scope.sorce = imgDomain;
 
+            }, 0);
+            //$timeout(function () {
+            scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
+            scope.sorceapplause = imgDomain + 'upload/applause-1.mp3';
+            scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer.mp3';
+            scope.sorcesuccess = imgDomain + 'upload/magic-chime.mp3';
+
+
+
+            //  }, 0);
+            try {
+
+                $rootScope.successMedia = $rootScope.successMedia == undefined ? new Media(scope.sorcesuccess, scope.success, scope.error) : $rootScope.successMedia;
+                $rootScope.failBuzzerMedia = $rootScope.failBuzzerMedia == undefined ? new Media(scope.sorcefailBuzzer, scope.success, scope.error) : $rootScope.failBuzzerMedia;
+                $rootScope.timeoverMedia = $rootScope.timeoverMedia == undefined ? new Media(scope.sorcetimeOver, scope.success, scope.error) : $rootScope.timeoverMedia;
+                $rootScope.applauseMedia = $rootScope.applauseMedia == undefined ? new Media(scope.sorceapplause, scope.success, scope.error) : $rootScope.applauseMedia;
+                $rootScope.applauseMedia = new Media(scope.sorceapplause, scope.success, scope.error);
+
+            }
+
+            catch(e){}
             //multi Question Answer Right
             scope.$on('multiQuestionAnswerRight', function () {
-                $("#success")[0].play();
+                scope.play("success")
             });
 
             //multi Question Answer Wrong
             scope.$on('multiQuestionAnswerWrong', function () {
-                $("#failBuzzer")[0].play();
+                scope.play("failBuzzer")
             });
 
             //end Mission Timer
             scope.$on('endMissionTimer', function () {
-                $("#timeOver")[0].play();
+                scope.play("timeover")
             });
 
             //finish Mission
             scope.$on('finishMission', function (event, data) {
-                $("#applause")[0].play();
+                //if the mission finished and the time not overed
+                if (data.timeOver == false) {
+                    scope.play("applause")
+                }
+
             });
 
             //reached The Destination
-             scope.$on('reachedTheDestination', function () {
-                $("#success")[0].play();
+            scope.$on('reachedTheDestination', function () {
+                scope.play("success")
             });
+
+
+
+
+            scope.play = function (type) {
+                var src = "";
+
+                //set the src file audio by type
+                switch (type) {
+                    case "success":
+                        // src = scope.sorcesuccess;
+                        $rootScope.mediaToPlay = $rootScope.successMedia;
+                        break;
+                    case "timeover":
+                        // src = scope.sorcetimeOver;
+                        $rootScope.mediaToPlay = $rootScope.timeoverMedia
+                        break;
+                    case "applause":
+                        // src = scope.sorceapplause;
+                        $rootScope.mediaToPlay = $rootScope.applauseMedia
+                        break;
+                    case "failBuzzer":
+                        // src = scope.sorcefailBuzzer;
+                        $rootScope.mediaToPlay = $rootScope.failBuzzerMedia
+                        break;
+                }
+
+
+                try {
+                    //if the media is null -init the element, else - play without init before
+                    //  if ($rootScope.my_media == null) {
+                    // $rootScope.my_media = new Media(src, scope.success, scope.error)
+                    //  }
+
+                    // Play audio
+                    //$rootScope.my_media.play();
+                    $rootScope.mediaToPlay.play();
+                }
+                catch (e) { }
+            }
+            scope.success = function () {
+                console.log("playAudio():Audio Success");
+            }
+            scope.error = function (error) {
+                console.log("playAudio():Error!!");
+            }
+            scope.mediaInit = function () {
+                if ($rootScope.mediaToPlay != null) {
+                    $rootScope.mediaToPlay.release();
+                }
+
+            }
+
+            //the events that cause the media audio stop
+            scope.$on('closeMission ', function () {
+                scope.mediaInit();
+
+            });
+
+
         },
         replace: true
     };

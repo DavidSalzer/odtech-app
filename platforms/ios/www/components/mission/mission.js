@@ -57,7 +57,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             $scope.finishMission = true;
 
             //mission finished - throw broadcast
-            $rootScope.$broadcast('finishMission', { results: results });
+            $rootScope.$broadcast('finishMission', { results: results,timeOver:false });
 
             //TODO:  להוציא את החלק הזה ל missionFinish
             if (results.points > 0) {
@@ -80,7 +80,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             $scope.finishMission = true;
 
             //mission finished - throw broadcast
-            $rootScope.$broadcast('finishMission', { results: results });
+            $rootScope.$broadcast('finishMission', { results: results,timeOver:true });
 
             $scope.finishMissionTitle = 'כל הכבוד!';
             $scope.finishMissionL1 = '';
@@ -108,7 +108,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             }
             //}
 
-        }, 4000)
+        }, 7000)
 
 
     }

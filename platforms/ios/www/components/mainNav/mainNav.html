@@ -9,7 +9,7 @@
          </div>
     </div>
 
-    <!--<odtech-audio data-ng-if="showDescription" src=""></odtech-audio>-->
+    <odtech-audio data-ng-if="showDescription && audioUrl" audio-src="{{audioUrl}}"></odtech-audio>
 </div>
 <!-- main nav  -->
 <section id="mission-container" data-ng-hide="showDescription"  data-ng-class="{'blur':blurAll}">

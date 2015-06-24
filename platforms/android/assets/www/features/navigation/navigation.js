@@ -1,11 +1,15 @@
-odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, $interval) {
+odtechApp.directive('navigation', ['$timeout', '$interval', '$sce', '$rootScope', function ($timeout, $interval, $sce, $rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/navigation/navigation.html',
         link: function (scope, el, attrs) {
+            $rootScope.isSubMission = false;
             scope.initMap = false;
             scope.destinationRadius = 0.0005; //distance fron destination for finish mission (need to get from server?).
             //scope.destinationText = 'הברקוד נמצא בקרבת מקום, מצאו אותו וסרקו אותו'; //this text need to get from server.
+            scope.showInterestPopup = false;
+            scope.imgDomain = imgDomain;
+
 
             scope.myMarker = {
                 id: 1,
@@ -18,6 +22,16 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 }
             };
 
+
+            //if the mission has been made
+            scope.firstTime = true;
+            if (scope.task.status == 'answer') {
+
+                $timeout(function () {
+                    scope.firstTime = false;
+                    scope.initMap = true;
+                }, 0)
+            }
             //scope.map = { center: { latitude: scope.task.Latitude, longitude: scope.task.Longitude }, zoom: 14 };
             scope.map = { center: { latitude: scope.task.coord[0].latitude, longitude: scope.task.coord[0].longitude }, zoom: 14 };
             scope.options = { scrollwheel: true };
@@ -40,7 +54,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 $timeout(function () {
                     scope.myMarker.coords.latitude = position.coords.latitude;
                     scope.myMarker.coords.longitude = position.coords.longitude;
-                    console.log(scope.myMarker);
+                    // console.log(scope.myMarker);
                     scope.noLocation = false;
                     scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
                 }, 0)
@@ -76,25 +90,15 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
             };
 
             //set the destination marker points
-            //scope.destinationMarkerIcon = { url: './img/position4.png', scaledSize: new google.maps.Size(75,93) };
-            //scope.subdestinationMarkerIcon = { url: './img/subposition.png', scaledSize: new google.maps.Size(50,43) };
-
-            //if the invisibleTarget is true - hide the destinationTarget and subdestinationTarget icons
+            scope.destinationMarkerArray = scope.task.coord;
+            scope.interestMarkerArray = scope.task.interestPoints;
             $timeout(function () {
 
-                scope.destinationMarkerArray = scope.task.coord;
-                scope.interestMarkerArray = scope.task.interestPoints;
-
-
-            }, 0);
-            $timeout(function () {
-
-                scope.subdestinationMarkerIcon = scope.task.invisibleTarget ? { url: './img/transparent.png', scaledSize: new google.maps.Size(50, 43)} : { url: './img/subposition.png', scaledSize: new google.maps.Size(50, 43) };
-                scope.destinationMarkerIcon = scope.task.invisibleTarget ? { url: './img/transparent.png', scaledSize: new google.maps.Size(75, 93)} : { url: './img/position4.png', scaledSize: new google.maps.Size(75, 93) };
+                scope.subdestinationMarkerIcon = scope.task.invisibleTarget ? { url: './img/transparent.png', scaledSize: new google.maps.Size(1, 1)} : { url: './img/subposition.png', scaledSize: new google.maps.Size(50, 43) };
+                scope.destinationMarkerIcon = scope.task.invisibleTarget ? { url: './img/transparent.png', scaledSize: new google.maps.Size(1, 1)} : { url: './img/position4.png', scaledSize: new google.maps.Size(75, 93) };
 
 
                 scope.destinationMarkerId = 0;
-                //scope.destinationMarkerArray = scope.task.coord;
                 //set theinterest marker points
                 scope.interestMarkerIcon = { url: './img/positionIcon.png', scaledSize: new google.maps.Size(20, 20) };
                 scope.interestMarkerId = 0;
@@ -185,9 +189,103 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
                 scope.endMission(scope.results);
             });
 
+
             scope.$on('$destroy', function () {
                 $interval.cancel(isLocationConnect);
                 isLocationConnect = undefined;
+                $rootScope.isSubMission = false;
+            });
+
+            scope.interestPointClick = function (index, interestMarkerArray) {
+                scope.interestPopuptext = scope.task.interestpntsdesc[index];
+                scope.showInterestPopup = true;
+            }
+
+
+
+            /**********sub missions section***************/
+
+            scope.hasSubMission = true;
+            scope.currentSubMission = "";
+            scope.cameraFrameShow = false;
+            scope.questionFrameShow = false;
+            scope.videoFrameShow = false;
+            scope.cameraFrameUrl = 'index.html#/mission/';
+            scope.questionFrameUrl = 'index.html#/mission/';
+            scope.videoFrameUrl = 'index.html#/mission/';
+
+
+            scope.$on('closeSubMission', function (event, data) {
+
+            });
+
+
+            scope.openSubMission = function (mission) {
+                var url = $sce.trustAsResourceUrl('index.html#/mission/' + mission.mid); ;
+                switch (mission.type) {
+                    case "takePhoto":
+                        scope.cameraFrameUrl = url;
+                        scope.cameraFrameShow = true
+                        break;
+                    case "takeVideo":
+                        scope.videoFrameUrl = url;
+                        scope.videoFrameShow = true
+                        break;
+                    case "openQuestion":
+                        scope.questionFrameUrl = url;
+                        scope.questionFrameShow = true
+                        break;
+                }
+                // scope.cameraFrameUrl = $sce.trustAsResourceUrl('index.html#/mission/' + mission.mid);
+                scope.currentSubMission = mission.type;
+                $rootScope.isSubMission = true;
+
+                //add the relevant css
+
+            }
+
+            scope.closeSubMission = function (task) {
+                $timeout(function () {
+                    $rootScope.isSubMission = false;
+                    scope.cameraFrameShow = false
+
+                    scope.videoFrameShow = false
+
+                    scope.questionFrameShow = false
+                }, 0)
+
+                //add the relevant css
+
+            }
+
+            scope.loadCss = function (type) {
+                var cssLinkCamera = document.createElement("link");
+                cssLinkCamera.href = "css/subMissions.css"; cssLinkCamera.rel = "stylesheet";
+                cssLinkCamera.type = "text/css";
+                
+                var cssLinkVideo = document.createElement("link");
+                cssLinkVideo.href = "css/subMissions.css"; cssLinkVideo.rel = "stylesheet";
+                cssLinkVideo.type = "text/css";
+                
+                var cssLinkQuestion = document.createElement("link");
+                cssLinkQuestion.href = "css/subMissions.css"; cssLinkQuestion.rel = "stylesheet";
+                cssLinkQuestion.type = "text/css";
+                $timeout(function () {
+
+                    document.getElementById("subMissionCameraFrame").contentWindow.document.body.appendChild(cssLinkCamera);
+                    document.getElementById("subMissionQuestionFrame").contentWindow.document.body.appendChild(cssLinkQuestion);
+                    document.getElementById("subMissionVideoFrame").contentWindow.document.body.appendChild(cssLinkVideo);
+                  
+                }, 3000)
+
+            }
+            scope.loadCss()
+            //if you finish mission hide -by parent mission or by subMission - hide the subMission
+            scope.$on('finishMissionHide', function (event, data) {
+                $rootScope.isSubMission = false;
+            });
+            scope.$on('closeMissionAnswered', function (event, data) {
+                $rootScope.isSubMission = false;
             });
         },
         replace: true
@@ -206,3 +304,4 @@ odtechApp.directive('navigation', ['$timeout', '$interval', function ($timeout, 
     //מציג את הנקודות ואת המפה
 
 } ]);
+

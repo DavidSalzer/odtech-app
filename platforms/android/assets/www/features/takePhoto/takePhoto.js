@@ -22,28 +22,28 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             scope.uploadText = "בהעלאה..";
             scope.uploadTimeout = -1;
             //check if this first time that we doing the mission or we made made it befor
-            if (scope.task.status == 'answer') {
-               
-               
-                $timeout(function () {
-                    scope.firstTime = false;
-                    scope.task.answer.data = scope.task.answer.data;
-                    for (pic in scope.task.answer.data) {
+            //if (scope.task.status == 'answer') {
+            //   
+            //   
+            //    $timeout(function () {
+            //        scope.firstTime = false;
+            //        scope.task.answer.data = scope.task.answer.data;
+            //        for (pic in scope.task.answer.data) {
 
-                        scope.photoSaved[pic] = true;
-                        //if the url is local path ( the upload timeout ) - take it without domain url
-                        if(scope.task.answer.data[pic].uri){
-                            scope.pictures[pic] =  scope.task.answer.data[pic];
-                        }
-                        //else - take the domain+url from server
-                        else{
-                           scope.pictures[pic] = { uri: imgDomain + scope.task.answer.data[pic] };  
-                        }
-                       
-                    }
-                }, 0)
+            //            scope.photoSaved[pic] = true;
+            //            //if the url is local path ( the upload timeout ) - take it without domain url
+            //            if(scope.task.answer.data[pic].uri){
+            //                scope.pictures[pic] =  scope.task.answer.data[pic];
+            //            }
+            //            //else - take the domain+url from server
+            //            else{
+            //               scope.pictures[pic] = { uri: imgDomain + scope.task.answer.data[pic] };  
+            //            }
+            //           
+            //        }
+            //    }, 0)
 
-            }
+            //}
 
             // take photo from camera
             scope.captureImage = function (photoClicked) {

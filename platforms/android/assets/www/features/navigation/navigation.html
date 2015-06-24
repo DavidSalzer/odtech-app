@@ -1,5 +1,5 @@
 <div class="navigation-container">
-    
+
     <div id="map_canvas" ng-if="initMap">
         <!--display map directive-->
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
@@ -8,13 +8,18 @@
             </ui-gmap-marker>
             <!--display destination position-->
             <ui-gmap-marker ng-if="!$last" ng-repeat="point in destinationMarkerArray" coords="point" idkey="destinationMarkerId" icon="subdestinationMarkerIcon"></ui-gmap-marker>
-            <ui-gmap-marker  coords="destinationMarkerArray[destinationMarkerArray.length-1]" idkey="destinationMarkerId" icon="destinationMarkerIcon"></ui-gmap-marker>
-            <ui-gmap-marker ng-repeat="point in interestMarkerArray" coords="point" idkey="interestMarkerId" icon="interestMarkerIcon">
-               
+            <ui-gmap-marker coords="destinationMarkerArray[destinationMarkerArray.length-1]" idkey="destinationMarkerId" icon="destinationMarkerIcon"></ui-gmap-marker>
+            <ui-gmap-marker click="interestPointClick($index)" ng-repeat="point in interestMarkerArray" coords="point" idkey="interestMarkerId" icon="interestMarkerIcon">
+
             </ui-gmap-marker>
-                  <!--<ui-gmap-marker coords="destinationMarkerArray[1].coords" idkey="destinationMarkerArray[1].id" icon="destinationMarkerArray[1].icon">
-                      <ui-gmap-marker coords="destinationMarkerArray[2].coords" idkey="destinationMarkerArray[2].id" icon="destinationMarkerArray[2].icon">-->
+                            <!--<ui-gmap-marker coords="destinationMarkerArray[1].coords" idkey="destinationMarkerArray[1].id" icon="destinationMarkerArray[1].icon">
+                                                                                                      <ui-gmap-marker coords="destinationMarkerArray[2].coords" idkey="destinationMarkerArray[2].id" icon="destinationMarkerArray[2].icon">-->
         </ui-gmap-google-map>
+
+        <div class="submissionsBtns" ng-if="task.subMission.length > 0">
+            <div ng-repeat="mission in task.subMission" ng-class="{'camera-mission' : mission.type == 'takePicture','openQuestion-mission':mission.type == 'openQuestion','video-mission':mission.type == 'takeVideo','disable':firstTime == false }" class="submission-btn camera-mission" ng-click="openSubMission(mission)"><div ng-show="mission.status == 'answer'" class="checked"></div></div>
+
+        </div>
     </div>
 
     <!--You have reached the destination popup-->
@@ -22,75 +27,60 @@
         <h2 class="popup-title">הגעת ליעד</h2>
         <!--<p class="popup-text">{{destinationText}}</p>-->
         <div class="mission-popup-continue">
-            <span>לחצו כאן</span>  
+            <span>לחצו כאן</span>
             <span class="arrow" data-ng-click="sendDestination()"> </span>
         </div>
     </div>
 
     <!--Unknown user location popup-->
-   <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
+    <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
         <div class="x" data-ng-click="noLocation=false"></div>
         <h2>המיקום שלכם לא התעדכן בזמן האחרון, נסו לשנות מיקום  </h2>
-        <p class="popup-text" >אנא בידקו שה<span> GPS פועל או שהמכשיר מאפשר קבלת מיקום. </span><br><span>במידה וזה עדיין לא עובד נסו לכבות ולהדליק את הGPS במכשיר או להפעיל מחדש את המכשיר.</span></p>
+        <p class="popup-text">אנא בידקו שה<span> GPS פועל או שהמכשיר מאפשר קבלת מיקום. </span><br><span>במידה וזה עדיין לא עובד נסו לכבות ולהדליק את הGPS במכשיר או להפעיל מחדש את המכשיר.</span></p>
 
         <p class="popup-text" data-ng-show="longNoLocation > 3">האם ברצונכם לסיים את המשימה? הגיעו לנקודת היעד ולחצו על החץ</p>
-        <div class="mission-popup-continue" data-ng-show="longNoLocation > 3"  data-ng-click="closeMission()">
-            <span>ליציאה לחצו כאן</span>  
+        <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
+            <span>ליציאה לחצו כאן</span>
             <span class="arrow"> </span>
         </div>
     </div>
+    <div class="mission-repeat-popup popup" id="interest-point-popup" ng-show="showInterestPopup">
+        <div class="x" data-ng-click="showInterestPopup = false"></div>
+        <h2></h2>
+        <p class="popup-text">{{interestPopuptext}}</p>
+        <div class="mission-popup-continue" data-ng-click="showInterestPopup = false">
+            <span>אישור</span>
+            <span class="arrow"> </span>
+        </div>
+                    <!--<div id="didyou-audio-wrap">
+                                                            <audio id="didyou-audio" controls>
+                                                                <source src="audio/cartoon067.mp3" type="audio/mpeg">
+                                                            </audio>
+                                                        </div>-->
+    </div>
 
-    <style type="text/css">
-        html, body, #map_canvas, .navigation-container {
-            height: 100%;
-            width: 100%;
-            margin: 0px;
-        }
-        #map_canvas {
-            position: relative;
-        }
-        .angular-google-map-container {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-        }
-        
-        .destination-btn{
-            position: absolute;
-            left: 5px;
-            bottom: 5px;
-        }
-        
-        /*.navigation-container .mission-popup-continue .arrow {
-            background-image: url("../img/svg/arrow/navigation.svg");
-        }*/
-        
-        .navigation-container .mission-popup-continue {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            
-            position: relative;
-            bottom: initial;
-            left: initial;
-            height: 30px;
-            line-height: 30px;
-            float: initial;
-            vertical-align: top;
-            text-align: left;
-            margin-top: 5px;
-        }
-        
-        .mission-repeat-popup.navigation-popup {
-            z-index: 4;
-        }
 
-        /*.mission-repeat-popup.navigation-popup .close {
-            background-image: url("../img/svg/x/navigation.svg");
-        }*/
-        
-        
-    </style>
+
+
+    <div id="subMission" class="{{currentSubMission}}" ng-show="isSubMission">
+        <!--ng-if="isSubMission"-->
+     בטעינה...
+        <div class="subMission-wrap">
+            <div id="camera-frame" class="frame-wrap" ng-show="cameraFrameShow">
+                <iframe id="subMissionCameraFrame" name="iframeName" class="subMissionFrame" ng-src="{{cameraFrameUrl}}"> </iframe>
+                <div class="x" data-ng-click="closeSubMission()"></div>
+            </div>
+            <div id="question-frame" class="frame-wrap" ng-show="questionFrameShow">
+                <iframe id="subMissionQuestionFrame" name="iframeName" class="subMissionFrame" ng-src="{{questionFrameUrl}}"> </iframe>
+                <div class="x" data-ng-click="closeSubMission()"></div>
+            </div>
+            <div id="video-frame" class="frame-wrap" ng-show="videoFrameShow">
+                <iframe id="subMissionVideoFrame" name="iframeName" class="subMissionFrame" ng-src="{{videoFrameUrl}}"> </iframe>
+                <div class="x" data-ng-click="closeSubMission()"></div>
+            </div>
+
+        </div>
+    </div>
+
+
 </div>

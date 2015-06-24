@@ -53,12 +53,15 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     $scope.go = function () {
         $rootScope.showDescription = true; //show day description in mainNav.
+      
         //$state.transitionTo('mainNav');
         $rootScope.$broadcast('joinToGroup', {});
 
         //go to info page
         //$state.transitionTo('info');
         $state.transitionTo('mainNav');
+      
+        
     }
 
 

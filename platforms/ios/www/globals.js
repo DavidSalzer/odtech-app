@@ -2,17 +2,22 @@
 var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://admin.odtech.co.il/";
 /******QA******/
-// var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-// var imgDomain = "http://adminqa.odtech.co.il/";
+ var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+var imgDomain = "http://adminqa.odtech.co.il/";
 
 /********!1client number!!************/
 var cid = 4; // production
-// var cid = 1; // QA
+ var cid = 1; // QA
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
 
 odtechApp.run(function ($rootScope) {
+     $rootScope.successMedia ;
+             $rootScope.failBuzzerMedia ;
+              $rootScope.timeoverMedia ;
+               $rootScope.applauseMedia;
+
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
         var match = ua.match(/Android\s([0-9\.]*)/);

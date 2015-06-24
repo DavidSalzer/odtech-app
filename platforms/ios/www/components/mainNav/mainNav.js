@@ -1,5 +1,6 @@
 odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
 
+     
     $scope.currentMission = 0;
 
     //close the description page - before main nav
@@ -11,6 +12,9 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         $timeout(function () {
             $scope.scrollToNextMiss()
         }, 100)
+         $rootScope.$broadcast('startDayClick');
+
+
     }
 
     //scroll to next mission 
@@ -81,11 +85,14 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
             $scope.tasks = data.res.activitie.mission;
             $scope.description = data.res.activitie.description;
+            $scope.audioUrl = data.res.activitie.routeAudioUrl;
+           
             //has tasks - throw broadcast
             //the timeout is for localstorage option
             $timeout(function () {
                 $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
             }, 500)
+
 
             //scroll to the next mission
             $timeout(function () {

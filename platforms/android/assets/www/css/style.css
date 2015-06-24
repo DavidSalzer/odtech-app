@@ -18,8 +18,8 @@
     font-weight: normal;
     font-style: normal;
 }
-1325
-@font-face {
+
+1325 @font-face {
     font-family: 'fbprozaregular';
     src: url(font/FbProza-Regular.otf);
     font-weight: normal;
@@ -68,7 +68,7 @@ input {
     display: block;
     /* padding-bottom: 90px; */
     box-sizing: border-box;
-     padding-top: 73px; 
+    padding-top: 73px;
     /*margin-top: 73px;*/
 }
 
@@ -230,7 +230,7 @@ body.keyboard {
     height: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
-      overflow-y: auto;
+    overflow-y: auto;
 }
 
 #day-description > p {
@@ -574,14 +574,14 @@ body.keyboard {
 }
 
 .mission-description-wrap {
-     position: relative;
-  padding: 175px 0 80px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    padding: 175px 0 80px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
-.missionPopUpImage {   
+.missionPopUpImage {
     height: 160px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -591,7 +591,7 @@ body.keyboard {
     position: relative;
     width: 36%;
     display: inline-block;
-      background-color: rgba(225,225,225,0.8);
+    background-color: rgba(225,225,225,0.8);
 }
 
 .mission-popup p {
@@ -625,6 +625,12 @@ body.keyboard {
     /* color: #e21d91; */
     cursor: pointer;
     text-align: center;
+}
+
+#interest-point-popup .mission-popup-continue {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
 }
 /*.mission-popup-continue .arrow {*/
 .arrow {
@@ -670,6 +676,7 @@ body.keyboard {
     width: 55%;
     font-size: 25px;
     text-align: center;
+      margin-right: -4px;
 }
 
 #mission-deatails-timer-inner {
@@ -714,6 +721,7 @@ body.keyboard {
 
 .popup-text {
     margin-top: 10px;
+    font-size: 1.5em;
 }
 
 .triangle.triangle-pc {
@@ -746,6 +754,20 @@ body.keyboard {
     margin-left: auto;
 }
 
+#interest-point-popup {
+    height: initial;
+    top: 0;
+    bottom: 0;
+    min-height: 50px;
+    max-height: 50%;
+}
+
+#interest-point-popup .navigation-container .mission-popup-continue {
+    /*display: block !important;*/
+    bottom: 10%;
+    position: absolute;
+    left: 3%;
+}
 /*.mission-repeat-popup .close {*/
 .close {
     background-position: center;
@@ -775,13 +797,12 @@ body.keyboard {
 .mission-popup-wrap {
     /* position: absolute; */
     /* top: 0; */
-   
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
-  overflow-y: hidden;
-  height: 100%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: hidden;
+    height: 100%;
 }
 
 .mission-popup-didyou div {
@@ -790,7 +811,7 @@ body.keyboard {
 
 .mission-popup-wrap .mission-popup-didyou {
     width: 83%;
-  height: 55%;
+    height: 55%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -816,9 +837,9 @@ body.keyboard {
     height: 70%;
     overflow: auto;
     line-height: 1.3em;
-      display: inline-block;
-  vertical-align: top;
-  margin-right: 5%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
     width: 50%;
 }
 
@@ -959,7 +980,7 @@ body.keyboard {
     width: 100%;
     display: block;
     background: #FCFCFA;
-   border: #7d7d7d 1px solid;
+    border: #7d7d7d 1px solid;
     text-align: right;
     resize: none;
     overflow: hidden;
@@ -1206,6 +1227,7 @@ header {
     left: 1%;
     height: 110px;
     width: 100%;
+      z-index: 10000000000000000000;
 }
 
 #logo {
@@ -1241,7 +1263,7 @@ header {
 .menu-wrap {
     display: inline-block;
     vertical-align: top;
- /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
+    /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
     border: 1px solid #CFC0C8;
 }
 
@@ -1318,43 +1340,44 @@ header {
     background-size: contain;
     background-position: center;
     display: none;
-    
-      z-index: 10000
+    z-index: 10000;
 }
 
 #larger-image-x {
-     background-image: url('../img/x.png');
-  width: 80px;
-  height: 80px;
-  display: block;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: right;
-  background-position-y: top;
+    background-image: url('../img/x.png');
+    width: 80px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: right;
+    background-position-y: top;
 }
 
 /*********************************/
 
-section.audio{
+section.audio {
     display: none;
 }
-.audio-func{
-     width: 40px;
-  height: 40px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  /* background-color: red; */
-  z-index: 10000;
-  background-image: url(../img/mute1.png);
-  background-size: 100%;
+
+.audio-func {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    /* background-color: red; */
+    z-index: 10000;
+    background-image: url(../img/mute1.png);
+    background-size: 100%;
 }
-.audio-func.play{ 
-     background-image: url(../img/icon-audio.png);
+
+.audio-func.play {
+    background-image: url(../img/icon-audio.png);
 }
 
 /*@media all and (max-width: 600px) {*/
@@ -1368,7 +1391,7 @@ section.audio{
         bottom: 10px;
         left: 0px;
         right: 0px;
-}
+    }
 
     header {
         top: initial;
@@ -1527,7 +1550,7 @@ section.audio{
         width: 80%;
         display: block;
         margin: auto;
-      /*  height: auto;
+        /*  height: auto;
         overflow: hidden;*/
         padding: 25px;
     }
@@ -1549,15 +1572,15 @@ section.audio{
         width: 100%;
         font-size: 2em;
         margin-top: 15px;
+        height: 65%;
     }
 
     .mission-repeat-popup h2 {
         max-width: 216px;
         color: #000000;
         margin-bottom: 15px;
-    
         font-size: 2.5em;
-}
+    }
 
     .triangle {
         width: 82px;
@@ -1775,15 +1798,18 @@ section.audio{
         margin: 0px 0px 0px 0px;
         min-height: 80%;
         top: 20%;
-    
         padding-bottom: 67px;
-}
+    }
 
     .mission-popup-didyou p {
-         height: auto;
-  width: 100%;
-  margin: auto;
-  margin-top: 10px;
+        height: auto;
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    #interest-point-popup {
+        max-height: 65%;
     }
 }
 

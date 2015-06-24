@@ -2,22 +2,25 @@
 var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://admin.odtech.co.il/";
 /******QA******/
- var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://adminqa.odtech.co.il/";
 
 /********!1client number!!************/
 var cid = 4; // production
- var cid = 1; // QA
+var cid = 1; // QA
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
 
-odtechApp.run(function ($rootScope) {
-     $rootScope.successMedia ;
-             $rootScope.failBuzzerMedia ;
-              $rootScope.timeoverMedia ;
-               $rootScope.applauseMedia;
 
+odtechApp.run(function ($rootScope) {
+    $rootScope.successMedia;
+    $rootScope.failBuzzerMedia;
+    $rootScope.timeoverMedia;
+    $rootScope.applauseMedia;
+
+
+    $rootScope.isSubMission = false;
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
         var match = ua.match(/Android\s([0-9\.]*)/);
@@ -49,10 +52,10 @@ odtechApp.filter('newlines', function () {
 });
 
 odtechApp.filter('trustedurl', ['$sce', function ($sce) {
-    return function(url) {
+    return function (url) {
         return $sce.trustAsResourceUrl(url);
     };
-}]);
+} ]);
 
 /**********prevent footer movement on input focus*************/
 
@@ -122,23 +125,24 @@ function iOSversion() {
 
             $("body").delegate("input", "focus",
 
-                               function(e) {
+                               function (e) {
 
-                               var self = $(this);
+                                   var self = $(this);
 
-                               $("body").height(screen.availHeight + 50 + self.offset().top/2);
+                                   $("body").height(screen.availHeight + 50 + self.offset().top / 2);
 
-                               setTimeout(function() {
+                                   setTimeout(function () {
 
-                                          $("html, body").animate({ scrollTop: $(document).height() }, 1000)}, 10);
+                                       $("html, body").animate({ scrollTop: $(document).height() }, 1000)
+                                   }, 10);
 
                                });
 
-            
 
-            
 
-            
+
+
+
 
             $("body").delegate("input", "blur", resetBodyHeight);
 
@@ -150,7 +154,7 @@ function iOSversion() {
 
 iOSversion();
 
-function resetBodyHeight(){
+function resetBodyHeight() {
     document.body.style.height = '100%';
 }
 

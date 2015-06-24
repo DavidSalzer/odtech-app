@@ -33,6 +33,7 @@ header {
     position: fixed;
     margin: initial;
     right: initial;
+    
 }
 
 #splash {
@@ -65,7 +66,7 @@ header {
 }
 
 #main-view {
-      /*background-image: url("../img/mainBackground.png");
+    /*background-image: url("../img/mainBackground.png");
   background-repeat: no-repeat;
   background-size: cover;*/
 }
@@ -74,7 +75,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
 }*/
-.animate-switch-container,  #mission-container {
+.animate-switch-container, #mission-container {
     background-image: url("../img/mainBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -182,11 +183,28 @@ header {
 .navigation .x {
     background-image: url("../img/svgMasa/x/navigation.svg");
 }
-/*mission-popup*/
- .close {
-  background-image: url("../img/back.png");
-  
+
+.camera-mission {
+    background-color: #22457B;
+    
 }
+
+.openQuestion-mission {
+    background-color: #11B1ED;
+}
+
+.video-mission {
+    background-color: #89A956;
+}
+
+
+
+
+/*mission-popup*/
+.close {
+    background-image: url("../img/back.png");
+}
+
 .navigation .mission-popup-timer {
     background-color: #eec8bb;
 }
@@ -212,8 +230,7 @@ header {
 /*mission-repeat*/
 
 .navigation .close {
-  /*background-image: url("../img/back.png");*/
-  
+    /*background-image: url("../img/back.png");*/
 }
 
 /*****takePhoto******************************************************************************************/
@@ -262,7 +279,7 @@ header {
     color: #813013;
 }
 
-.takePhoto .popup, .takePhoto .item-number,.takePhoto .photo-order {
+.takePhoto .popup, .takePhoto .item-number, .takePhoto .photo-order {
     color: #37539c;
 }
 
@@ -413,8 +430,9 @@ header {
 .takePhoto.red .mission-popup-continue .arrow {
     background-image: url("../img/svgMasa/arrow/takePhoto-negative.svg");
 }
+
 .takeVideo .photo-order {
-  color: #d99846;
+    color: #d99846;
 }
 
 /*****capture video************************************************************/
@@ -468,7 +486,7 @@ header {
     background-color: #fdf0e0;
 }
 
-.takeVideo  .arrow {
+.takeVideo .arrow {
     background-image: url("../img/svgMasa/arrow/takeVideo.svg");
 }
 
@@ -590,11 +608,11 @@ header {
 }
 
 .multiQuestion .number {
-    color:  #c64b2c;
+    color: #c64b2c;
 }
 
 .multiQuestion .next-answer-slide .answer .answer-wrap {
-     background-color: #c64b2c;
+    background-color: #c64b2c;
 }
 
 .multiQuestion .answer span {
@@ -1178,11 +1196,11 @@ header {
     background-image: url("../img/svgMasa/x/scala.svg");
 }
 
-.main-scala{
-     color: #000;
+.main-scala {
+    color: #000;
 }
 
-.scala .message-text-popup h2,.scala  .message-text-popup .permission.messageText{
+.scala .message-text-popup h2, .scala .message-text-popup .permission.messageText {
     color: #35c5ea;
 }
 
@@ -1200,7 +1218,7 @@ header {
 }
 
 /********group score********/
-.group-score-container{
+.group-score-container {
     color: white;
 }
 
@@ -1259,12 +1277,12 @@ header {
     }
 
     .animate-switch-container {
-       /*padding-bottom: 56px; */
-  box-sizing: border-box;
-  z-index: 0;
-  margin-top: 0;
-  padding-top: 73px;
-  padding-bottom: 0;
+        /*padding-bottom: 56px; */
+        box-sizing: border-box;
+        z-index: 0;
+        margin-top: 0;
+        padding-top: 73px;
+        padding-bottom: 0;
     }
 }
 

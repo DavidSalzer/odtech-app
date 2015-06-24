@@ -11,7 +11,9 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         //if user login
         if (data.res && data.res.name) {
             $rootScope.showDescription = true; //show day description in mainNav.
+            
             $state.transitionTo('mainNav');
+            $rootScope.$broadcast('showDescription', {});
         }
         //if logged in user has no userName 
         else if (data.res && data.res.email) {
@@ -55,7 +57,9 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 //if it old user go to groups page else update user details. 
                 if (data.res.name) {
                     $rootScope.showDescription = true; //show day description in mainNav.
+                      
                     $state.transitionTo('mainNav');
+                 //   $rootScope.$broadcast('showDescription', {});
 
                 }
                 else {

@@ -62,7 +62,7 @@
 		F2B90BD606B04A67AD3925D9 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9ADB4D0D04052BB8AA1E7 /* CDVLocalFilesystem.m */; };
 		F6F66D1FBF97437984C89865 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F801EF143C141E38DD8196E /* CDVCapture.m */; };
 		FCBB554B4F0345DDAB7693CA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D00095DEFC4AE984BBE6B8 /* CoreVideo.framework */; };
-		F263C08492194578AD8E2E2C /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 645931ECBA4A4FFBBD532A86 /* CDVSound.m */; };
+		54DF816576BB473F86B3D95B /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = EA39E8D91649425BBA90EEAE /* CDVSound.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,8 +161,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = masa/config.xml; sourceTree = "<group>"; };
 		F8D00095DEFC4AE984BBE6B8 /* CoreVideo.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		FE0B0C69557442A79A4D6ABE /* CDVCapture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVCapture.bundle; sourceTree = "<group>"; };
-		645931ECBA4A4FFBBD532A86 /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		E7E3C0E767314A22B0CA5BD0 /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		EA39E8D91649425BBA90EEAE /* CDVSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSound.m"; path = "org.apache.cordova.media/CDVSound.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A097F4E29C994603A6C11F94 /* CDVSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSound.h"; path = "org.apache.cordova.media/CDVSound.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,8 +304,8 @@
 				0BE3715A1DBD48A392C58E9A /* CDVViewController+SplashScreen.m */,
 				3E77149156E648F08C259ABB /* CDVSplashScreen.h */,
 				5FDAC62C4592401EB578F1B0 /* CDVViewController+SplashScreen.h */,
-				645931ECBA4A4FFBBD532A86 /* CDVSound.m */,
-				E7E3C0E767314A22B0CA5BD0 /* CDVSound.h */,
+				EA39E8D91649425BBA90EEAE /* CDVSound.m */,
+				A097F4E29C994603A6C11F94 /* CDVSound.h */,
 			);
 			name = Plugins;
 			path = masa/Plugins;
@@ -505,7 +505,7 @@
 				F6F66D1FBF97437984C89865 /* CDVCapture.m in Sources */,
 				EFB5A47AC06B4225B7570635 /* CDVSplashScreen.m in Sources */,
 				41CE32A2918D492DA3C334EF /* CDVViewController+SplashScreen.m in Sources */,
-				F263C08492194578AD8E2E2C /* CDVSound.m in Sources */,
+				54DF816576BB473F86B3D95B /* CDVSound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -66,13 +66,17 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
             scope.displayTimer(scope.currentTime);
             scope.$watch('startMission', function () {
                 //check if timer have to start. only on first enter and after 'start' click.
-                if (scope.startMission == true && scope.task.status == 'notAnswer') {
-                    scope.startTimer()
+                //and if this is not a subMission - isRouteMission == "0"
+                if (scope.task.isRouteMission == "0") {
+                    if (scope.startMission == true && scope.task.status == 'notAnswer') {
+                        scope.startTimer()
+                    }
+                    //init (stop) the timer
+                    else {
+                        scope.initTimer();
+                    }
                 }
-                //init (stop) the timer
-                else {
-                    scope.initTimer();
-                }
+
 
 
             });
