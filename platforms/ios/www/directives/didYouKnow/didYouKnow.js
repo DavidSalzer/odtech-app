@@ -4,8 +4,9 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
         templateUrl: './directives/didYouKnow/didYouKnow.html',
         link: function (scope, el, attrs) {
             scope.showDidYouKnow = false;
-             scope.imgDomain = imgDomain;
+            scope.imgDomain = imgDomain;
             scope.didYouKnowText = "";
+            $rootScope.didyouKnowsArray = [];
             $rootScope.missionIdLastShown = 0; // the mission id that the 'did you know' text was display. 
             scope.hideDidYouKnow = function () {
                 //hide did you know
@@ -15,17 +16,22 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
             //the did you know have to display after the finish popup display and hide
             //or when click on the x button on finish popup
             scope.$on('finishMissionHide', function (event, data) {
-                scope.toShowDidyouKnow(data.task);
+                scope.toShowDidyouKnow(data.data);
             });
             scope.$on('closeMissionAnswered', function (event, data) {
+                console.log('closeMissionAnswered')
                 scope.toShowDidyouKnow(data.task);
             });
+            scope.$on('closeMissionAndSendAnswer', function (event, data) {
+                scope.toShowDidyouKnow(data.data);
+            });
             scope.toShowDidyouKnow = function (task) {
-                //if there is didyouknow field
-                if (task.didYouKnow && task.didYouKnow != '') {
+                //if there is didyouknow field and this did you know not showed
+                if (task.didYouKnow && task.didYouKnow != '' && $rootScope.didyouKnowsArray['did' + task.mid] == undefined) {
                     //if the did you know of this mission id wasn't shown -show it
                     if (task.mid != $rootScope.missionIdLastShown) {
                         $timeout(function () {
+                            $rootScope.didyouKnowsArray['did' + task.mid] = true;
                             $rootScope.missionIdLastShown = task.mid;
                             scope.didYouKnowText = task.didYouKnow;
                             scope.didYouKnowImg = task.imgUrlDyk;
@@ -37,7 +43,7 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
 
                 }
             }
-             scope.openLargeImage=function(){
+            scope.openLargeImage = function () {
                 $rootScope.$broadcast('openLargeImage');
             }
         },

@@ -1,6 +1,7 @@
 odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
 
-     
+    $rootScope.$broadcast('startLocationWatcher', {});
+
     $scope.currentMission = 0;
 
     //close the description page - before main nav
@@ -12,7 +13,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
         $timeout(function () {
             $scope.scrollToNextMiss()
         }, 100)
-         $rootScope.$broadcast('startDayClick');
+        $rootScope.$broadcast('startDayClick');
 
 
     }
@@ -86,7 +87,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
             $scope.tasks = data.res.activitie.mission;
             $scope.description = data.res.activitie.description;
             $scope.audioUrl = data.res.activitie.routeAudioUrl;
-           
+
             //has tasks - throw broadcast
             //the timeout is for localstorage option
             $timeout(function () {
@@ -167,7 +168,8 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
             else {
                 fullBack = 'background-image:url(' + imgDomain + background + ')';
             }
-            return fullBack;
+            //return fullBack; //this was for takePhoto mission that was done
+            return ''; 
         }
 
 

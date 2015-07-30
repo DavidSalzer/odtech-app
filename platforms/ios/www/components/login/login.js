@@ -5,6 +5,8 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     //set the state - for hide and show the footer
     // $scope.$state = $state;
 
+    $rootScope.$broadcast('stopLocationWatcher', {});
+
     //check if the user login
     server.request({ "type": "getAppUser", "req": {} })
     .then(function (data) {
@@ -12,7 +14,9 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         if (data.res && data.res.name) {
             $rootScope.showDescription = true; //show day description in mainNav.
             
+             console.log('mainNav 4')
             $state.transitionTo('mainNav');
+           
             $rootScope.$broadcast('showDescription', {});
         }
         //if logged in user has no userName 
@@ -59,6 +63,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                     $rootScope.showDescription = true; //show day description in mainNav.
                       
                     $state.transitionTo('mainNav');
+                    console.log('mainNav 6')
                  //   $rootScope.$broadcast('showDescription', {});
 
                 }

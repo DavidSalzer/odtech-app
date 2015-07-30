@@ -2,7 +2,9 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
     return {
         restrict: 'E',
         templateUrl: './features/takePhoto/takePhoto.html',
+        scope: true,
         link: function (scope, el, attrs) {
+            scope.missionData;
             scope.photoSaved = {};
             scope.pictures = {};
             scope.photoCenter = 'photoCenter';
@@ -21,29 +23,77 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             scope.firstTime = true;
             scope.uploadText = "בהעלאה..";
             scope.uploadTimeout = -1;
+
+
+
+            scope.checkImagesUploadCrashes = function () {
+                //if its a first time - check if the i,ages upload
+                if (scope.firstTime) {
+                    //for check if upload image crash
+                    if (localStorage.getItem('startMission' + scope.missionData.mid) == 'start') {
+                        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
+                    }
+
+                }
+            }
+
+
+            scope.setData = function () {
+                //clear the pictures from camera array
+                camera.setPicturesAndVideos({}, {});
+                /*init fields*/
+                scope.isApp = isApp();
+                scope.results = {};
+                scope.results.answer = {};
+                scope.results.points = 0;
+                scope.firstTime = true;
+                scope.uploadText = "בהעלאה..";
+                scope.uploadTimeout = -1;
+
+
+
+                //set the  data for mission - parent or sub
+                if (scope.subMissionOpen != -1) {
+                    scope.missionData = scope.subMissionOpen;
+                }
+                else {
+                    scope.missionData = scope.parentMissionData;
+                }
+                if (scope.missionData.status == 'answer') {
+
+
+                    $timeout(function () {
+                        scope.firstTime = false;
+                        scope.missionData.answer.data = scope.missionData.answer.data;
+                        for (pic in scope.missionData.answer.data) {
+
+                            scope.photoSaved[pic] = true;
+                            //if the url is local path ( the upload timeout ) - take it without domain url
+                            if (scope.missionData.answer.data[pic].uri) {
+                                scope.pictures[pic] = scope.missionData.answer.data[pic];
+                            }
+                            //else - take the domain+url from server
+                            else {
+                                scope.pictures[pic] = { uri: imgDomain + scope.missionData.answer.data[pic] };
+                            }
+
+                        }
+
+
+
+                        scope.checkImagesUploadCrashes()
+
+                    }, 0)
+
+
+                }
+
+            }
+            scope.setData();
+
+
             //check if this first time that we doing the mission or we made made it befor
-            //if (scope.task.status == 'answer') {
-            //   
-            //   
-            //    $timeout(function () {
-            //        scope.firstTime = false;
-            //        scope.task.answer.data = scope.task.answer.data;
-            //        for (pic in scope.task.answer.data) {
 
-            //            scope.photoSaved[pic] = true;
-            //            //if the url is local path ( the upload timeout ) - take it without domain url
-            //            if(scope.task.answer.data[pic].uri){
-            //                scope.pictures[pic] =  scope.task.answer.data[pic];
-            //            }
-            //            //else - take the domain+url from server
-            //            else{
-            //               scope.pictures[pic] = { uri: imgDomain + scope.task.answer.data[pic] };  
-            //            }
-            //           
-            //        }
-            //    }, 0)
-
-            //}
 
             // take photo from camera
             scope.captureImage = function (photoClicked) {
@@ -57,8 +107,8 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                         scope.photoSaved[scope.photoClicked] = true;
                         //count the photos that took
                         scope.countPhotos++;
-                        if (scope.countPhotos == scope.task.countPhoto) {
-                             //if the user take the last photo - display the "is finished question popup"
+                        if (scope.countPhotos == scope.missionData.countPhoto || scope.missionData.countPhoto == undefined) {
+                            //if the user take the last photo - display the "is finished question popup"
 
                             $timeout(function () {
                                 scope.showFinishQuestion = true;
@@ -77,7 +127,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                     scope.photoSaved[scope.photoClicked] = true;
                     //count the photos that took
                     scope.countPhotos++;
-                    if (scope.countPhotos == scope.task.countPhoto) {
+                    if (scope.countPhotos == scope.missionData.countPhoto) {
                         //alert("סיימת את המשימה:)");
                         //if the user take the last photo - display the "is finished question popup"
 
@@ -108,15 +158,15 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                 $timeout(function () {
                     //if the upload not finished after 50 s - end the mission -the user get all the points
                     if (scope.uploadTimeout == -1) {
-                        scope.results.points = scope.task.points;
+                        scope.results.points = scope.missionData.points;
                         scope.results.answer = scope.pictures;
                         scope.uploadTimeout = 1;
-                        scope.endMission(scope.results);
+                        scope.endMission(scope.results, scope.missionData);
                     }
                 }, 50000);
                 //if this is a application version
                 if (isApp()) {
-                    camera.uploadPhoto(scope.pictures, "img", scope.task.countPhoto)
+                    camera.uploadPhoto(scope.pictures, "img", scope.missionData.countPhoto)
                             .then(function (data) {
                                 //if the upload take  a long time - do nothing
                                 if (scope.uploadTimeout == -1) {
@@ -127,22 +177,22 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                                             scope.results.answer[field] = data[index][field];
                                             //get point, if the answer was sent in time
                                             if (!scope.endTimer) {
-                                                scope.results.points = scope.task.points;
+                                                scope.results.points = scope.missionData.points;
                                             }
                                         }
                                     }
-                                    scope.endMission(scope.results);
+                                    scope.endMission(scope.results, scope.missionData);
 
                                 }
 
                             });
                 }
                 //else -if this is a browser version
-                 else {
+                else {
                     for (form in scope.pictures) {
                         scope.pictures[form]['fd'] = new FormData(document.forms.namedItem(form));
                     }
-                    camera.uploadPhotoFormData(scope.pictures, "img", scope.task.countPhoto)
+                    camera.uploadPhotoFormData(scope.pictures, "img", scope.missionData.countPhoto)
                             .then(function (data) {
                                 //if the upload take  a long time - do nothing
                                 if (scope.uploadTimeout == -1) {
@@ -153,11 +203,11 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                                             scope.results.answer[field] = data[index][field];
                                             //get point, if the answer was sent in time
                                             if (!scope.endTimer) {
-                                                scope.results.points = scope.task.points;
+                                                scope.results.points = scope.missionData.points;
                                             }
                                         }
                                     }
-                                    scope.endMission(scope.results);
+                                    scope.endMission(scope.results, scope.missionData);
                                 }
 
 
@@ -173,7 +223,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                     scope.openImg = false;
                     scope.photoSaved[scope.photoClicked] = true;
                     scope.countPhotos++;
-                    if (scope.countPhotos == scope.task.countPhoto) {
+                    if (scope.countPhotos == scope.missionData.countPhoto) {
                         alert("סיימת את המשימה:)");
                     }
                 }, 0);
@@ -195,13 +245,13 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             }
 
 
-            /**for browsers**/ 
+            /**for browsers**/
             scope.imageChosen = function (input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
                     reader.onload = function (e) {
-                     
+
                     }
 
                     reader.readAsDataURL(input.files[0]);
@@ -209,25 +259,35 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             }
             /** END for browsers**/
 
-            scope.$on('closeMission', function (event, data) {
-                scope.endMission(scope.results);
-                localStorage.removeItem('startMission' + scope.task.mid); //for check if upload image crash
+            scope.$on('closeMissionAndSendAnswer', function (event, data) {
+                //send answer to server if the current if this is the mission that close
+                if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
+                    console.log('xxx5')
+                    scope.endMission(scope.results, scope.missionData);
+                    localStorage.removeItem('startMission' + scope.missionData.mid); //for check if upload image crash
+                }
             });
 
 
-            //for check if upload image crash
-            if (localStorage.getItem('startMission' + scope.task.mid) == 'start') {
-                $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
-            }
+
+
 
             scope.clickOnImage = function () {
-                if (localStorage.getItem('startMission' + scope.task.mid) == 'start') {
+                if (localStorage.getItem('startMission' + scope.missionData.mid) == 'start') {
                     //localStorage.removeItem('startMission' + scope.task.mid);
                 }
                 else {
-                    localStorage.setItem('startMission' + scope.task.mid, 'start');
+                    localStorage.setItem('startMission' + scope.missionData.mid, 'start');
                 }
             }
+
+            /*submission data*/
+            //addon for submission because the controller is alive
+            scope.$on('subMissionDataGet', function (event, data) {
+                 if(data.data.type == "takePhoto"){
+                     scope.setData()
+                }
+            });
         },
         replace: true
     };
@@ -235,6 +295,6 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
 
     //מופיע מסך של נתינת שם לתמונה
     //אישור לשם של התמונה והתמונה עוברת למסך הראשי של הפיטצר - על כל תמונה
-    
-    
+
+
 } ]);

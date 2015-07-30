@@ -1,13 +1,13 @@
-<div data-ng-if="startMission" class="mission-deatails-wrap " ng-class="{'opacity-mask':startMission&&showDeatails && !missionAnswered}">
-    <div class="mission-deatails-menu timer-wrap popup" data-ng-show="startMission && !missionAnswered">
+<div data-ng-show="showDetailsWrap" class="mission-deatails-wrap " ><!--ng-class="{'opacity-mask':startMission&&showDetailsWrap && !missionAnswered}"-->
+    <div class="mission-deatails-menu timer-wrap popup" data-ng-show="showDetailsWrap">
         <span class="mission-icon" data-ng-click="showDeatails=!showDeatails"></span>
         <span class="mission-deatails-timer">
-            <timer ng-if="task.timer"></timer>
+            <timer type="missionTimer" ></timer>
             <span class="clock"> </span>
         </span>
     </div>
     <!--<div class="triangle triangle-mobile"></div>-->
-    <div class="mission-repeat-popup popup" data-ng-show="startMission&&showDeatails && !missionAnswered">
+    <div class="mission-repeat-popup popup" data-ng-show="showDeatails">
         <!--<div class="triangle triangle-pc"></div>-->
         <div class="x" data-ng-click="showDeatails=false">
         </div>

@@ -1,7 +1,30 @@
 
-<div class="main-barcode">
-    <p>
-        <span data-ng-hide="success" data-ng-click="scancode()">+</span>
+<div class="main-barcode" >
+
+    <div class="scan-wrap" data-ng-click="scancode()" ng-show="firstTime">
+
+        <p>
+            <span data-ng-show="showPlus">+</span>
     לחצו לסריקת ברקוד
-    </p>
+        </p>
+    </div>
+
+    <div class="second-scan-wrap"  ng-show="!firstTime">
+
+        <p>
+    {{secondTimeText}}
+        </p>
+    </div>
+
+
+    <div ng-show="showAnswerIndication" class="opacity-mask">
+        <div class="message-text-popup popup">
+            <div class="textMessage">
+                <h2 ng-show="showAnswerIndication">סריקה שגויה</h2>
+                <p ng-show="showAnswerIndication">חפש בסביבה ברקוד אחר</p>
+
+                <app-ringtone></app-ringtone>
+            </div>
+        </div>
+    </div>
 </div>

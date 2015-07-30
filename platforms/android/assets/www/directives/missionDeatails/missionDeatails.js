@@ -1,10 +1,11 @@
-odtechApp.directive('missionDeatails', ['$state', '$timeout','$rootScope', function ($state, $timeout,$rootScope) {
+odtechApp.directive('missionDeatails', ['$state', '$timeout', '$rootScope', function ($state, $timeout, $rootScope) {
     return {
         restrict: 'E',
         templateUrl: './directives/missionDeatails/missionDeatails.html',
         link: function (scope, el, attrs) {
             scope.imgDomain = imgDomain;
-
+            scope.showDeatails = false;
+            //scope.showDetails = false;
             $(".clock").on('touchstart', scope.startTimingPress);
             $(".clock").on('touchend', scope.checkTimingPress);
 
@@ -12,6 +13,7 @@ odtechApp.directive('missionDeatails', ['$state', '$timeout','$rootScope', funct
             scope.startTimingPress = function () {
                 returnMainNav =
          setTimeout(function () {
+             console.log('mainNav 10')
              $state.transitionTo('mainNav');
          }, 3000);
             }
@@ -36,9 +38,16 @@ odtechApp.directive('missionDeatails', ['$state', '$timeout','$rootScope', funct
 
             //})
 
-            scope.openLargeImage=function(){
+            scope.openLargeImage = function () {
                 $rootScope.$broadcast('openLargeImage');
             }
+
+            //scope.$on('showDetails', function (event, data) {
+            //    scope.showDetailsWrap = true
+            //});
+            //scope.$on('hideDetails', function (event, data) {
+            //    scope.showDetailsWrap = false;
+            //});
         },
         replace: true
     };

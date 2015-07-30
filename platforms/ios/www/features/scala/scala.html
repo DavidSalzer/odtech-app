@@ -1,12 +1,12 @@
 
-<div class="main-scala" ng-class="{'double':task.options.length==2, 'multi':task.options.length>2}">
+<div class="main-scala" ng-class="{'double':missionData.options.length==2, 'multi':missionData.options.length>2}">
 
     <div class="scala-wrap">
 
 
 
         <div class="options-wrap">
-            <div ng-repeat="opt in task.options" class="scala-option-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / task.options.length+'%','height':100/(task.options.length-1)+'%'}">
+            <div ng-repeat="opt in missionData.options" class="scala-option-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / missionData.options.length+'%','height':100/(missionData.options.length-1)+'%'}">
                 <div class="option-text">{{opt}}</div>
 
             </div>
@@ -15,7 +15,7 @@
             <input id="scala" type="range" min="0" max="{{max}}" ng-model="ans" ng-disabled="isDisabled" style="{{getHeight()}}">
             <div id="demi-scala" style="{{getHeight()}}"></div>
         </div>
-        <div class="indexes-wrap" ng-if="task.options.length==2">
+        <div class="indexes-wrap" ng-if="missionData.options.length==2">
             <div ng-repeat="i in getNumber(number) track by $index" class="scala-option-index-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / 10+'%','height':100/number+'%'}">
                 <div class="option-index">{{$index+1}}</div>
             </div>

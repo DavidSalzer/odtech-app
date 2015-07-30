@@ -9,7 +9,7 @@
     /* background-image: url(../img/help.jpg); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index: 5;
+    /*z-index: 5;*/
     margin: auto;
     top: 0px;
     bottom: 0px;
@@ -22,7 +22,7 @@
     text-align: center;
     margin-top: 45px;
     font-size: 85px;
-    font-size: 4.3em;
+    font-size:3.3em;
 }
 
 .main-barcode p {
@@ -33,9 +33,18 @@
     right: 0px;
     bottom: 0px;
     top: 49px;
+    font-size: 1.5em;
+}
+.main-barcode .message-text-popup h2
+{
+      font-size: 1.5em;
+}
+.main-barcode .message-text-popup .textMessage p{
+      font-size: 1.2em;
+  margin-top: 1.8em;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 736px) {
         .main-barcode {
         position: relative;
         display: block;

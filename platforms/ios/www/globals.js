@@ -2,12 +2,17 @@
 var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://admin.odtech.co.il/";
 /******QA******/
- var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-var imgDomain = "http://adminqa.odtech.co.il/";
+//var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+//var imgDomain = "http://adminqa.odtech.co.il/";
 
 /********!1client number!!************/
-var cid = 4; // production
- var cid = 1; // QA
+//var cid = 4; // production -masa
+var cid =3; // production -odtech
+ //var cid = 1; // QA
+
+ //var appName ="מסע ישראלי"
+ var appName ="ODTech"
+
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
@@ -25,7 +30,8 @@ odtechApp.run(function ($rootScope) {
     };
 
     $rootScope.androidVersion = $rootScope.getAndoidVersion();
-    $rootScope.appName = 'מסע ישראלי';
+    $rootScope.appName =appName;
+    // $rootScope.appName = 'ODTech';
 
     $rootScope.showDescription = false;
     $.browser.isSmartphone = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase())) && $(window).width() < 740 && $(window).height() < 740;
@@ -89,10 +95,20 @@ $(document).on('keypress', 'input[type=text],input[type=email], textarea', funct
 });
 /************************/
 //Disable Device Back button
+var start=0;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.addEventListener("backbutton", function (e) {
         e.preventDefault();
+        elapsed = new Date().getTime();
+        if (elapsed - start <= 5000) {
+            var x;
+             navigator.app.exitApp();
+        }
+        else {
+            //do something else;
+        }
+        start = elapsed;
     }, false);
 }
 

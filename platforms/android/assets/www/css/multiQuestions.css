@@ -27,13 +27,14 @@
 .next-answer-slide {
     white-space: nowrap;
     height: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     position: absolute;
     width: 100%;
     padding-top: 88px;
     top: 0;
     box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
 }
 
 .next-answer-slide .next-main-content {
@@ -149,6 +150,8 @@
 
 .next-answer-slide-wrap {
     height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 @media all and (max-width: 670px) {
@@ -232,7 +235,7 @@
     #mission-quiz .next-answer-slide .answer .answer-wrap div {
         display: inline-block;
         padding: 13px 59px 10px 10px;
-}
+    }
 
     #mission-quiz .next-answer-slide .answer p {
         font-size: 0.8em;

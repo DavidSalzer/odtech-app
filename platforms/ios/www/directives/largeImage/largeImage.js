@@ -17,10 +17,12 @@ odtechApp.directive('largeImage', ['$rootScope', function ($rootScope) {
             });
 
             $('body').on("click touchstart", "#larger-image-x", function () {
+
                 var $target = $("#larger-image");
+
                 $target.fadeOut(300, function () { $target.remove(); });
+
             });
-              
         },
         replace: true
     };

@@ -1,4 +1,4 @@
-odtechApp.directive('points', ['$rootScope',function ($rootScope) {
+odtechApp.directive('points', ['$rootScope', function ($rootScope) {
 
     return {
         restrict: 'E',
@@ -13,6 +13,7 @@ odtechApp.directive('points', ['$rootScope',function ($rootScope) {
 
         },
         link: function (scope, element, attrs) {
+            scope.introductionsPoints = 0;
             scope.globalPoints = 0;
             //sum the points
             scope.addToGlobalPoints = function (points) {
@@ -47,6 +48,17 @@ odtechApp.directive('points', ['$rootScope',function ($rootScope) {
             scope.$on('hasTasks', function (event, data) {
                 scope.initPoints(data.tasks);
             });
+
+            ////listen to parent mission and only for him show the timer - freeze
+            //scope.$watch('parentMissionData', function () {
+            //   
+            //});
+            scope.$on('showIntroductionPage', function (event, data) {
+                 if (attrs.type == "single") {
+                    scope.introductionsPoints = data.data.points;
+                }
+            });
+
         },
 
         replace: true

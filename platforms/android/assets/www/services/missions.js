@@ -18,7 +18,7 @@ odtechApp.factory('missions', ['server', function (server) {
 
         //check if go to next mission directly, return next mission
         directlyNext: function (mid) {
-            if (!missionList) {
+            if (!missionList || !missionList.activitie) {
                 return false;
             }
             self = this;

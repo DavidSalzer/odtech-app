@@ -14,9 +14,13 @@
                 <div class="menu-img"></div>
                 <div class="menu-item-name">התנתק</div>
             </div>
+            <!--<div class="menu-item-wrap capture" data-ng-click="takePhotoByMenu()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">צלם</div>
+            </div>-->
         </div>
 
     </div>
-    <div id="logo" data-ng-show="!$state.includes('info')"></div>
+    <div id="logo" data-ng-show="!$state.includes('info')" ng-class="{'logo-yibz': $state.includes('stages')}"></div>
 
 </header>

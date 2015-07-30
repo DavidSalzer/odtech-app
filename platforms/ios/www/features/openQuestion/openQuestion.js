@@ -4,33 +4,67 @@ odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
         templateUrl: './features/openQuestion/openQuestion.html',
         link: function (scope, el, attrs) {
 
-           scope.results = {};
+            scope.results = {};
             scope.results.answer;
             scope.results.points = 0;
+            scope.missionData;
+            scope.setData = function () {
+                //set the  data for mission - parent or sub
+                if (scope.subMissionOpen != -1) {
+                    scope.missionData = scope.subMissionOpen;
+                }
+                else {
+                    scope.missionData = scope.parentMissionData;
+                }
+                //if the mission has been made
 
-            //if the mission has been made
-            scope.firstTime = true;
-            if (scope.task.status == 'answer') {
-              
+                if (scope.missionData.status == 'answer') {
+                    scope.hideIntroductionPage();
 
-                $timeout(function () {
-                    scope.firstTime = false;
-                }, 0)
+                    $timeout(function () {
+                        scope.firstTime = false;
+                        console.log('firstTime = false;')
+                    }, 0)
+                }
+                else {
+                    scope.firstTime = true;
+                    console.log('firstTime = true;')
+                }
+
             }
+            scope.setData();
 
             scope.taskEnd = function () {
                 //Perform end mission function. need validations
                 scope.results.answer = scope.ans;
                 //get point, if the answer was sent in time
-                if(!scope.endTimer){
-                    scope.results.points = scope.task.points;
+                if (!scope.endTimer) {
+                    scope.results.points = scope.missionData.points;
                 }
-                scope.endMission(scope.results); //the param is the answers of user
+                console.log('on scope.taskEnd open question: mid: ' + scope.missionData.mid)
+                //this addon for sub mission -send the mid too
+                scope.endMission(scope.results, scope.missionData); //the param is the answers of user
+
             }
 
-            scope.$on('closeMission', function (event, data) {
-                scope.endMission(scope.results);
+            scope.$on('closeMissionAndSendAnswer', function (event, data) {
+                //send answer to server if the current if this is the mission that close
+                if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
+                    console.log('xxx3')
+                    scope.endMission(scope.results, scope.missionData);
+                }
+
             });
+
+
+            /*submission data*/
+            //addon for submission because the controller is alive
+            scope.$on('subMissionDataGet', function (event, data) {
+                if (data.data.type == "openQuestion" && data.data.mid == scope.subMissionOpen.mid) {
+                    scope.setData()
+                }
+            });
+
         },
         replace: true
     };

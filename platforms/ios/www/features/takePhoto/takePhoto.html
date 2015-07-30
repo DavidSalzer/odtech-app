@@ -1,5 +1,5 @@
 <div class="take-photo-wrap">
-    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" data-ng-if="startMission">
+    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" >
 
         <!--popup end mission-->
         <div class="photo-order" ng-show="showFinishQuestion">
@@ -28,7 +28,7 @@
         <!-- for browsers -->
         <!--<input type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />-->
         <!--center photo-->
-        <div data-ng-if="task.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].uri}})">
+        <div data-ng-if="missionData.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].uri}})">
             <div data-ng-show="photoSaved['photoLeft']&&firstTime" class="deleteOrbit" id="delphotoLeft" pos="photoLeft" data-ng-click="deletePhoto('photoLeft')">X</div>
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoLeft">
                 <p data-ng-hide="photoSaved['photoLeft']||!firstTime">
@@ -41,7 +41,7 @@
         </div>
 
         <!--right photo-->
-        <div data-ng-if="task.countPhoto>2" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].uri}})">
+        <div data-ng-if="missionData.countPhoto>2" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].uri}})">
             <div data-ng-show="photoSaved['photoRight']&&firstTime" class="deleteOrbit" id="delphotoRight" pos="photoRight" data-ng-click="deletePhoto('photoRight')">X</div>
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoRight">
                 <p data-ng-hide="photoSaved['photoRight']||!firstTime">
@@ -55,7 +55,7 @@
         </div>
 
         <!--down photo-->
-        <div data-ng-if="task.countPhoto>3" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].uri}})">
+        <div data-ng-if="missionData.countPhoto>3" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].uri}})">
             <div data-ng-show="photoSaved['photoDown']&&firstTime" class="deleteOrbit" id="delphotoDown" pos="photoDown" data-ng-click="deletePhoto('photoDown')">X</div>
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoDown">
                 <p data-ng-hide="photoSaved['photoDown']||!firstTime">
@@ -69,7 +69,7 @@
         </div>
 
         <!--up photo-->
-        <div data-ng-if="task.countPhoto>4" class="photoUp orbit photo" id="photoUp" style="z-index: 1; background-image: url({{pictures['photoUp'].uri}})">
+        <div data-ng-if="missionData.countPhoto>4" class="photoUp orbit photo" id="photoUp" style="z-index: 1; background-image: url({{pictures['photoUp'].uri}})">
             <div data-ng-show="photoSaved['photoUp']&&firstTime" class="deleteOrbit" id="delphotoUp" pos="photoUp" data-ng-click="deletePhoto('photoUp')">X</div>
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoUp">
                 <p data-ng-hide="photoSaved['photoUp']||!firstTime">

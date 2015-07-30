@@ -2,6 +2,7 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
     return {
         restrict: 'E',
         templateUrl: './directives/timer/timer.html',
+        scope: false,
         link: function (scope, el, attrs) {
 
             //display the time in the correct format
@@ -42,14 +43,34 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                     $rootScope.$broadcast('endTimer', {});
                 }
             }
+
+
             //init the timer run
             scope.initTimer = function () {
-                scope.currentTime = scope.task.timer * 60;
-                clearInterval(scope.timerInterval);
+                //console.log('initTimer')
+                //init the current time value and display
+                if (scope.task) {
+                    scope.currentTime = scope.task.timer * 60; //convert the minutes to seconds
+                    scope.displayTimer(scope.currentTime);
+
+                    // scope.currentTime = scope.task.timer * 60;
+                    clearInterval(scope.timerInterval);
+                }
+
             }
+           //listen to parent mission and only for him show the timer - freeze
+            scope.$watch('parentMissionData', function () {
+                if (attrs.type == 'introductionTimer') {
+                    scope.initTimer();
+                }
+            });
+
+
             //start run the timer
             scope.startTimer = function () {
-                if (scope.task.timer == 0) {
+                //console.log('startTimer')
+                if (scope.task.timer == 0 || scope.task.timer < 0) {
+                    scope.displayTimer(0);
                     $rootScope.$broadcast('endTimer', {});
                 }
                 else {
@@ -61,27 +82,31 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                 }
 
             }
-            //init the current time value and display
-            scope.currentTime = scope.task.timer * 60; //convert the minutes to seconds
-            scope.displayTimer(scope.currentTime);
-            scope.$watch('startMission', function () {
-                //check if timer have to start. only on first enter and after 'start' click.
-                //and if this is not a subMission - isRouteMission == "0"
-                if (scope.task.isRouteMission == "0") {
-                    if (scope.startMission == true && scope.task.status == 'notAnswer') {
-                        scope.startTimer()
-                    }
-                    //init (stop) the timer
-                    else {
-                        scope.initTimer();
-                    }
-                }
+            ////init the current time value and display
+            //scope.$watch('startMission', function () {
+            //    //check if timer have to start. only on first enter and after 'start' click.
+            //    //and if the misiion is not submission
+            //    //if (scope.startMission == true && scope.task.status == 'notAnswer' && attrs.type == 'missonTimer' && scope.subMissionOpen == -1) {
+            //    //    scope.startTimer()
+            //    //}
+            //    //init (stop) the timer
+            //    //else 
+            //    //if (attrs.type == 'introductionTimer') {
+            //    //    scope.initTimer();
+            //    //}
 
 
-
-            });
+            //});
             scope.$on('$destroy', function () {
-                scope.initTimer();
+                if (attrs.type == 'introductionTimer') {
+                    scope.initTimer();
+                }
+            });
+            scope.$on('hideIntroduction', function (event, data) {
+                //if the timer is mission and not introduction. and its a parent mission and not submission
+                if(data.status == 'notAnswer' && data.isSubMission ==  false && scope.timerInterval == undefined) {
+                    scope.startTimer()
+                }
             });
         },
         replace: true

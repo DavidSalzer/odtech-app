@@ -21,12 +21,12 @@ header {
 }
 
 #logo {
-      height: 50px;
-  width: 150px;
-  background-image: url("../img/logo.png");
-  top: 11px;
-  position: absolute;
-  left: 25px;
+    height: 50px;
+    width: 150px;
+    background-image: url("../img/logo.png");
+    top: 11px;
+    position: absolute;
+    left: 25px;
 }
 
 #small-left-logo {
@@ -70,7 +70,8 @@ header {
 .member-img.default {
     background-color: #77c7e8;
 }
-.groups-container .img-plus.default{
+
+.groups-container .img-plus.default {
     background-color: #77c7e8;
 }
 
@@ -119,11 +120,11 @@ header {
     background-color: #f1c7e3;
 }
 
-.navigation .mission-popup-scoring,.navigation .mission-popup-help-text {
+.navigation .mission-popup-scoring, .navigation .mission-popup-help-text {
     background-color: #f6e2ef;
 }
 
-.navigation .mission-icon-triangle{
+.navigation .mission-icon-triangle {
     border-color: transparent transparent #f6e2ef transparent;
 }
 
@@ -225,20 +226,19 @@ header {
     color: #408fb0;
 }
 /*mission-popup*/
- .close {
-  background-image: url("../img/back.png");
-  
+.close {
+    background-image: url("../img/back.png");
 }
 
 .takePhoto .mission-popup-timer {
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-popup-scoring ,.takePhoto .mission-popup-help-text{
+.takePhoto .mission-popup-scoring, .takePhoto .mission-popup-help-text {
     background-color: #e6f4fa;
 }
 
-.takePhoto .mission-icon-triangle{
+.takePhoto .mission-icon-triangle {
     border-color: transparent transparent #e6f4fa transparent;
 }
 
@@ -354,6 +354,22 @@ header {
     background-color: rgba(101,225,209,0.9);
 }
 
+.takeVideo .main-video {
+    background-color: #fff;
+    height: 50%;
+    width: 50%;
+}
+
+.takeVideo-btn {
+    background: url('../img/svg/arrow/take-video-people.svg') no-repeat 50% 98%;
+    background-size: auto 65%;
+}
+
+.takeVideo-text {
+    font-size: 1em !important;
+    color: #46c4b4;
+}
+
 .takeVideo .popup, .takeVideo .item-number {
     color: #46c4b4;
 }
@@ -381,27 +397,35 @@ header {
 .takeVideo .number {
     color: #46c4b4;
 }
+
+.takeVideo .photo-order {
+    color: #408fb0;
+}
+
+.takeVideo .arrow {
+    background-image: url("../img/svg/arrow/takeVideo.svg");
+}
 /*mission-popup*/
 
 .takeVideo .mission-popup-timer {
     background-color: rgba(101,225,209,0.45);
 }
-.takeVideo .mission-deatails-timer .mission-popup-timer {
-    background-color: transparent;
-}
 
-.takeVideo .mission-popup-scoring ,.takeVideo .mission-popup-help-text{
+.takeVideo .mission-popup-scoring, .takeVideo .mission-popup-help-text {
     background-color: rgba(101,225,209,0.28);
 }
 
-.takeVideo .mission-icon-triangle{
+.takeVideo .mission-icon-triangle {
     border-color: transparent transparent rgba(101,225,209,0.28) transparent;
 }
 
-.takeVideo .mission-popup-continue .arrow {
+.takeVideo .arrow {
     background-image: url("../img/svg/arrow/takeVideo.svg");
 }
 
+.takeVideo .photo-order {
+    color: #46c4b4;
+}
 /*mission bottom*/
 
 .takeVideo .mission-deatails-timer {
@@ -461,11 +485,11 @@ header {
     background-color: #e8dbfd;
 }
 
-.watchVideo .mission-popup-scoring, .watchVideo .mission-popup-help-text{
+.watchVideo .mission-popup-scoring, .watchVideo .mission-popup-help-text {
     background-color: #f5f1fb;
 }
 
-.watchVideo .mission-icon-triangle{
+.watchVideo .mission-icon-triangle {
     border-color: transparent transparent #f5f1fb transparent;
 }
 
@@ -537,11 +561,11 @@ header {
     background-color: #FCE5C4;
 }
 
-.multiQuestion .mission-popup-scoring, .multiQuestion .mission-popup-help-text{
+.multiQuestion .mission-popup-scoring, .multiQuestion .mission-popup-help-text {
     background-color: #FBF3E6;
 }
 
-.multiQuestion .mission-icon-triangle{
+.multiQuestion .mission-icon-triangle {
     border-color: transparent transparent #FBF3E6 transparent;
 }
 
@@ -679,11 +703,11 @@ header {
     background-color: #FCF2C6;
 }
 
-.openQuestion .mission-popup-scoring, .read-text .mission-popup-scoring , .openQuestion .mission-popup-help-text{
+.openQuestion .mission-popup-scoring, .read-text .mission-popup-scoring, .openQuestion .mission-popup-help-text {
     background-color: #FFFBE7;
 }
 
-.openQuestion .mission-icon-triangle{
+.openQuestion .mission-icon-triangle {
     border-color: transparent transparent #FFFBE7 transparent;
 }
 
@@ -706,7 +730,7 @@ header {
 
 /*mission-repeat*/
 
-.openQuestion .x, .read-text .x{
+.openQuestion .x, .read-text .x {
     background-image: url("../img/svg/x/openQuestion.svg");
 }
 
@@ -897,11 +921,11 @@ header {
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-popup-scoring .takePhoto .mission-popup-help-text{
+.takePhoto .mission-popup-scoring .takePhoto .mission-popup-help-text {
     background-color: #e6f4fa;
 }
 
-.takePhoto .mission-icon-triangle{
+.takePhoto .mission-icon-triangle {
     border-color: transparent transparent #e6f4fa transparent;
 }
 
@@ -1017,11 +1041,11 @@ header {
     background-color: rgba(101,225,209,0.45);
 }
 
-.qrCode .mission-popup-scoring, .qrCode .mission-popup-help-text{
+.qrCode .mission-popup-scoring, .qrCode .mission-popup-help-text {
     background-color: rgba(101,225,209,0.28);
 }
 
-.qrCode .mission-icon-triangle{
+.qrCode .mission-icon-triangle {
     border-color: transparent transparent rgba(101,225,209,0.28) transparent;
 }
 
@@ -1044,6 +1068,112 @@ header {
 
 .qrCode .x {
     background-image: url("../img/svg/x/qrCode.svg");
+}
+
+/***** Trip Summary ************************************************************/
+.tripSummary .popup, .tripSummary .item-number {
+    color: #d71e32;
+}
+
+.tripSummary .mission-menu-center {
+    background-color: #ea9463;
+}
+
+.tripSummary .mission-icon {
+    background-color: #d71e32;
+}
+
+.tripSummary .mission-icon {
+    background-image: url("../img/tripSummary.png");
+}
+
+.tripSummary .mission-popup-timer {
+    background-color: #ea9463;
+}
+
+.tripSummary .mission-popup-scoring {
+    background-color: #f3d2bf;
+}
+
+.tripSummary .arrow {
+    background-image: url("../img/svg/arrow/trip-summary.svg");
+}
+
+.tripSummary .mission-deatails-timer {
+    background-color: #ea9463;
+}
+
+.tripSummary .mission-deatails-menu .clock {
+    background-image: url("../img/svg/clock/trip-summary.svg");
+}
+
+.tripSummary .mission-deatails-menu span.clock {
+    color: #d71e32;
+}
+
+.tripSummary .inner-folder-wrap .x {
+    background-image: url("../img/svg/x/trip-summary.svg");
+}
+
+.dragging-container .photo-order .arrow {
+    background-image: url("../img/svg/arrow/trip-summary.svg");
+}
+
+.folder {
+    background-color: #d71e32;
+}
+
+.dragging-container .photo-order {
+    color: #d71e32;
+}
+
+[ng-drop].drag-enter {
+    border: solid 6px #d71e32;
+}
+
+/***** compass ************************************************************/
+.compass .popup, .compass .item-number {
+    color: #1caffc;
+}
+
+.compass .mission-menu-center {
+    background-color: #5ac7ff;
+}
+
+.compass .mission-icon {
+    background-color: #1caffc;
+}
+
+.compass .mission-icon {
+    background-image: url("../img/compass.png");
+}
+
+.compass .mission-popup-timer {
+    background-color: #5ac7ff;
+}
+
+.compass .mission-popup-scoring {
+    background-color: #ceedff;
+}
+
+.compass .arrow {
+    background-image: url("../img/svg/arrow/compass.svg");
+}
+
+.compass .mission-deatails-timer {
+    background-color: #5ac7ff;
+}
+
+.compass .mission-deatails-menu .clock {
+    background-image: url("../img/svg/clock/compass.svg");
+}
+
+.compass .mission-deatails-menu span.clock {
+    color: #1caffc;
+}
+
+.compass .inner-folder-wrap .x {
+    background-image: url("../img/svg/x/compass.svg");
 }
 
 /*****scala video************************************************************/
@@ -1071,15 +1201,15 @@ header {
 
 .scala .mission-popup-timer {
     /*background-color: rgba(101,225,209,0.45);*/
-      background-color: #72ddcf;
+    background-color: #72ddcf;
 }
 
-.scala .mission-popup-scoring, .scala .mission-popup-help-text{
+.scala .mission-popup-scoring, .scala .mission-popup-help-text {
     /*background-color: rgba(101,225,209,0.28);*/
     background-color: #aff8ee;
 }
 
-.scala .mission-icon-triangle{
+.scala .mission-icon-triangle {
     border-color: transparent transparent #aff8ee transparent;
 }
 
@@ -1108,6 +1238,13 @@ header {
     background-image: url("../img/svg/x/scala.svg");
 }
 
+#mission-capture-video {
+  background-color: transparent;
+  border: none;
+}
+
+
+
 
 /********did you know********/
 .permission .arrow {
@@ -1126,7 +1263,7 @@ header {
 /**/
 
 
-    
+
 /*@media all and (max-width: 600px) {*/
 @media all and (max-width: 736px) and (max-height: 960px) {
     #logo {
@@ -1134,5 +1271,21 @@ header {
         width: 57px;
         top: 15px;
         left: 13px;
+    }
+
+    .takeVideo .main-video {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 80%;
+        height: 215px;
+    }
+
+    .takeVideo-btn {
+        background: url('../img/svg/arrow/take-video-people.svg') no-repeat 48% bottom;
+        background-size: auto 80%;
+    }
+
+    .takeVideo-text {
+        font-size: 1.5em !important;
     }
 }

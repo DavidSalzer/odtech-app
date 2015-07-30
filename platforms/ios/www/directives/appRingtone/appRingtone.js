@@ -48,7 +48,8 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             //finish Mission
             scope.$on('finishMission', function (event, data) {
                 //if the mission finished and the time not overed
-                if (data.timeOver == false) {
+                //and the user get points
+                if (data.timeOver == false && data.results.points > 0) {
                     scope.play("applause")
                 }
 
@@ -112,7 +113,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             }
 
             //the events that cause the media audio stop
-            scope.$on('closeMission ', function () {
+            scope.$on('closeMissionAndSendAnswer ', function () {
                 scope.mediaInit();
 
             });

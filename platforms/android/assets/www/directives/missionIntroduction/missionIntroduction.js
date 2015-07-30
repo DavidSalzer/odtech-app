@@ -1,28 +1,18 @@
-odtechApp.directive('missionIntroduction',['$rootScope', function ($rootScope) {
+odtechApp.directive('missionIntroduction', ['$rootScope', function ($rootScope) {
     return {
         restrict: 'E',
         templateUrl: './directives/missionIntroduction/missionIntroduction.html',
+        scope:true,    
         link: function (scope, el, attrs) {
-            //scope.showIntroduction = true;
             scope.imgDomain = imgDomain;
             scope.popupShow = true;
-            scope.hideIntroduction = function () {
-                //scope.showIntroduction = false;
-                //  $("#odtech-audio-silence")[0].load();
-                 //   $("#odtech-audio-silence")[0].play();
-                scope.startMission = true;
-                scope.popupShow = false;
-                $rootScope.$broadcast('startMission');
-            }
-
-            scope.openLargeImage=function(){
+            
+            scope.openLargeImage = function () {
                 $rootScope.$broadcast('openLargeImage');
             }
+
         },
         replace: true
-
-
-
 
     };
 

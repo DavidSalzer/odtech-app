@@ -19,7 +19,7 @@
     font-style: normal;
 }
 
-1325 @font-face {
+@font-face {
     font-family: 'fbprozaregular';
     src: url(font/FbProza-Regular.otf);
     font-weight: normal;
@@ -61,6 +61,10 @@ input {
     box-sizing: border-box;
 }
 
+#popup {
+    z-index: 1;
+}
+
 .animate-switch-container {
     width: 100%;
     height: 100%;
@@ -70,6 +74,7 @@ input {
     box-sizing: border-box;
     padding-top: 73px;
     /*margin-top: 73px;*/
+    z-index: 0;
 }
 
 #main-container.keyboard, body.keyboard, #main-view.keyboard {
@@ -288,6 +293,154 @@ body.keyboard {
     bottom: 128px;
     padding: 20px;
 }
+
+
+/****************************** stages ********************************/
+#stage-container {
+    position: relative;
+    height: 100%;
+    /*top: 50%;
+     transform: translateY(-50%);
+     padding-right: 75px;*/
+}
+
+#stage-container.blur {
+    /*-webkit-filter: blur(13px);
+    filter: blur(13px);
+    -webkit-transform: translate3d(0, 0, 0);*/
+}
+
+
+.stage-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    padding-right: 75px;
+    -webkit-overflow-scrolling: touch;
+}
+
+#stage-menu {
+    white-space: nowrap;
+}
+
+.stage-menu-item {
+    display: inline-block;
+    position: relative;
+    height: 328px;
+    margin-left: 30px;
+    width: 367px;
+    z-index: 20;
+}
+
+.stage-menu-item.not-visited {
+}
+
+.stage-menu-center {
+    position: relative;
+    height: 205px;
+    width: 280px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 54px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    /*background-image: url("../img/nav_lock.png");*/
+    background-position: top;
+    border: 9px solid #fff;
+    border-radius: 10px;
+}
+
+
+.stage-menu-item.start .stage-menu-center {
+    /*bottom: 2px;
+    margin: 0;   
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    right: initial;
+    top: initial;*/
+    background-size: 100%;
+}
+
+
+.stage-menu-item.start .lock {
+    display: none;
+}
+
+.stage-menu-icon {
+    width: 175px;
+    height: 135px;
+    position: absolute;
+    right: -60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 10px;
+    z-index: 3;
+    background-size: 100%;
+}
+
+#stage-menu .stage-menu-icon {
+    background-image: none;
+}
+
+.stage-menu-icon img {
+    width: 100%;
+}
+
+.stage-icon {
+}
+
+.stage-menu-name {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    bottom: 0;
+}
+
+.stage-item-number {
+    display: block;
+    font-size: 38px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-weight: 100;
+    color: #fff;
+}
+
+.no-stage-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: auto;
+    height: 3em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.no-stage-data {
+}
+/***********main nav*************/
+.stage-menu-item.done .stage-menu-center {
+    background-size: cover;
+}
+
+.done .lock {
+    display: none;
+}
+
+
+
+
+
 /****************************** main-nav ********************************/
 #mission-container {
     position: relative;
@@ -380,7 +533,7 @@ body.keyboard {
     box-sizing: border-box;
     right: initial;
     top: initial;*/
-    background-image: url("../img/nav_start.png");
+    background-image: url("../img/nav_start_yibz.png");
     background-size: 100%;
 }
 
@@ -409,6 +562,10 @@ body.keyboard {
     top: 10px;
     z-index: 3;
     background-size: 100%;
+}
+
+#mission-menu .mission-menu-icon {
+    background-image: none;
 }
 
 .mission-menu-icon img {
@@ -444,14 +601,15 @@ body.keyboard {
 }
 /***********main nav*************/
 .mission-menu-item.done .mission-menu-center {
-    background-size: cover;
+    background-size: 30%;
+    background-image: url('../img/v-01.svg');
 }
 
 .done .lock {
     display: none;
 }
 
-.scala.done .mission-menu-center {
+/*.scala.done .mission-menu-center {
     background-image: url('../img/mainNav-done/GRADING.jpg');
 }
 
@@ -481,7 +639,7 @@ body.keyboard {
 
 .qrCode.done .mission-menu-center {
     background-image: url('../img/mainNav-done/qr.jpg');
-}
+}*/
 
 
 
@@ -676,7 +834,7 @@ body.keyboard {
     width: 55%;
     font-size: 25px;
     text-align: center;
-      margin-right: -4px;
+    margin-right: -4px;
 }
 
 #mission-deatails-timer-inner {
@@ -717,6 +875,8 @@ body.keyboard {
     overflow-y: auto;
     /*overflow-y: auto;
      overflow-x: hidden;*/
+    overflow-y: auto; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
 }
 
 .popup-text {
@@ -805,6 +965,14 @@ body.keyboard {
     height: 100%;
 }
 
+.end-activity {
+    z-index: 100;
+}
+
+.end-activity.mission-popup-wrap p {
+    width: 80%;
+}
+
 .mission-popup-didyou div {
     height: 100%;
 }
@@ -871,6 +1039,7 @@ body.keyboard {
     left: 0;
     right: 0;
     width: 100%;
+    overflow: hidden;
 }
 
 .next-title-wrap {
@@ -1227,7 +1396,6 @@ header {
     left: 1%;
     height: 110px;
     width: 100%;
-      z-index: 10000000000000000000;
 }
 
 #logo {
@@ -1293,6 +1461,10 @@ header {
     background-image: url('../img/score.png');
 }
 
+.capture .menu-img {
+    background-image: url('../img/capture.png');
+}
+
 .home .menu-img {
     background-image: url('../img/home.png');
 }
@@ -1308,6 +1480,7 @@ header {
     left: 10px;
     top: 10px;
     background-size: 100%;
+    z-index: 100;
 }
 
 /************* larger image ****************/
@@ -1469,6 +1642,24 @@ section.audio {
         -webkit-overflow-scrolling: touch;*/
     }
 
+    #stage-container {
+        top: 0;
+        transform: initial;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        padding-right: initial;
+        height: auto;
+        /*padding-bottom: 60px;*/
+        min-height: 280px;
+        height: 100%;
+        /*
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;*/
+    }
+
     .mainnav-wrap {
         overflow-y: auto; /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
@@ -1500,7 +1691,7 @@ section.audio {
     }
 
     /********************* mission-popup **************************/
-    .mission-description-wrap {
+    .mission-description-wrap, .submission-introduction.mission-description-wrap {
         overflow-y: scroll;
         padding: 70px 0 0px 0;
     }
@@ -1573,6 +1764,10 @@ section.audio {
         font-size: 2em;
         margin-top: 15px;
         height: 65%;
+    }
+
+    .mission-repeat-popup .popup-text {
+        overflow-y: initial;
     }
 
     .mission-repeat-popup h2 {
@@ -1810,6 +2005,77 @@ section.audio {
 
     #interest-point-popup {
         max-height: 65%;
+    }
+
+    /**** stage *****/
+
+    .timeline-wrap {
+        display: none;
+    }
+
+    .stage-wrap {
+        padding-right: 0;
+        padding-top: 30px;
+        transform: initial;
+        top: inherit;
+        width: 100%;
+        transform: initial;
+        -webkit-transform: initial;
+        -ms-transform: initial;
+        overflow-x: initial;
+        overflow-y: initial;
+        padding-bottom: 60px;
+        box-sizing: border-box;
+    }
+
+    .stage-menu-item {
+        margin: auto;
+        margin-bottom: 0;
+        width: 50%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .stage-menu-center {
+        margin-right: 0;
+        width: 100%;
+        height: 127px;
+        margin-top: 39px;
+        /*padding: 36%;*/
+        box-sizing: border-box;
+        position: relative;
+        border: 6px solid #fff;
+    }
+
+    .stage-menu-icon {
+        width: 52%;
+        height: auto;
+        top: 7px;
+        right: -30px;
+    }
+
+    .stage-menu-icon img {
+        width: 100%;
+        height: auto;
+    }
+
+    .stage-item-number {
+        display: block;
+        font-size: 25px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-weight: 100;
+        color: #fff;
+    }
+
+    .stage-menu-name {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding: 12px 0;
+        bottom: 0;
+        font-size: 15px;
     }
 }
 

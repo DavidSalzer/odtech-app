@@ -2,8 +2,9 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
     return {
         restrict: 'E',
         templateUrl: './features/takeVideo/takeVideo.html',
+        scope: true,
         link: function (scope, el, attrs) {
-
+            scope.missionData; //= scope.task;
             scope.videoSaved = {};
             scope.videos = {};
             scope.videoCenter = 'videoCenter';
@@ -11,36 +12,58 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             scope.videoDown = 'videoDown';
             scope.videoLeft = 'videoLeft';
             scope.videoRight = 'videoRight';
-            scope.countVideos = 0;
-            scope.task.countVideo = 1;
-            scope.showFinishQuestion = false;
             scope.isApp = isApp();
-            scope.uploadText = "בהעלאה..";
-            scope.uploadTimeout = -1; // is it timeout on upload
-            scope.results = {};
-            scope.results.answer = {};
-            scope.results.points = 0;
-            scope.firstTime = true;
-            scope.showLoader = false;
-            //check if this first time that we doing the mission or we made it before
-            if (scope.task.status == 'answer') {
-                $timeout(function () {
-                    scope.firstTime = false;
-                    //scope.task.answer.data = scope.task.answer.data;
-                    for (video in scope.task.answer.data) {
-                        scope.videoSaved[video] = true;
-                        //if the url is local path ( the upload timeout ) - take it without domain url
-                        if (scope.task.answer.data[video].uri ) {
-                            scope.videos[video] = scope.task.answer.data[video];
+
+
+
+
+            scope.setData = function () {
+                //initials fields
+                scope.countVideos = 0;
+                scope.showFinishQuestion = false;
+                scope.uploadText = "בהעלאה..";
+                scope.uploadTimeout = -1; // is it timeout on upload
+                scope.results = {};
+                scope.results.answer = {};
+                scope.results.points = 0;
+                scope.firstTime = true;
+                scope.showLoader = false;
+
+                //clear the pictures from camera array
+                camera.setPicturesAndVideos({}, {});
+                //set the  data for mission - parent or sub
+                if (scope.subMissionOpen != -1) {
+                    scope.missionData = scope.subMissionOpen;
+                }
+                else {
+                    scope.missionData = scope.parentMissionData;
+                }
+
+                //check if this first time that we doing the mission or we made it before
+                if (scope.missionData.status == 'answer') {
+                    $timeout(function () {
+                        scope.firstTime = false;
+                        //scope.task.answer.data = scope.task.answer.data;
+                        for (video in scope.missionData.answer.data) {
+                            scope.videoSaved[video] = true;
+                            //if the url is local path ( the upload timeout ) - take it without domain url
+                            if (scope.missionData.answer.data[video].uri) {
+                                scope.videos[video] = scope.missionData.answer.data[video];
+                            }
+                            else {
+                                scope.videos[video] = { uri: imgDomain + scope.missionData.answer.data[video] };
+                            }
+                            //set the video src
+                            $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls > <source src="' + scope.videos[video].uri + '" type="video/mp4" /></video>');
                         }
-                        else {
-                            scope.videos[video] = { uri: imgDomain + scope.task.answer.data[video] };
-                        }
-                        //set the video src
-                        $('#capture-video-clip').append('<video class="fullMovie" id="fullMovieClip" controls > <source src="' + scope.videos[video].uri + '" type="video/mp4" /></video>');
-                    }
-                }, 0)
+                    }, 0)
+                }
+
             }
+            scope.setData();
+
+            scope.missionData.countVideo = 1
+
 
             // take video -from camera
             scope.captureVideo = function (videoClicked) {
@@ -57,9 +80,9 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                         }
                         scope.videoSaved[scope.videoClicked] = true;
                         scope.countVideos++;
-                         //if the user take the last video - display the "is finished question popup"
-                        if (scope.countVideos == scope.task.countVideo) {
-                              scope.showFinishQuestion = true;
+                        //if the user take the last video - display the "is finished question popup"
+                        if (scope.countVideos == scope.missionData.countVideo || scope.missionData.countVideo == undefined) {
+                            scope.showFinishQuestion = true;
 
                         }
                     }, 0);
@@ -70,7 +93,7 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 scope.showFinishQuestion = false;
                 //show the loader on upload
                 scope.showLoader = true;
-                 /**change the uploader text**/
+                /**change the uploader text**/
                 $timeout(function () {
                     scope.uploadText = "ממשיך בהעלאה..";
                 }, 5000);
@@ -84,10 +107,10 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 $timeout(function () {
                     //if the upload not finished after 50 s - end the mission
                     if (scope.uploadTimeout == -1) {
-                        scope.results.points = scope.task.points;
+                        scope.results.points = scope.missionData.points;
                         scope.results.answer = scope.videos; //set the video with the local path
                         scope.uploadTimeout = 1;
-                        scope.endMission(scope.results);
+                        scope.endMission(scope.results, scope.missionData);
                     }
                 }, 50000);
                 camera.uploadPhoto(scope.videos, "video", 1)
@@ -101,11 +124,11 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                                             scope.results.answer[field] = data[index][field];
                                             //get point, if the answer was sent in time
                                             if (!scope.endTimer) {
-                                                scope.results.points = scope.task.points;
+                                                scope.results.points = scope.missionData.points;
                                             }
                                         }
                                     }
-                                    scope.endMission(scope.results);
+                                    scope.endMission(scope.results, scope.missionData);
                                 }
 
                             });
@@ -122,22 +145,22 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                     }
                     scope.videoSaved[scope.videoClicked] = true;
                     scope.countVideos++;
-                    if (scope.countVideos == scope.task.countVideo) {
-                       for (form in scope.videos) {
+                    if (scope.countVideos == scope.missionData.countVideo) {
+                        for (form in scope.videos) {
                             scope.videos[form]['fd'] = new FormData(document.forms.namedItem(form));
                         }
-                       camera.uploadPhotoFormData(scope.videos, "video", 1)
+                        camera.uploadPhotoFormData(scope.videos, "video", 1)
                             .then(function (data) {
                                 for (index in data) {
                                     for (field in data[index]) {
                                         scope.results.answer[field] = data[index][field];
                                         //get point, if the answer was sent in time
                                         if (!scope.endTimer) {
-                                            scope.results.points = scope.task.points;
+                                            scope.results.points = scope.missionData.points;
                                         }
                                     }
                                 }
-                                scope.endMission(scope.results);
+                                scope.endMission(scope.results, scope.missionData);
                             });
                     }
                 }, 0);
@@ -154,10 +177,25 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                     scope.countVideos--;
                 }, 0);
             }
-           
 
-            scope.$on('closeMission', function (event, data) {
-                scope.endMission(scope.results);
+
+            scope.$on('closeMissionAndSendAnswer', function (event, data) {
+                //send answer to server if the current if this is the mission that close
+                if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
+                    console.log('xxx6')
+
+                    scope.endMission(scope.results, scope.missionData);
+                }
+            });
+
+
+            /*submission data*/
+            //addon for submission because the controller is alive
+            scope.$on('subMissionDataGet', function (event, data) {
+                if (data.data.type == "takeVideo") {
+                    scope.setData()
+                }
+
             });
 
         },
@@ -167,6 +205,6 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
 
     //מופיע מסך של נתינת שם לוידאו
     //אישור לשם של הוידאו והוא עובר למסך הראשי של הפיטצר
-  
+
 
 } ]);

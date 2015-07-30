@@ -8,9 +8,11 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
         <link href="css/reset.css" rel="stylesheet" />
-         <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://mts1.googleapis.com https://maps.gstatic.com https://www.youtube.com https://s.ytimg.com 'unsafe-inline' 'unsafe-eval'">-->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://mts1.googleapis.com https://maps.gstatic.com https://www.youtube.com https://s.ytimg.com 'unsafe-inline' 'unsafe-eval'">-->
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/splash.css" rel="stylesheet" />
+        <link href="css/subMissions.css" rel="stylesheet" />
+         <link href="css/navigation.css" rel="stylesheet" />
 
         <link href="css/multiQuestions.css" rel="stylesheet" />
 
@@ -29,11 +31,17 @@
         <link href="css/login.css" rel="stylesheet" />
         <link href="css/openQuestion.css" rel="stylesheet" />
         <link href="css/scala.css" rel="stylesheet" />
+        <link href="css/dragging.css" rel="stylesheet" />
+        <link href="css/compass.css" rel="stylesheet" />
         <link href="css/groups.css" rel="stylesheet" />
         <link href="css/groupMembers.css" rel="stylesheet" />
+        <link href="css/timeline.css" rel="stylesheet" />
+        <link href="css/stages.css" rel="stylesheet" />
 
-        <!--<link href="css/colorsAndIcons.css" rel="stylesheet" />-->
-        <link href="css/colorsAndIconsMasa.css" rel="stylesheet" />
+        <link href="css/colorsAndIcons.css" rel="stylesheet" />
+        <!--<link href="css/colorsAndIconsMasa.css" rel="stylesheet" />-->
+        <!--<link href="css/colorsAndIconsYIBZ.css" rel="stylesheet" />-->
+
         <script src="cordova.js"></script>
 
     </head>
@@ -48,9 +56,9 @@
             <!--group member and profile-->
             <!--main content-->
             <div id="main-view" class="main-view" data-ui-view="main"></div>
-            <!--<audio id="odtech-audio-silence">
-                <source src="http://adminqa.odtech.co.il/upload/143271010397845260.mp3" type="audio/mp3">
-            </audio>-->
+                            <!--<audio id="odtech-audio-silence">
+                                                <source src="http://adminqa.odtech.co.il/upload/143271010397845260.mp3" type="audio/mp3">
+                                            </audio>-->
         </div>
         <!--score button-->
         <!--<ng-include src="'components/group/groupScoreButton.html'"></ng-include>-->
@@ -59,10 +67,10 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
         <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
                     <!--<script>
-                                                                        function onYouTubePlayerAPIReady() {
-                                                                            alert("player");
-                                                                        }
-                                                            </script>-->
+                                                                                                function onYouTubePlayerAPIReady() {
+                                                                                                    alert("player");
+                                                                                                }
+                                                                                    </script>-->
         <!-- Jquery -->
         <script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
@@ -76,13 +84,16 @@
         <script src="js/angular-animate.js"></script>
         <script src="app.js"></script>
         <script src="globals.js"></script>
+        <script src="deviceLoction.js"></script>
         <script src="js/angular-sanitize.js"></script>
-
+        <script src="js/angular-animate.js"></script>
+        <script src="js/ngDraggable.js"></script>
         <!-- odtech  services-->
         <script src="./services/server.js"></script>
         <script src="./services/missions.js"></script>
         <script src="./services/maps.js"></script>
         <script src="./services/camera.js"></script>
+
 
         <!-- odtech  components-->
         <script src="components/splash/splash.js"></script>
@@ -91,9 +102,14 @@
         <script src="components/group/groupsScore.js"></script>
         <!--<script src="components/dayDescription/dayDescription.js"></script>-->
         <script src="components/mainNav/mainNav.js"></script>
+        <script src="directives/missionDeatails/missionDeatails.js"></script>
+        <script src="directives/missionIntroduction/missionIntroduction.js"></script>
         <script src="components/mission/mission.js"></script>
+        <script src="components/mission/submission.js"></script>
+        <script src="components/mission/parentmission.js"></script>
         <script src="components/footer/footer.js"></script>
         <script src="components/header/header.js"></script>
+        <script src="components/stages/stages.js"></script>
         <script src="components/info/info.js"></script>
 
 
@@ -101,8 +117,7 @@
         <script src="directives/checkNetwork/checkNetwork.js"></script>
         <script src="directives/didYouKnow/didYouKnow.js"></script>
         <script src="directives/missionFinish/missionFinish.js"></script>
-        <script src="directives/missionDeatails/missionDeatails.js"></script>
-        <script src="directives/missionIntroduction/missionIntroduction.js"></script>
+
         <script src="directives/monitor/monitor.js"></script>
         <script src="directives/points/points.js"></script>
         <script src="directives/timer/timer.js"></script>
@@ -113,6 +128,7 @@
         <script src="directives/largeImage/largeImage.js"></script>
         <script src="directives/odtechAudio/odtechAudio.js"></script>
         <script src="directives/appRingtone/appRingtone.js"></script>
+        <script src="directives/timeline/timeline.js"></script>
 
         <!-- odtech  features-->
         <script src="features/multiQuestion/multiQuestion.js"></script>
@@ -123,6 +139,8 @@
         <script src="features/watchVideo/watchVideo.js"></script>
         <script src="features/qrCode/qrCode.js"></script>
         <script src="features/scala/scala.js"></script>
+        <script src="features/dragging/dragging.js"></script>
+        <script src="features/compass/compass.js"></script>
 
 
         <!-- END JAVASCRIPTS -->

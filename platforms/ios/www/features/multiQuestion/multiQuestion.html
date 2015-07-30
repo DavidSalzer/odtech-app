@@ -2,7 +2,7 @@
 <section id="mission-quiz" class="feature">
     <!-- first time - before the user answer -->
     <div class="blur-wrapper" ng-class="{'blur':showAnswerIndication}" ng-show="firstTime">
-        <div class="main" data-ng-repeat="question in task.questions" data-ng-show="$index==currentQuestion">
+        <div class="main" data-ng-repeat="question in missionData.questions" data-ng-show="$index==currentQuestion">
 
             <div class="question">
                 <p>{{question.question}}</p>
@@ -34,9 +34,9 @@
         <div class="next-answer-slide">
 
             <div class="next-answer-slide-wrap">
-                <div class="next-main-content" ng-if="task.answer" ng-repeat="question in task.questions">
+                <div class="next-main-content" ng-if="missionData.answer" ng-repeat="question in missionData.questions">
                     <div class="next-content">
-                        <div class="number">{{$index+1+'/'+task.questions.length}}</div>
+                        <div class="number">{{$index+1+'/'+missionData.questions.length}}</div>
                         <div class="next-question">
                             <div class="next-question-scroll">
                             {{question.question}}

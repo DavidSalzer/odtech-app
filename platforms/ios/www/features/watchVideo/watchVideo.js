@@ -5,14 +5,14 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
         restrict: 'E',
         templateUrl: './features/watchVideo/watchVideo.html',
         link: function (scope, el, attrs) {
-
+            scope.missionData = scope.task;
             scope.results = {};
             scope.results.answer;
             scope.results.points = 0;
             scope.uploadText = "הסרטון בטעינה, אנא המתן"
             //if the mission has been made
-            if (scope.task.status == 'answer') {
-             }
+            if (scope.missionData.status == 'answer') {
+            }
 
             scope.player;
             scope.startYoutube = false;
@@ -28,18 +28,18 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             scope.attachEventByVideoType = function () {
                 //if youtube player initialize befor get youtubeID - update now
                 if (scope.isYoutube && scope.player) {
-                    scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.task.youtubeID + "?version=3");
+                    scope.player.cueVideoByUrl("http://www.youtube.com/v/" + scope.missionData.youtubeID + "?version=3&fs=0");
 
-                    scope.posterImage = "http://img.youtube.com/vi/" + scope.task.youtubeID + "/0.jpg";
+                    scope.posterImage = "http://img.youtube.com/vi/" + scope.missionData.youtubeID + "/0.jpg";
                     scope.showPoster = false;
                 } else if (scope.isYoutube) {
                     scope.initPlayer();
-                    scope.posterImage = " http://img.youtube.com/vi/" + scope.task.youtubeID + "/0.jpg";
+                    scope.posterImage = " http://img.youtube.com/vi/" + scope.missionData.youtubeID + "/0.jpg";
                     scope.showPoster = false;
                     //attach general video events
                 } else if (!scope.isYoutube) {
                     scope.generalVideoEvents();
-                    $("#fullMovie").html('<source src="' + imgDomain + scope.task.videoURL + '" type="video/mp4"></source>');
+                    $("#fullMovie").html('<source src="' + imgDomain + scope.missionData.videoURL + '" type="video/mp4"></source>');
                     //set the poster image from admin
                     //scope.posterImage
                 }
@@ -56,13 +56,14 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 scope.player = new YT.Player('youtube-url-video', {
                     height: '100%',
                     width: '100%',
-                    playerVars: { 'controls': 1 },
-                    videoId: scope.task.youtubeID,
+                    playerVars: { 'controls': 1,'fs':0 },
+                    videoId: scope.missionData.youtubeID,
                     events: {
                         'onReady': scope.playerReady,
                         'onStateChange': scope.playerStateChange
                     }
                 });
+
 
 
             }
@@ -89,10 +90,12 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
                     setTimeout(function () {
                         scope.player.destroy();
+                        scope.startYoutube = false;
                         scope.initPlayer();
+
                     }, 100);
                     //if this is a second enter -hide the poster and buttons
-                    if (scope.task.status != 'answer') {
+                    if (scope.missionData.status != 'answer') {
 
                         $timeout(function () {
                             scope.showPoster = true;
@@ -115,7 +118,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 scope.endMovie = true;
                 scope.playing = false;
                 //if this is a first time enter and the movie end - show the poster and the buttons for exitand replay
-                if (scope.task.status != 'answer') {
+                if (scope.missionData.status != 'answer') {
                     $timeout(function () {
                         scope.showPoster = true;
                         scope.showPlayBtn = false;
@@ -132,7 +135,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
 
             }
-         
+
             scope.generalVideoEvents = function () {
 
                 document.getElementById('fullMovie').addEventListener('ended', scope.fullMovieHandler, false);
@@ -161,7 +164,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             }
 
             scope.$watch('startMission', function (newVal, oldVal) {
-                if (scope.startMission == true && scope.task.status == 'notAnswer') {
+                if (scope.startMission == true && scope.missionData.status == 'notAnswer') {
                 }
 
             });
@@ -169,9 +172,9 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
             //update the movie from server
             scope.$watch('task', function (newVal, oldVal) {
                 //check if the video type is yoputube or general
-                if (scope.task.videoURL) {
+                if (scope.missionData.videoURL) {
                     scope.isYoutube = false;
-                } else if (scope.task.youtubeID) {
+                } else if (scope.missionData.youtubeID) {
                     scope.isYoutube = true;
                 }
                 scope.attachEventByVideoType();
@@ -202,10 +205,10 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 scope.results.answer = 'end mission';
                 //get point, if the answer was sent in time
                 if (!scope.endTimer) {
-                    scope.results.points = scope.task.points;
+                    scope.results.points = scope.missionData.points;
                 }
 
-                scope.endMission(scope.results);
+                scope.endMission(scope.results,scope.missionData);
             }
 
             //pause video or replay after starting the mission
@@ -226,8 +229,9 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
             }
 
-            scope.$on('closeMission', function (event, data) {
-                scope.endMission(scope.results);
+            scope.$on('closeMissionAndSendAnswer', function (event, data) {
+
+                scope.endMission(scope.results,scope.missionData);
             });
 
         },

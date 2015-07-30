@@ -12,8 +12,14 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
             var resFromStorage = self.getStorage(data);
 
             if (resFromStorage) {
-                deferred.resolve(resFromStorage);
-                return deferred.promise;
+                //if the data is trip summary mission -call to server and not take from storage
+                if (resFromStorage.res && resFromStorage.res.type == 'tripSummary') {
+                }
+                else {
+                    deferred.resolve(resFromStorage);
+                    return deferred.promise;
+                }
+
             }
 
             var httpDetails = {
@@ -41,8 +47,8 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
                     self.setStorage(data, json);
                     deferred.resolve(json);
                 }
-                
-                
+
+
                 //console.log(json);
             }).
             error(function (err) {
@@ -143,10 +149,27 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
             itemObject.res.answer = {};
             itemObject.res.answer.data = data.req.data.answer;
             localStorage.setItem(item, JSON.stringify(itemObject));
+            //if the mission is sub mission 
+            //we have to update the parent mission with the new subMission's status - in subMissionArray
+            if (data.req.isRouteMission != "0") {
+                parentItem = 'mid' + data.req.isRouteMission;
+                parentItemObject = JSON.parse(localStorage.getItem(parentItem));
 
+                //pass over the subMission array - on parent
+                //and update the new status
+                for (var i = 0; i < parentItemObject.res.subMission.length; i++) {
+                    if (parentItemObject.res.subMission[i].mid == data.req.mid) {
+                        parentItemObject.res.subMission[i].status = "answer"
+                    }
+                }
+                //update the local storage with the parent data -with the new subMission status
+                localStorage.setItem(parentItem, JSON.stringify(parentItemObject));
+
+            }
             //change status of mission in mission list
             missions = JSON.parse(localStorage.getItem('missionsList'));
             for (var i = 0; i < missions.res.activitie.mission.length; i++) {
+                //set the mission data in storage
                 if (missions.res.activitie.mission[i].mid == data.req.mid) {
                     missions.res.activitie.mission[i].status = 'answer';
                     if (missions.res.activitie.isLinear) {
@@ -161,6 +184,8 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
                     missions.res.activitie.mission[i].answer.data = data.req.data.answer;
                     //set the points in storage
                     missions.res.activitie.mission[i].answer.points = data.req.data.points;
+
+
 
                     break;
                 }

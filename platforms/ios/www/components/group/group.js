@@ -6,13 +6,18 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
     $scope.user;
     $scope.imgDomain = imgDomain;
     $scope.inStep1 = true;
+
+    $rootScope.$broadcast('stopLocationWatcher', {});
+
     $scope.getUser = function () {
 
         server.request({ "type": "getAppUser", "req": {} })
         .then(function (data) {
             $scope.user = data.res;
             if(data.res && data.res.subgroup != null){
+                 console.log('mainNav 1')
                 $state.transitionTo('mainNav');
+               
             }
         })
 
@@ -59,7 +64,9 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
 
         //go to info page
         //$state.transitionTo('info');
+         console.log('mainNav 2')
         $state.transitionTo('mainNav');
+       
       
         
     }

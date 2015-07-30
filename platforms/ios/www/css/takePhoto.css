@@ -18,7 +18,9 @@
 }
 
 .take-photo-wrap {
-    height: 100%;
+    height: 99%;
+    /*overflow-y: auto;*/
+    position: relative;
 }
 
 .photo-continue {
@@ -92,8 +94,13 @@
 }
 
 .photoLeft .deleteOrbit {
+    right: -7px;
+    left: initial;
+}
+
+.photoUp .deleteOrbit {
+    left: -6px;
     right: initial;
-    left: -10px;
 }
 
 #mission-photo .photo {
@@ -106,20 +113,27 @@
 }
 
 .photoUp {
-    /*background-color: rgba(169,226,250,.9);*/
-    left: 375px;
+    /*left: 375px;
     position: absolute;
     top: 130px;
     color: #fff;
     top: 130px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(169,226,250,.9); */
+    left: 4%;
+    position: absolute;
+    top: 130px;
+    color: #fff;
+    top: 52%;
     background-position: center;
     width: 230px;
     height: 190px;
 }
 
 .photoLeft {
-    /*background-color: rgba(165,225,250,.9);*/
-    top: 310px;
+    /*top: 310px;
     left: 150px;
     position: absolute;
     color: #fff;
@@ -127,33 +141,63 @@
     left: 150px;
     background-position: center;
     width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(165,225,250,.9); */
+    top: 310px;
+    left: 150px;
+    position: absolute;
+    color: #fff;
+    top: 3%;
+    left: 3%;
+    background-position: center;
+    width: 230px;
     height: 190px;
+    right: initial;
 }
 
 
 .photoRight {
-    /*background-color: rgba(210,238,249,.9);*/
-    top: 345px;
+    /*top: 345px;
     left: 712px;
     position: absolute;
     color: #fff;
     top: 345px;
     left: 712px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(210,238,249,.9); */
+    top: 345px;
+    left: initial;
+    position: absolute;
+    color: #fff;
+    top: 52%;
+    right: 2%;
     background-position: center;
     width: 230px;
     height: 190px;
 }
 
 .photoDown {
-    /*background-color: rgba(178,219,236,.9);*/
-    bottom: 80px;
+    /*bottom: 80px;
     left: 425px;
     color: #fff;
     top: 510px;
     left: 425px;
     background-position: center;
     width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(178,219,236,.9); */
+    /* background-color: rgba(178,219,236,.9); */
+    bottom: 80px;
+    right: 3%;
+    color: #fff;
+    top: 2%;
+    /* right: 0; */
+    background-position: center;
+    width: 230px;
     height: 190px;
+    position: absolute;
 }
 
 .openImgDialog {
@@ -274,17 +318,14 @@ div.openImgDialog > div > span {
 
 @media all and (max-width: 670px) {
 
-
-    #mission-photo .user-upload-img {
+    .take-photo-wrap {
+        overflow-y: auto;
     }
 
-    .span-of-pic {
-    }
-
+   
     #mission-photo {
-        overflow: auto;
-        position: relative;
-        padding-bottom: 60px;
+        overflow: hidden;
+        height: initial;
     }
 
     .photoCenter {
@@ -292,7 +333,7 @@ div.openImgDialog > div > span {
         left: 0px;
         top: 0px;
         margin: 15% auto 30px auto;
-        width: 280px;
+        width: 80%;
         height: 215px;
     }
 
@@ -302,20 +343,24 @@ div.openImgDialog > div > span {
         margin: 0px auto 14px auto;
         top: 0px;
         left: 0px;
-        width: 230px;
+        width: 80%;
         height: 190px;
     }
 
     #mission-photo .orbit.photo.photoUp {
+        width: 70%;
     }
 
     #mission-photo .orbit.photo.photoDown {
+        width: 70%;
     }
 
     #mission-photo .orbit.photo.photoLeft {
+        width: 70%;
     }
 
     #mission-photo .orbit.photo.photoRight {
+        width: 70%;
     }
 
     .photoCenter p {
@@ -389,23 +434,15 @@ div.openImgDialog > div > span {
     }
 
     .photo-order {
-        /*right: initial;
-        left: 15px;
-        margin: auto;
-        top: 20%;
-        width: 30%;
-        height: 6%;
-        z-index: 100000;
-        bottom: 60px;
-        top: initial;*/
         left: 0;
-        width: 30%;
-        height: 6%;
+        width: 38%;
+        height: 7%;
         z-index: 100000;
         bottom: 90px;
         top: initial;
         right: 0;
         margin: auto;
+        min-height: 45px
     }
 
     .photo-order h2 {

@@ -61,6 +61,10 @@ input {
     box-sizing: border-box;
 }
 
+#popup {
+    z-index: 1;
+}
+
 .animate-switch-container {
     width: 100%;
     height: 100%;
@@ -68,8 +72,9 @@ input {
     display: block;
     /* padding-bottom: 90px; */
     box-sizing: border-box;
-     padding-top: 73px; 
+    padding-top: 73px;
     /*margin-top: 73px;*/
+    z-index: 0;
 }
 
 #main-container.keyboard, body.keyboard, #main-view.keyboard {
@@ -230,7 +235,7 @@ body.keyboard {
     height: 100%;
     background-repeat: no-repeat;
     background-size: 100%;
-      overflow-y: auto;
+    overflow-y: auto;
 }
 
 #day-description > p {
@@ -288,6 +293,154 @@ body.keyboard {
     bottom: 128px;
     padding: 20px;
 }
+
+
+/****************************** stages ********************************/
+#stage-container {
+    position: relative;
+    height: 100%;
+    /*top: 50%;
+     transform: translateY(-50%);
+     padding-right: 75px;*/
+}
+
+#stage-container.blur {
+    /*-webkit-filter: blur(13px);
+    filter: blur(13px);
+    -webkit-transform: translate3d(0, 0, 0);*/
+}
+
+
+.stage-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    padding-right: 75px;
+    -webkit-overflow-scrolling: touch;
+}
+
+#stage-menu {
+    white-space: nowrap;
+}
+
+.stage-menu-item {
+    display: inline-block;
+    position: relative;
+    height: 328px;
+    margin-left: 30px;
+    width: 367px;
+    z-index: 20;
+}
+
+.stage-menu-item.not-visited {
+}
+
+.stage-menu-center {
+    position: relative;
+    height: 205px;
+    width: 280px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 54px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    /*background-image: url("../img/nav_lock.png");*/
+    background-position: top;
+    border: 9px solid #fff;
+    border-radius: 10px;
+}
+
+
+.stage-menu-item.start .stage-menu-center {
+    /*bottom: 2px;
+    margin: 0;   
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    right: initial;
+    top: initial;*/
+    background-size: 100%;
+}
+
+
+.stage-menu-item.start .lock {
+    display: none;
+}
+
+.stage-menu-icon {
+    width: 175px;
+    height: 135px;
+    position: absolute;
+    right: -60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 10px;
+    z-index: 3;
+    background-size: 100%;
+}
+
+#stage-menu .stage-menu-icon {
+    background-image: none;
+}
+
+.stage-menu-icon img {
+    width: 100%;
+}
+
+.stage-icon {
+}
+
+.stage-menu-name {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    bottom: 0;
+}
+
+.stage-item-number {
+    display: block;
+    font-size: 38px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-weight: 100;
+    color: #fff;
+}
+
+.no-stage-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: auto;
+    height: 3em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.no-stage-data {
+}
+/***********main nav*************/
+.stage-menu-item.done .stage-menu-center {
+    background-size: cover;
+}
+
+.done .lock {
+    display: none;
+}
+
+
+
+
+
 /****************************** main-nav ********************************/
 #mission-container {
     position: relative;
@@ -380,7 +533,7 @@ body.keyboard {
     box-sizing: border-box;
     right: initial;
     top: initial;*/
-    background-image: url("../img/nav_start.png");
+    background-image: url("../img/nav_start_yibz.png");
     background-size: 100%;
 }
 
@@ -409,6 +562,10 @@ body.keyboard {
     top: 10px;
     z-index: 3;
     background-size: 100%;
+}
+
+#mission-menu .mission-menu-icon {
+    background-image: none;
 }
 
 .mission-menu-icon img {
@@ -444,14 +601,15 @@ body.keyboard {
 }
 /***********main nav*************/
 .mission-menu-item.done .mission-menu-center {
-    background-size: cover;
+    background-size: 30%;
+    background-image: url('../img/v-01.svg');
 }
 
 .done .lock {
     display: none;
 }
 
-.scala.done .mission-menu-center {
+/*.scala.done .mission-menu-center {
     background-image: url('../img/mainNav-done/GRADING.jpg');
 }
 
@@ -481,7 +639,7 @@ body.keyboard {
 
 .qrCode.done .mission-menu-center {
     background-image: url('../img/mainNav-done/qr.jpg');
-}
+}*/
 
 
 
@@ -574,14 +732,14 @@ body.keyboard {
 }
 
 .mission-description-wrap {
-     position: relative;
-  padding: 175px 0 80px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    padding: 175px 0 80px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
-.missionPopUpImage {   
+.missionPopUpImage {
     height: 160px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -591,7 +749,7 @@ body.keyboard {
     position: relative;
     width: 36%;
     display: inline-block;
-      background-color: rgba(225,225,225,0.8);
+    background-color: rgba(225,225,225,0.8);
 }
 
 .mission-popup p {
@@ -625,6 +783,12 @@ body.keyboard {
     /* color: #e21d91; */
     cursor: pointer;
     text-align: center;
+}
+
+#interest-point-popup .mission-popup-continue {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
 }
 /*.mission-popup-continue .arrow {*/
 .arrow {
@@ -670,6 +834,7 @@ body.keyboard {
     width: 55%;
     font-size: 25px;
     text-align: center;
+    margin-right: -4px;
 }
 
 #mission-deatails-timer-inner {
@@ -710,10 +875,13 @@ body.keyboard {
     overflow-y: auto;
     /*overflow-y: auto;
      overflow-x: hidden;*/
+    overflow-y: auto; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
 }
 
 .popup-text {
     margin-top: 10px;
+    font-size: 1.5em;
 }
 
 .triangle.triangle-pc {
@@ -746,6 +914,20 @@ body.keyboard {
     margin-left: auto;
 }
 
+#interest-point-popup {
+    height: initial;
+    top: 0;
+    bottom: 0;
+    min-height: 50px;
+    max-height: 50%;
+}
+
+#interest-point-popup .navigation-container .mission-popup-continue {
+    /*display: block !important;*/
+    bottom: 10%;
+    position: absolute;
+    left: 3%;
+}
 /*.mission-repeat-popup .close {*/
 .close {
     background-position: center;
@@ -775,13 +957,20 @@ body.keyboard {
 .mission-popup-wrap {
     /* position: absolute; */
     /* top: 0; */
-   
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: auto;
-  overflow-y: hidden;
-  height: 100%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: hidden;
+    height: 100%;
+}
+
+.end-activity {
+    z-index: 100;
+}
+
+.end-activity.mission-popup-wrap p {
+    width: 80%;
 }
 
 .mission-popup-didyou div {
@@ -790,7 +979,7 @@ body.keyboard {
 
 .mission-popup-wrap .mission-popup-didyou {
     width: 83%;
-  height: 55%;
+    height: 55%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -816,9 +1005,9 @@ body.keyboard {
     height: 70%;
     overflow: auto;
     line-height: 1.3em;
-      display: inline-block;
-  vertical-align: top;
-  margin-right: 5%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%;
     width: 50%;
 }
 
@@ -850,6 +1039,7 @@ body.keyboard {
     left: 0;
     right: 0;
     width: 100%;
+    overflow: hidden;
 }
 
 .next-title-wrap {
@@ -959,7 +1149,7 @@ body.keyboard {
     width: 100%;
     display: block;
     background: #FCFCFA;
-   border: #7d7d7d 1px solid;
+    border: #7d7d7d 1px solid;
     text-align: right;
     resize: none;
     overflow: hidden;
@@ -1241,7 +1431,7 @@ header {
 .menu-wrap {
     display: inline-block;
     vertical-align: top;
- /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
+    /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
     border: 1px solid #CFC0C8;
 }
 
@@ -1271,6 +1461,10 @@ header {
     background-image: url('../img/score.png');
 }
 
+.capture .menu-img {
+    background-image: url('../img/capture.png');
+}
+
 .home .menu-img {
     background-image: url('../img/home.png');
 }
@@ -1286,6 +1480,7 @@ header {
     left: 10px;
     top: 10px;
     background-size: 100%;
+    z-index: 100;
 }
 
 /************* larger image ****************/
@@ -1318,8 +1513,7 @@ header {
     background-size: contain;
     background-position: center;
     display: none;
-    
-      z-index: 10000
+    z-index: 10000;
 }
 
 #larger-image-x {
@@ -1339,22 +1533,24 @@ header {
 
 /*********************************/
 
-section.audio{
+section.audio {
     display: none;
 }
-.audio-func{
-     width: 40px;
-  height: 40px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  /* background-color: red; */
-  z-index: 10000;
-  background-image: url(../img/mute1.png);
-  background-size: 100%;
+
+.audio-func {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    /* background-color: red; */
+    z-index: 10000;
+    background-image: url(../img/mute1.png);
+    background-size: 100%;
 }
-.audio-func.play{ 
-     background-image: url(../img/icon-audio.png);
+
+.audio-func.play {
+    background-image: url(../img/icon-audio.png);
 }
 
 /*@media all and (max-width: 600px) {*/
@@ -1368,7 +1564,7 @@ section.audio{
         bottom: 10px;
         left: 0px;
         right: 0px;
-}
+    }
 
     header {
         top: initial;
@@ -1446,6 +1642,24 @@ section.audio{
         -webkit-overflow-scrolling: touch;*/
     }
 
+    #stage-container {
+        top: 0;
+        transform: initial;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        padding-right: initial;
+        height: auto;
+        /*padding-bottom: 60px;*/
+        min-height: 280px;
+        height: 100%;
+        /*
+        height: 100%;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;*/
+    }
+
     .mainnav-wrap {
         overflow-y: auto; /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
@@ -1477,7 +1691,7 @@ section.audio{
     }
 
     /********************* mission-popup **************************/
-    .mission-description-wrap {
+    .mission-description-wrap, .submission-introduction.mission-description-wrap {
         overflow-y: scroll;
         padding: 70px 0 0px 0;
     }
@@ -1527,7 +1741,7 @@ section.audio{
         width: 80%;
         display: block;
         margin: auto;
-      /*  height: auto;
+        /*  height: auto;
         overflow: hidden;*/
         padding: 25px;
     }
@@ -1549,15 +1763,19 @@ section.audio{
         width: 100%;
         font-size: 2em;
         margin-top: 15px;
+        height: 65%;
+    }
+
+    .mission-repeat-popup .popup-text {
+        overflow-y: initial;
     }
 
     .mission-repeat-popup h2 {
         max-width: 216px;
         color: #000000;
         margin-bottom: 15px;
-    
         font-size: 2.5em;
-}
+    }
 
     .triangle {
         width: 82px;
@@ -1775,15 +1993,89 @@ section.audio{
         margin: 0px 0px 0px 0px;
         min-height: 80%;
         top: 20%;
-    
         padding-bottom: 67px;
-}
+    }
 
     .mission-popup-didyou p {
-         height: auto;
-  width: 100%;
-  margin: auto;
-  margin-top: 10px;
+        height: auto;
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    #interest-point-popup {
+        max-height: 65%;
+    }
+
+    /**** stage *****/
+
+    .timeline-wrap {
+        display: none;
+    }
+
+    .stage-wrap {
+        padding-right: 0;
+        padding-top: 30px;
+        transform: initial;
+        top: inherit;
+        width: 100%;
+        transform: initial;
+        -webkit-transform: initial;
+        -ms-transform: initial;
+        overflow-x: initial;
+        overflow-y: initial;
+        padding-bottom: 60px;
+        box-sizing: border-box;
+    }
+
+    .stage-menu-item {
+        margin: auto;
+        margin-bottom: 0;
+        width: 50%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .stage-menu-center {
+        margin-right: 0;
+        width: 100%;
+        height: 127px;
+        margin-top: 39px;
+        /*padding: 36%;*/
+        box-sizing: border-box;
+        position: relative;
+        border: 6px solid #fff;
+    }
+
+    .stage-menu-icon {
+        width: 52%;
+        height: auto;
+        top: 7px;
+        right: -30px;
+    }
+
+    .stage-menu-icon img {
+        width: 100%;
+        height: auto;
+    }
+
+    .stage-item-number {
+        display: block;
+        font-size: 25px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-weight: 100;
+        color: #fff;
+    }
+
+    .stage-menu-name {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding: 12px 0;
+        bottom: 0;
+        font-size: 15px;
     }
 }
 
