@@ -68,8 +68,14 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
             self = this;
 
             switch (data.type) {
+                case 'getActivitiesOfAppUserTwo':
+                    ans = self.getStagesListFromStorage();
+                    break;
                 case 'appUserGetGroup':
                     ans = self.getMissionsListFromStorage();
+                    break;
+                case 'getMissionsOfActivity':
+                    ans = self.getMissionsListFromStorage(data.req);
                     break;
                 case 'appGetMission':
                     ans = self.getMissionFromStorage(data);
@@ -98,8 +104,14 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
             self = this;
 
             switch (data.type) {
+                case 'getActivitiesOfAppUserTwo':
+                    self.saveStagesListInStorage(response);
+                    break;
                 case 'appUserGetGroup':
                     self.saveMissionsListInStorage(response);
+                    break;
+                case 'getMissionsOfActivity':
+                    self.saveMissionsListInStorage(response, data.req);
                     break;
                 case 'appGetMission':
                     self.saveMissionInStorage(response);
@@ -111,13 +123,42 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
         },
 
         //save missions list in localStorage
-        saveMissionsListInStorage: function (data) {
-            localStorage.setItem('missionsList', JSON.stringify(data));
-        },
+        saveMissionsListInStorage: function (data, req) {
+            //set the missions
 
+            //if its a stages template - save by aid
+            if ($rootScope.isStationArch) {
+                localStorage.setItem('missionsList' + req.aid, JSON.stringify(data));
+            }
+            else {
+                localStorage.setItem('missionsList', JSON.stringify(data));
+            }
+
+        },
+        //save missions list in localStorage
+        saveStagesListInStorage: function (data) {
+            localStorage.setItem('stagesList', JSON.stringify(data));
+        },
+        getStagesListFromStorage: function () {
+            stages = JSON.parse(localStorage.getItem('stagesList'));
+            if (!stages || stages == null) {
+                return false;
+            }
+            return stages;
+        },
         //get missions list from localStorage, if exist
-        getMissionsListFromStorage: function () {
-            missions = JSON.parse(localStorage.getItem('missionsList'));
+        getMissionsListFromStorage: function (req) {
+
+            //if its a stages template - save by aid
+            if ($rootScope.isStationArch) {
+                missions = JSON.parse(localStorage.getItem('missionsList' + req.aid))
+            }
+            else {
+                missions = JSON.parse(localStorage.getItem('missionsList'));
+            }
+
+
+
             if (!missions || missions == null) {
                 return false;
             }
@@ -166,35 +207,96 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
                 localStorage.setItem(parentItem, JSON.stringify(parentItemObject));
 
             }
+
             //change status of mission in mission list
-            missions = JSON.parse(localStorage.getItem('missionsList'));
-            for (var i = 0; i < missions.res.activitie.mission.length; i++) {
+            var missionArray = [];
+            var isLinear = false;
+            var missions = [];
+            //if its a stages template
+            if ($rootScope.isStationArch) {
+
+                missions = JSON.parse(localStorage.getItem('missionsList' + $rootScope.currentStage));
+                if (missions) {
+                    missionArray = missions.res.mission;
+                    isLinear = missions.res.isLinear;
+                }
+
+            }
+            else {
+                missions = JSON.parse(localStorage.getItem('missionsList'));
+                if (missions.res.activitie && missions.res.activitie.mission) { //if success - there is missions
+
+                    isLinear = missions.res.activitie.isLinear;
+
+                    missionArray = missions.res.activitie.mission;
+                }
+            }
+
+
+
+
+            for (var i = 0; i < missionArray.length; i++) {
                 //set the mission data in storage
-                if (missions.res.activitie.mission[i].mid == data.req.mid) {
-                    missions.res.activitie.mission[i].status = 'answer';
-                    if (missions.res.activitie.isLinear) {
+                if (missionArray[i].mid == data.req.mid) {
+                    missionArray[i].status = 'answer';
+                    if (isLinear == true) {
                         //if there is more missions - set the next mission to notAnswer
-                        if (missions.res.activitie.mission[i + 1]) {
-                            missions.res.activitie.mission[i + 1].status = 'notAnswer';
+                        if (missionArray[i + 1]) {
+                            missionArray[i + 1].status = 'notAnswer';
                         }
 
                     }
-                    missions.res.activitie.mission[i].answer = {};
+                    missionArray[i].answer = {};
                     //set the answer in storage
-                    missions.res.activitie.mission[i].answer.data = data.req.data.answer;
+                    missionArray[i].answer.data = data.req.data.answer;
                     //set the points in storage
-                    missions.res.activitie.mission[i].answer.points = data.req.data.points;
+                    missionArray[i].answer.points = data.req.data.points;
 
 
 
                     break;
                 }
             }
-            localStorage.setItem('missionsList', JSON.stringify(missions));
+            if ($rootScope.isStationArch) {
+                missions.res.mission = missionArray;
+
+            }
+            else {
+
+                missions.res.activitie.mission = missionArray;
+
+            }
+            //if its a stages template - save by aid
+            if ($rootScope.isStationArch) {
+                localStorage.setItem('missionsList' + $rootScope.currentStage, JSON.stringify(missions));
+            }
+            else {
+                localStorage.setItem('missionsList', JSON.stringify(missions));
+            }
+
+
+
+            //if its a stages template
+            //change status on stages list
+            if ($rootScope.isStationArch) {
+                stages = JSON.parse(localStorage.getItem('stagesList'));
+                for (var i = 0; i < stages.res.activities.length; i++) {
+                    //if the stage is the current active stage - its status is done ("2")
+                    if (stages.res.activities[i].aid == $rootScope.currentStage) {
+                        stages.res.activities[i].stationStatus = "answer";
+                    }
+                }
+                localStorage.setItem('stagesList', JSON.stringify(stages));
+            }
+
         },
 
+
         clearMissionsInStorage: function () {
+            var pushKey = localStorage.getItem("pushToken")
             localStorage.clear();
+            //save the pushkey on storage
+            localStorage.setItem("pushToken", pushKey);
         }
     }
 } ]);

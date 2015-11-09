@@ -1,5 +1,5 @@
-odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
-
+odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', '$stateParams', function ($rootScope, $scope, $state, missions, $timeout, server, camera, $stateParams) {
+    $scope.imgDomain = imgDomain;
     $rootScope.$broadcast('startLocationWatcher', {});
 
     $scope.currentMission = 0;
@@ -78,41 +78,59 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
 
 
     //set missions from server
-    missions.getMissions().then(function (data) {
-        //if success.
-        if (data.res.activitie && data.res.activitie.mission) {
-            //save mission list in sevice.
-            missions.setMissions(data.res);
+    //if the day is a staging day -get all activities
+    if ($rootScope.isStationArch) {
+        $rootScope.currentStage = $stateParams.stageId;
 
-            $scope.tasks = data.res.activitie.mission;
-            $scope.description = data.res.activitie.description;
-            $scope.audioUrl = data.res.activitie.routeAudioUrl;
-
-            //has tasks - throw broadcast
-            //the timeout is for localstorage option
-            $timeout(function () {
-                $rootScope.$broadcast('hasTasks', { tasks: data.res.activitie.mission });
-            }, 500)
-
-
-            //scroll to the next mission
-            $timeout(function () {
-                $scope.scrollToNextMiss()
-            }, 0)
-
-            $scope.endActivity = false;
-            for (var i in $scope.tasks) {
-                if ($scope.tasks[i].status != 'answer') {
-                    break;
-                }
-                $scope.endActivity = (parseInt(i) == $scope.tasks.length - 1);
+        missions.getMissionsOfActivity($stateParams.stageId).then(function (data) {
+            //if success.
+            if (data.res.mission.length > 0) {
+                $scope.setMissions(data.res.mission, "", "")
             }
-            if ($scope.endActivity) {
-                $rootScope.$broadcast('lastMissionFinished', {});
+        });
+    }
+    //else -get one activity 
+    else {
+        missions.getMissions().then(function (data) {
+            if (data.res.activitie && data.res.activitie.mission) { //if success - there is missions
+                $rootScope.$broadcast('getMissionsData', { data: data });
+                $scope.setMissions(data.res.activitie.mission, data.res.activitie.description, data.res.activitie.routeAudioUrl)
             }
+        })
+
+    }
+
+    $scope.setMissions = function (missionsArr, missionsDesc, missionsAudioUrl) {
+        //save mission list in sevice.
+        missions.setMissions(missionsArr);
+
+        $scope.tasks = missionsArr;
+        $scope.description = missionsDesc;
+        $scope.audioUrl = missionsAudioUrl;
+
+        //has tasks - throw broadcast
+        //the timeout is for localstorage option
+        $timeout(function () {
+            $rootScope.$broadcast('hasTasks', { tasks: missionsArr });
+        }, 500)
+
+
+        //scroll to the next mission
+        $timeout(function () {
+            $scope.scrollToNextMiss()
+        }, 0)
+
+        $scope.endActivity = false;
+        for (var i in $scope.tasks) {
+            if ($scope.tasks[i].status != 'answer') {
+                break;
+            }
+            $scope.endActivity = (parseInt(i) == $scope.tasks.length - 1);
         }
-    });
-
+        if ($scope.endActivity) {
+            $rootScope.$broadcast('lastMissionFinished', {});
+        }
+    }
     //go to mission
     $scope.goToMission = function ($index) {
         //prevent enter to mission when the status is block
@@ -169,7 +187,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
                 fullBack = 'background-image:url(' + imgDomain + background + ')';
             }
             //return fullBack; //this was for takePhoto mission that was done
-            return ''; 
+            return '';
         }
 
 

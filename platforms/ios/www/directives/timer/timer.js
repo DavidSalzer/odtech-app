@@ -1,4 +1,4 @@
-odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
+odtechApp.directive('timer', ['$rootScope', '$timeout','server', function ($rootScope, $timeout,server) {
     return {
         restrict: 'E',
         templateUrl: './directives/timer/timer.html',
@@ -58,7 +58,7 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                 }
 
             }
-           //listen to parent mission and only for him show the timer - freeze
+            //listen to parent mission and only for him show the timer - freeze
             scope.$watch('parentMissionData', function () {
                 if (attrs.type == 'introductionTimer') {
                     scope.initTimer();
@@ -79,6 +79,21 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
                     scope.timerInterval = setInterval(function () {
                         scope.countDownTimer()
                     }, 1000);
+
+                    //send to server that mission start
+                    request = {
+                        type: "missionStart",
+                        req: {
+                              mid: scope.task.mid
+                           
+                        }
+                    }
+
+                    server.request(request)
+                    .then(function (data) {
+                        console.log(data)
+                    })
+
                 }
 
             }
@@ -104,7 +119,7 @@ odtechApp.directive('timer', ['$rootScope', '$timeout', function ($rootScope, $t
             });
             scope.$on('hideIntroduction', function (event, data) {
                 //if the timer is mission and not introduction. and its a parent mission and not submission
-                if(data.status == 'notAnswer' && data.isSubMission ==  false && scope.timerInterval == undefined) {
+                if (data.status == 'notAnswer' && data.isSubMission == false && scope.timerInterval == undefined) {
                     scope.startTimer()
                 }
             });

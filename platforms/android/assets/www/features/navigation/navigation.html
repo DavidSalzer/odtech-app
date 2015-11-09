@@ -1,6 +1,6 @@
 <div class="navigation-container">
 
-    <div id="map_canvas" ng-if="initMap">
+    <div id="map_canvas" ng-if="initMap" ng-style="{opacity:hideMap? 0 : 1}">
         <!--display map directive-->
         <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
             <!--display my position on map-->
@@ -16,16 +16,17 @@
                                       <ui-gmap-marker coords="destinationMarkerArray[2].coords" idkey="destinationMarkerArray[2].id" icon="destinationMarkerArray[2].icon">-->
         </ui-gmap-google-map>
     </div>
+    <div class="imgReplaceMap" ng-if="hideMap" style="background-image:url('{{imgDomain+missionData.imgUrl}}')"></div>
     <div class="upload-loader" ng-show="showLoader">
            <div>{{loadText}}</div>
     </div>
     <!--You have reached the destination popup-->
-    <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup">
+    <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup" data-ng-click="sendDestination()">
         <h2 class="popup-title">הגעת ליעד</h2>
         <!--<p class="popup-text">{{destinationText}}</p>-->
         <div class="mission-popup-continue">
             <span>לחצו כאן</span>
-            <span class="arrow" data-ng-click="sendDestination()"> </span>
+            <span class="arrow" > </span>
         </div>
     </div>
 
@@ -94,21 +95,6 @@
             background-image: url("../img/svg/arrow/navigation.svg");
         }*/
         
-        .navigation-container .mission-popup-continue {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-        
-            position: relative;
-            bottom: initial;
-            left: initial;
-            height: 30px;
-            line-height: 30px;
-            float: initial;
-            vertical-align: top;
-            text-align: left;
-            margin-top: 5px;
-        }
         
         .mission-repeat-popup.navigation-popup {
             z-index: 4;

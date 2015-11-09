@@ -9,7 +9,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
     $scope.hasTimer = true;
     $scope.results;
     $scope.showDetailsWrap = false
-    $scope.subMissionOpen = -1;
+    $rootScope.subMissionOpen = -1;
     $scope.missionAnswered = false;
     $scope.showBackBtn = false;
     $scope.introductionData = '';
@@ -24,8 +24,14 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             if (data.res.error) {
                 //if this mission is not in my activity day
                 if (data.res.error == "non permission") {
-                    console.log('mainNav 7')
-                    $state.transitionTo('mainNav');
+                    //if the day is a staging day -go to stages
+                    if ($rootScope.isStationArch) {
+                        $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
+                    }
+                    //else - go to mainNav
+                    else {
+                        $state.transitionTo('mainNav');
+                    }
 
                 }
             }
@@ -36,12 +42,13 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     $scope.task = data.res;
                     $scope.parentMissionData = data.res;
                     $scope.subMissionsData = data.res.subMission;
-
+                    $scope.introductionData = $scope.parentMissionData;
                     //show the introduction page  
                     //$scope.showIntroductionPage()
                 }
                 //else - if the data is for subMission
                 else {
+                    $scope.introductionData = $scope.subMissionsData;
                     //set the subMission data
                     $rootScope.$broadcast('subMissionDataGet', { data: data.res });
                     //show the introduction page  -with submission 
@@ -77,7 +84,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
     //this function is performed in the end of mission. 
     $scope.endMission = function (results, missionData) {
-
+        $scope.sendFinishMissionToServer(missionData);
         request = {
             type: "sendAnswer",
             req: {
@@ -98,8 +105,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     $scope.showBackBtn = true;
                 }
                 //else - if its a subMission
-                else if (missionData.mid == $scope.subMissionOpen.mid) {
-                    $scope.updateSubMissionStatus(missionData)
+                else if (missionData.mid == $rootScope.subMissionOpen.mid) {
+
+                    $rootScope.$broadcast('subMissionAnswer', { data: missionData });
+                    //  $scope.updateSubMissionStatus(missionData)
                 }
 
             }, 0)
@@ -134,7 +143,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         }
         //if finish after time is over
         else {
-           $timeout(function () {
+            $timeout(function () {
                 $scope.successMission = true;
             }, 0)
             console.log('successMission = true;')
@@ -152,9 +161,9 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
         if ($scope.finishTimeout == 0) {
             $scope.finishTimeout = $timeout(function () {
-               $timeout(function () {
-                $scope.successMission = false;
-            }, 0) //init the parameter -for yellow finsh mission
+                $timeout(function () {
+                    $scope.successMission = false;
+                }, 0) //init the parameter -for yellow finsh mission
                 $scope.finishMission = false;
 
                 $rootScope.$broadcast('finishMissionHide', { data: missionData });
@@ -169,13 +178,19 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 else {
                     //if the mission that finished is parentMission
                     if (missionData.isRouteMission == "0") {
-                        console.log('mainNav 8')
-                        $state.transitionTo('mainNav');
+                        //if the day is a staging day -go to stages
+                        if ($rootScope.isStationArch) {
+                            $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
+                        }
+                        //else - go to mainNav
+                        else {
+                            $state.transitionTo('mainNav');
+                        }
 
                     }
                     //else if its submission - close the subMission window
                     else {
-                        $scope.closeSubMission()
+                        $rootScope.$broadcast('closeSubMission');
                     }
                 }
                 $timeout.cancel($scope.finishTimeout);
@@ -217,30 +232,50 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         }, 4000)
     });
 
+    $scope.sendFinishMissionToServer = function (missionData) {
+        request = {
+            type: "missionFinish",
+            req: {
+                mid: missionData.mid
+            }
+        }
+
+        server.request(request)
+        .then(function (data) {
+            console.log(data);
+        });
+    }
     //user can close inactive mission - user CLICK ON BACK BTN
     $scope.closeMission = function (missionData) {
 
         var missionData;
         //if the mission that finished is parentMission - return to mainNav
-        if ($scope.subMissionOpen == -1) {
+        if ($rootScope.subMissionOpen == -1) {
 
             missionData = $scope.parentMissionData;
             //if need to go to next mission automatically.
+            //if its not the first enter (first exit..)
             $scope.next = missions.directlyNext(missionData.mid);
-            if ($scope.next) {
+            if ($scope.next && !missionData.answer) {
                 $state.transitionTo('mission', { missionId: $scope.next });
             }
             else {
-                console.log('mainNav 9')
-                $state.transitionTo('mainNav');
+
+                if ($rootScope.isStationArch) {
+                    $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
+                }
+                //else - go to mainNav
+                else {
+                    $state.transitionTo('mainNav');
+                }
             }
 
         }
         //else if its submission - close the subMission window and close the finish page
         else {
-            missionData = $scope.subMissionOpen;
+            missionData = $rootScope.subMissionOpen;
             //close the subMission
-            $scope.closeSubMission();
+            $rootScope.$broadcast('closeSubMission');
             //hide the finish miassion
             $scope.finishMission = false;
             console.log('finishMission 7')
@@ -263,12 +298,30 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
     $scope.hideIntroductionPage = function () {
 
         $timeout(function () {
+            console.log('showMissionTab : true')
+            $scope.showMissionTab = true;
+            $scope.showInstructionTab = false;
             $scope.showIntroduction = false;
             console.log('$scope.showIntroduction = false;')
+
+            if ($rootScope.subMissionOpen == -1) {
+
+                $scope.showMissionTab = true;
+                $scope.showInstructionTab = false;
+                $scope.showIntroduction = false;
+
+
+            }
+            else {
+                $scope.subShowMissionTab = true;
+            }
         }, 0)
 
+
+
+
         //if this is a parent mission
-        if ($scope.subMissionOpen == -1) {
+        if ($rootScope.subMissionOpen == -1) {
             //if yes - if its a second enter - hide details
             if ($scope.parentMissionData.status == "answer") {
                 $scope.hideDetails();
@@ -298,9 +351,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
     $scope.showIntroductionPage = function () {
 
         $timeout(function () {
-            if ($scope.subMissionOpen != -1) {
+            if ($rootScope.subMissionOpen != -1) {
 
-                $scope.introductionData = $scope.subMissionOpen;
+                $scope.introductionData = $rootScope.subMissionOpen;
+                $scope.showIntroduction = true;
                 // console.log('introductionData: ' + $scope.introductionData)
             }
             //if this is a parent
@@ -308,7 +362,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 $scope.introductionData = $scope.parentMissionData;
                 // console.log('introductionData: ' + $scope.introductionData)
             }
-            $scope.showIntroduction = true;
+
             console.log('$scope.showIntroduction = true;')
             $rootScope.$broadcast('showIntroductionPage', { data: $scope.introductionData });
         }, 0)

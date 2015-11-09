@@ -264,6 +264,34 @@ module.exports = [
         "clobbers": [
             "window.Media"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-orientation/www/CompassError.js",
+        "id": "org.apache.cordova.device-orientation.CompassError",
+        "clobbers": [
+            "CompassError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-orientation/www/CompassHeading.js",
+        "id": "org.apache.cordova.device-orientation.CompassHeading",
+        "clobbers": [
+            "CompassHeading"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device-orientation/www/compass.js",
+        "id": "org.apache.cordova.device-orientation.compass",
+        "clobbers": [
+            "navigator.compass"
+        ]
+    },
+    {
+        "file": "plugins/com.pushwoosh.plugins.pushwoosh/www/PushNotification.js",
+        "id": "com.pushwoosh.plugins.pushwoosh.PushNotification",
+        "clobbers": [
+            "plugins.pushNotification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -276,7 +304,9 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.1.0",
     "cordova-plugin-media-capture": "1.0.0",
     "cordova-plugin-splashscreen": "2.0.1-dev",
-    "org.apache.cordova.media": "0.2.16"
+    "org.apache.cordova.media": "0.2.16",
+    "org.apache.cordova.device-orientation": "0.3.11",
+    "com.pushwoosh.plugins.pushwoosh": "3.6.11"
 }
 // BOTTOM OF METADATA
 });

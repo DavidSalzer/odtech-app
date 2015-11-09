@@ -72,7 +72,7 @@ input {
     display: block;
     /* padding-bottom: 90px; */
     box-sizing: border-box;
-    padding-top: 73px;
+    padding-top: 95px;
     /*margin-top: 73px;*/
     z-index: 0;
 }
@@ -236,6 +236,9 @@ body.keyboard {
     background-repeat: no-repeat;
     background-size: 100%;
     overflow-y: auto;
+    position: absolute;
+    top: 0;
+    z-index: 100;
 }
 
 #day-description > p {
@@ -258,6 +261,21 @@ body.keyboard {
     text-align: center;
 }
 
+.first-next-text-wrapper {
+    width: 280px;
+    padding: 5px 0px;
+    border-radius: 13px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media all and (min-width: 1000px) {
+    .first-next-text-wrapper {
+        padding: 5px;
+        width: 300px;
+    }
+}
 
 #day-description p.pOffDay-description {
 }
@@ -265,7 +283,7 @@ body.keyboard {
 .day-description-img {
     width: 100%;
     height: 175px;
-    background-image: url('../img/Main_Nav.png');
+    background-image: url('../img/new-login-cover.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -283,7 +301,7 @@ body.keyboard {
 .next-text {
     /*color: midnightblue;*/
     font-weight: bold;
-    font-size: 32px;
+    font-size: 28px;
     vertical-align: middle;
 }
 
@@ -346,12 +364,19 @@ body.keyboard {
     display: inline-block;
     margin-right: 40px;
     margin-top: 54px;
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
-    /*background-image: url("../img/nav_lock.png");*/
+    /* background-image: url("../img/nav_lock.png"); */
     background-position: top;
     border: 9px solid #fff;
     border-radius: 10px;
+    background-color: #CBDFAC;
+    background-image: url('../img/ybzstages-logo.png');
+    background-size: 43%;
+    background-position: center;
+    background-position-y: 46px;
+    background-size: cover;
+    background-position: initial;
 }
 
 
@@ -399,8 +424,12 @@ body.keyboard {
     position: absolute;
     text-align: center;
     width: 100%;
-    padding: 12px 0;
+    padding: 12px 10px;
     bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.4em;
 }
 
 .stage-item-number {
@@ -409,7 +438,7 @@ body.keyboard {
     position: absolute;
     top: 8px;
     left: 8px;
-    font-weight: 100;
+    font-weight: bold;
     color: #fff;
 }
 
@@ -518,6 +547,7 @@ body.keyboard {
 
 .scala-taskEnd-wrapper .text {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .scala-taskEnd-wrapper span {
@@ -535,6 +565,10 @@ body.keyboard {
     top: initial;*/
     background-image: url("../img/nav_start_yibz.png");
     background-size: 100%;
+}
+
+.brackets {
+    display: none;
 }
 
 .lock {
@@ -573,6 +607,17 @@ body.keyboard {
 }
 
 .mission-icon {
+}
+
+.instructions-item .mission-icon {
+    background-color: transparent !important;
+    background-size: 199%;
+    width: 48px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    background-position: center;
 }
 
 .item-number {
@@ -658,11 +703,11 @@ body.keyboard {
 }
 
 .mission-popup {
-    /*width: 90%;*/
-    /* height: 70%; */
+    /* width: 90%; */
+    height: 100%;
     position: absolute;
     top: 75px;
-    bottom: 90px;
+    /* bottom: 90px; */
     right: 0;
     left: 0;
     margin: auto;
@@ -674,19 +719,79 @@ body.keyboard {
 
 
 .mission-popup-header {
-    height: 70px;
     text-align: center;
-    line-height: 70px;
-    position: absolute;
-    width: 100%;
     z-index: 2;
+    display: inline;
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    overflow: hidden;
+    width: 70%;
+    margin: auto;
+}
+
+.intro-header-right {
+    display: inline-block;
+    width: 57%;
+    margin-right: -4px;
+    height: 36px;
+}
+
+.pipe-wrapper {
+    height: 60px;
+    line-height: 60px;
+    font-size: 41px !important;
+    font-weight: bold;
+    width: 10%;
+    margin-left: initial;
+}
+
+
+.mission-popup-header .circle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.circle-text {
+    height: 46px;
+    width: 46px;
+    text-indent: 0px;
+    line-height: 46px;
+    position: relative;
+    left: 6px;
+    top: -7px;
+}
+
+.circle-next-text {
+    display: inline-block;
 }
 
 .mission-popup-header span {
-    display: block;
-    float: right;
-    height: 70px;
-    font-size: 1.8em;
+    display: inline-block;
+    /* height: 70px; */
+    font-size: 30px;
+}
+
+.mission-popup-header .arrow {
+    float: left;
+    background-image: url("../img/svg/arrow/white-arrow.svg");
+}
+
+.circle-scoring-icon {
+    background-image: url('../img/CLOCK.svg');
+    background-size: 100%;
+    background-position: -1px -4px;
+    height: 100%;
+    width: 50px;
+}
+
+.mission-popup-header span.mission-popup-timer {
+    background-color: transparent;
 }
 
 .mission-popup-header .mission-icon-triangle {
@@ -708,11 +813,23 @@ body.keyboard {
 }
 
 .mission-popup-timer {
+    height: 60px;
+    line-height: 60px;
+}
+
+#timer-text {
+    margin-right: 6px;
+}
+
+.timer-wrapper {
     width: 50%;
 }
 
 .mission-popup-scoring {
-    width: 30%;
+    width: 50%;
+    text-align: right;
+    text-indent: 6px;
+    line-height: 60px;
 }
 
 .mission-popup-help-text {
@@ -726,14 +843,20 @@ body.keyboard {
 }
 
 .mission-description-wrap-scroll {
-    overflow-y: scroll;
-    height: 100%;
-    margin: 25px;
+    overflow-y: auto;
+    height: 80%;
+    padding: 59px 0;
+    width: 79%;
+    margin: auto;
+    overflow-x: hidden;
+    width: 70%;
+    padding: 0px 20px;
+    padding-top: 35px;
 }
 
 .mission-description-wrap {
     position: relative;
-    padding: 175px 0 80px;
+    /*padding: 175px 0 80px;*/
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -744,25 +867,28 @@ body.keyboard {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /*margin: auto;*/
+    /* margin: auto; */
     margin-bottom: 10px;
     position: relative;
     width: 36%;
-    display: inline-block;
+    display: block;
     background-color: rgba(225,225,225,0.8);
+    margin: auto;
+    margin-bottom: 20px;
 }
 
 .mission-popup p {
     font-size: 2em;
-    margin: 00px 20px 20px 20px;
     /* margin-left: 15px; */
     color: #666666;
     line-height: 1.1em;
-    display: inline-block;
-    vertical-align: top;
+    display: block;
+    /* vertical-align: top; */
     /* height: 100%; */
-    overflow-y: auto;
-    width: 58%;
+    /* overflow-y: auto; */
+    width: 100%;
+    /* overflow: hidden; */
+    white-space: normal;
 }
 
 .mission-popup-footer {
@@ -775,21 +901,46 @@ body.keyboard {
 }
 
 .mission-popup-continue {
-    /*float: left;
-    position: absolute;*/
-    bottom: 30px;
-    left: 20px;
+    position: relative;
     font-size: 2em;
     /* color: #e21d91; */
     cursor: pointer;
     text-align: center;
+    padding: 6px 0 6px 0;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 7px 17px;
+    top: -2px;
+    width: 30%;
+    text-align: center;
+}
+
+.mission-popup-header .go-text {
+    font-size: 22px;
+    vertical-align: middle;
 }
 
 #interest-point-popup .mission-popup-continue {
     position: absolute;
-    left: 30px;
-    bottom: 30px;
+    left: 0px;
+    bottom: 15px;
+    height: 54px;
+    line-height: 41px;
+    margin: 0px auto;
+    top: initial;
+    right: 0px;
+    width: 166px;
 }
+
+#interest-point-popup .mission-popup-continue span {
+    display: inline-block;
+}
+
+#interest-point-popup .mission-popup-continue span.arrow {
+    vertical-align: top;
+}
+
+
 /*.mission-popup-continue .arrow {*/
 .arrow {
     display: inline-block;
@@ -801,11 +952,12 @@ body.keyboard {
     background-size: 100%;
     vertical-align: middle;
     background-position: center;
+        background-image: url('../img/svg/arrow/white.svg');
 }
 
 /********************* mission-deatails **************************/
 .mission-deatails-menu {
-    position: absolute;
+    /*position: absolute;
     top: 20px;
     left: 0;
     right: 0;
@@ -813,7 +965,7 @@ body.keyboard {
     height: 50px;
     max-width: 260px;
     width: 66%;
-    z-index: 200;
+    z-index: 200;*/
 }
 
 .mission-deatails-menu .mission-icon {
@@ -829,12 +981,30 @@ body.keyboard {
 
 .mission-deatails-timer {
     display: block;
-    height: 100%;
+    height: 58px;
     float: right;
-    width: 55%;
+    width: 135px;
     font-size: 25px;
     text-align: center;
     margin-right: -4px;
+    background-color: #fff !important;
+    border-radius: 34px;
+    border: 4px solid rgba(225,225,225,0.6);
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 200;
+    position: absolute;
+}
+
+.mission-deatails-timer .timer-wrapper {
+    vertical-align: top;
+    height: 50%;
+    display: inline-block;
+    line-height: 0;
+    margin-top: -5px;
+    width: initial;
 }
 
 #mission-deatails-timer-inner {
@@ -877,6 +1047,7 @@ body.keyboard {
      overflow-x: hidden;*/
     overflow-y: auto; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
+    white-space: normal;
 }
 
 .popup-text {
@@ -1008,7 +1179,6 @@ body.keyboard {
     display: inline-block;
     vertical-align: top;
     margin-right: 5%;
-    width: 50%;
 }
 
 .mission-popup-didyou .permission {
@@ -1104,7 +1274,7 @@ body.keyboard {
     text-align: right;
     position: absolute;
     top: 0;
-    padding-top: 88px;
+    padding-top: 20px;
     box-sizing: border-box;
     height: 100%;
     margin-top: 0;
@@ -1149,7 +1319,7 @@ body.keyboard {
     width: 100%;
     display: block;
     background: #FCFCFA;
-    border: #7d7d7d 1px solid;
+    border: none;
     text-align: right;
     resize: none;
     overflow: hidden;
@@ -1188,12 +1358,12 @@ body.keyboard {
     bottom: 0;
 }
 
-#mission-text .permission .text {
+/*#mission-text .permission .text {
     position: absolute;
     left: 55px;
     width: 80px;
     text-align: left;
-}
+}*/
 
 .permission .arrow {
     position: absolute;
@@ -1213,11 +1383,20 @@ body.keyboard {
     margin: 0;
 }
 
+.openQuestion .permission.claim {
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-indent: 53px;
+}
+
 /********************* multiQuestion question **************************/
 #mission-quiz .main {
     height: 100%;
     width: 100%;
-    display: table;
+    padding-top: 43px;
+    box-sizing: border-box;
+    /*display: table;*/
 }
 
 #mission-quiz .question {
@@ -1226,6 +1405,7 @@ body.keyboard {
     padding: 5px;
     display: table-cell;
     vertical-align: middle;
+    white-space: normal;
 }
 
 #mission-quiz .question p {
@@ -1267,6 +1447,7 @@ body.keyboard {
     text-align: center;
     margin: auto;
     margin-bottom: 10px;
+    white-space: normal;
 }
 
 #mission-quiz .answer span {
@@ -1283,7 +1464,7 @@ body.keyboard {
 }
 
 #mission-quiz .answer p {
-    width: 75%;
+    width: 74%;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -1404,61 +1585,143 @@ header {
     /*background-image: url("../img/logo.png");*/
     background-size: contain;
     background-repeat: no-repeat;
-    float: left;
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    left: -19px;
+    top: -19px;
+    background-position: 23px 25px;
+    border-radius: 100px;
+    background-color: #fff;
+    background-size: 75px 66px;
 }
-
-
+.capture
+{
+        width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 .mission-popup-didyou h2 {
     margin-bottom: 10px;
 }
 
+
+.menu-open {
+    height: 100%;
+}
+
 #menu {
     position: absolute;
-    right: 25px;
-    top: 20px;
+    right: 0;
+    top: 0;
+    z-index: 999;
 }
 
 #menu-btn {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    z-index: 2;
     background-image: url("../img/menu.png");
     width: 55px;
     height: 55px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    display: block;
 }
 
 .menu-wrap {
-    display: inline-block;
+    display: block;
     vertical-align: top;
-    /*box-shadow: 0 0 8px 1px rgba(0,0,0,.20);*/
-    border: 1px solid #CFC0C8;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    /* padding-top: 80px; */
+    z-index: 1;
+    /* background: #fff; */
+    /* box-shadow: 0 0 8px 1px rgba(0,0,0,.20); */
+    /* border: 1px solid #CFC0C8; */
+    /* right: -200px; */
+    height: 100%;
+    background: rgba(255,255,255, 0.7);
+    box-shadow: 1px 0px 5px 1px #666;
+    /*width: 0;*/
+    right: -255px;
+    transition: right 0.5s;
+    min-width: 255px;
+}
+
+.openMenu.menu-wrap {
+    width: 255px;
+}
+
+.menu-wrap.openMenu {
+    right: 0px;
+    transition: right 0.5s;
+    width: inherit;
+}
+
+.menu-item-wrap:nth-child(1) {
+    padding-right: 91px;
+    padding-bottom: 26px;
+}
+
+.menu-item-wrap:nth-child(1) .menu-item-name {
+    font-size: 29px;
+}
+
+.menu-mask {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
+
+.openMenu .menu-mask {
+    display: block;
+}
+
+.menu-items-wrap {
+    padding-top: 20px;
+    background-color: #fff;
+    padding-bottom: 20px;
 }
 
 .menu-item-wrap {
     background-color: #fff;
-    background-color: #fff;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 29.5px 10px 20px;
+        position: relative;
 }
 
 .menu-img {
-    width: 32px;
-    height: 32px;
+    width: 45px;
+    height: 48px;
     display: inline-block;
     vertical-align: middle;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-left: 10px;
+    margin-left: 14px;
 }
 
 .menu-item-name {
     display: inline-block;
     vertical-align: middle;
+    font-size: 21px;
 }
 
 .trophy .menu-img {
     background-image: url('../img/score.png');
+}
+
+.map .menu-img {
+    background-image: url('../img/map.png');
 }
 
 .capture .menu-img {
@@ -1469,8 +1732,15 @@ header {
     background-image: url('../img/home.png');
 }
 
+.stage .menu-img {
+    background-image: url('../img/Group 6.png');
+}
+
 .logout .menu-img {
     background-image: url('../img/log_out.png');
+}
+.main .menu-img {
+    background-image: url('../img/home-icon.png');
 }
 
 .x {
@@ -1580,14 +1850,22 @@ section.audio {
     }
 
     #logo {
-        margin: auto;
+        background-size: 50px 44px;
+        width: 75px;
+        height: 75px;
+        left: -11px;
+        top: -11px;
+        background-position: 14px 17px;
     }
 
+
     #menu {
-        right: 28px;
-        width: 85%;
+        right: 0;
+        /*right: 28px;*/
+        /*width: 0;*/
         text-align: right;
         font-size: 2em;
+        /*width: inherit;*/
     }
 
     #menu-btn {
@@ -1595,15 +1873,42 @@ section.audio {
         right: 13px;*/
         width: 45px;
         height: 45px;
+        top: 15px;
     }
 
     .menu-wrap {
         display: block;
-        margin-top: 5px;
+        min-width: 211px;
+    }
+
+    .openMenu.menu-wrap {
+        width: 211px;
     }
 
     #menu-btn {
         display: block;
+    }
+
+    .menu-item-wrap:nth-child(1) {
+        padding-bottom: 13px;
+        padding-right: 83px;
+    }
+
+    .menu-item-wrap:nth-child(1) .menu-item-name {
+        font-size: 23px;
+    }
+
+    .menu-item-wrap {
+        padding: 10px 30.5px 6px 20px;
+    }
+
+    .menu-img {
+        width: 35px;
+        height: 38px;
+    }
+
+    .menu-item-name {
+        font-size: 18px;
     }
 
     #main-container {
@@ -1661,7 +1966,7 @@ section.audio {
     }
 
     .mainnav-wrap {
-        overflow-y: auto; /* has to be scroll, not auto */
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         box-sizing: border-box;
         height: 100%;
@@ -1697,7 +2002,7 @@ section.audio {
     }
 
     .mission-description-wrap-scroll {
-        margin: 0px;
+        width: 100%;
     }
 
 
@@ -1721,16 +2026,138 @@ section.audio {
     }
 
     .mission-popup {
-        bottom: 55px;
+        /*bottom: 55px;*/
+    }
+
+    .instructions-tab-content .timer-wrapper {
+        position: relative;
+    }
+
+    .instructions-tab-content .timer-wrapper #timer-circle, .instructions-tab-content .timer-wrapper #timer-text {
+        float: right;
+    }
+
+    .instructions-tab-content .timer-wrapper #timer-circle {
+        margin-right: 7px;
+        margin-left: 4px;
+    }
+
+    .instructions-tab-content .timer-wrapper #timer-text {
+        line-height: 22px;
+        width: 25px;
     }
 
     .mission-popup-header {
-        height: 50px;
+        height: 36px;
         line-height: 50px;
+        width: 100%;
+        padding: 0px 20px;
+        box-sizing: border-box;
+        text-align: right;
+        bottom: 13px;
+    }
+
+    .intro-header-right {
+        width: 57%;
     }
 
     .mission-popup-header span {
-        height: 50px;
+        font-size: 19px;
+        /*display: block;*/
+        /* vertical-align: top; */
+        line-height: 100%;
+        font-size: 15px;
+    }
+
+    .mission-popup-header .circle {
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    .circle-next-text {
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    #timer-text {
+        margin-right: 1px;
+    }
+
+    .footer-item {
+        height: 28px;
+        vertical-align: middle;
+        padding-top: 9px;
+    }
+
+    .mission-popup-header .mission-popup-continue span {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 19px;
+        top: -1px;
+    }
+
+
+    #interest-point-popup .mission-popup-continue {
+        width: 118px;
+        height: 37px;
+        line-height: 24px;
+    }
+
+    #interest-point-popup .mission-popup-continue span {
+    }
+
+    #interest-point-popup .mission-popup-continue span.arrow {
+    }
+
+    .mission-popup-continue .arrow {
+        width: 25px;
+        height: 26px;
+        vertical-align: top;
+        margin-top: -2px;
+    }
+
+    .pipe-wrapper {
+        width: initial;
+        margin: 0;
+        height: 26px !important;
+        vertical-align: top;
+        line-height: 36px !important;
+        font-size: 27px !important;
+    }
+
+    .mission-popup-scoring {
+        width: 44%;
+        vertical-align: top;
+    }
+
+    .timer-wrapper {
+        width: 44%;
+        vertical-align: top;
+        text-align: left;
+    }
+
+
+    .mission-popup-header .circle {
+        width: 23px;
+        height: 23px;
+    }
+
+    .circle-scoring-icon {
+        background-position: center;
+        width: 100%;
+        background-size: 29px;
+        background-position-x: -6px;
+        background-position-y: -6px;
+    }
+
+    .mission-popup-header .circle-text {
+        height: 22px;
+        font-size: 17px;
+        width: 22px;
+        line-height: 22px;
+        top: 0px;
+        right: initial;
+        text-align: center;
     }
 
     .mission-popup-help-text {
@@ -1738,12 +2165,10 @@ section.audio {
     }
 
     .mission-popup p {
-        width: 80%;
         display: block;
-        margin: auto;
-        /*  height: auto;
-        overflow: hidden;*/
-        padding: 25px;
+        margin: initial;
+        /* padding: 25px; */
+        margin-top: 20px;
     }
 
     .mission-repeat-popup {
@@ -1797,11 +2222,25 @@ section.audio {
 
     .mission-popup-footer {
         height: 50px;
+        width: 49%;
     }
 
     .mission-popup-continue {
-        bottom: 10px;
-        left: 10px;
+        height: 36px;
+        overflow: hidden;
+        padding: 7px 10px;
+        text-align: right;
+        padding-top: 8px;
+        display: inline-block;
+        top: initial;
+        width: 43%;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .mission-popup-header .mission-popup-continue {
+        padding: 7px 8px;
+        text-align: right;
     }
 
     .mission-popup-header .mission-icon-triangle {
@@ -1814,7 +2253,7 @@ section.audio {
     }
 
     .mission-deatails-menu {
-        height: 38px;
+        /*height: 38px;*/
     }
     /*****************main nav*****************/
     #call-for-action {
@@ -1946,7 +2385,7 @@ section.audio {
 
     .next-main-content {
         padding-bottom: 56px;
-        padding-top: 64px;
+        /*padding-top: 64px;*/
     }
 
     .next-time {
@@ -1966,11 +2405,12 @@ section.audio {
     .animate-switch-container {
         /* overflow-y: auto; */
         padding-bottom: 0;
-        margin-top: 73px;
+        margin-top: 0px;
         box-sizing: border-box;
-        padding-bottom: 73px;
+        padding-bottom: 0px;
         box-sizing: border-box;
         padding-top: initial;
+        padding-top: 73px;
     }
 
     .answers-wrapper-scroll {
@@ -2076,6 +2516,14 @@ section.audio {
         padding: 12px 0;
         bottom: 0;
         font-size: 15px;
+    }
+
+    .audio-func {
+        bottom: 0px;
+        width: 20px;
+        height: 20px;
+        left: 5px;
+        background-size: 120%;
     }
 }
 

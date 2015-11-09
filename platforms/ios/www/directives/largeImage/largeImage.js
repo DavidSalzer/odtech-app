@@ -1,7 +1,8 @@
-odtechApp.directive('largeImage', ['$rootScope', function ($rootScope) {
+odtechApp.directive('largeImage', ['$rootScope','$timeout', function ($rootScope,$timeout) {
     return {
         restrict: 'E',
         templateUrl: './directives/largeImage/largeImage.html',
+          scope: true,
         link: function (scope, el, attrs) {
             //check touch timing on clock
             scope.$on('openLargeImage', function () {

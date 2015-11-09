@@ -31,16 +31,19 @@
     overflow-y: hidden;
     position: absolute;
     width: 100%;
-    padding-top: 88px;
+    padding-top: 20px;
     top: 0;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
 }
 
 .next-answer-slide .next-main-content {
-    position: relative;
     height: 100%;
     display: inline-block;
+    left:initial;
+    right:initial;
+    position:initial;
+    white-space: nowrap;
 }
 
 .next-answer-slide .next-main-content {
@@ -54,25 +57,27 @@
 #mission-quiz .next-answer-slide .answer {
     bottom: 23px;
     position: absolute;
-    font-size: 1.5em;
-    color: white;
-    box-shadow: initial;
+    /* font-size: 1.5em; */
+    /* color: white; */
+    /* box-shadow: initial; */
     text-align: right;
-    width: auto;
-    min-width: 200px;
+    /* width: auto; */
+    /* min-width: 200px; */
     left: 0;
     right: 0;
-    width: 100%;
-    /* padding: 0px 20px; */
+    /* width: 100%; */
+    padding: 0px 20px;
     /* margin: 0px 20px; */
-    box-sizing: border-box;
-    width: 80%;
-    margin: auto;
+    /* box-sizing: border-box; */
+    /* width: 100px; */
+    /* margin: auto; */
     /* background-color: #ff9900; */
-    /* overflow-y: auto; */
+    overflow-y: auto;
     /* overflow-x: auto; */
     /* overflow-wrap: break-word; */
-    white-space: normal;
+    /* white-space: normal; */
+    /* display: none; */
+    font-size: 26px;
 }
 
 #mission-quiz .answer-wrap {
@@ -120,11 +125,12 @@
     /*margin-right: 20px;*/
     height: 84px;
     box-sizing: border-box;
+    display: none;
 }
 
 
 #mission-quiz .next-answer-slide .answer div {
-    overflow-y: auto;
+   /* overflow-y: auto;*/
 }
 
 #mission-quiz .answer-wrap div {
@@ -132,6 +138,8 @@
     box-sizing: border-box;
     height: initial;
     text-align: center;
+    overflow-y: auto;
+    width: 100%;
 }
 
 #mission-quiz .next-content {
@@ -152,10 +160,18 @@
     height: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    position:relative;
+    width: 100%;
+}
+#mission-quiz .message-text-popup .textMessage p{
+        overflow: hidden;
+    white-space: normal;
+    overflow-y: auto;
 }
 
 @media all and (max-width: 670px) {
 
+    
     #mission-quiz .question {
         display: block;
         margin: auto;
@@ -166,6 +182,7 @@
         background-color: #fff;
         padding: 30px;
         text-align: center;
+      
     }
 
     #answers-wrapper {
@@ -193,9 +210,7 @@
         white-space: initial;
     }
 
-    .next-answer-slide {
-        padding-top: 65px;
-    }
+
 
     .number {
         font-size: 2em;
@@ -235,6 +250,10 @@
     #mission-quiz .next-answer-slide .answer .answer-wrap div {
         display: inline-block;
         padding: 13px 59px 10px 10px;
+    }
+
+    #mission-quiz .next-answer-slide .answer .answer-wrap {
+        min-height: 50px;
     }
 
     #mission-quiz .next-answer-slide .answer p {

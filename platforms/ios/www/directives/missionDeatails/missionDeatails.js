@@ -13,8 +13,13 @@ odtechApp.directive('missionDeatails', ['$state', '$timeout', '$rootScope', func
             scope.startTimingPress = function () {
                 returnMainNav =
          setTimeout(function () {
-             console.log('mainNav 10')
-             $state.transitionTo('mainNav');
+              if ($rootScope.isStationArch) {
+                 $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
+             }
+             //else - go to mainNav
+             else {
+                 $state.transitionTo('mainNav');
+             }
          }, 3000);
             }
 

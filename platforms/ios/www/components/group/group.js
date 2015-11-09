@@ -10,14 +10,20 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
     $rootScope.$broadcast('stopLocationWatcher', {});
 
     $scope.getUser = function () {
-
         server.request({ "type": "getAppUser", "req": {} })
         .then(function (data) {
             $scope.user = data.res;
-            if(data.res && data.res.subgroup != null){
-                 console.log('mainNav 1')
-                $state.transitionTo('mainNav');
-               
+            if (data.res && data.res.subgroup != null) {
+                if (parseInt(data.res.isStationArch)) {
+                    $rootScope.isStationArch = true;
+                    $state.transitionTo('stages');
+                }
+                else {
+
+                    $state.transitionTo('mainNav');
+                }
+
+
             }
         })
 
@@ -39,7 +45,7 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
 
 
     $scope.joinToGroup = function () {
-         $("input").blur();
+        $("input").blur();
         server.request({ "type": "updateCurrUserSG", "req": { "subgroup": $scope.groupNameByInput} })
     .then(function (data) {
         console.log(data)
@@ -50,25 +56,31 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
             $scope.getMembers();
         }
 
-      
+
 
     })
     }
 
 
     $scope.go = function () {
-        $rootScope.showDescription = true; //show day description in mainNav.
-      
+     //   $rootScope.showDayDescription = true; //show day description in mainNav.
+
         //$state.transitionTo('mainNav');
         $rootScope.$broadcast('joinToGroup', {});
 
         //go to info page
-        //$state.transitionTo('info');
-         console.log('mainNav 2')
-        $state.transitionTo('mainNav');
-       
-      
-        
+        //if the day is a staging day -go to stages
+        if ($rootScope.isStationArch) {
+            $state.transitionTo('stages');
+        }
+        //else - go to mainNav
+        else {
+            $state.transitionTo('mainNav');
+        }
+
+
+
+
     }
 
 

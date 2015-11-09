@@ -3,11 +3,11 @@
 /********replace colors and icons according to mission***********/
 
 body {
-    background: rgb(255,255,255); /* Old browsers */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(188,227,244,1))); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(188,227,244,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(188,227,244,1) 100%); /* W3C */
-    color: #666666;
+    /*background: rgb(255,255,255); 
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(188,227,244,1))); 
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(188,227,244,1) 100%); 
+    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(188,227,244,1) 100%);
+    color: #666666;*/
 }
 
 header {
@@ -21,12 +21,7 @@ header {
 }
 
 #logo {
-    height: 50px;
-    width: 150px;
-    background-image: url("../img/logo.png");
-    top: 11px;
-    position: absolute;
-    left: 25px;
+    background-image: url("../img/ODTech_Logo _black.png");
 }
 
 #small-left-logo {
@@ -86,6 +81,10 @@ header {
     background-color: rgba(253,190,233,0.8);
 }
 
+.navigation .mission-icon {
+    background-image: url("../img/navigation.png");
+}
+
 .navigation .popup, .navigation .item-number {
     color: #e21d91;
 }
@@ -120,7 +119,7 @@ header {
     background-color: #f1c7e3;
 }
 
-.navigation .mission-popup-scoring, .navigation .mission-popup-help-text {
+.navigation .mission-popup-help-text {
     background-color: #f6e2ef;
 }
 
@@ -128,7 +127,7 @@ header {
     border-color: transparent transparent #f6e2ef transparent;
 }
 
-.navigation .mission-popup-continue .arrow {
+.navigation .arrow {
     background-image: url("../img/svg/arrow/navigation.svg");
 }
 
@@ -156,6 +155,10 @@ header {
 
 .takePhoto .mission-menu-left {
     background-color: rgba(165,225,250,0.96);
+}
+
+.takePhoto .mission-icon {
+    background-image: url("../img/takePhoto.png");
 }
 
 .takePhoto .mission-menu-top {
@@ -190,9 +193,6 @@ header {
     background-color: rgba(169,226,250,.9);
 }
 
-.takePhoto .popup .pink, .takePhoto .item-number {
-    color: #e21d91;
-}
 
 .takePhoto .popup, .takePhoto .item-number {
     color: #408fb0;
@@ -234,7 +234,7 @@ header {
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-popup-scoring, .takePhoto .mission-popup-help-text {
+.takePhoto .mission-popup-help-text {
     background-color: #e6f4fa;
 }
 
@@ -263,90 +263,7 @@ header {
 }
 
 /*****takePhoto-negative**************************************************************/
-.red .photo-order h2, .red .photo-continue {
-    color: #e46051;
-}
 
-.red .photo-continue .arrow {
-    background-image: url(../img/svg/arrow/takePhoto-negative.svg);
-}
-
-.takePhoto.red .mission-menu-center, .red .photoCenter {
-    background-color: rgba(238,145,135,0.9);
-}
-
-.takePhoto.red .mission-menu-left, .red .photoLeft {
-    background-color: rgba(250,163,153,0.96);
-}
-
-.takePhoto.red .mission-menu-top, .red .photoUp {
-    background-color: rgba(251,196,192,0.9);
-}
-
-.takePhoto.red .mission-menu-right, .red .photoRight {
-    background-color: rgba(249,203,198,0.9);
-}
-
-.takePhoto.red .mission-menu-bottom, .red .photoDown {
-    background-color: rgba(251,227,224,0.9);
-}
-
-.takePhoto.red .mission-popup-timer {
-    background-color: rgba(251,227,224,0.9);
-}
-
-.takePhoto.red .mission-popup-scoring {
-    background-color: rgba(251,227,224,0.45);
-}
-
-.takePhoto.red .popup, .takePhoto.red .item-number {
-    color: #e46051;
-}
-
-.takePhoto.red .item-number { /*.takePhoto .popup,*/
-    color: #e46051;
-}
-
-.takePhoto.red .mission-deatails-timer span.clock {
-    background-image: url("../img/svg/clock/takePhoto-negative.svg");
-}
-
-#mission-container .takePhoto.red .mission-icon {
-    background-color: #e46051;
-}
-
-.takePhoto.red .mission-deatails-timer {
-    background-color: rgba(251,227,224,0.9);
-}
-
-#popup.takePhoto.red .mission-icon {
-    background-color: #e46051;
-    background-image: url("../img/takePhoto.png");
-}
-
-.takePhoto.red .next-icon {
-    background-image: url("../img/takePhoto.png");
-}
-
-.takePhoto.red .next-title-back {
-    background-color: #e46051;
-}
-
-.takeVideo.red .next-icon {
-    background-color: #ffd200;
-}
-
-.takeVideo.red .number {
-    color: #e46051;
-}
-
-.takePhoto.red #timer {
-    color: #e46051;
-}
-
-.takePhoto.red .mission-popup-continue .arrow {
-    background-image: url("../img/svg/arrow/takePhoto-negative.svg");
-}
 
 /*****capture video************************************************************/
 
@@ -354,20 +271,17 @@ header {
     background-color: rgba(101,225,209,0.9);
 }
 
-.takeVideo .main-video {
-    background-color: #fff;
-    height: 50%;
-    width: 50%;
-}
 
-.takeVideo-btn {
+.takeVideo .mission-icon {
+    background-image: url("../img/takeVideo.png");
+}
+/*.takeVideo-btn {
     background: url('../img/svg/arrow/take-video-people.svg') no-repeat 50% 98%;
     background-size: auto 65%;
-}
+}*/
 
 .takeVideo-text {
     font-size: 1em !important;
-    color: #46c4b4;
 }
 
 .takeVideo .popup, .takeVideo .item-number {
@@ -411,7 +325,7 @@ header {
     background-color: rgba(101,225,209,0.45);
 }
 
-.takeVideo .mission-popup-scoring, .takeVideo .mission-popup-help-text {
+.takeVideo .mission-popup-help-text {
     background-color: rgba(101,225,209,0.28);
 }
 
@@ -452,6 +366,10 @@ header {
     background-color: rgba(232,219,253,0.64);
 }
 
+.watchVideo .mission-icon {
+    background-image: url("../img/watchVideo.png");
+}
+
 .watchVideo .popup, .watchVideo .item-number {
     color: #a985e6;
 }
@@ -485,7 +403,7 @@ header {
     background-color: #e8dbfd;
 }
 
-.watchVideo .mission-popup-scoring, .watchVideo .mission-popup-help-text {
+.watchVideo .mission-popup-help-text {
     background-color: #f5f1fb;
 }
 
@@ -493,9 +411,9 @@ header {
     border-color: transparent transparent #f5f1fb transparent;
 }
 
-.watchVideo .mission-popup-continue .arrow {
+/*.watchVideo .mission-popup-continue .arrow {
     background-image: url("../img/svg/arrow/watchVideo.svg");
-}
+}*/
 
 /*mission bottom*/
 
@@ -525,6 +443,10 @@ header {
 
 .multiQuestion .mission-icon {
     background-color: #ff9900;
+}
+
+.multiQuestion .mission-icon {
+    background-image: url("../img/multiQuestion.png");
 }
 
 .multiQuestion .next-icon {
@@ -561,7 +483,7 @@ header {
     background-color: #FCE5C4;
 }
 
-.multiQuestion .mission-popup-scoring, .multiQuestion .mission-popup-help-text {
+.multiQuestion .mission-popup-help-text {
     background-color: #FBF3E6;
 }
 
@@ -569,7 +491,7 @@ header {
     border-color: transparent transparent #FBF3E6 transparent;
 }
 
-.message-text-popup h2, .message-text-popup .permission.messageText {
+.message-text-popup h2, .message-text-popup .permission.messageText,.message-text-popup .textMessage p {
     color: #ff9900;
 }
 
@@ -577,9 +499,9 @@ header {
     background-image: url("../img/svg/arrow/multiQuestion.svg");
 }
 
-.multiQuestion .mission-popup-continue .arrow {
+/*.multiQuestion .mission-popup-continue .arrow {
     background-image: url("../img/svg/arrow/multiQuestion.svg");
-}
+}*/
 
 /*mission bottom*/
 
@@ -635,13 +557,13 @@ header {
     background-color: #EDFABE;
 }
 
-.medicine-basket .mission-popup-scoring {
+/*.medicine-basket .mission-popup-scoring {
     background-color: #F6FBE3;
-}
+}*/
 
-.medicine-basket .mission-popup-continue .arrow {
+/*.medicine-basket .mission-popup-continue .arrow {
     background-image: url("../img/svg/arrow/medicine-basket.svg");
-}
+}*/
 
 /*mission bottom*/
 .medicine-basket .mission-deatails-timer {
@@ -664,7 +586,7 @@ header {
 }
 
 
-.openQuestion .popup, .openQuestion .item-number, #mission-text .permission.claim, .read-text .popup, .read-text .item-number, #read-text .permission.claim {
+.openQuestion .popup, .openQuestion .item-number, .read-text .popup, .read-text .item-number, #read-text .permission.claim {
     color: #ffd200;
 }
 
@@ -674,6 +596,10 @@ header {
 
 .openQuestion .mission-icon, .read-text .mission-icon {
     background-color: #ffd200;
+}
+
+.openQuestion .mission-icon {
+    background-image: url("../img/openQuestion.png");
 }
 
 
@@ -703,7 +629,7 @@ header {
     background-color: #FCF2C6;
 }
 
-.openQuestion .mission-popup-scoring, .read-text .mission-popup-scoring, .openQuestion .mission-popup-help-text {
+.openQuestion .mission-popup-help-text {
     background-color: #FFFBE7;
 }
 
@@ -711,9 +637,17 @@ header {
     border-color: transparent transparent #FFFBE7 transparent;
 }
 
-.openQuestion .mission-popup-continue .arrow, #mission-text .arrow, .read-text .mission-popup-continue .arrow, #read-text .arrow {
-    background-image: url("../img/svg/arrow/openQuestion.svg");
+#mission-text .arrow, #read-text .arrow {
+    /*background-image: url("../img/svg/arrow/openQuestion.svg");*/
 }
+
+/*.openQuestion .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/openQuestion.svg");
+}*/
+
+/*.read-text .mission-popup-continue .arrow {
+    background-image: url("../img/svg/arrow/openQuestion.svg");
+}*/
 
 #mission-text.video-mission-text .arrow {
     background-image: url("../img/svg/arrow/watchVideo.svg");
@@ -775,11 +709,6 @@ header {
     color: #ffcc00;
 }
 
-#mission-yellow .takePhoto.red .mission-icon {
-    background-color: #ffcc00;
-    background-image: url("../img/takePhoto.png");
-}
-
 .takePhoto.yellow .mission-deatails-timer {
     background-color: rgba(249,237,189,0.96);
 }
@@ -802,13 +731,13 @@ header {
 }
 
 
-.takePhoto.yellow .mission-popup-scoring {
+/*.takePhoto.yellow .mission-popup-scoring {
     background-color: rgba(249,237,189,0.46);
-}
+}*/
 
-.takePhoto.yellow .mission-popup-continue .arrow {
+/*.takePhoto.yellow .mission-popup-continue .arrow {
     background-image: url("../img/svg/arrow/takePhoto-yellow.svg");
-}
+}*/
 
 /*message bottom*/
 
@@ -826,94 +755,12 @@ header {
     background-image: url("../img/svg/x/takePhoto-yellow.svg");
 }
 
-.takePhoto.red .x {
-    background-image: url("../img/svg/x/feelings.svg");
-}
+
 
 .takePhoto .photo-order {
-    color: #408fb0;
-}
-/*****takePhoto -pink******************************************************************************************/
-.pink .photo-order h2, .pink .photo-continue {
-    color: #e21d91;
+    color: white;
 }
 
-.pink .photo-continue .arrow {
-    background-image: url(../img/svg/arrow/takePhoto-pink.svg);
-}
-
-.takePhoto.pink .mission-menu-center, .pink .photoCenter {
-    background-color: rgba(236,126,191,0.9);
-}
-
-.takePhoto.pink .mission-icon {
-    background-color: #e21d91;
-}
-
-.takePhoto.pink .mission-menu-left, .pink .photoLeft {
-    background-color: rgba(246,187,224,0.96);
-}
-
-.takePhoto.pink .mission-menu-top, .pink .photoUp {
-    background-color: rgba(246,189,225,0.9);
-}
-
-.takePhoto.pink .mission-menu-right, .pink .photoRight {
-    background-color: rgba(244,189,225,0.9);
-}
-
-.takePhoto.pink .mission-menu-bottom, .pink .photoDown {
-    background-color: rgba(246,189,225,0.9);
-}
-
-.takePhoto.pink .mission-deatails-timer span.clock {
-    background-image: url("../img/svg/clock/takePhoto-pink.svg");
-}
-
-.takePhoto.pink .item-number { /*.takePhoto .popup,*/
-    color: #e21d91;
-}
-
-#mission-pink .takePhoto.red .mission-icon {
-    background-color: #e21d91;
-    background-image: url("../img/takePhoto.png");
-}
-
-.takePhoto.pink .mission-deatails-timer {
-    background-color: rgba(246,189,225,0.9);
-}
-
-.takePhoto.pink #timer {
-    color: #e21d91;
-}
-
-.takePhoto.pink .mission-popup-header {
-    color: #e21d91;
-}
-
-.takePhoto.pink .mission-popup-timer {
-    background-color: rgba(246,189,225,0.9);
-}
-
-.takePhoto.pink .mission-popup-scoring {
-    background-color: rgba(246,189,225,0.45);
-}
-
-.takePhotopink .popup, .takePhoto.pink .item-number, .takePhoto.pink .mission-popup-header, .takePhoto.pink .mission-popup-continue {
-    color: #e21d91;
-}
-
-.takePhoto.pink .x {
-    background-image: url("../img/svg/x/takePhoto-pink.svg");
-}
-
-.takePhoto.pink .popup, .takePhoto.pink .item-number {
-    color: #e21d91;
-}
-
-.takePhoto.pink .mission-popup-continue .arrow {
-    background-image: url("../img/svg/arrow/takePhoto-pink.svg");
-}
 
 /*mission-popup*/
 
@@ -921,7 +768,7 @@ header {
     background-color: #bee8f9;
 }
 
-.takePhoto .mission-popup-scoring .takePhoto .mission-popup-help-text {
+.takePhoto .mission-popup-help-text {
     background-color: #e6f4fa;
 }
 
@@ -929,9 +776,6 @@ header {
     border-color: transparent transparent #e6f4fa transparent;
 }
 
-.takePhoto.pink .mission-popup-continue .arrow {
-    background-image: url("../img/svg/arrow/takePhoto-pink.svg");
-}
 
 /*message bottom*/
 
@@ -986,13 +830,14 @@ header {
     background-color: #FCF2C6;
 }
 
-.last-mission .mission-popup-scoring {
-    background-color: #FFFBE7;
-}
 
-.last-mission .mission-popup-continue .arrow, #last-mission .arrow, #last-mission2 .arrow {
+#last-mission .arrow, #last-mission2 .arrow {
     background-image: url("../img/svg/arrow/text.svg");
 }
+
+/*.last-mission .mission-popup-continue .arrow{
+    background-image: url("../img/svg/arrow/text.svg");
+}*/
 
 #last-mission.video-mission-text .arrow {
     background-image: url("../img/svg/arrow/watchVideo.svg");
@@ -1014,7 +859,7 @@ header {
 }
 
 
-/*****capture video************************************************************/
+/*****qr code************************************************************/
 
 .qrCode .mission-menu-center {
     background-color: rgba(101,225,209,0.9);
@@ -1026,6 +871,10 @@ header {
 
 .qrCode .mission-icon {
     background-color: #46c4b4;
+}
+
+.qrCode .mission-icon {
+    background-image: url("../img/qrCode.png");
 }
 
 #popup.qrCode .mission-icon {
@@ -1041,7 +890,7 @@ header {
     background-color: rgba(101,225,209,0.45);
 }
 
-.qrCode .mission-popup-scoring, .qrCode .mission-popup-help-text {
+.qrCode .mission-popup-help-text {
     background-color: rgba(101,225,209,0.28);
 }
 
@@ -1049,9 +898,9 @@ header {
     border-color: transparent transparent rgba(101,225,209,0.28) transparent;
 }
 
-.qrCode .mission-popup-continue .arrow {
+/*.qrCode .mission-popup-continue .arrow {
     background-image: url("../img/svg/arrow/qrCode.svg");
-}
+}*/
 
 /*mission bottom*/
 
@@ -1076,7 +925,7 @@ header {
 }
 
 .tripSummary .mission-menu-center {
-    background-color: #ea9463;
+    background-color: #ef6c7a;
 }
 
 .tripSummary .mission-icon {
@@ -1087,13 +936,14 @@ header {
     background-image: url("../img/tripSummary.png");
 }
 
+
 .tripSummary .mission-popup-timer {
     background-color: #ea9463;
 }
 
-.tripSummary .mission-popup-scoring {
+/*.tripSummary .mission-popup-scoring {
     background-color: #f3d2bf;
-}
+}*/
 
 .tripSummary .arrow {
     background-image: url("../img/svg/arrow/trip-summary.svg");
@@ -1115,33 +965,39 @@ header {
     background-image: url("../img/svg/x/trip-summary.svg");
 }
 
-.dragging-container .photo-order .arrow {
-    background-image: url("../img/svg/arrow/trip-summary.svg");
-}
+
 
 .folder {
     background-color: #d71e32;
 }
 
-.dragging-container .photo-order {
-    color: #d71e32;
-}
 
 [ng-drop].drag-enter {
     border: solid 6px #d71e32;
 }
 
 /***** compass ************************************************************/
+
+
+.main-compass {
+    background-color: #2a698a;
+}
+
+.compass .photo-order {
+  color: white;
+    /*border-bottom: 4px solid #064566;*/
+}
+
 .compass .popup, .compass .item-number {
-    color: #1caffc;
+    color: #064566;
 }
 
 .compass .mission-menu-center {
-    background-color: #5ac7ff;
+    background-color: #346784;
 }
 
 .compass .mission-icon {
-    background-color: #1caffc;
+    background-color: #064566;
 }
 
 .compass .mission-icon {
@@ -1149,19 +1005,16 @@ header {
 }
 
 .compass .mission-popup-timer {
-    background-color: #5ac7ff;
+    background-color: #2a698a;
 }
 
-.compass .mission-popup-scoring {
-    background-color: #ceedff;
-}
 
 .compass .arrow {
     background-image: url("../img/svg/arrow/compass.svg");
 }
 
 .compass .mission-deatails-timer {
-    background-color: #5ac7ff;
+    background-color: #2a698a;
 }
 
 .compass .mission-deatails-menu .clock {
@@ -1169,11 +1022,15 @@ header {
 }
 
 .compass .mission-deatails-menu span.clock {
-    color: #1caffc;
+    color: #064566;
 }
 
 .compass .inner-folder-wrap .x {
     background-image: url("../img/svg/x/compass.svg");
+}
+
+.compass .direction-arrow {
+    background-image: url("../img/svg/arrow/compass_arrow.svg");
 }
 
 /*****scala video************************************************************/
@@ -1182,12 +1039,16 @@ header {
     background-color: rgba(101,225,209,0.9);
 }
 
-.scala .popup, .scala .item-number, .scala .taskEnd-wrapper {
-    color: #46c4b4;
+.scala .popup, .scala .item-number   {
+    /*color: #46c4b4;*/
 }
 
 .scala .mission-icon {
     background-color: #46c4b4;
+}
+
+.scala .mission-icon {
+    background-image: url("../img/scala.png");
 }
 
 .scala .next-icon {
@@ -1204,7 +1065,7 @@ header {
     background-color: #72ddcf;
 }
 
-.scala .mission-popup-scoring, .scala .mission-popup-help-text {
+.scala .mission-popup-help-text {
     /*background-color: rgba(101,225,209,0.28);*/
     background-color: #aff8ee;
 }
@@ -1213,7 +1074,8 @@ header {
     border-color: transparent transparent #aff8ee transparent;
 }
 
-.scala .mission-popup-continue .arrow {
+/*.scala .mission-popup-continue .arrow {*/
+.scala .arrow {
     background-image: url("../img/svg/arrow/scala.svg");
 }
 
@@ -1239,17 +1101,15 @@ header {
 }
 
 #mission-capture-video {
-  background-color: transparent;
-  border: none;
+    background-color: transparent;
+    border: none;
 }
 
 
 
 
 /********did you know********/
-.permission .arrow {
-    background-image: url("../img/svg/arrow/multiQuestion.svg");
-}
+
 
 .mission-popup-didyou h2 {
     color: #ff9900;
@@ -1257,6 +1117,10 @@ header {
 
 .mission-popup-didyou .permission {
     color: #ff9900;
+}
+
+.mission-popup-didyou .arrow {
+    background-image:url('../img/svg/arrow/multiQuestion.svg');
 }
 
 
@@ -1268,24 +1132,24 @@ header {
 @media all and (max-width: 736px) and (max-height: 960px) {
     #logo {
         background-image: url("../img/ODTech_Logo _black.png");
-        width: 57px;
-        top: 15px;
-        left: 13px;
     }
 
-    .takeVideo .main-video {
-        background-color: #fff;
-        border-radius: 10px;
-        width: 80%;
-        height: 215px;
-    }
+
 
     .takeVideo-btn {
-        background: url('../img/svg/arrow/take-video-people.svg') no-repeat 48% bottom;
-        background-size: auto 80%;
+        /*background: url('../img/svg/arrow/take-video-people.svg') no-repeat 48% bottom;
+        background-size: auto 80%;*/
     }
 
     .takeVideo-text {
         font-size: 1.5em !important;
     }
+
+    .compass .direction-arrow {
+        background-image: url("../img/svg/arrow/compass_arrow_mobile.svg");
+    }
+}
+
+.photo-order {
+    color: #fff;
 }

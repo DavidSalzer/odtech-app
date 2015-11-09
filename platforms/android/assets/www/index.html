@@ -8,11 +8,12 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
         <link href="css/reset.css" rel="stylesheet" />
+        <link href="css/colorsAndIcons.css" rel="stylesheet" />
         <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://mts1.googleapis.com https://maps.gstatic.com https://www.youtube.com https://s.ytimg.com 'unsafe-inline' 'unsafe-eval'">-->
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/splash.css" rel="stylesheet" />
         <link href="css/subMissions.css" rel="stylesheet" />
-         <link href="css/navigation.css" rel="stylesheet" />
+        <link href="css/navigation.css" rel="stylesheet" />
 
         <link href="css/multiQuestions.css" rel="stylesheet" />
 
@@ -37,11 +38,15 @@
         <link href="css/groupMembers.css" rel="stylesheet" />
         <link href="css/timeline.css" rel="stylesheet" />
         <link href="css/stages.css" rel="stylesheet" />
+        <link href="css/misisonTabs.css" rel="stylesheet" />
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/pushMessages.css" rel="stylesheet" />
 
-        <link href="css/colorsAndIcons.css" rel="stylesheet" />
+
         <!--<link href="css/colorsAndIconsMasa.css" rel="stylesheet" />-->
-        <!--<link href="css/colorsAndIconsYIBZ.css" rel="stylesheet" />-->
-
+                    <!--<link href="css/colorsAndIconsYIBZ.css" rel="style
+                    sheet" />-->
+        <!--<link href="css/colorsAndIconsRothschild.css" rel="stylesheet" />-->
         <script src="cordova.js"></script>
 
     </head>
@@ -53,12 +58,14 @@
         <ng-include src="'components/splash/splash.html'"></ng-include><!--client splash-->
         <div id="main-container">
             <ng-include src="'components/header/header.html'"></ng-include><!--header-logo-->
+            <menu></menu>
+            <day-description></day-description>
             <!--group member and profile-->
             <!--main content-->
             <div id="main-view" class="main-view" data-ui-view="main"></div>
                             <!--<audio id="odtech-audio-silence">
-                                                <source src="http://adminqa.odtech.co.il/upload/143271010397845260.mp3" type="audio/mp3">
-                                            </audio>-->
+                                                                <source src="http://adminqa.odtech.co.il/upload/143271010397845260.mp3" type="audio/mp3">
+                                                            </audio>-->
         </div>
         <!--score button-->
         <!--<ng-include src="'components/group/groupScoreButton.html'"></ng-include>-->
@@ -67,10 +74,10 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
         <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
                     <!--<script>
-                                                                                                function onYouTubePlayerAPIReady() {
-                                                                                                    alert("player");
-                                                                                                }
-                                                                                    </script>-->
+                                                                                                            function onYouTubePlayerAPIReady() {
+                                                                                                                alert("player");
+                                                                                                            }
+                                                                                                </script>-->
         <!-- Jquery -->
         <script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
@@ -82,8 +89,10 @@
         <script src="js/angular-google-maps.js"></script>
         <script src="js/jquery.sglide.2.1.2.min.js"></script>
         <script src="js/angular-animate.js"></script>
+        <script src="js/angular-ios9-uiwebview.patch.js"></script>
         <script src="app.js"></script>
         <script src="globals.js"></script>
+        <script src="clientData.js"></script><!--script that exist in application only - with the client data-->
         <script src="deviceLoction.js"></script>
         <script src="js/angular-sanitize.js"></script>
         <script src="js/angular-animate.js"></script>
@@ -98,6 +107,8 @@
         <!-- odtech  components-->
         <script src="components/splash/splash.js"></script>
         <script src="components/login/login.js"></script>
+        <script src="components/login/userLogin.js"></script>
+        <script src="components/pushMessages/pushMessages.js"></script>
         <script src="components/group/group.js"></script>
         <script src="components/group/groupsScore.js"></script>
         <!--<script src="components/dayDescription/dayDescription.js"></script>-->
@@ -111,13 +122,14 @@
         <script src="components/header/header.js"></script>
         <script src="components/stages/stages.js"></script>
         <script src="components/info/info.js"></script>
-
+        <script src="components/mapDisplay/mapDisplay.js"></script>
+        <script src="components/main/main.js"></script>
 
         <!-- odtech  directives-->
         <script src="directives/checkNetwork/checkNetwork.js"></script>
         <script src="directives/didYouKnow/didYouKnow.js"></script>
         <script src="directives/missionFinish/missionFinish.js"></script>
-
+        <script src="directives/menu/menu.js"></script>
         <script src="directives/monitor/monitor.js"></script>
         <script src="directives/points/points.js"></script>
         <script src="directives/timer/timer.js"></script>
@@ -129,6 +141,9 @@
         <script src="directives/odtechAudio/odtechAudio.js"></script>
         <script src="directives/appRingtone/appRingtone.js"></script>
         <script src="directives/timeline/timeline.js"></script>
+        <script src="directives/dayDescription/dayDescription.js"></script>
+        <script src="directives/singleCapture/singleCapture.js"></script>
+
 
         <!-- odtech  features-->
         <script src="features/multiQuestion/multiQuestion.js"></script>
@@ -141,6 +156,33 @@
         <script src="features/scala/scala.js"></script>
         <script src="features/dragging/dragging.js"></script>
         <script src="features/compass/compass.js"></script>
+        <script src="initPushwoosh.js"></script>
+        
+                <!--phonegap on ready scripts- can be moved to app.run()-->
+        <script type="text/javascript" charset="utf-8">
+
+            /*detect environment*/
+            var agent = navigator.userAgent;
+            var isWebkit = (agent.indexOf("AppleWebKit") > 0);
+            var isIPad = (agent.indexOf("iPad") > 0);
+            var isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0);
+            var isAndroid = (agent.indexOf("Android") > 0);
+            var isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0);
+            var isWebOS = (agent.indexOf("webOS") > 0);
+            var isWindowsMobile = (agent.indexOf("IEMobile") > 0);
+            var isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000));
+            var isUnknownMobile = (isWebkit && isSmallScreen);
+            var isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile);
+            var isTablet = (isIPad || (isMobile && !isSmallScreen));
+            var isBrowser = document.URL.indexOf('http://') !== -1 || document.URL.indexOf('https://') !== -1;
+            var isDevelopment = document.URL.indexOf('localhost') !== -1;
+            if (isBrowser && isMobile && !isDevelopment) {
+                thisUrl = window.location.href;
+                var localUrl = thisUrl.replace(siteOrigin, '');
+                localUrl = localUrl.replace('#/', '');
+                //window.location.replace(siteOrigin + 'land.html?url=' + localUrl);
+            }
+        </script>
 
 
         <!-- END JAVASCRIPTS -->

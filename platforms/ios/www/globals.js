@@ -2,26 +2,29 @@
 var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://admin.odtech.co.il/";
 /******QA******/
-//var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-//var imgDomain = "http://adminqa.odtech.co.il/";
+var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+var imgDomain = "http://adminqa.odtech.co.il/";
+
+//var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+//var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
-//var cid = 4; // production -masa
-var cid =3; // production -odtech
- //var cid = 1; // QA
-
- //var appName ="מסע ישראלי"
- var appName ="ODTech"
-
+//var cid = 8; // production -masa
+//var cid = 4; // -odtech
+var cid = 3; // QA
+var isPreLoginPage = false;
+var isMapDisplay = false;
+var appName = "מסע ישראלי"
+var allowPushWoosh = true;
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
 
 odtechApp.run(function ($rootScope) {
-     $rootScope.successMedia ;
-             $rootScope.failBuzzerMedia ;
-              $rootScope.timeoverMedia ;
-               $rootScope.applauseMedia;
+    $rootScope.successMedia;
+    $rootScope.failBuzzerMedia;
+    $rootScope.timeoverMedia;
+    $rootScope.applauseMedia;
 
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
@@ -30,9 +33,11 @@ odtechApp.run(function ($rootScope) {
     };
 
     $rootScope.androidVersion = $rootScope.getAndoidVersion();
-    $rootScope.appName =appName;
+    $rootScope.appName = appName;
+    $rootScope.cid = cid;
     // $rootScope.appName = 'ODTech';
-
+    $rootScope.isPreLoginPage = isPreLoginPage;
+    $rootScope.isMapDisplay = isMapDisplay;
     $rootScope.showDescription = false;
     $.browser.isSmartphone = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase())) && $(window).width() < 740 && $(window).height() < 740;
 
@@ -55,10 +60,10 @@ odtechApp.filter('newlines', function () {
 });
 
 odtechApp.filter('trustedurl', ['$sce', function ($sce) {
-    return function(url) {
+    return function (url) {
         return $sce.trustAsResourceUrl(url);
     };
-}]);
+} ]);
 
 /**********prevent footer movement on input focus*************/
 
@@ -95,7 +100,7 @@ $(document).on('keypress', 'input[type=text],input[type=email], textarea', funct
 });
 /************************/
 //Disable Device Back button
-var start=0;
+var start = 0;
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.addEventListener("backbutton", function (e) {
@@ -103,7 +108,7 @@ function onDeviceReady() {
         elapsed = new Date().getTime();
         if (elapsed - start <= 5000) {
             var x;
-             navigator.app.exitApp();
+            navigator.app.exitApp();
         }
         else {
             //do something else;
@@ -135,28 +140,29 @@ function iOSversion() {
         if (ver[0] === 8 & ver[1] === 2) alert("גרסת מערכת ההפעלה הזו אינה מאפשרת העלאת תמונות. אנחנו ממליצים לשדרג לגרסה 8.3");
 
         if (ver[0] === 8) {
-
+/*
             $("body").delegate("input", "focus",
 
-                               function(e) {
+                               function (e) {
 
-                               var self = $(this);
+                                   var self = $(this);
 
-                               $("body").height(screen.availHeight + 50 + self.offset().top/2);
+                                   $("body").height(screen.availHeight + 50 + self.offset().top / 2);
 
-                               setTimeout(function() {
+                                   setTimeout(function () {
 
-                                          $("html, body").animate({ scrollTop: $(document).height() }, 1000)}, 10);
+                                       $("html, body").animate({ scrollTop: $(document).height() }, 1000)
+                                   }, 10);
 
                                });
 
-            
 
-            
 
-            
 
-            $("body").delegate("input", "blur", resetBodyHeight);
+
+
+
+            $("body").delegate("input", "blur", resetBodyHeight);*/
 
         }
 
@@ -166,7 +172,7 @@ function iOSversion() {
 
 iOSversion();
 
-function resetBodyHeight(){
+function resetBodyHeight() {
     document.body.style.height = '100%';
 }
 
@@ -182,3 +188,14 @@ function anodoidVersion() {
 }
 
 anodoidVersion();
+
+//add the css by client
+var cssName = "colorsAndIconsOdtech"
+$(document).ready(function () {
+    $('head').append('<link rel="stylesheet" href="css/' + cssName + '.css" type="text/css" />');
+
+});
+//check if a var is numeric
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}

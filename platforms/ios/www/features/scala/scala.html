@@ -6,7 +6,7 @@
 
 
         <div class="options-wrap">
-            <div ng-repeat="opt in missionData.options" class="scala-option-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / missionData.options.length+'%','height':100/(missionData.options.length-1)+'%'}">
+            <div ng-repeat="opt in missionData.options" class="scala-option-wrap" ng-class="{'last':$last, 'first':$first}" ng-style="{'width':100 / missionData.options.length+'%','height':missionData.options.length == 2 ? '98%' : 100/(missionData.options.length-1)+'%'}">
                 <div class="option-text">{{opt}}</div>
 
             </div>
@@ -24,8 +24,8 @@
 
 
         <div class="taskEnd-wrapper scala-taskEnd-wrapper" ng-show="firstTime" ng-click="answerClick()">
-            <div class="text">סיימת לדרג?</div>
-            <span>לחץ כאן</span>
+            <h2 class="text">סיימתי</h2>
+            <!--<span>לחץ כאן</span>-->
             <span class="arrow"></span>
         </div>
 
@@ -33,6 +33,7 @@
        
 
     </div>
+
      <div ng-show="showAnswerIndication" class="opacity-mask">
             <div class="message-text-popup popup">
                 <div class="textMessage">
@@ -44,4 +45,5 @@
                 </div>
             </div>
         </div>
+    
 </div>

@@ -38,8 +38,8 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     scope.showPoster = false;
                     //attach general video events
                 } else if (!scope.isYoutube) {
-                    scope.generalVideoEvents();
-                    $("#fullMovie").html('<source src="' + imgDomain + scope.missionData.videoURL + '" type="video/mp4"></source>');
+                  //  scope.generalVideoEvents();
+                  //  $("#fullMovie").html('<source src="' + imgDomain + scope.missionData.videoURL + '" type="video/mp4"></source>');
                     //set the poster image from admin
                     //scope.posterImage
                 }
@@ -56,7 +56,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 scope.player = new YT.Player('youtube-url-video', {
                     height: '100%',
                     width: '100%',
-                    playerVars: { 'controls': 1,'fs':0 },
+                    playerVars: { 'controls': 1, 'fs': 0 },
                     videoId: scope.missionData.youtubeID,
                     events: {
                         'onReady': scope.playerReady,
@@ -88,12 +88,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     scope.playing = false;
 
 
-                    setTimeout(function () {
-                        scope.player.destroy();
-                        scope.startYoutube = false;
-                        scope.initPlayer();
 
-                    }, 100);
                     //if this is a second enter -hide the poster and buttons
                     if (scope.missionData.status != 'answer') {
 
@@ -106,6 +101,15 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     else {
                         scope.endMovie = true;
                     }
+                   
+                     scope.player.destroy();
+                      setTimeout(function () {
+                       
+
+                        scope.startYoutube = false;
+                        //scope.initPlayer();
+
+                    }, 100);
 
                 }
             }
@@ -191,8 +195,14 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                 if (scope.isYoutube) {
                     scope.startYoutube = true;
                     //destroy the player and rebuild -for the red button - for ios
-                    scope.player.destroy();
-                    $(".youtube-url-video").attr("youtube-url-video");
+                    //try {
+                    //    scope.player.destroy();
+                    //}
+                    //catch (e) {
+                    //    alerT(e)
+                    //}
+
+                    //$(".youtube-url-video").attr("youtube-url-video");
                     scope.initPlayer();
 
                 } else {
@@ -208,7 +218,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                     scope.results.points = scope.missionData.points;
                 }
 
-                scope.endMission(scope.results,scope.missionData);
+                scope.endMission(scope.results, scope.missionData);
             }
 
             //pause video or replay after starting the mission
@@ -231,7 +241,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
 
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
 
-                scope.endMission(scope.results,scope.missionData);
+                scope.endMission(scope.results, scope.missionData);
             });
 
         },

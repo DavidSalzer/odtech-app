@@ -1,4 +1,4 @@
-odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
+odtechApp.directive('openQuestion', ['$timeout','$rootScope', function ($timeout,$rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/openQuestion/openQuestion.html',
@@ -10,8 +10,8 @@ odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
             scope.missionData;
             scope.setData = function () {
                 //set the  data for mission - parent or sub
-                if (scope.subMissionOpen != -1) {
-                    scope.missionData = scope.subMissionOpen;
+                if ($rootScope.subMissionOpen != -1) {
+                    scope.missionData = $rootScope.subMissionOpen;
                 }
                 else {
                     scope.missionData = scope.parentMissionData;
@@ -42,7 +42,7 @@ odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
                     scope.results.points = scope.missionData.points;
                 }
                 console.log('on scope.taskEnd open question: mid: ' + scope.missionData.mid)
-                //this addon for sub mission -send the mid too
+                //Perform end mission function.
                 scope.endMission(scope.results, scope.missionData); //the param is the answers of user
 
             }
@@ -60,7 +60,7 @@ odtechApp.directive('openQuestion', ['$timeout', function ($timeout) {
             /*submission data*/
             //addon for submission because the controller is alive
             scope.$on('subMissionDataGet', function (event, data) {
-                if (data.data.type == "openQuestion" && data.data.mid == scope.subMissionOpen.mid) {
+                if (data.data.type == "openQuestion" && data.data.mid == $rootScope.subMissionOpen.mid) {
                     scope.setData()
                 }
             });

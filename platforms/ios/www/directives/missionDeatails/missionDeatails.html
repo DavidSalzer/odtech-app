@@ -17,9 +17,7 @@
             <large-image url="{{imgDomain+task.imgUrl}}"></large-image>
         </span>-->
 
-        <span data-ng-show="task.imgUrl" class="missionPopUpImage img-missionPopUpImage" style="background-image:url('{{imgDomain+task.imgUrl}}')" data-ng-click="openLargeImage()"> 
-                <large-image url="{{imgDomain+task.imgUrl}}"></large-image>
-            </span>
+        
 
         <p class="popup-text" ng-bind-html="task.description | newlines"></p>
     </div>

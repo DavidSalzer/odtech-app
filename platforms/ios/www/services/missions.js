@@ -3,6 +3,13 @@ odtechApp.factory('missions', ['server', function (server) {
     missionList = {};
 
     return {
+        //return missions by stageId
+        getMissionsOfActivity: function (activityId) {
+
+            return server.request({ "type": "getMissionsOfActivity", "req": { "aid": activityId} });
+
+
+        },
         //return tasks array of mission
         getMissions: function () {
 
@@ -10,7 +17,6 @@ odtechApp.factory('missions', ['server', function (server) {
 
 
         },
-
         //set mission list in service
         setMissions: function (list) {
             missionList = list;
@@ -18,14 +24,15 @@ odtechApp.factory('missions', ['server', function (server) {
 
         //check if go to next mission directly, return next mission
         directlyNext: function (mid) {
-            if (!missionList || !missionList.activitie) {
+            //if (!missionList || !missionList.activitie) {
+                if (!missionList) {
                 return false;
             }
             self = this;
-            for (var i in missionList.activitie.mission) {
-                if (missionList.activitie.mission[i].mid == mid) {
-                    if (missionList.activitie.mission[i].jumpToNext == '1') {
-                        var ans = self.getIdByOrder(parseInt(missionList.activitie.mission[i].order)+1);
+            for (var i in missionList) {
+                if (missionList[i].mid == mid) {
+                    if (missionList[i].jumpToNext == '1') {
+                        var ans = self.getIdByOrder(parseInt(missionList[i].order) + 1);
                         return ans;
                     }
                     else {
@@ -41,9 +48,9 @@ odtechApp.factory('missions', ['server', function (server) {
                 return false;
             }
 
-            for (var i in missionList.activitie.mission) {
-                if (missionList.activitie.mission[i].order == order) {
-                    return missionList.activitie.mission[i].mid;
+            for (var i in missionList) {
+                if (missionList[i].order == order) {
+                    return missionList[i].mid;
                 }
             }
 

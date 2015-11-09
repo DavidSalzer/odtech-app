@@ -1,8 +1,9 @@
-<footer id="mainQ" ng-controller="footer" ng-hide="$state.includes('info') || $state.includes('login') || $state.includes('group') || showDescription"> <!--hide the footer on login,group and day description-->
+<footer id="mainQ" ng-controller="footer" ng-hide="$state.includes('info') || $state.includes('login') || $state.includes('group') || $state.includes('main') || $state.includes('userLogin') || showDayDescription"> <!--hide the footer on login,group and day description-->
     <span id="main-help">?</span>
     <!--hide the profile on login,group and day description-->
-    <group-members type="profile" data-ng-show="!$state.includes('login') && !$state.includes('group') && !showDescription"> </group-members>
-    <div class="close" data-ng-show="true" ng-hide="!$state.includes('groupsScore')" ng-click="backClick()"></div>
+    <group-members type="profile" data-ng-show="!$state.includes('login') && !$state.includes('group') && !showDayDescription"> </group-members>
+   <!--back btn display when its a group score page or when its a stages template and the page is mainNav-->
+    <div class="close" data-ng-show="true" ng-hide="!$state.includes('groupsScore') && !($state.includes('mainNav') && isStationArch)" ng-click="backClick()"></div>
     <!--<points type="global"></points>-->
 </footer>
 

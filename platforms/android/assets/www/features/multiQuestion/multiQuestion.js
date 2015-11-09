@@ -23,6 +23,7 @@ odtechApp.directive('multiQuestion', ['$rootScope', '$timeout', function ($rootS
             scope.results = {};
             scope.results.answer = [];
             scope.results.points = 0;
+          //   scope.results.description = scope.missionData.description;
             scope.pointsPerQuestion = scope.missionData.points / scope.missionData.questions.length;
 
             scope.answerClick = function (index) {

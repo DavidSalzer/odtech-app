@@ -1,14 +1,6 @@
 <section id="mission-capture-video" class="feature" >
 
-    <!--popup end mission-->
-    <div class="photo-order" ng-show="showFinishQuestion">
-        <h2>סיימתם?</h2>
-        <div class="photo-continue" ng-click="uploadVideo()">
-            <span class="next-text">לחצו לאישור</span>
-            <span class="arrow"></span>
-        </div>
-    </div>
-
+  
     <div class="main-video video" id="capture-video-clip">
         <!--for delete-->
         <div data-ng-show="videoSaved['videoCenter']&&firstTime" class="deleteOrbit" pos="videoCenter" data-ng-click="deleteVideo(videoCenter)">X</div>
@@ -27,6 +19,15 @@
         <!--main button for captur and view video-->
         <div id="capture-video-movie" data-ng-show="videoSaved[videoCenter];">
           
+        </div>
+    </div>
+
+      <!--popup end mission-->
+    <div class="photo-order" ng-show="showFinishQuestion" ng-click="uploadVideo()">
+        <h2>סיימתי</h2>
+        <div class="photo-continue" >
+            <!--<span class="next-text">לחצו לאישור</span>-->
+            <span class="arrow"></span>
         </div>
     </div>
 

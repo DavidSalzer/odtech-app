@@ -1,4 +1,4 @@
-odtechApp.directive('points', ['$rootScope', function ($rootScope) {
+odtechApp.directive('points', ['$rootScope', 'server', function ($rootScope, server) {
 
     return {
         restrict: 'E',
@@ -16,10 +16,19 @@ odtechApp.directive('points', ['$rootScope', function ($rootScope) {
             scope.introductionsPoints = 0;
             scope.globalPoints = 0;
             //sum the points
-            scope.addToGlobalPoints = function (points) {
-                if (points) {
-                    scope.globalPoints = parseInt(scope.globalPoints) + parseInt(points);
+            scope.setGlobalPoints = function () {
+                request = {
+                    type: "getUserPoints",
+                    req: {
+
+                    }
                 }
+                server.request(request)
+                 .then(function (data) {
+                    
+                    scope.globalPoints = data.res.pointsOfUser;
+                 })
+                
 
             }
 
@@ -30,23 +39,19 @@ odtechApp.directive('points', ['$rootScope', function ($rootScope) {
 
 
             scope.initPoints = function (tasks) {
-                //sum the points from tasks list
-                scope.globalPoints = 0;
-                for (var i = 0; i < tasks.length; i++) {
-                    //if there is points - add it
-                    if (tasks[i].answer && tasks[i].answer.points) {
-                        scope.addToGlobalPoints(parseInt(tasks[i].answer.points));
-                    }
-                }
+              
 
             }
             //add the score when mission finished
             scope.$on('finishMission', function (event, data) {
-                scope.addToGlobalPoints(data.results.points);
+
+
+
+                scope.setGlobalPoints();
             });
             //when there are tasks - init the score by server - on re-login etc.
             scope.$on('hasTasks', function (event, data) {
-                scope.initPoints(data.tasks);
+                scope.setGlobalPoints();
             });
 
             ////listen to parent mission and only for him show the timer - freeze
@@ -54,7 +59,7 @@ odtechApp.directive('points', ['$rootScope', function ($rootScope) {
             //   
             //});
             scope.$on('showIntroductionPage', function (event, data) {
-                 if (attrs.type == "single") {
+                if (attrs.type == "single") {
                     scope.introductionsPoints = data.data.points;
                 }
             });

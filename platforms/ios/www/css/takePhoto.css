@@ -1,14 +1,17 @@
-.photo-order {
-    position: absolute;
-    background: #fff;
+#mission-photo {
+    height: 80%;
+}
+
+.takePhoto .photo-order {
+    position: relative;
+   
     box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
     padding-bottom: 25px;
-    top: 113px;
-    left: 70px;
-    border-radius: 3px;
+    top: 0px;
+    margin: auto;
+    border-radius: 100px;
     display: block;
     width: 255px;
-    height: 135px;
     z-index: 15;
     padding: 11px;
     /* display: none; */
@@ -17,8 +20,20 @@
 #mission-photo .user-upload-img {
 }
 
+#mission-photo #mainPhoto p {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0;
+}
+
+
+
 .take-photo-wrap {
-    height: 99%;
+    height: 100%;
     /*overflow-y: auto;*/
     position: relative;
 }
@@ -26,23 +41,31 @@
 .photo-continue {
     /*color: #408fb0;*/
     width: 240px;
-    height: 45px;
+    height: 60px;
     position: absolute;
     bottom: 0;
     font-size: 30px;
     font-size: 1.7em;
     left: 7px;
-    line-height: 45px;
+    line-height: 60px;
     cursor: pointer;
-    text-indent: -10px;
+    text-indent: 65px;
+    /*text-align: center;*/
+}
+
+.photo-continue .arrow {
+    margin-right: 35px;
+    margin-right: 125px;
+    margin-bottom: 1px;
 }
 
 .photoCenter p span {
     display: block;
     text-align: center;
-    margin-top: 95px;
+    margin-top: 40px;
     font-size: 85px;
     font-size: 4.2em;
+    
 }
 
 .photoCenter p {
@@ -54,30 +77,19 @@
     height: 312px;
     width: 425px;
     max-height: 100%;
-    position: absolute;
-    top: 235px;
-    /* left: 320px; */
+    position: relative;
     color: #fff;
-    font-size: 35px;
     font-size: 1.8em;
     /* background-image: url(../img/help.jpg); */
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    z-index: 5;
-    background-position: center;
-    margin: auto;
-    /*overflow: auto;*/
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
+    margin: 68px auto 20px auto;
+  
 }
 
 .deleteOrbit {
     border-radius: 100%;
     border-color: #408fb0;
-    width: 9px;
-    height: 10px;
+    width: 29px;
+    height: 30px;
     position: absolute;
     border: 4px solid #408fb0;
     background-color: white;
@@ -85,7 +97,7 @@
     z-index: 12;
     padding: 4px;
     font-size: 9px;
-    font-size: 0.5em;
+    font-size: 14px;
     padding-right: 6PX;
     font-family: arial;
     font-weight: bold;
@@ -106,6 +118,7 @@
 #mission-photo .photo {
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 15px;
 }
 
 .orbit {
@@ -122,14 +135,13 @@
     width: 230px;
     height: 190px;*/
     /* background-color: rgba(169,226,250,.9); */
-    left: 4%;
+    left: 160px;
     position: absolute;
-    top: 130px;
+    top: 270px;
     color: #fff;
-    top: 52%;
     background-position: center;
-    width: 230px;
-    height: 190px;
+    width: 160px;
+    height: 120px;
 }
 
 .photoLeft {
@@ -147,11 +159,11 @@
     left: 150px;
     position: absolute;
     color: #fff;
-    top: 3%;
-    left: 3%;
+    top: 195px;
+    left: 160px;
     background-position: center;
-    width: 230px;
-    height: 190px;
+    width: 160px;
+    height: 120px;
     right: initial;
 }
 
@@ -171,11 +183,15 @@
     left: initial;
     position: absolute;
     color: #fff;
-    top: 52%;
-    right: 2%;
+    top: 195px;
+    right: 160px;
     background-position: center;
-    width: 230px;
-    height: 190px;
+    width: 160px;
+    height: 120px;
+}
+
+.photoRight-up, .photoLeft-up {
+    top: 120px;
 }
 
 .photoDown {
@@ -190,13 +206,12 @@
     /* background-color: rgba(178,219,236,.9); */
     /* background-color: rgba(178,219,236,.9); */
     bottom: 80px;
-    right: 3%;
+    right: 160px;
     color: #fff;
-    top: 2%;
-    /* right: 0; */
+    top: 270px;
     background-position: center;
-    width: 230px;
-    height: 190px;
+    width: 160px;
+    height: 120px;
     position: absolute;
 }
 
@@ -254,7 +269,7 @@
 .photoUp p span {
     display: block;
     text-align: center;
-    padding-top: 75px;
+    /*padding-top: 75px;*/
     font-size: 85px;
     font-size: 4.2em;
 }
@@ -262,7 +277,7 @@
 .photoDown p span {
     display: block;
     text-align: center;
-    padding-top: 75px;
+    /*padding-top: 75px;*/
     font-size: 85px;
     font-size: 4.2em;
 }
@@ -270,7 +285,7 @@
 .photoRight p span {
     display: block;
     text-align: center;
-    padding-top: 75px;
+    /*padding-top: 75px;*/
     font-size: 85px;
     font-size: 4.2em;
 }
@@ -278,7 +293,7 @@
 .photoLeft p span {
     display: block;
     text-align: center;
-    padding-top: 75px;
+    /*padding-top: 75px;*/
     font-size: 85px;
     font-size: 4.2em;
 }
@@ -296,6 +311,8 @@ div.openImgDialog > div > span {
 }
 
 .photo-order h2 {
+    line-height: 38px;
+    text-indent: 60px;
     font-size: 2em;
 }
 
@@ -319,20 +336,42 @@ div.openImgDialog > div > span {
 @media all and (max-width: 670px) {
 
     .take-photo-wrap {
+        overflow-y: hidden;
+    }
+
+    .photo-endBtn-wrap {
+        height: 20%;
+        position: relative;
+    }
+
+    .takePhoto .photo-order {
+       
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        width: 40%;
+    }
+
+    .takePhoto #mission-photo .photo-order {
+    }
+
+    #mission-photo {
+        margin-top: 0px;
+        display: block;
         overflow-y: auto;
     }
 
-   
-    #mission-photo {
-        overflow: hidden;
-        height: initial;
+    #mission-photo.show-btn-of-bootom {
+        overflow-y: auto;
+height: 80%;
     }
 
     .photoCenter {
         position: relative;
         left: 0px;
         top: 0px;
-        margin: 15% auto 30px auto;
+        margin: 25px auto 15px auto;
         width: 80%;
         height: 215px;
     }
@@ -344,7 +383,7 @@ div.openImgDialog > div > span {
         top: 0px;
         left: 0px;
         width: 80%;
-        height: 190px;
+        height: 130px;
     }
 
     #mission-photo .orbit.photo.photoUp {
@@ -372,7 +411,7 @@ div.openImgDialog > div > span {
         right: 0px;
         margin: auto;
         height: 100%;
-        padding-top: 93px;
+        padding-top: 30px;
     }
 
     .photoCenter p span {
@@ -442,18 +481,24 @@ div.openImgDialog > div > span {
         top: initial;
         right: 0;
         margin: auto;
-        min-height: 45px
+        padding: 7px 10px;
+        height: 36px;
     }
 
     .photo-order h2 {
-        font-size: 1.6em;
+        font-size: 20px;
+        text-indent: initial;
+        line-height: 18px;
     }
 
     .photo-continue {
-        width: 110px;
-        height: 34px;
-        left: 4px;
+        left: 11px;
         text-align: left;
+        width: 29px;
+        height: 32px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
     }
 
     .photo-order .next-text {
@@ -461,7 +506,12 @@ div.openImgDialog > div > span {
     }
 
     .photo-order .arrow {
-        width: 20px;
+        width: 100%;
+        margin: 0px;
+        height: 100%;
+        display: block;
+            top: 0;
+    background-size: 100% 100%;
     }
 
     .photoLeft .deleteOrbit {

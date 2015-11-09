@@ -1,15 +1,5 @@
 <div class="take-photo-wrap">
-    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" >
-
-        <!--popup end mission-->
-        <div class="photo-order" ng-show="showFinishQuestion">
-            <h2>סיימתם?</h2>
-            <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
-            <div class="photo-continue" ng-click="uploadImages()">
-                <span class="next-text">לחצו לאישור</span>
-                <span class="arrow"></span>
-            </div>
-        </div>
+    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" data-ng-class="{'show-btn-of-bootom': showFinishQuestion==true}">
 
         <!--center photo-->
         <div class="photoCenter photo" id="mainPhoto" style="background-image: url({{pictures['photoCenter'].uri}})">
@@ -25,6 +15,8 @@
             </form>
         </div>
 
+
+
         <!-- for browsers -->
         <!--<input type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />-->
         <!--center photo-->
@@ -33,7 +25,7 @@
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoLeft">
                 <p data-ng-hide="photoSaved['photoLeft']||!firstTime">
                     <span data-ng-if="!isApp">+
-                        <input type="file"  accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoLeft')" class="user-upload-img" name="file">
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoLeft')" class="user-upload-img" name="file">
                     </span>
                     <span data-ng-if="isApp" data-ng-click="captureImage('photoLeft')">+</span>
                 </p>
@@ -46,7 +38,7 @@
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoRight">
                 <p data-ng-hide="photoSaved['photoRight']||!firstTime">
                     <span data-ng-if="!isApp">+
-                        <input type="file"  accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoRight')" class="user-upload-img" name="file">
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoRight')" class="user-upload-img" name="file">
 
                     </span>
                     <span data-ng-if="isApp" data-ng-click="captureImage('photoRight')">+</span>
@@ -60,7 +52,7 @@
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoDown">
                 <p data-ng-hide="photoSaved['photoDown']||!firstTime">
                     <span data-ng-if="!isApp">+
-                        <input type="file"  accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoDown')" class="user-upload-img" name="file">
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoDown')" class="user-upload-img" name="file">
 
                     </span>
                     <span data-ng-if="isApp" data-ng-click="captureImage('photoDown')">+</span>
@@ -74,7 +66,7 @@
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoUp">
                 <p data-ng-hide="photoSaved['photoUp']||!firstTime">
                     <span data-ng-if="!isApp">+
-                        <input type="file"  accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoUp')" class="user-upload-img" name="file">
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoUp')" class="user-upload-img" name="file">
                     </span>
                     <span data-ng-if="isApp" data-ng-click="captureImage('photoUp')">+</span>
                 </p>
@@ -82,15 +74,25 @@
         </div>
 
         <div class="upload-loader" ng-show="showLoader">
-           <div>{{uploadText}}</div>
+            <div>{{uploadText}}</div>
         </div>
     </section>
-
+    <div class="photo-endBtn-wrap">
+        <!--popup end mission-->
+        <div class="photo-order" ng-show="showFinishQuestion"  ng-click="uploadImages()">
+            <h2>סיימתי</h2>
+            <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
+            <div class="photo-continue">
+                <!--<span class="next-text">לחצו לאישור</span>-->
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
     <!--description popup-->
     <div data-ng-show="openImg" class="openImgDialog openImgDialog-wrapper" id="photo-title" style="background-image: url({{pictures[photoClicked].uri}})" style="display: none;">
         <div class="img-description">
             <span>תנו לתמונה שם</span>
-            <input type="text"   accept="image/*" id="img-description" data-ng-model="description">
+            <input type="text" accept="image/*" id="img-description" data-ng-model="description">
             <div class="description-continue" id="description-continue" data-ng-click="addDescription()">שמור
                 <span class="arrow"> </span>
             </div>

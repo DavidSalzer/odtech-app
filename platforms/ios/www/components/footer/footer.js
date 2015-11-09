@@ -4,6 +4,12 @@ odtechApp.controller('footer', ['$rootScope', '$scope', '$state', 'server', '$ti
     $scope.$state = $state;
   
     $scope.backClick = function () {
-        history.back()
+        if ($state.is('mainNav')) {
+            $state.transitionTo('stages');
+        }
+        else {
+
+            history.back()
+        }
     }
 } ]);

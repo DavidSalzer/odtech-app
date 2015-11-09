@@ -154,6 +154,7 @@
         left: 0px;
         right: 0px;
         margin-top: 24px;
+        display: block;
     }
 .movieCtl{
     width: 240px

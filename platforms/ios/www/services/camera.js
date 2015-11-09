@@ -74,7 +74,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
             // return a promise
             return deferred.promise;
         },
-        uploadPhoto: function (pictures, type, num) {
+        uploadPhoto: function (pictures, type, num, uploadType) {
             var deferred = $q.defer();
             var uploaded = 0;
             results = [];
@@ -92,7 +92,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
             }
 
             var fail = function (error) {
-              //  alert("An error has occurred: Code = " + error.exception);
+                //  alert("An error has occurred: Code = " + error.exception);
                 deferred.reject(error);
             }
 
@@ -110,14 +110,38 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
 
             var ft = new FileTransfer();
             for (p in pictures) {
-                request = {
-                    type: "sendFileAnswer",
-                    req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
-                        mid: $stateParams.missionId,
-                        field: p,
-                        type: type
+                //capture by menu btn
+                if (uploadType == 'menu') {
+                    request = {
+                        type: "sendFileAnswer",
+                        req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
+                             field: p,
+                            type: type
+                        }
                     }
                 }
+                //capture by home pae btn
+                 if (uploadType == 'main') {
+                    request = {
+                        type: "uploadPhotoByCid",
+                        req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
+                             field: p,
+                            type: type,
+                            cid:$rootScope.cid
+                        }
+                    }
+                }
+                //capture by mission
+                else {
+                    request = {
+                        type: "insertPhotoToAppUser",
+                        req: { uri: pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1),
+                            field: p,
+                            type: type
+                        }
+                    }
+                }
+
                 params.reqArray = JSON.stringify(request);
                 options.fileName = pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1);
                 ft.upload(pictures[p].uri, domain, win, fail, options);
@@ -145,7 +169,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
                 //fd.append('file', pictures[p].file);
                 //fd.append(fileName, pictures[p].uri.substr(pictures[p].uri.lastIndexOf('/') + 1));
                 pictures[p].fd.append('reqArray', JSON.stringify(request));
-
+                console.log( pictures);
                 if (type == "img") {
                     pictures[p].fd.append('mimeType', "image/jpeg");
                 } else if (type == "video") {
@@ -163,7 +187,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
                     }
                 })
                 .error(function (error) {
-                 //   alert("An error has occurred: Code = " + error.exception);
+                    //   alert("An error has occurred: Code = " + error.exception);
                     deferred.reject(error);
                 })
             }

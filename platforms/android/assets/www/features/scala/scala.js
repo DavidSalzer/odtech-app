@@ -35,7 +35,9 @@ odtechApp.directive('scala', ['$rootScope', function ($rootScope) {
                 var right = 0;
                 var top = 0;
                 if ($(document).width() < "670") {
-                    height = $("#main-container").height() * 0.68;
+                    //  height = $("#main-container").height() * 0.58;
+                    height = $(".range-wrap").height();
+
                     right = (height / 2.4) * -1;
                     top = height / 2;
                     //the width is height because of the rotate css
@@ -106,21 +108,21 @@ odtechApp.directive('scala', ['$rootScope', function ($rootScope) {
                         //round the results points 
                         scope.results.points = Math.round(scope.results.points);
                         //Perform end mission function.
-                        scope.endMission(scope.results,scope.missionData); //the param is the answers of user
+                        scope.endMission(scope.results, scope.missionData); //the param is the answers of user
 
                     }, 1500);
                 }
                 else {
                     scope.results.points = scope.missionData.points;
                     //Perform end mission function.
-                    scope.endMission(scope.results,scope.missionData); //the param is the answers of user
+                    scope.endMission(scope.results, scope.missionData); //the param is the answers of user
                 }
             }
 
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
                 //round the results points 
                 scope.results.points = Math.round(scope.results.points);
-                scope.endMission(scope.results,scope.missionData);
+                scope.endMission(scope.results, scope.missionData);
             });
 
 

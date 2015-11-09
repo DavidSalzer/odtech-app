@@ -29,12 +29,10 @@
                 </div>-->
 <!--tests-->
 <div class="groups-container general"   data-ng-class="{'step2': !inStep1}">
-    <div class="img-plus" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')">
-
-    </div>
     <div class="group-name">
         <input type="text" placeholder="הזן שם קבוצה" ng-model="groupNameByInput"  ng-change="inStep1 =true">
     </div>
+    <div class="img-plus" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')"></div>
     <div class="step1" ng-show="inStep1">
         <div class="join" ng-click="joinToGroup()">
             <div class="text">הצטרף</div>
@@ -52,7 +50,7 @@
                 <div class="groups-members-refresh" ng-click="getMembers()"></div>
             </div>
         </div>
-        <div class="run" ng-click="go()">
+        <div class="run everyone-run" ng-click="go()">
             <div class="text">כולם פה? צאו לדרך</div>
             <div class="arrow"></div>
         </div>

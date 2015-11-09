@@ -10,20 +10,24 @@
     bottom: 0px;
     right: 0px;
     left: 0px;
-      background-color: #ffffff;
-  border-top: 5px solid rgba(255, 254, 255, 0.5);
-  background-clip: padding-box;
+    background-color: #ffffff;
+    border-top: 5px solid rgba(255, 254, 255, 0.5);
+    background-clip: padding-box;
 }
-.scala-wrap
-{
-      height: 100px;
-  top: -30%;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  position: absolute;
-  margin: auto;
-  width: 80%;
+
+.scala-wrap {
+    height: 100px;
+    top: -30%;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    position: absolute;
+    margin: auto;
+    width: 80%;
+}
+.scala .arrow {
+ 
+    float: left;
 }
 #scala {
     width: 88%;
@@ -96,13 +100,21 @@
     left: 0;
     right: 0;
     margin: auto;
+    top: 0;
 }
-.option-index a{
-    text-decoration:none;
-   
+
+.option-index a {
+    text-decoration: none;
 }
-.option-index { pointer-events: none; }
-.option-index > a { text-decoration:none; color:inherit; }
+
+.option-index {
+    pointer-events: none;
+}
+
+.option-index > a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /********to delete*********/
 #scala-max {
@@ -134,12 +146,14 @@
     width: 30%;
     margin: auto;
     margin-top: 33px;
-    padding-top: 40px;
     background: #fff;
     box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
-    width: 320px;
-    height: 100px;
     font-size: 1.8em;
+    width: 255px;
+    height: 54px;
+    padding: 11px;
+    border-radius: 50px;
+    padding-top: 7px;
 }
 
 /******************************************************/
@@ -147,111 +161,6 @@ input {
     height: 12px;
     width: 256px;
 }
-/*********************** reset  */
-
-input[type=range] {
-    /*-webkit-appearance: none;
-    width: 100%;*/
-}
-
-input[type=range]::-webkit-slider-thumb {
-    /*-webkit-appearance: none;*/
-}
-
-input[type=range]:focus {
-    /*outline: none;*/
-}
-
-input[type=range]::-ms-track {
-    /*width: 100%;
-    cursor: pointer;
-    background: transparent; 
-    border-color: transparent;
-    color: transparent;*/
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    /*width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-   
-    background: #aaaaaa;
-    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff));
-    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 );
-    border-radius: 20px;
-    border: 0.2px solid #010101;*/
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    /*width: 100%;
-    height: 8.4px;
-    cursor: pointer;
-    background: #aaaaaa;
-    background: -moz-linear-gradient(top, #aaaaaa 0%, #ffffff 97%, #ffffff 100%, #2989d8 100%, #ffffff 101%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaaaaa), color-stop(97%,#ffffff), color-stop(100%,#ffffff), color-stop(100%,#2989d8), color-stop(101%,#ffffff));
-    background: -webkit-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: -o-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: -ms-linear-gradient(top, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    background: linear-gradient(to bottom, #aaaaaa 0%,#ffffff 97%,#ffffff 100%,#2989d8 100%,#ffffff 101%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#ffffff',GradientType=0 );
-    border-radius: 20px;
-    border: 0.2px solid #010101;*/
-}
-
-input[type=range]::-webkit-slider-thumb {
-    /*-webkit-appearance: none;
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
-    margin-top: -14px;
-    overflow: hidden;
-    background-size: cover;
-    background-position-y: 3px;
-    background-position-x: 3px;
-    background-image: url('../img/grading_scale.png');
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;*/
-}
-
-input[type=range]::-moz-range-thumb {
-    /*-webkit-appearance: none;
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
-    margin-top: -14px;
-    overflow: hidden;
-    background-size: 100%;
-    background-position-y: 3px;
-    background-position-x: 5px;
-    background-image: url('../img/grading_scale.png');
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;*/
-}
-
-input[type=range]::-ms-thumb {
-    /*-webkit-appearance: none;
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
-    margin-top: -14px;
-    overflow: hidden;
-    background-size: 100%;
-    background-position-y: 3px;
-    background-position-x: 5px;
-    background-image: url('../img/grading_scale.png');
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;*/
-}
-
-
 
 
 input[type=range] {
@@ -385,13 +294,15 @@ input[type=range]:focus::-ms-fill-upper {
         -ms-transform: rotate(270deg);
         transform: rotate(270deg);
         box-sizing: border-box;
-          margin-top: -4px;
+        margin-top: -4px;
     }
-.scala-wrap{
-      height: 100%;
-  top: initial;
-  bottom: initial;
-}
+
+    .scala-wrap {
+        height: 100%;
+        top: initial;
+        bottom: initial;
+        height: 120%;
+    }
 
     .mobile-down-input {
         height: 20px;
@@ -426,34 +337,36 @@ input[type=range]:focus::-ms-fill-upper {
         display: none;
     }
 
+    .scala-taskEnd-wrapper .text {
+        display: block;
+        text-align: right;
+    }
+
     .taskEnd-wrapper {
-        /* margin-top: 12px; */
-        width: 39%;
+        width: 80%;
         clear: both;
-        /* position: absolute; */
-        /* bottom: 0; */
-        margin-bottom: 10px;
-        padding-top: 0;
-        height: 37px;
-        margin: auto;
-        /* left: 9px; */
-        position: relative;
-        /* right: initial; */
-        /* float: left; */
+        height: 36px;
+        /* margin-bottom: 10px; */
+        /* padding-top: 0; */
+        /* height: 37px; */
+        /* margin: auto; */
+        /* position: relative;*/
     }
 
     .multi .taskEnd-wrapper {
-    width: 208px;
-        /*top: 0;
-        bottom: 0;
-        position: absolute;
-        margin: auto;*/
-    line-height: 37px;
-}
+        width: 40%;
+        position: relative;
+    }
 
     .scala .taskEnd-wrapper .arrow {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        left: 6px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
     }
 
     #scala-min-mobile {
@@ -485,7 +398,7 @@ input[type=range]:focus::-ms-fill-upper {
         position: absolute;
         right: -100px;
         z-index: 1;
-          direction: ltr;
+        direction: ltr;
     }
 
     .scala-text {
@@ -504,13 +417,15 @@ input[type=range]:focus::-ms-fill-upper {
         box-sizing: border-box;
         border-top: 5px solid rgba(255, 254, 255, 0.5);
         background-clip: padding-box;
+        overflow-y: auto;
     }
 
     .options-wrap {
         width: 43%;
         height: 77%;
         float: right;
-        padding-top: 6px;
+        margin-top: 15px;
+        height: 100%;
     }
 
     .scala-option-wrap {
@@ -518,6 +433,7 @@ input[type=range]:focus::-ms-fill-upper {
         width: 100% !important;
         margin-top: -3px;
         text-align: left;
+        position: relative;
     }
 
     .double .scala-option-wrap.first {
@@ -534,11 +450,11 @@ input[type=range]:focus::-ms-fill-upper {
     }
 
     .range-wrap {
-        height: 76%;
+        height: 100%;
         width: 67px;
         float: right;
         position: relative;
-         margin-bottom: 32px;
+        margin-bottom: 20px;
     }
 
     .scala-option-index-wrap {
@@ -550,15 +466,29 @@ input[type=range]:focus::-ms-fill-upper {
         text-align: center;
         width: 13px;
         float: right;
-        height: 85%;
+        height: 100%;
         margin-top: -15px;
-        margin-bottom: 0;
-        padding-top: 13px;
+        margin-bottom: 0px;
+        margin-top: 13px;
     }
 
     .double .scala-option-wrap.last {
         text-align: left;
         max-height: 50px;
         overflow: auto;
+    }
+
+    .multi .scala-option-wrap.last {
+        height: 20px !important;
+        margin-top: -20px;
+    }
+
+    .scala-option-wrap.last .option-text {
+        bottom: 0;
+        top: initial;
+    }
+
+   .scala .opacity-mask {
+        height: 150%;
     }
 }

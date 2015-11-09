@@ -1,7 +1,6 @@
 .main-barcode {
-    background-color: rgba(70,196,180,.9);
-    height: 442px;
-    width: 611px;
+      height: 77%;
+    width: 50%;
     position: absolute;
     color: #fff;
     font-size: 35px;
@@ -9,12 +8,14 @@
     /* background-image: url(../img/help.jpg); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    /*z-index: 5;*/
+    /* z-index: 5; */
     margin: auto;
     top: 0px;
     bottom: 0px;
     right: 0px;
     left: 0px;
+    border-radius: 15px;
+    max-height: 350px;
 }
 
 .main-barcode span {
@@ -22,7 +23,7 @@
     text-align: center;
     margin-top: 45px;
     font-size: 85px;
-    font-size:3.3em;
+    font-size: 3.3em;
 }
 
 .main-barcode p {
@@ -35,30 +36,37 @@
     top: 49px;
     font-size: 1.5em;
 }
-.main-barcode .message-text-popup h2
-{
-      font-size: 1.5em;
+
+.main-barcode .message-text-popup h2 {
+    font-size: 1.5em;
 }
-.main-barcode .message-text-popup .textMessage p{
-      font-size: 1.2em;
-  margin-top: 1.8em;
+
+.main-barcode .message-text-popup .textMessage p {
+    font-size: 1.2em;
+    margin-top: 1.8em;
 }
 
 @media all and (max-width: 736px) {
-        .main-barcode {
+    .main-barcode {
         position: relative;
         display: block;
-        margin: 90px auto 14px auto;
+        margin: 30px auto 14px auto;
         top: 0px;
         left: 0px;
         width: 280px;
         height: 215px;
     }
+
     .main-barcode span {
         margin-top: 0px;
     }
 
     .main-barcode span {
         top: 80px;
+    }
+
+    .mission-tab-content {
+        height: 100%;
+        overflow-y: auto;
     }
 }

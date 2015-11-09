@@ -1,26 +1,68 @@
 odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', 'camera', function ($rootScope, $scope, $state, server, $timeout, camera) {
     $scope.loginFirstPage = true;
+    $rootScope.isStationArch = false;
     $scope.userName = '';
     $scope.btn_text = 'הירשם';
-    //set the state - for hide and show the footer
-    // $scope.$state = $state;
-
+    
     $rootScope.$broadcast('stopLocationWatcher', {});
 
-    //check if the user login
-    server.request({ "type": "getAppUser", "req": {} })
+    //if there is main page - show group code field
+    if ($rootScope.isPreLoginPage) {
+        server.request({ "type": "getAppUser", "req": {} })
+         .then(function (data) {
+             //if the user login
+             if (data.res) {
+                 //if the user has gid - go to mainNav/stages
+                 if (parseInt(data.res.gid) != 0) {
+                     $scope.transitionByArch(data);
+                 }
+                 //else - show the group code input
+                 {
+                     $scope.showGroupCodeField = true;
+                 }
+
+             }
+             //if the usernotlogin - go to login page
+             else {
+                 //if there is main page - go to user login page
+                 if ($rootScope.isPreLoginPage) {
+                     $state.transitionTo('userLogin');
+                 }
+                 else {
+                     $state.transitionTo('login');
+                 }
+
+             }
+
+
+         })
+    }
+    //else - check if the user login
+    else {
+        //check if the user login
+        server.request({ "type": "getAppUser", "req": {} })
     .then(function (data) {
         //if user login
         if (data.res && data.res.name) {
-            $rootScope.showDescription = true; //show day description in mainNav.
-            
-             console.log('mainNav 4')
-            $state.transitionTo('mainNav');
-           
+            //  $rootScope.showDescription = true; //show day description in mainNav.
+            $rootScope.showDayDescription = false;
+            $scope.transitionByArch(data);
             $rootScope.$broadcast('showDescription', {});
         }
         //if logged in user has no userName 
         else if (data.res && data.res.email) {
+            if (parseInt(data.res.isStationArch)) {
+                $rootScope.isStationArch = true;
+            }
+            //check if the format is group or singke travel
+            $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
+            //set the tet on login btn by travel type
+            if ($rootScope.isGroupTravel) {
+                $scope.registerBtnText = 'הירשם'
+            }
+            else {
+                $scope.registerBtnText = 'צא לדרך'
+            }
             $timeout(function () {
                 $scope.loginFirstPage = false;
             }, 0)
@@ -30,6 +72,8 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $rootScope.$broadcast('logout', {});
         }
     })
+
+    }
 
     //general error need to pass to global file.
     $scope.errorMsg = {};
@@ -60,14 +104,28 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             if (!data.res.error) {
                 //if it old user go to groups page else update user details. 
                 if (data.res.name) {
-                    $rootScope.showDescription = true; //show day description in mainNav.
-                      
-                    $state.transitionTo('mainNav');
-                    console.log('mainNav 6')
-                 //   $rootScope.$broadcast('showDescription', {});
+                    if (parseInt(data.res.isStationArch)) {
+                        $rootScope.isStationArch = true;
+                    }
+                    $scope.transitionByArch(data)
+                   
 
                 }
                 else {
+                    //if the day is a staging day -go to stages
+                    if (parseInt(data.res.isStationArch)) {
+                        $rootScope.isStationArch = true
+                    }
+                    //set the travel type
+                    $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
+                    //set the text on login btn by travel type
+                    if ($rootScope.isGroupTravel) {
+                        $scope.registerBtnText = 'הירשם'
+                    }
+                    else {
+                        $scope.registerBtnText = 'צא לדרך'
+                    }
+
                     $timeout(function () {
                         $scope.loginFirstPage = false;
                         $scope.loginError = false;
@@ -75,6 +133,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 }
 
             }
+            //group code not exist
             else {
                 $timeout(function () {
                     $scope.loginError = true;
@@ -133,10 +192,16 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             console.log(data);
             //if success- go to group page
             if (!data.res.error) {
-                // alert(1);
+                //if its a group travel - go to group page 
+                if ($rootScope.isGroupTravel == true) {
+                    $state.transitionTo('group');
+                }
+                else {
+                    $rootScope.$broadcast('joinToGroup', {});
+                    $scope.transitionByArch(data)
+                   
+                }
                 localStorage.removeItem('userProfile'); //for check if upload image crash
-                $state.transitionTo('group');
-
             }
             else {
 
@@ -180,6 +245,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     $scope.email = '';
     $scope.groupCode = '';
+    $scope.groupData = {};
     $scope.mailnotValid = false;
     $scope.codenotValid = false;
     $scope.namenotValid = false;
@@ -251,7 +317,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     //for check if upload image crash
     if (localStorage.getItem('userProfile') == 'start') {
         $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
-        $rootScope.generalPopupArgs = {generalPopupText: 'טיפ: אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה', generalPopupEvent: true}
+        $rootScope.generalPopupArgs = { generalPopupText: 'טיפ: אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה', generalPopupEvent: true }
         //alert('אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה');
     }
 
@@ -263,4 +329,61 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             localStorage.setItem('userProfile', 'start');
         }
     }
+
+    $scope.transitionByArch = function (data) {
+        //if the day is a staging day -go to stages
+        if (parseInt(data.res.isStationArch)) {
+            $rootScope.isStationArch = true;
+            $state.transitionTo('stages');
+        }
+        //else - go to mainNav
+        else {
+            $state.transitionTo('mainNav');
+        }
+
+    }
+
+    //if there is homepage - send the group codetoserver
+    $scope.sendGroupCode = function () {
+        if ($scope.groupData.onlyGroupCode && $scope.groupData.onlyGroupCode.length == 6) {
+            $scope.groupCodeNotValid = false;
+        }
+        else {
+            $scope.groupCodeNotValid = true;
+            return
+        }
+
+        request = {
+            type: "loginToGroup",
+            req: {
+                cid: cid,
+                groupCode: $scope.groupData.onlyGroupCode
+            }
+        }
+
+        server.request(request)
+        .then(function (data) {
+            console.log(data);
+            //if there is gruop code
+            if (data.res.email) {
+                //if there is a group travel - and there is no subgroup name - go to subgroup page 
+                if (!parseInt(data.res.isSuperActivitySingle) && data.res.subgroup == null) {
+                    $state.transitionTo('group');
+                }
+                else {
+                    $rootScope.$broadcast('userSignIn', {});
+                    $scope.transitionByArch(data)
+                }
+
+            }
+            //else - show the error message
+            else {
+                $timeout(function () {
+                    $scope.loginError = true;
+                    $scope.loginErrorMsg = 'קוד הקבוצה אינו קיים';
+                }, 0)
+            }
+        })
+    }
+
 } ]);

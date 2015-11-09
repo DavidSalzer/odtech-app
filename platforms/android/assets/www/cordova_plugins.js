@@ -269,6 +269,27 @@ module.exports = [
         "clobbers": [
             "window.Media"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+        "id": "cordova-plugin-device-orientation.CompassError",
+        "clobbers": [
+            "CompassError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+        "id": "cordova-plugin-device-orientation.CompassHeading",
+        "clobbers": [
+            "CompassHeading"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+        "id": "cordova-plugin-device-orientation.compass",
+        "clobbers": [
+            "navigator.compass"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -281,7 +302,8 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "1.0.0",
     "cordova-plugin-splashscreen": "2.0.1-dev",
     "cordova-plugin-whitelist": "1.0.0",
-    "org.apache.cordova.media": "0.2.16"
+    "org.apache.cordova.media": "0.2.16",
+    "cordova-plugin-device-orientation": "1.0.1"
 }
 // BOTTOM OF METADATA
 });

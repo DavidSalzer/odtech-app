@@ -1,4 +1,4 @@
-odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeout) {
+odtechApp.directive('takeVideo', ['camera', '$timeout', '$rootScope',function (camera, $timeout,$rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/takeVideo/takeVideo.html',
@@ -13,7 +13,10 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
             scope.videoLeft = 'videoLeft';
             scope.videoRight = 'videoRight';
             scope.isApp = isApp();
-
+            if (window.innerWidth < 736) {
+                $('#capture-video-clip').css('width', '' + (window.innerWidth * 0.8) + 'px');
+                $('#capture-video-clip').css('height', '' + (window.innerWidth * 0.6) + 'px');
+            }
 
 
 
@@ -32,8 +35,8 @@ odtechApp.directive('takeVideo', ['camera', '$timeout', function (camera, $timeo
                 //clear the pictures from camera array
                 camera.setPicturesAndVideos({}, {});
                 //set the  data for mission - parent or sub
-                if (scope.subMissionOpen != -1) {
-                    scope.missionData = scope.subMissionOpen;
+                if ($rootScope.subMissionOpen != -1) {
+                    scope.missionData = $rootScope.subMissionOpen;
                 }
                 else {
                     scope.missionData = scope.parentMissionData;

@@ -1,4 +1,4 @@
-odtechApp.directive('groupMembers', ['server', '$state', '$timeout', function (server, $state, $timeout) {
+odtechApp.directive('groupMembers', ['server', '$state', '$timeout','$rootScope', function (server, $state, $timeout,$rootScope) {
     return {
         restrict: 'E',
         templateUrl: './directives/groupMembers/groupMembers.html',
@@ -10,10 +10,12 @@ odtechApp.directive('groupMembers', ['server', '$state', '$timeout', function (s
             scope.user = {}
             scope.showMembers = false;
             scope.getUser = function (callback) {
-
                 server.request({ "type": "getAppUser", "req": {} })
                 .then(function (data) {
                     if (data.res != null) {
+                        if (parseInt(data.res.isStationArch)) {
+                            $rootScope.isStationArch = true;
+                        }
                         scope.user = data.res;
 
                         if (callback) {
@@ -55,6 +57,9 @@ odtechApp.directive('groupMembers', ['server', '$state', '$timeout', function (s
             scope.initGroupMembers();
             //after the user join to a group - init the members on profile section
             scope.$on('joinToGroup', function () {
+                scope.initGroupMembers()
+            });
+             scope.$on('userSignIn', function () {
                 scope.initGroupMembers()
             });
 

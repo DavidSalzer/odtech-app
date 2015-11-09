@@ -132,6 +132,9 @@
 }
 
 .run {
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .groups-container .text {
@@ -176,6 +179,30 @@
     /*-webkit-transform:  translateY(-50%);*/
 }
 
+.step1 .join {
+    width: 248px;
+    position: relative;
+   
+    color: #fff;
+    border-radius: 20px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0px auto;
+    text-align: right;
+    padding-right: 24px;
+    font-size: 15px;
+}
+
+
+.step1 .join .arrow {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    left: 10px;
+}
+
+
 .step2-box.ng-hide {
     -webkit-transform: scaleY(0), translateY(-50%);
     -moz-transform: scaleY(0);
@@ -198,15 +225,31 @@
 
 @media all and (max-width: 736px) and (max-height: 960px) {
 
+    .step1 .join {
+        width: 180px;
+        height: 44px;
+        font-size: 11px;
+        line-height: 44px;
+    }
+
+    .step1 .join .arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+
     .groups-container {
         top: 93px;
         -webkit-transform: initial;
-        width: 85%;
+        width: 100%;
         overflow-y: auto;
         /*max-height: 100%;*/
         top: 0;
         -webkit-transform: initial;
-        padding-top: 60px;
+        padding-top: 90px;
+        height: auto;
+        min-height: 100%;
+        padding: 90px 12% 0px 12%;
     }
 
     .group-name {
@@ -247,6 +290,11 @@
 
     .groups-members-container {
         margin-bottom: 15px;
+    }
+
+    .run.everyone-run {
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 
     .run .text {

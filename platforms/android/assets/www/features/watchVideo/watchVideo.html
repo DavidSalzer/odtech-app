@@ -19,9 +19,9 @@
     </div>
 
     <!--view video not youtube-->
-    <video  data-ng-if="missionData.videoURL" ng-class="{'blur': IsBlur}" class="fullMovie" id="fullMovie" data-ng-show="missionData.videoURL && !showPoster && startMission" data-ng-click="togglePause()" data-ng-init="!showPoster?showPlayBtn=true:showPlayBtn=falses" controls>
+    <!--<video  data-ng-if="missionData.videoURL" ng-class="{'blur': IsBlur}" class="fullMovie" id="fullMovie" data-ng-show="missionData.videoURL && !showPoster && startMission" data-ng-click="togglePause()" data-ng-init="!showPoster?showPlayBtn=true:showPlayBtn=falses" controls>
         <source src="{{imgDomain+missionData.videoURL}}" type="video/mp4" />
-    </video>
+    </video>-->
      
     <div class="playButton"  data-ng-show="missionData.videoURL && showPlayBtn" data-ng-click="togglePause()"></div>
 </section>

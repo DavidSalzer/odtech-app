@@ -1,9 +1,10 @@
 
-var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', 'ngAnimate','ngSanitize','ngDraggable'])
+var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', 'ngAnimate', 'ngSanitize', 'ngDraggable','ngIOS9UIWebViewPatch'])
 
 /**** UI Router ****/
 .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login");
+    var otherwisePage =isPreLoginPage ? '/userLogin':'/login'
+    $urlRouterProvider.otherwise(otherwisePage);
 
     $stateProvider
 		.state("login", {
@@ -15,8 +16,26 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', '
 		        }
 		    }
 		})
+        .state("userLogin", {
+		    url: "/userLogin",
+		    views: {
+		        "main": {
+		            templateUrl: "./components/login/userLogin.html",
+		            controller: "userLogin"
+		        }
+		    }
+		})
+        .state("pushMessages", {
+		    url: "/pushMessages",
+		    views: {
+		        "main": {
+		            templateUrl: "./components/pushMessages/pushMessages.html",
+		            controller: "pushMessages"
+		        }
+		    }
+		})
         .state("mainNav", {
-            url: "/mainNav",
+            url: "/mainNav/:stageId",
             views: {
                 "main": {
                     templateUrl: "./components/mainNav/mainNav.html",
@@ -72,7 +91,28 @@ var odtechApp = angular.module('odtechApp', ['ui.router', 'uiGmapgoogle-maps', '
                      //type:"score"
                  }
              }
-         });
+         })
+
+        .state("map", {
+            url: "/map",
+            views: {
+                "main": {
+                    templateUrl: "./components/mapDisplay/mapDisplay.html",
+                    controller: "mapDisplay"
+                }
+            }
+        })
+         .state("main", {
+             url: "/main",
+             views: {
+                 "main": {
+                     templateUrl: "./components/main/main.html",
+                     controller: "main"
+                 }
+             }
+         })
+       
+         
 });
 
 //for google maps
