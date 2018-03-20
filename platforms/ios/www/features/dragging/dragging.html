@@ -1,0 +1,65 @@
+<div class="dragging-container">
+
+    <ul class="images-wrap">
+        <li class="dragging-img" ng-repeat="obj in missionData.photoSummary" ng-class="{'dragged':draggedImages[$index] == true}" style="background-image:url('{{obj.appType == "'mission'" ? obj.url : imgDomain+obj.url}}')" ng-drag="firstTime" ng-drag-data="obj" data-allow-transform="true">
+            <!--<div ng-drag="true" ng-drag-data="obj" data-allow-transform="true"> {{obj.url}} </div>-->
+            <span class="subMisV"></span>
+        </li>
+    </ul>
+    <div class="folder-wrap">
+
+        <div class="folder" ng-drop-success="onDropComplete(1,$data,$event,$index)" ng-drop="true" ng-click="displayInnerFolder(1)">
+            <span>{{folderText1}}</span>
+            <div ng-repeat="obj in droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)" ng-center-anchor="{{centerAnchor}}">
+
+            </div>
+        </div>
+        <div class="folder" ng-drop-success="onDropComplete(2,$data,$event)" ng-drop="true" ng-click="displayInnerFolder(2)">
+            <span>{{folderText2}}</span>
+            <div ng-repeat="obj in droppedObjects2" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess2($data,$event)" ng-center-anchor="{{centerAnchor}}">
+
+            </div>
+        </div>
+        <div class="folder" ng-drop-success="onDropComplete(3,$data,$event)" ng-drop="true" ng-click="displayInnerFolder(3)">
+            <span>{{folderText3}}</span>
+            <div ng-repeat="obj in droppedObjects3" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess3($data,$event)" ng-center-anchor="{{centerAnchor}}">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="dragging-endBtn-wrap">
+     <div ng-show="firstTime" class="photo-order" ng-click="taskEnd()">
+        <h2>{{'_imDone_' | localizedFilter}}</h2>
+        <div class="photo-continue">
+                <!--<span class="next-text">לחצו לאישור</span>-->
+                <span class="arrow"></span>
+            </div>
+    </div>
+    </div>
+   
+
+    <div class="inner-folder-wrap" ng-show="showInnerFolder">
+        <span>{{innerFolderText}}</span>
+        <div class="x" ng-click="showInnerFolder=false"></div>
+        <div class="inner-folder-images">
+            <div class="dragging-img" ng-repeat="obj in innerFolderData" style="background-image:url('{{obj.appType == 'mission' ? obj.url : imgDomain+obj.url}}')"></div>
+        </div>
+
+    </div>
+            <!--<div class="folder-wrap" dnd-list="lists">
+                                                        <div class="folder"></div>
+                                                        <div class="folder"></div>
+                                                        <div class="folder"></div>
+                                                    </div>-->
+            <!--<div class="images-wrap"  dnd-list="list">
+        
+                                                                <div class="summary-img" ng-repeat="item in models.lists" dnd-draggable="item" dnd-effect-allowed="move"  ng-class="{'selected': models.selected === item}"></div>
+        
+                                                            </div>
+                                                            <div class="folder-wrap">
+                                                                <div class="folder"></div>
+                                                                <div class="folder"></div>
+                                                                <div class="folder"></div>
+                                                            </div>-->
+</div>

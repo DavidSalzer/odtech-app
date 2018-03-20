@@ -8,7 +8,7 @@ odtechApp.directive('endActivity', ['$state', '$rootScope', '$timeout', function
             scope.$on('lastMissionFinished', function (event, data) {
                 $timeout(function () {
                     if (!scope.lastMissionShowed) {
-                        scope.showEndActivity = true;
+                        //scope.showEndActivity = true;
                         scope.lastMissionShowed = true;
                     }
                 }, 0)

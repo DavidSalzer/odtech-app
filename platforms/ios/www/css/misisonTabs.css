@@ -1,0 +1,172 @@
+
+.mission-main-wrap {
+    position: relative;
+    height: 100%;
+}
+
+.mission-header {
+    height: 70px;
+    position: relative;
+    z-index: 100;
+    border-top: 3px solid rgba(225,225,225,0.5);
+}
+
+.instructions-item {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    /*margin-right: -4px;*/
+    height: 100%;
+    position: relative;
+    transition: background-color 1s;
+    -webkit-transition: background-color 0.5s;
+    vertical-align: top;
+    line-height: 60px;
+    font-size: 1.5em;
+}
+
+.mission-tab {
+    margin-right: -4px;
+}
+
+.tab-title-wrap {
+    width: 150px;
+    margin: auto;
+    height: 100%;
+}
+
+.active-tab:after {
+    top: initial;
+    left: initial;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    /*border-top-color: #801618;*/
+    border-width: 21px;
+    margin-left: -24px;
+    bottom: -42px;
+    right: 46%;
+}
+
+.icon {
+    background-image: url("../img/i.svg");
+    width: 48px;
+    height: 100%;
+    background-size: 100% auto;
+    background-position: center;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+.mission-header-text {
+    color: white;
+    margin-right: 15px;
+}
+
+.active {
+}
+
+.content-tabs-wrap {
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    height: 100%;
+    /* width: 100%; */
+    top: 0;
+    padding-top: 70px;
+    white-space: nowrap;
+    display: inline;
+    right: 0;
+    transition: right 1s;
+}
+
+.content-tabs-wrap.missionActive {
+    right: -100%;
+}
+
+.instructions-tab-content {
+    height: 100%;
+    width: 50%;
+    display: inline-block !important;
+    position: relative;
+    background-color: #fff;
+    vertical-align: top;
+}
+
+.mission-tab-content {
+    height: 100%;
+    width: 50%;
+    display: inline-block !important;
+    margin-right: -4px;
+    background-color: #fff;
+    position: relative;
+    vertical-align: top;
+}
+
+.mission-popup {
+    border-top: initial;
+    top: 0;
+}
+
+.mission-popup-header {
+    /*bottom: 50px;*/
+}
+
+
+
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+    .mission-tab {
+    margin-right: -3px;
+}
+    .icon {
+        /* background-size: 63% auto; */
+        width: 33px;
+        vertical-align: top;
+        /* margin-right: 14px; */
+        /*margin-top: 5px;*/
+    }
+
+    .mission-icon {
+        width: 58px;
+        vertical-align: top;
+    }
+
+    .instructions-item .mission-icon {
+        background-size: 147%;
+        vertical-align: top;
+    }
+
+    .mission-header-text {
+        font-size: 17px;
+        vertical-align: top;
+        /* height: 14px; */
+        margin-right: 9px;
+        display: inline-block;
+        /* line-height: 65%; */
+        /* height: 100%; */
+        padding-top: -23px;
+        margin-top: -3px;
+    }
+
+    .mission-tab .mission-header-text {
+        margin-right: 0px;
+    }
+
+    .mission-header {
+        height: 55px;
+    }
+
+    .content-tabs-wrap {
+        padding-top: 55px;
+    }
+
+    .active-tab:after {
+        border-width: 15px;
+        bottom: -30px;
+    }
+}

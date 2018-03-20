@@ -1,11 +1,11 @@
-odtechApp.directive('openQuestion', ['$timeout','$rootScope', function ($timeout,$rootScope) {
+odtechApp.directive('openQuestion', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
     return {
         restrict: 'E',
         templateUrl: './features/openQuestion/openQuestion.html',
         link: function (scope, el, attrs) {
 
             scope.results = {};
-            scope.results.answer;
+            scope.results.answer =[];
             scope.results.points = 0;
             scope.missionData;
             scope.setData = function () {
@@ -23,12 +23,10 @@ odtechApp.directive('openQuestion', ['$timeout','$rootScope', function ($timeout
 
                     $timeout(function () {
                         scope.firstTime = false;
-                        console.log('firstTime = false;')
                     }, 0)
                 }
                 else {
                     scope.firstTime = true;
-                    console.log('firstTime = true;')
                 }
 
             }
@@ -39,7 +37,16 @@ odtechApp.directive('openQuestion', ['$timeout','$rootScope', function ($timeout
                 scope.results.answer = scope.ans;
                 //get point, if the answer was sent in time
                 if (!scope.endTimer) {
-                    scope.results.points = scope.missionData.points;
+                    //  var str = "The best things in life are free";
+                    var patt = new RegExp(scope.missionData.regChecker,"i");
+                    var res = patt.test(scope.results.answer);
+                    if (res) {
+                        scope.results.points = scope.missionData.points;
+                    }
+                    else {
+                        scope.results.points = 0;
+                    }
+
                 }
                 console.log('on scope.taskEnd open question: mid: ' + scope.missionData.mid)
                 //Perform end mission function.
@@ -50,7 +57,6 @@ odtechApp.directive('openQuestion', ['$timeout','$rootScope', function ($timeout
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
                 //send answer to server if the current if this is the mission that close
                 if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
-                    console.log('xxx3')
                     scope.endMission(scope.results, scope.missionData);
                 }
 

@@ -30,19 +30,21 @@
 <!--tests-->
 <div class="groups-container general"   data-ng-class="{'step2': !inStep1}">
     <div class="group-name">
-        <input type="text" placeholder="הזן שם קבוצה" ng-model="groupNameByInput"  ng-change="inStep1 =true">
+        <input type="text" placeholder="{{'_enterGroupName_' | localizedFilter}}" ng-model="groupNameByInput"  ng-change="inStep1 =true">
     </div>
     <div class="img-plus" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')"></div>
     <div class="step1" ng-show="inStep1">
         <div class="join" ng-click="joinToGroup()">
-            <div class="text">הצטרף</div>
+            <div class="text">{{'_join_' | localizedFilter}}
+            </div>
             <div class="arrow"></div>
         </div>
     </div>
 
     <div class="step2-box"  ng-hide="inStep1">
         <div class="groups-members-container">
-            <div class="title">חברי הקבוצה:</div>
+            <div class="title">{{'_groupMembers_' | localizedFilter}}
+            </div>
             <div class="groups-members-wrap">
                 <div class="groups-members-box">
                     <div class="member-item" ng-repeat="member in groupMembers"  ng-animate="'animate'">{{member.name}}</div>
@@ -51,7 +53,7 @@
             </div>
         </div>
         <div class="run everyone-run" ng-click="go()">
-            <div class="text">כולם פה? צאו לדרך</div>
+            <div class="text">{{'_everyoneHere_' | localizedFilter}} {{'_letsGo_' | localizedFilter}}</div>
             <div class="arrow"></div>
         </div>
     </div>

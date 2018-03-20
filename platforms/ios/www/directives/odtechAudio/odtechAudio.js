@@ -56,7 +56,7 @@ odtechApp.directive('odtechAudio', ['$rootScope', '$timeout', function ($rootSco
 
             if (scope.audioSrc && scope.audioSrc != "") {
                 $timeout(function () {
-                    //     scope.load();
+                  
                     scope.play();
 
                 }, 1);
@@ -90,15 +90,23 @@ odtechApp.directive('odtechAudio', ['$rootScope', '$timeout', function ($rootSco
 
             //the events that cause the media stop
             scope.$on('startMission', function () {
+                console.log('audio startMission')
                 scope.mediaInit();
 
             });
             scope.$on('startDayClick', function () {
+                console.log('audio startDayClick')
                 scope.mediaInit();
 
             });
-             scope.$on('hideDidYouKnow', function () {
-                scope.mediaInit();
+             scope.$on('hideDidYouKnow', function (event,audio) {
+                  console.log('audio hideDidYouKnow')
+                //if there is audio that play - init the media
+                    //else-do nothing (it can stop the next mission audio description
+                 if(audio.audio && audio.audio.length > 0){
+                     scope.mediaInit();
+                 }
+                
 
             });
         },

@@ -1,23 +1,23 @@
-odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$rootScope', function ($timeout, $interval, uiGmapIsReady, $rootScope) {
+odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$rootScope', '$filter', function ($timeout, $interval, uiGmapIsReady, $rootScope, $filter) {
     return {
         restrict: 'E',
         templateUrl: './features/navigation/navigation.html',
         link: function (scope, el, attrs) {
-           
+
             //scope.constLocationLat = 31.787970;
             //scope.constLocationLon = 35.186869;
             scope.showProblemPopup = false;
             scope.showHelp = true;
             scope.missionData = scope.task;
-             scope.hideMap = scope.missionData.hiddenMap;
+            scope.hideMap = scope.missionData.hiddenMap;
             //checkInvisibleIP: true
             //checkPopup: true
             //checkIsNear: false
-
+            scope.noLocationPopupDisplayCount = 0;
             scope.destinationsPointsHide = !scope.missionData.invisibleTarget; // detect if hide the destination points
             scope.interestPointsHide = scope.missionData.checkInvisibleIP; // detect if hide the interest points 
-            scope.interestPopupJumpByDistance = scope.missionData.checkIsNear; //setect if popup jump near the point
-            scope.interestPopupJumpByClick = scope.missionData.checkPopup; //setect if popup jump on click the point
+            scope.interestPopupJumpByDistance = scope.missionData.checkIsNear; //detect if popup jump near the point
+            scope.interestPopupJumpByClick = scope.missionData.checkPopup; //detect if popup jump on click the point
             scope.interestPopupRadius = 0.05; //20m :0.02 // distance by admin
             scope.destinationMarkerArray = scope.missionData.coord; //destination points
             scope.interestMarkerArray = scope.missionData.interestPoints; //interest points
@@ -33,73 +33,80 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                     scaledSize: new google.maps.Size(50, 50)
                 }
             };
+            //init the map center by mission lang & lat
             scope.map = { center: { latitude: scope.missionData.coord[0].latitude, longitude: scope.missionData.coord[0].longitude }, zoom: 14 };
-            scope.options = { scrollwheel: true };
+            scope.options = { scrollwheel: true }; //mapTypeId:google.maps.MapTypeId.SATELLITE : for SATELLITE display
             scope.results = {};
-            scope.results.answer;
+            scope.results.answer =[];
             scope.results.points = 0;
 
             if (scope.missionData.status == 'answer') {
                 scope.initMap = true;
                 scope.showLoader = true; // show the loader until the map load finished
                 scope.showHelp = false;
-                console.log('1')
                 $rootScope.$broadcast('showmissionLoader', { show: true });
             }
-            scope.loadText = "המפה בטעינה..."
-            //  scope.showLoader = false;
-            //console.log('2')
+            scope.loadText = $filter('localizedFilter')('_mapLoading_');
             $rootScope.$broadcast('showmissionLoader', { show: false });
-            //listen to map load event and then hde the loader
+            //listen to map load event and then hide the loader
             uiGmapIsReady.promise()
              .then(function (map_instances) {
                  scope.showLoader = false;
-                 console.log('3')
                  $rootScope.$broadcast('showmissionLoader', { show: false });
              });
 
-            //get current location of user.
-            scope.getCurrentLocation = function () {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(scope.setMyPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
-                } else {
-
-                }
-            }
-
             //init center of map in user location.
-            scope.setMyPosition = function (position) {
+            scope.setMyPosition = function () {
                 $timeout(function () {
-                    scope.myMarker.coords.latitude = position.coords.latitude;
-                    scope.myMarker.coords.longitude = position.coords.longitude;
-                    console.log(scope.myMarker);
+                         if($rootScope.latLocation != -1 && $rootScope.lngLocation != -1){
+                    scope.myMarker.coords.latitude = $rootScope.latLocation
+                         scope.myMarker.coords.longitude = $rootScope.lngLocation;
+                         }
                     scope.noLocation = false;
-                    scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 14 };
+                    //init thzze map center by user location
+                    scope.map = { center: { latitude: $rootScope.latLocation, longitude: $rootScope.lngLocation}, zoom: 14 };
+                }, 0)
+
+            }
+            //error in get user location.
+            scope.errorGetLocation = function () {
+
+
+                $timeout(function () {
+                    if (!scope.map) {
+                        scope.map = { center: { latitude: scope.missionData.Latitude, longitude: scope.missionData.Longitude }, zoom: 14 };
+                    }
+                         scope.noLocationPopupDisplayCount++;
+                    scope.noLocation = true;
+                        
                 }, 0)
 
             }
 
-            //error in get user location.
-            scope.errorGetLocation = function () {
+            //get current location of user - one time?
+            scope.getCurrentLocation = function () {
 
-                //scope.myMarker.coords.latitude = scope.constLocationLat;
-                // scope.myMarker.coords.longitude = scope.constLocationLon;
-                //$timeout(function () {
-                //    if (!scope.map) {
-                //        scope.map = { center: { latitude: scope.missionData.Latitude, longitude: scope.missionData.Longitude }, zoom: 14 };
-                //    }
-                //    scope.noLocation = true;
-                //}, 0)
+                if ($rootScope.lngLocation != -1) {
+                   scope.setMyPosition()
+                }
+                else {
+                   scope.errorGetLocation()
+                }
 
+                //if (navigator.geolocation) {
+                //    navigator.geolocation.getCurrentPosition(scope.setMyPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
+                //} else {
+
+                //}
             }
             scope.getCurrentLocation();
 
 
-            ////mark destination on map.
-            //the last point its the destination
+            //mark the main destination on map.
             scope.destinationMarker = {
                 id: 0,
                 coords: {
+                    //the last point its the destination
                     latitude: scope.missionData.coord[scope.missionData.coord.length - 1].latitude,
                     longitude: scope.missionData.coord[scope.missionData.coord.length - 1].longitude
                 },
@@ -109,26 +116,19 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                 }
             };
 
-            //set the destination marker points
-            //scope.destinationMarkerIcon = { url: './img/position4.png', scaledSize: new google.maps.Size(75,93) };
-            //scope.subdestinationMarkerIcon = { url: './img/subposition.png', scaledSize: new google.maps.Size(50,43) };
 
-            //if the invisibleTarget is true - hide the destinationTarget and subdestinationTarget icons
-            //  $timeout(function () {
-
-            scope.destinationMarkerArray = scope.missionData.coord;
-            scope.interestMarkerArray = scope.missionData.interestPoints;
+            scope.destinationMarkerArray = scope.missionData.coord; //set the destination points array
+            scope.interestMarkerArray = scope.missionData.interestPoints; //set the interest points array
 
 
-            //  35  }, 0);
             $timeout(function () {
-                //if invisible target == true : hide the destination points. 
+                //if invisible target == true : hide the destination icons. 
                 scope.subdestinationMarkerIcon = scope.destinationsPointsHide == 0 ? { url: './img/transparent.png', scaledSize: new google.maps.Size(1, 1)} : { url: './img/subposition.png', scaledSize: new google.maps.Size(25, 22) };
                 scope.destinationMarkerIcon = scope.destinationsPointsHide == 0 ? { url: './img/transparent.png', scaledSize: new google.maps.Size(1, 1)} : { url: './img/position4.png', scaledSize: new google.maps.Size(38, 47) };
 
 
                 scope.destinationMarkerId = 0;
-                //set the interest marker points
+                //set the interest marker icons
                 scope.interestMarkerIcon = scope.interestPointsHide ? { url: './img/transparent.png', scaledSize: new google.maps.Size(1, 1)} : { url: './img/positionIcon.png', scaledSize: new google.maps.Size(12, 20) };
                 scope.interestMarkerId = 0;
 
@@ -136,38 +136,43 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
 
 
             //get user location while it change.
-            scope.getLocation = function () {
+            //scope.getLocation = function () {
 
-                if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(scope.showPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
-                } else {
+            //    if (navigator.geolocation) {
+            //      //  navigator.geolocation.watchPosition(scope.showPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true });
+            //    } else {
 
-                }
+            //    }
 
 
-            }
+            //}
 
             //update user location on map.
-            scope.showPosition = function (position) {
+            scope.showPosition = function () {
                 $timeout(function () {
-                    scope.myMarker.coords.latitude = position.coords.latitude;
-                    scope.myMarker.coords.longitude = position.coords.longitude;
+                         if($rootScope.latLocation != -1 && $rootScope.lngLocation != -1){
+                    scope.myMarker.coords.latitude = $rootScope.latLocation;
+                         scope.myMarker.coords.longitude = $rootScope.lngLocation;
+                         }
                     //console.log(scope.myMarker);
                     scope.noLocation = false;
-                    checkDistance(position, scope.destinationMarker);
+                    checkDistance(scope.destinationMarker);
                 }, 0)
 
             }
 
-            scope.getLocation();
+
+            //scope.getLocation();
 
             //pitagoras, distance between self position and destination
-            function checkDistance(selfPosition, destination) {
-                var x = selfPosition.coords.latitude - destination.coords.latitude;
-                var y = selfPosition.coords.longitude - destination.coords.longitude;
+            function checkDistance( destination) {
+                var x = $rootScope.latLocation - destination.coords.latitude;
+                var y = $rootScope.lngLocation - destination.coords.longitude;
+                var z;
                 x2 = Math.pow(x, 2);
                 y2 = Math.pow(y, 2);
                 z = Math.sqrt(x2 + y2);
+
                 if (z < scope.destinationRadius) {
                     $timeout(function () {
                         if (!scope.endTimer) {
@@ -187,26 +192,28 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
 
                 //check the interest points distance -for jump popup
                 if (scope.interestPopupJumpByDistance) {
-                    scope.checkInterestPointsDistance(selfPosition)
+                    scope.checkInterestPointsDistance()
                 }
 
 
             }
 
-            scope.calculateDistance = function (selfPosition, destinationCoords) {
-                var x = selfPosition.coords.latitude - destinationCoords.latitude;
-                var y = selfPosition.coords.longitude - destinationCoords.longitude;
+            scope.calculateDistance = function ( destinationCoords) {
+                var x = $rootScope.latLocation - destinationCoords.latitude;
+                var y = $rootScope.lngLocation - destinationCoords.longitude;
+                var z;
                 x2 = Math.pow(x, 2);
                 y2 = Math.pow(y, 2);
                 z = Math.sqrt(x2 + y2);
                 z = z * 100; // in meters
                 return z;
             }
-            scope.checkInterestPointsDistance = function (selfPosition) {
+
+            scope.checkInterestPointsDistance = function () {
                 //pass over the array of interest points and check if one of them near the user.
                 for (var i = 0; i < scope.interestMarkerArray.length; i++) {
                     //check the interest point distance
-                    var distance = scope.calculateDistance(selfPosition, scope.interestMarkerArray[i]);
+                    var distance = scope.calculateDistance( scope.interestMarkerArray[i]);
                     //if the user near the point
                     if (distance < scope.interestPopupRadius && scope.popupShownIndexes[i] != true) {
 
@@ -245,45 +252,21 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                     isLocationConnect = $interval(function () {
 
 
-                        navigator.geolocation.getCurrentPosition(scope.successGetPosByTimeout, scope.errorGetPosByTimeout, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true })
+                        //  navigator.geolocation.getCurrentPosition(scope.showPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true })
+                        if ($rootScope.lngLocation != -1) {
+                            scope.showPosition()
+                        }
+                        else {
+                            scope.errorGetLocation()
+                        }
 
-
-
-                        //if (scope.lastLat == scope.myMarker.coords.latitude && scope.lastLon == scope.myMarker.coords.longitude) {
-                        // $timeout(function () {
-                        //     scope.noLocation = true;
-                        //    scope.longNoLocation += 1;
-                        //  }, 0)
-                        //}
-                        // else {
-                        // $timeout(function () {
-                        //     scope.noLocation = false;
-                        //     scope.longNoLocation = 0;
-                        //      scope.lastLat = scope.myMarker.coords.latitude;
-                        //      scope.lastLon = scope.myMarker.coords.longitude;
-                        //  }, 0)
-                        //}
-                    }, 15000);
+                    }, 3000);
                 }
 
 
             });
-            scope.successGetPosByTimeout = function (d) {
-                $timeout(function () {
-                    scope.noLocation = false;
-                    scope.longNoLocation = 0;
-                    scope.lastLat = scope.myMarker.coords.latitude;
-                    scope.lastLon = scope.myMarker.coords.longitude;
-                }, 0)
-            }
-            scope.errorGetPosByTimeout = function (e) {
-                /*  $timeout(function () {
-                scope.noLocation = true;
-                scope.longNoLocation += 1;
-                }, 0)*/
-                // scope.myMarker.coords.latitude = scope.constLocationLat;
-                // scope.myMarker.coords.longitude = scope.constLocationLon;
-            }
+            
+
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
                 if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
                     console.log('xxx2')

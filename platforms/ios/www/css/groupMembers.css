@@ -249,6 +249,14 @@
     right: 0;
     /*color: white;*/
     font-size: 2em;
+    
+        height: 100%;
+    position: relative;
+    padding-top: 77px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10%;
+    padding-top: 75px;
 }
 
 .big-trophy {
@@ -392,7 +400,7 @@
     }
 
     .profile-img {
-        width: 35px;
+        width: 38px;
         height: 38px;
         top: initial;
         bottom: -1px;
@@ -459,7 +467,7 @@
     }
 
     .group-score-container {
-        width: 80%;
+        width: 100%;
     }
 
     .score-num {

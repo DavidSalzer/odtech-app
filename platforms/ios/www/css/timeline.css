@@ -1,0 +1,107 @@
+.timeline-wrap {
+    position: relative;
+    top: 35%;
+    text-align: center;
+}
+
+.visuallyhidden {
+    display: none;
+}
+
+.wizard-progress {
+      list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+    /* margin-top: 20px; */
+    /* float: right; */
+    white-space: nowrap;
+    background-image: url('../img/shadow_big_dark.png');
+    background-repeat: no-repeat;
+    background-size: 100% 9px;
+    background-position: center center;
+    /* margin-right: 172px; */
+    height: 46px;
+    display: inline-block;
+    /* background-position-y: -15px; */
+}
+
+.wizard-progress li {
+    float: right;
+    /*margin-right: 50px;*/
+    text-align: center;
+    position: relative;
+    width: 60px;
+}
+
+.wizard-progress li.done-point {
+}
+
+.wizard-progress .step-name {
+    display: table-cell;
+    height: 32px;
+    vertical-align: bottom;
+    text-align: center;
+    width: 100px;
+}
+
+.wizard-progress .step-name-wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: bottom;
+}
+
+.wizard-progress .step-num {
+    font-size: 14px;
+    font-weight: bold;
+    /*border: 3px solid #57054d;*/
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+/*.wizard-progress .step-num:after {
+    content: "";
+    display: block;
+    background: #000;
+    height: 5px;
+    width: 130px;
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}*/
+
+.wizard-progress li:last-of-type .step-num:after {
+    display: none;
+}
+
+.step-num-wrap {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.step-num-wrap .number {
+    line-height: 20px;
+    display: inline-block;
+    /* vertical-align: bottom; */
+    padding-top: 9px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.step-num-wrap .v {
+    background-image: url('../img/v.svg');
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100%;
+    background-position: center;
+    vertical-align: bottom;
+}

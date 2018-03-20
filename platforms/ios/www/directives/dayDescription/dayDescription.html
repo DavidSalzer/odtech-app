@@ -1,0 +1,13 @@
+<div id="day-description" ng-style="{'background-image':dayDescriptionImg}" ng-show="showDayDescription" class="general main-day-description"> 
+    <div class="day-description-img" ng-style="{'background-image':topImg?'url('+imgDomain+topImg+')':''}"></div>   
+    <p class="pOffDay-description"  data-ng-if="dayDescriptionText" ng-bind-html="dayDescriptionText | newlines"></p>
+    <p data-ng-show="!dayDescriptionText"><br>{{'_loading_' | localizedFilter}}</p>
+    <div class="next" data-ng-click="closeDescription()">
+        <div class="next-text-wrapper first-next-text-wrapper" >
+            <span class="next-text" ng-bind="'_readAndApproved_' | localizedFilter"></span>
+            <span class="arrow"></span>
+         </div>
+    </div>
+
+    <odtech-audio data-ng-if="showDayDescription && dayDescriptionAudio" audio-src="{{dayDescriptionAudio}}"></odtech-audio>
+</div>

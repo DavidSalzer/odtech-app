@@ -4,7 +4,7 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
     $scope.allGroupsPoints = "";
     $scope.groupMembers = new Array();
     $scope.user;
-    $scope.imgDomain = imgDomain;
+   // $scope.imgDomain = imgDomain;
     $scope.inStep1 = true;
 
     $rootScope.$broadcast('stopLocationWatcher', {});
@@ -12,7 +12,8 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
     $scope.getUser = function () {
         server.request({ "type": "getAppUser", "req": {} })
         .then(function (data) {
-            $scope.user = data.res;
+            $rootScope.user = data.res;
+            console.log('11')
             if (data.res && data.res.subgroup != null) {
                 if (parseInt(data.res.isStationArch)) {
                     $rootScope.isStationArch = true;
@@ -63,8 +64,7 @@ odtechApp.controller('group', ['$rootScope', '$scope', '$state', 'server', '$tim
 
 
     $scope.go = function () {
-     //   $rootScope.showDayDescription = true; //show day description in mainNav.
-
+   
         //$state.transitionTo('mainNav');
         $rootScope.$broadcast('joinToGroup', {});
 

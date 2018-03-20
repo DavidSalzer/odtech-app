@@ -1,0 +1,13 @@
+<div class="help-popup stage-popup" ng-show="showStageEnded">
+    <div class="help-popup-container">
+        <div class="inner-content">
+            <div class="x-popup" ng-click="showStageEnded=false"></div>
+            <div class="help-title">{{'_wellDone_' | localizedFilter}}</div>
+            <div class="help-desc">{{'_stageCompleted_' | localizedFilter}}</div>
+
+            <div class="help-btn skip" ng-click="goToNextStage()"><span>{{'_nextStage_' | localizedFilter}}</span><span class="arrow"></span></div>
+            <div class="help-btn return" ng-click="goToStagesPage()"><span>{{'_backToAllStages_' | localizedFilter}}</span><span class="arrow"></span></div>
+        </div>
+
+    </div>
+</div>

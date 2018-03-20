@@ -1,30 +1,32 @@
-/********production********/
-var domain = "http://admin.odtech.co.il/dataManagement/json.api.php";
-var imgDomain = "http://admin.odtech.co.il/";
-/******QA******/
 var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
 var imgDomain = "http://adminqa.odtech.co.il/";
 
-//var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
-//var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
+//  var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+//  var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
 //var cid = 8; // production -masa
-//var cid = 4; // -odtech
-var cid = 4; // QA
-var isPreLoginPage = true;
+//var cid = 1; // -odtech
+var cid = 3; // QA
+var isPreLoginPage = false;
 var isMapDisplay = false;
-var appName = "מסע ישראלי"
-var allowPushWoosh = true;
+var appName = "ODTech";
+var allowPushWoosh = false;
+var isPersonalCode = false;
+var isUsingDefaultSounds = false;
+//var isEnglish = false;
+//var stringsFile = isEnglish? './strings/resources-locale_en-US.js' : './strings/resources-locale_default.js';
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
 
-odtechApp.run(function ($rootScope) {
+odtechApp.run(function ($rootScope, $timeout, localize) {
+
     $rootScope.successMedia;
     $rootScope.failBuzzerMedia;
     $rootScope.timeoverMedia;
     $rootScope.applauseMedia;
+    //  localize.initLocalizedResources();
 
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
@@ -35,12 +37,24 @@ odtechApp.run(function ($rootScope) {
     $rootScope.androidVersion = $rootScope.getAndoidVersion();
     $rootScope.appName = appName;
     $rootScope.cid = cid;
+    $rootScope.imgDomain = imgDomain;
+    //  $rootScope.stringsFile = stringsFile;
+
     // $rootScope.appName = 'ODTech';
     $rootScope.isPreLoginPage = isPreLoginPage;
     $rootScope.isMapDisplay = isMapDisplay;
     $rootScope.showDescription = false;
+    //$rootScope.isLinear = false;
     $.browser.isSmartphone = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase())) && $(window).width() < 740 && $(window).height() < 740;
 
+    $rootScope.initDataInLogout = function () {
+        $timeout(function () {
+            $rootScope.showStageEnded = false;
+            $rootScope.endStagePopupShowed = [];
+            $rootScope.showStageDescription = false;
+            $rootScope.stageDescPopupShowed = [];
+        }, 0);
+    };
 });
 
 
@@ -52,7 +66,7 @@ odtechApp.filter('newlines', function () {
         if (!input) return input;
         var output = input
         //replace possible line breaks.
-      .replace(/(\r\n|\r|\n)/g, '<br/>')
+      .replace(/(\r\n|\r|\n)/g, '<br/>');
 
 
         return output;
@@ -64,6 +78,14 @@ odtechApp.filter('trustedurl', ['$sce', function ($sce) {
         return $sce.trustAsResourceUrl(url);
     };
 } ]);
+
+odtechApp.filter('localizedFilter', function (localize) {
+    return function (input) {
+        return localize.getLocalizedString(input);
+    };
+});
+
+
 
 /**********prevent footer movement on input focus*************/
 
@@ -105,13 +127,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.addEventListener("backbutton", function (e) {
         e.preventDefault();
+        //if the user click back twice in 5 minuets - exit app
         elapsed = new Date().getTime();
-        if (elapsed - start <= 5000) {
+        if (elapsed - start <= 500) {
             var x;
             navigator.app.exitApp();
         }
+        //else - go back
         else {
-            //do something else;
+            window.history.back();
         }
         start = elapsed;
     }, false);
@@ -140,28 +164,28 @@ function iOSversion() {
         if (ver[0] === 8 & ver[1] === 2) alert("גרסת מערכת ההפעלה הזו אינה מאפשרת העלאת תמונות. אנחנו ממליצים לשדרג לגרסה 8.3");
 
         if (ver[0] === 8) {
-/*
+            /*
             $("body").delegate("input", "focus",
-
-                               function (e) {
-
-                                   var self = $(this);
-
-                                   $("body").height(screen.availHeight + 50 + self.offset().top / 2);
-
-                                   setTimeout(function () {
-
-                                       $("html, body").animate({ scrollTop: $(document).height() }, 1000)
-                                   }, 10);
-
-                               });
-
-
-
-
-
-
-
+ 
+            function (e) {
+ 
+            var self = $(this);
+ 
+            $("body").height(screen.availHeight + 50 + self.offset().top / 2);
+ 
+            setTimeout(function () {
+ 
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000)
+            }, 10);
+ 
+            });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
             $("body").delegate("input", "blur", resetBodyHeight);*/
 
         }
@@ -190,7 +214,8 @@ function anodoidVersion() {
 anodoidVersion();
 
 //add the css by client
-var cssName = "colorsAndIconsMasa"
+//var cssName = "colorsAndIconsYIBZ"
+var cssName = "colorsAndIconsOdtech";
 $(document).ready(function () {
     $('head').append('<link rel="stylesheet" href="css/' + cssName + '.css" type="text/css" />');
 

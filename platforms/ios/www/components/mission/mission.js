@@ -1,20 +1,20 @@
-odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', 'missions', '$timeout', 'server', function ($rootScope, $scope, $state, $stateParams, missions, $timeout, server) {
+odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams', 'missions', '$timeout', 'server', '$filter', function ($rootScope, $scope, $state, $stateParams, missions, $timeout, server, $filter) {
 
     //mission general parameters
     $scope.startMission = false;
     $scope.finishMission = false;
     $scope.successMission = false;
-    console.log('successMission = false;')
+
     $scope.popupShow = false;
     $scope.hasTimer = true;
     $scope.results;
-    $scope.showDetailsWrap = false
+    $scope.showDetailsWrap = false;
     $rootScope.subMissionOpen = -1;
     $scope.missionAnswered = false;
     $scope.showBackBtn = false;
     $scope.introductionData = '';
     $scope.showIntroduction = false;
-    console.log('$scope.showIntroduction = false;')
+
     $scope.finishTimeout = 0;
     //set mission from server
     $scope.getMission = function (missionID) {
@@ -62,7 +62,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     $scope.startMission = true;
 
                     //hide the introduction page  
-                    $scope.hideIntroductionPage()
+                    $scope.hideIntroductionPage();
                     //if the mission that enter to it is a parent mission - show the back btn. else it still hide
                     if (missionID == $scope.parentMissionData.mid) {
                         $scope.showBackBtn = true;
@@ -72,7 +72,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 //if the status is notAnswer - show the introductionpage
                 else if (data.res.status == 'notAnswer') {
                     //show the introduction page  -with submission 
-                    $scope.showIntroductionPage()
+                    $scope.showIntroductionPage();
                 }
 
             }
@@ -92,7 +92,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 mid: missionData.mid,
                 isRouteMission: missionData.isRouteMission
             }
-        }
+        };
 
         server.request(request)
         .then(function (data) {
@@ -111,31 +111,33 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     //  $scope.updateSubMissionStatus(missionData)
                 }
 
-            }, 0)
+            }, 0);
+
         })
         //if the timer NOT ended
         //set data and display popup finish mission
         if (!$scope.endTimer) {
             $timeout(function () {
                 $scope.successMission = true;
-            }, 0)
+            }, 0);
+            if ($rootScope.withoutPoints != true) {
+                $scope.finishMission = true;
+            }
 
-            console.log('successMission = true;')
-            $scope.finishMission = true;
 
             //mission finished - throw broadcast
             $rootScope.$broadcast('finishMission', { results: results, timeOver: false });
 
             //TODO:  להוציא את החלק הזה ל missionFinish
             if (results.points > 0) {
-                $scope.finishMissionTitle = 'כל הכבוד!';
-                $scope.finishMissionL1 = 'ביצעתם את המשימה בהצלחה';
-                $scope.finishMissionL2 = 'וצברתם ' + results.points + ' נקודות.';
+                $scope.finishMissionTitle = $filter('localizedFilter')('_wellDone_');
+                $scope.finishMissionL1 = cid === 3 ? $filter('localizedFilter')('_missionCompletedOrpan_') : $filter('localizedFilter')('_missionCompleted_');
+                $scope.finishMissionL2 = $filter('localizedFilter')('_earned_') + results.points + $filter('localizedFilter')('_points_');
             }
             else {
                 $scope.finishMissionTitle = '';
                 $scope.finishMissionL1 = '';
-                $scope.finishMissionL2 = 'קיבלתם 0 נקודות';
+                $scope.finishMissionL2 = $filter('localizedFilter')('_noPoints_');
             }
 
             $scope.recievedpoints = results.points;
@@ -145,25 +147,34 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         else {
             $timeout(function () {
                 $scope.successMission = true;
-            }, 0)
-            console.log('successMission = true;')
-            $scope.finishMission = true;
+            }, 0);
+            if ($rootScope.withoutPoints != true) {
+                $scope.finishMission = true;
+            }
             //mission finished - throw broadcast
             $rootScope.$broadcast('finishMission', { results: results, timeOver: true });
 
             $scope.finishMissionTitle = '';
             $scope.finishMissionL1 = '';
-            $scope.finishMissionL2 = 'קיבלתם 0 נקודות';
+            $scope.finishMissionL2 = $filter('localizedFilter')('_noPoints_');
 
             $scope.recievedpoints = 0;
         }
 
 
         if ($scope.finishTimeout == 0) {
+            //if the activity is withput points - the timeout is 100. else- 4000
+            var timeoutDuration;
+            if ($rootScope.withoutPoints != true) {
+                timeoutDuration = 4000
+            }
+            else{
+                timeoutDuration = 100
+            }
             $scope.finishTimeout = $timeout(function () {
                 $timeout(function () {
                     $scope.successMission = false;
-                }, 0) //init the parameter -for yellow finsh mission
+                }, 0); //init the parameter -for yellow finsh mission
                 $scope.finishMission = false;
 
                 $rootScope.$broadcast('finishMissionHide', { data: missionData });
@@ -197,12 +208,12 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 $scope.finishTimeout = 0;
 
 
-            }, 7000)
+            }, timeoutDuration);
         }
 
 
 
-    }
+    };
 
 
     //if the timer ended
@@ -219,17 +230,23 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     //play the wrong sound
                     $rootScope.$broadcast('endMissionTimer', {});
                 }, 0)
-                $scope.finishMission = true;
-                $scope.finishMissionTitle = 'נגמר הזמן.';
-                $scope.finishMissionL1 = 'הזמן שנותר לביצוע המשימה תם.';
-                $scope.finishMissionL2 = 'נסו שוב במשימה הבאה...';
+
+                if ($rootScope.withoutPoints != true) {
+                    $scope.finishMission = true;
+                }
+                $scope.finishMissionTitle = $filter('localizedFilter')('_timesUp_');
+                $scope.finishMissionL1 = cid === 3 ? $filter('localizedFilter')('_missionTimeIsUpOrpan_') : $filter('localizedFilter')('_missionTimeIsUp_');
+                $scope.finishMissionL2 = cid === 3 ? $filter('localizedFilter')('_tryNextMissionOrpan_') : $filter('localizedFilter')('_tryNextMission_');
                 $scope.recievedpoints = 0;
 
             }
-        }, 0)
+        }, 0);
+        if ($rootScope.withoutPoints != true) {
+
+        }
         $timeout(function () {
             $scope.finishMission = false;
-        }, 4000)
+        }, 4000);
     });
 
     $scope.sendFinishMissionToServer = function (missionData) {
@@ -244,7 +261,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         .then(function (data) {
             console.log(data);
         });
-    }
+    };
     //user can close inactive mission - user CLICK ON BACK BTN
     $scope.closeMission = function (missionData) {
 
@@ -278,7 +295,6 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             $rootScope.$broadcast('closeSubMission');
             //hide the finish miassion
             $scope.finishMission = false;
-            console.log('finishMission 7')
         }
         //if the mission not answered - close the mission and send to server
         if (missionData.status != 'answer') {
@@ -293,16 +309,14 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         $scope.finishTimeout = 0;
 
 
-    }
+    };
 
     $scope.hideIntroductionPage = function () {
 
         $timeout(function () {
-            console.log('showMissionTab : true')
             $scope.showMissionTab = true;
             $scope.showInstructionTab = false;
             $scope.showIntroduction = false;
-            console.log('$scope.showIntroduction = false;')
 
             if ($rootScope.subMissionOpen == -1) {
 
@@ -315,7 +329,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             else {
                 $scope.subShowMissionTab = true;
             }
-        }, 0)
+        }, 0);
 
 
 
@@ -355,35 +369,37 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
                 $scope.introductionData = $rootScope.subMissionOpen;
                 $scope.showIntroduction = true;
-                // console.log('introductionData: ' + $scope.introductionData)
             }
             //if this is a parent
             else {
                 $scope.introductionData = $scope.parentMissionData;
-                // console.log('introductionData: ' + $scope.introductionData)
             }
 
-            console.log('$scope.showIntroduction = true;')
             $rootScope.$broadcast('showIntroductionPage', { data: $scope.introductionData });
-        }, 0)
+        }, 0);
 
 
 
 
-    }
+    };
 
     $scope.showDetails = function () {
-        $scope.showDetailsWrap = true
-    }
+        $scope.showDetailsWrap = true;
+    };
 
 
     $scope.hideDetails = function () {
-        $scope.showDetailsWrap = false
-    }
+        $scope.showDetailsWrap = false;
+    };
 
     //cancel the timer of finish popup on getout from this page
     $scope.$on('$destroy', function () {
         $timeout.cancel($scope.finishTimeout);
         $scope.finishTimeout = 0;
     });
+
+
+
+
+
 } ]);

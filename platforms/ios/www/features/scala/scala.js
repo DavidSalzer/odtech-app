@@ -5,7 +5,7 @@ odtechApp.directive('scala', ['$rootScope', function ($rootScope) {
         link: function (scope, el, attrs) {
             scope.missionData = scope.task;
             scope.results = {};
-            scope.results.answer;
+            scope.results.answer =[];
             scope.results.points = 0;
             scope.firstTime = true;
             //set the number of options display number in 'double' type

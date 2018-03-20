@@ -59,10 +59,10 @@
     <div ng-show="showAnswerIndication" class="opacity-mask">
         <div class="message-text-popup popup">
             <div class="textMessage">
-                <h2 ng-show="showAnswerIndication && !showAnswerRight">תשובה שגויה</h2>
-                <h2 ng-show="showAnswerIndication && showAnswerRight">תשובה נכונה</h2>
-                <p ng-show="showAnswerIndication && !showAnswerRight">התשובה הנכונה היא : <br>{{rightAnswerText}}</p>
-                <p ng-show="showAnswerIndication && showAnswerRight">כל הכבוד!</p>
+                <h2 ng-show="showAnswerIndication && !showAnswerRight">{{'_wrongAnswer_' | localizedFilter}}</h2>
+                <h2 ng-show="showAnswerIndication && showAnswerRight">{{'_correctAnswer_' | localizedFilter}}</h2>
+                <p ng-show="showAnswerIndication && !showAnswerRight">{{'_theCorrectAnswerIs_' | localizedFilter}} <br>{{rightAnswerText}}</p>
+                <p ng-show="showAnswerIndication && showAnswerRight">{{'_wellDone_' | localizedFilter}}</p>
                 <app-ringtone></app-ringtone>
             </div>
         </div>

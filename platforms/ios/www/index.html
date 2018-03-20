@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <meta content="" name="description" />
         <meta content="" name="author" />
+        
         <link href="css/reset.css" rel="stylesheet" />
         <link href="css/colorsAndIcons.css" rel="stylesheet" />
         <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://mts1.googleapis.com https://maps.gstatic.com https://www.youtube.com https://s.ytimg.com 'unsafe-inline' 'unsafe-eval'">-->
@@ -42,7 +43,7 @@
         <link href="css/main.css" rel="stylesheet" />
         <link href="css/pushMessages.css" rel="stylesheet" />
 
-
+         <link href="css/english.css" rel="stylesheet" />
         <!--<link href="css/colorsAndIconsMasa.css" rel="stylesheet" />-->
                     <!--<link href="css/colorsAndIconsYIBZ.css" rel="style
                     sheet" />-->
@@ -52,11 +53,11 @@
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
-    <body>
+    <body ng-class="{english : isEnglish == true}">
 
         <!-- BEGIN PAGE CONTENT-->
         <ng-include src="'components/splash/splash.html'"></ng-include><!--client splash-->
-        <div id="main-container">
+        <div id="main-container" ng-show="!showSplash">
             <ng-include src="'components/header/header.html'"></ng-include><!--header-logo-->
             <menu></menu>
             <day-description></day-description>
@@ -72,6 +73,7 @@
         <ng-include src="'components/popup/popup.html'"></ng-include><!--popup-->
         <ng-include src="'components/footer/footer.html'"></ng-include><!--footer-->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=he"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>
         <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
                     <!--<script>
                                                                                                             function onYouTubePlayerAPIReady() {
@@ -85,12 +87,14 @@
         <!-- Angular -->
         <script src="js/angular.min.js"></script>
         <script src="js/angular-ui-router.min.js"></script>
+        
         <script src="js/lodash.js"></script>
         <script src="js/angular-google-maps.js"></script>
         <script src="js/jquery.sglide.2.1.2.min.js"></script>
         <script src="js/angular-animate.js"></script>
         <script src="js/angular-ios9-uiwebview.patch.js"></script>
         <script src="app.js"></script>
+         <script src="components/splash/splash.js"></script>
         <script src="globals.js"></script>
         <script src="clientData.js"></script><!--script that exist in application only - with the client data-->
         <script src="deviceLoction.js"></script>
@@ -100,12 +104,13 @@
         <!-- odtech  services-->
         <script src="./services/server.js"></script>
         <script src="./services/missions.js"></script>
+        <script src="./services/localize.js"></script>
         <script src="./services/maps.js"></script>
         <script src="./services/camera.js"></script>
 
 
         <!-- odtech  components-->
-        <script src="components/splash/splash.js"></script>
+       
         <script src="components/login/login.js"></script>
         <script src="components/login/userLogin.js"></script>
         <script src="components/pushMessages/pushMessages.js"></script>
@@ -143,6 +148,7 @@
         <script src="directives/timeline/timeline.js"></script>
         <script src="directives/dayDescription/dayDescription.js"></script>
         <script src="directives/singleCapture/singleCapture.js"></script>
+        <script src="directives/endStage/endStage.js"></script>
 
 
         <!-- odtech  features-->

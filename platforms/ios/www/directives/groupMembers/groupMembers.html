@@ -6,7 +6,7 @@
              <div class="profile-img" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')"></div>
             <div class="user-name" >{{user.name}}</div>
             <div class="arr"></div>
-            <points type="global"></points>
+            <points ng-if="user && user.name" type="global"></points>
         </div>
 
         <div class="members-wrap" ng-show="showMembers">

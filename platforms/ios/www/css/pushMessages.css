@@ -1,0 +1,95 @@
+.messages-wrap {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    position: absolute;
+top: 0;
+right: 0;
+}
+
+.push-title {
+    padding-top: 7%;
+    font-size: 3.7em;
+    text-align: center;
+    /* height: 20%; */
+    padding-bottom: 2%;
+}
+
+.messages-list-wrap {
+}
+.no-messages{
+        padding: 31px 10px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.push-item {
+    border-bottom: 1px solid;
+}
+
+.push-item-header {
+    height: 42px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.envelope {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #35519b;
+    display: inline-block;
+    vertical-align: middle;
+    /* font-size: 44px; */
+    margin-right: 15px;
+        background-image: url('../img/envelope.png');
+    background-size: 100%;
+}
+
+.date {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.hour {
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.push-item-content {
+    padding-right: 89px;
+    font-size: 23px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding-left: 89px;
+}
+
+
+
+
+
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+
+    .push-title {
+        padding-top: 17%;
+    }
+
+    .envelope {
+        width: 40px;
+        height: 40px;
+    }
+
+    .push-item-content {
+        padding-right: 80px;
+        font-size: 19px;
+        margin-bottom: 12px;
+        margin-top: 5px;
+        padding-left: 21px;
+    }
+    .push-item-header {
+       
+        margin-top: 15px;
+    }
+}

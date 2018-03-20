@@ -1,0 +1,52 @@
+<div id="menu" class="menu-open" ng-class="{'openMenu':showMenu}" data-ng-show="!$state.includes('info') && !$state.includes('login') && !$state.includes('group') && !$state.includes('main') && !$state.includes('userLogin') && !showDayDescription">
+    <div class="menu-mask"></div>
+    <div id="menu-btn" data-ng-click="showMenuFunc($event)"></div>
+    <div class="menu-wrap" ng-class="{'openMenu':showMenu}">
+
+        <div class="menu-items-wrap">
+             <div class="menu-item-wrap home" >
+                <div class="menu-item-name">{{dic._menu_}}</div>
+            </div>
+             <div ng-if="isPreLoginPage" class="menu-item-wrap main" data-ng-click="goToMainPage()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._homePage_}}</div>
+            </div>
+            <div class="menu-item-wrap stage" data-ng-click="goToStagesPage()" ng-show="isStationArch">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._allStages_}}</div>
+            </div>
+            <div class="menu-item-wrap home" data-ng-click="goToMaiNav()" data-ng-hide="isStationArch && ($state.includes('stages') || $state.includes('groupsScore') ||  $state.includes('map') ||  $state.includes('pushMessages'))">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{(cid === 3 ? dic._allMissionsOrpan_ : dic._allMissions_)}}
+                </div>
+            </div>
+             <div class="menu-item-wrap map" data-ng-click="goToMapPage()" ng-show="isMapDisplay">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._map_}}
+                </div>
+            </div>
+            <div ng-hide="withoutPoints" class="menu-item-wrap trophy" data-ng-click="goToScorePage()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._leaderboard_}}
+                </div>
+            </div>
+            
+            
+            <div class="menu-item-wrap capture">
+                <single-capture  type="menu"></single-capture>
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._takePicture_}}</div>
+            </div>
+            <div class="menu-item-wrap logout" data-ng-click="logout()">
+                <div class="menu-img"></div>
+                <div class="menu-item-name">{{dic._logOut_}}</div>
+            </div>
+        </div>
+
+                    <!--<div class="menu-item-wrap capture" data-ng-click="takePhotoByMenu()">
+                                                    <div class="menu-img"></div>
+                                                    <div class="menu-item-name">צלם</div>
+                                                </div>-->
+    </div>
+
+</div>

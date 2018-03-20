@@ -2,7 +2,7 @@ odtechApp.controller('footer', ['$rootScope', '$scope', '$state', 'server', '$ti
     //set the state - for hide and show the footer
 
     $scope.$state = $state;
-  
+
     $scope.backClick = function () {
         if ($state.is('mainNav')) {
             $state.transitionTo('stages');
@@ -11,5 +11,8 @@ odtechApp.controller('footer', ['$rootScope', '$scope', '$state', 'server', '$ti
 
             history.back()
         }
+    }
+    $scope.helpClick = function () {
+        $rootScope.$broadcast('showPopupHelp');
     }
 } ]);

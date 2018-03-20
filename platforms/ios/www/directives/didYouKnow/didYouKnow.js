@@ -11,7 +11,7 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', function 
             scope.hideDidYouKnow = function () {
                 //hide did you know
                 scope.showDidYouKnow = false;
-                $rootScope.$broadcast('hideDidYouKnow');
+                $rootScope.$broadcast('hideDidYouKnow',{audio: scope.audioUrl});
             }
             //the did you know have to display after the finish popup display and hide
             //or when click on the x button on finish popup

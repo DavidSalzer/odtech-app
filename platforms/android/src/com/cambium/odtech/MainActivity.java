@@ -27,11 +27,15 @@ public class MainActivity extends CordovaActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-    	
         super.onCreate(savedInstanceState);
-        //super.setIntegerProperty("loadUrlTimeoutValue", 70000)
+
+        // enable Cordova apps to be started in the background
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
+            moveTaskToBack(true);
+        }
+
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-  
     }
 }

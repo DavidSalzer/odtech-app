@@ -1,0 +1,48 @@
+<div class="compass-wrap">
+        
+    <div class="compass-container" id="page1" data-role="page">
+        <span class="direction-arrow"></span>
+        <div class="main-compass">
+            <p>{{destName}}</p>
+            <img id="compass" class="Center" src="img/main-compass.png" width="60%" height="auto" />
+            
+        </div>
+        <div class="photo-order" ng-click="checkDirection()" ng-show="firstTime">
+                <span>{{'_imDone_' | localizedFilter}}</span>
+                <span class="arrow"></span>
+            </div>
+        <!-- the answers indicators - right or wrong answer popup -->
+        <div ng-show="showAnswerIndication" class="opacity-mask">
+        <div class="message-text-popup popup">
+            <div class="textMessage">
+                <h2>{{'_wrongAnswer_' | localizedFilter}}</h2>
+                <p>{{'_tryAgain_' | localizedFilter}}</p>
+              
+                <app-ringtone></app-ringtone>
+            </div>
+        </div>
+    </div>
+
+
+        <!--Unknown user location popup-->
+        <div data-ng-show="noLocation && firstTime && noLocationPopupDisplayCount < 15" class="mission-repeat-popup popup navigation-popup">
+            <div class="x" data-ng-click="noLocation=false"></div>
+            <h2>{{'_checkGPS_' | localizedFilter}}</h2>
+            <p class="popup-text"><span>{{'_locationError1_' | localizedFilter}}</span><br>
+                <span>{{'_locationError2_' | localizedFilter}}</span></p>
+
+            
+            <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
+                <span>{{'_clickToExit_' | localizedFilter}}</span>
+                <span class="arrow"> </span>
+            </div>
+        </div>
+    </div>
+
+
+
+            <!--<section id="mission-compass" class="feature" data-role="content" style="padding: 10px 0;">
+        
+                                        </section>-->
+</div>
+

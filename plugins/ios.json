@@ -1,162 +1,41 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "config_munge": {
-        "files": {
-            "framework": {
-                "parents": {
-                    "libiconv.dylib": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "AVFoundation.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "AssetsLibrary.framework": [
-                        {
-                            "xml": false,
-                            "count": 4
-                        }
-                    ],
-                    "CoreVideo.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "QuartzCore.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 5
-                        }
-                    ],
-                    "CoreImage.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "AudioToolbox.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "ImageIO.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "CoreLocation.framework": [
-                        {
-                            "xml": false,
-                            "count": 2
-                        }
-                    ],
-                    "MobileCoreServices.framework": [
-                        {
-                            "xml": false,
-                            "count": 3
-                        }
-                    ]
-                }
-            },
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "*-Info.plist": {
-                "parents": {
-                    "NSLocationWhenInUseUsageDescription": [
-                        {
-                            "xml": "<string />",
-                            "count": 1
-                        }
-                    ]
-                }
-            }
-        }
+    "cordova-plugin-media": {
+      "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO",
+      "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "com.phonegap.plugins.barcodescanner": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "org.apache.cordova.media": {
-            "PACKAGE_NAME": "com.cambium.masa"
-        },
-        "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "com.cambium.odtech"
-        }
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "dependent_plugins": {}
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    }
+  }
 }

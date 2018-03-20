@@ -1632,21 +1632,21 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 @media all and (max-width: 480px) and (max-height: 320px) {
-    #logo {
+    /*#logo {
         top: 0px;
         left: 0px;
         position: fixed;
         width: 79px;
         height: 76px;
-    }
+    }*/
 }
 
 @media all and (max-width: 736px) and (max-height: 414px) {
-    #logo {
+    /*#logo {
         top: 0px;
         left: 0px;
         position: fixed;
         width: 79px;
         height: 76px;
-    }
+    }*/
 }

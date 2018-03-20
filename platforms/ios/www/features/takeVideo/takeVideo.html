@@ -12,7 +12,7 @@
                     <input type="file" accept="image/*" onchange="angular.element(this).scope().browserCaptureVideo(this.files, 'videoCenter')" class="user-upload-img" name="file">
                 </span>
                 <span class="capture-video-btn" data-ng-if="isApp" data-ng-click="captureVideo('videoCenter')"></span>
-        	<span class="takeVideo-text">לחצו לצילום וידאו</span>
+        	<span class="takeVideo-text">{{'_takeVideo_' | localizedFilter}}</span>
             </p>
         </form>
 
@@ -24,7 +24,7 @@
 
       <!--popup end mission-->
     <div class="photo-order" ng-show="showFinishQuestion" ng-click="uploadVideo()">
-        <h2>סיימתי</h2>
+        <h2>{{'_imDone_' | localizedFilter}}</h2>
         <div class="photo-continue" >
             <!--<span class="next-text">לחצו לאישור</span>-->
             <span class="arrow"></span>

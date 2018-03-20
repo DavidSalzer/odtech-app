@@ -1,8 +1,9 @@
 odtechApp.controller('groupsScore', ['$rootScope', '$scope', '$state', 'missions', '$timeout', 'server', 'camera', function ($rootScope, $scope, $state, missions, $timeout, server, camera) {
 
 
-    $scope.imgDomain = imgDomain;
-    $scope.user = {}
+    //$scope.imgDomain = imgDomain;
+   // $rootScope.user = {}
+    console.log('22')
     $scope.showMembers = false;
     //set the state - for hide and show the footer
      $scope.$state = $state;

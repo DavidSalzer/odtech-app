@@ -1,9 +1,9 @@
-odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', 'camera', function ($rootScope, $scope, $state, server, $timeout, camera) {
+odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$timeout', 'camera', '$filter', function ($rootScope, $scope, $state, server, $timeout, camera, $filter) {
     $scope.loginFirstPage = true;
     $rootScope.isStationArch = false;
     $scope.userName = '';
-    $scope.btn_text = 'הירשם';
-    
+    $scope.btn_text = $filter('localizedFilter')('_signUp_');
+
     $rootScope.$broadcast('stopLocationWatcher', {});
 
     //if there is main page - show group code field
@@ -35,7 +35,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
              }
 
 
-         })
+         });
     }
     //else - check if the user login
     else {
@@ -58,26 +58,26 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
             //set the tet on login btn by travel type
             if ($rootScope.isGroupTravel) {
-                $scope.registerBtnText = 'הירשם'
+                $scope.registerBtnText = $filter('localizedFilter')('_signUp_');
             }
             else {
-                $scope.registerBtnText = 'צא לדרך'
+                $scope.registerBtnText = $filter('localizedFilter')('_letsGo_');
             }
             $timeout(function () {
                 $scope.loginFirstPage = false;
-            }, 0)
+            }, 0);
         }
         //if the user logout
         else {
             $rootScope.$broadcast('logout', {});
         }
-    })
+    });
 
     }
 
     //general error need to pass to global file.
     $scope.errorMsg = {};
-    $scope.errorMsg.generalError = 'אירעה שגיאה, בדקו חיבור לאינטרנט או נסו שנית';
+    $scope.errorMsg.generalError = $filter('localizedFilter')('_connectionError_');
 
     //Send login details to server.
     $scope.sendLogin = function () {
@@ -87,16 +87,29 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $scope.codenotValid = true;
             return;
         }
-
-        request = {
-            type: "appUserLogin",
-            req: {
-                email: $scope.email,
-                cid: cid,
-                groupCode: $scope.groupCode
+        //if the code is personal (vitamin c...)
+        if (typeof isPersonalCode !== 'undefined' && isPersonalCode != false) {
+            request = {
+                type: "appUserLoginWithPersonal",
+                req: {
+                    email: $scope.email,
+                    cid: cid,
+                    personalGroupCode: $scope.groupCode
+                }
             }
         }
+        else {
+            request = {
+                type: "appUserLogin",
+                req: {
+                    email: $scope.email,
+                    cid: cid,
+                    groupCode: $scope.groupCode
+                }
+            };
+        }
 
+        console.log("appUserLogin");
         server.request(request)
         .then(function (data) {
             console.log(data);
@@ -104,32 +117,34 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             if (!data.res.error) {
                 //if it old user go to groups page else update user details. 
                 if (data.res.name) {
+                    $rootScope.user = data.res;
                     if (parseInt(data.res.isStationArch)) {
                         $rootScope.isStationArch = true;
                     }
-                    $scope.transitionByArch(data)
-                   
+                    $scope.transitionByArch(data);
+
 
                 }
                 else {
+                    $rootScope.user = data.res;
                     //if the day is a staging day -go to stages
                     if (parseInt(data.res.isStationArch)) {
-                        $rootScope.isStationArch = true
+                        $rootScope.isStationArch = true;
                     }
                     //set the travel type
                     $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
                     //set the text on login btn by travel type
                     if ($rootScope.isGroupTravel) {
-                        $scope.registerBtnText = 'הירשם'
+                        $scope.registerBtnText =  $filter('localizedFilter')('_signUp_');
                     }
                     else {
-                        $scope.registerBtnText = 'צא לדרך'
+                        $scope.registerBtnText =  $filter('localizedFilter')('_letsGo_');
                     }
 
                     $timeout(function () {
                         $scope.loginFirstPage = false;
                         $scope.loginError = false;
-                    }, 0)
+                    }, 0);
                 }
 
             }
@@ -137,16 +152,17 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             else {
                 $timeout(function () {
                     $scope.loginError = true;
-                    $scope.loginErrorMsg = 'קוד הקבוצה אינו קיים';
-                }, 0)
+                    $scope.loginErrorMsg = $filter('localizedFilter')('_noGroupCode_');
+                }, 0);
             }
 
         },
         function () {
+            console.log("after appUserLogin");
             $timeout(function () {
                 $scope.loginError = true;
                 $scope.loginErrorMsg = $scope.errorMsg.generalError;
-            }, 0)
+            }, 0);
         })
 
         $("input").blur();
@@ -155,12 +171,17 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     //Send user details (userName and image) to server.
     $scope.sendUsername = function () {
-        if (!$scope.imgServerUrl && $scope.imgurl) {
-            return;
-        }
+
         //validations
         if (!$scope.userForm.nickName.$valid) {
             $scope.namenotValid = true;
+            return;
+        }
+        else if (!$scope.imgServerUrl && $scope.imgurl) {
+            $scope.showLoader = true;
+            $timeout(function () {
+                $scope.sendUsername()
+            }, 100);
             return;
         }
         request = {
@@ -170,7 +191,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 imgfiled: 'img',
                 isFile: true
             }
-        }
+        };
 
         //if has url to user image on server. for android 4.4.2
         if ($scope.imgServerUrl) {
@@ -182,9 +203,9 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         file.append('reqArray', JSON.stringify(request));
         console.log(file);
         //if there is an image- show the loader
-        if ($scope.imgurl) {
-            $scope.showLoader = true;
-        }
+        //if ($scope.imgurl) {
+        //    $scope.showLoader = true;
+        //}
 
         server.request(file)
         .then(function (data) {
@@ -198,8 +219,8 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 }
                 else {
                     $rootScope.$broadcast('joinToGroup', {});
-                    $scope.transitionByArch(data)
-                   
+                    $scope.transitionByArch($rootScope.isStationArch);
+
                 }
                 localStorage.removeItem('userProfile'); //for check if upload image crash
             }
@@ -210,13 +231,13 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         },
         function () {
 
-        })
-    }
+        });
+    };
 
     //For 4.4.2, get image from device.
     $scope.captureImage = function () {
         if (camera) {
-            $scope.btn_text = 'התמונה עולה..';
+            //  $scope.btn_text = 'התמונה עולה..';
             camera.getPicture()
         .then(function (data) {
             $timeout(function () {
@@ -225,18 +246,18 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 $scope.pictures = [];
                 $scope.pictures.push({ uri: $scope.imgurl });
                 $timeout(function () {
-                    $scope.uploadText = "ממשיך בהעלאה..";
+                    $scope.uploadText = $filter('localizedFilter')('_stillUploading_');
                 }, 5000);
                 $timeout(function () {
-                    $scope.uploadText = "ההעלאה נמשכת..";
+                    $scope.uploadText = $filter('localizedFilter')('_uploadStillInProcess_');
                 }, 15000);
                 $timeout(function () {
-                    $scope.uploadText = "התמונה שלך אכותית, ההעלאה תמשך עוד כמה שניות..";
+                    $scope.uploadText = $filter('localizedFilter')('_proccessingImage_');
                 }, 25000);
                 camera.uploadPhoto($scope.pictures, "img", 1)
                 .then(function (data) {
                     $scope.imgServerUrl = data[0][0];
-                    $scope.btn_text = 'הירשם';
+                    $scope.btn_text = $filter('localizedFilter')('_signIn_');
                 });
             }, 0);
         });
@@ -261,45 +282,43 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 $scope.namenotValid = true;
                 break;
         }
-    }
+    };
 
-    $scope.uploadText = "בהעלאה..";
+    $scope.uploadText = $filter('localizedFilter')('_uploading_');
     $scope.uploadImg = '';
-    $scope.imageChosen = function (input) {
-        if (input.files && input.files[0]) {
-            /*var reader = new FileReader();
 
-            reader.onload = function (e) {
-            //set the preview image
-            $scope.setPreviewImg(e.target.result);
-            // $('#blah').attr('src', e.target.result);
-            }
+    //$scope.captureImage = function (photoClicked) {
+    //    camera.captureImage(photoClicked)
+    //            .then(function (data) {
+    //                $timeout(function () {
+    //                    //get the pictures from camera service
+    //                    $scope.pictures = camera.getPictures();
+    //                    $scope.imageChosen($scope.pictures['photoCenter']);
+    //                }, 0);
+    //            });
+    //}
 
-            reader.readAsDataURL(input.files[0]);
-            */
-            $scope.imgurl = window.URL.createObjectURL(input.files[0]);
-            $scope.setPreviewImg($scope.imgurl);
-            $scope.btn_text = 'התמונה עולה';
-            $scope.pictures = {};
-            $scope.pictures[0] = { uri: $scope.imgurl };
 
-            $timeout(function () {
-                $scope.uploadText = "ממשיך בהעלאה..";
-            }, 5000);
-            $timeout(function () {
-                $scope.uploadText = "ההעלאה נמשכת..";
-            }, 15000);
-            $timeout(function () {
-                $scope.uploadText = "התמונה שלך אכותית, ההעלאה תמשך עוד כמה שניות..";
-            }, 25000);
-            $scope.pictures[0]['fd'] = new FormData(document.forms.namedItem('userForm'));
-            camera.uploadPhotoFormData($scope.pictures, "img", 1)
+
+
+    $scope.imageChosen = function (picture) {
+        //  if (input.files && input.files[0]) {
+        $scope.imgurl = window.URL.createObjectURL(picture.uri);
+        //  $scope.imgurl =picture.uri// window.URL.createObjectURL(picture);
+        $scope.setPreviewImg($scope.imgurl);
+        // $scope.btn_text = 'התמונה עולה';
+        $scope.pictures = {};
+        $scope.pictures[0] = { uri: $scope.imgurl };
+
+        $scope.pictures[0]['fd'] = new FormData(document.forms.namedItem('userForm'));
+        camera.uploadPhotoFormData($scope.pictures, "img", 1)
                 .then(function (data) {
                     $scope.imgServerUrl = data[0][0];
-                    $scope.btn_text = 'הירשם';
+
                 });
-        }
-    }
+        $scope.btn_text = $filter('localizedFilter')('_signUp_');
+        //}
+    };
     //set the preview image after the user chose an image
     $scope.showPreviewSrc = false;
     $scope.setPreviewImg = function (src) {
@@ -308,16 +327,16 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         $timeout(function () {
             $scope.showPreviewSrc = true;
             $scope.previewSrc = src;
-        }, 0)
+        }, 0);
 
-    }
+    };
 
     $scope.isApp = isApp();
 
     //for check if upload image crash
     if (localStorage.getItem('userProfile') == 'start') {
-        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
-        $rootScope.generalPopupArgs = { generalPopupText: 'טיפ: אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה', generalPopupEvent: true }
+        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: $filter('localizedFilter')('_signUp_')});
+        $rootScope.generalPopupArgs = { generalPopupText: $filter('localizedFilter')('_tip_') + $filter('localizedFilter')('_uploadImageTip_'), generalPopupEvent: true };
         //alert('אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה');
     }
 
@@ -328,20 +347,25 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         else {
             localStorage.setItem('userProfile', 'start');
         }
-    }
+    };
 
     $scope.transitionByArch = function (data) {
+        //if the day is NOT a staging day -go to stages
+        if (data == false) {
+            $state.transitionTo('mainNav');
+        }
         //if the day is a staging day -go to stages
-        if (parseInt(data.res.isStationArch)) {
+        else if (data == true || parseInt(data.res.isStationArch)) {
             $rootScope.isStationArch = true;
             $state.transitionTo('stages');
         }
+
         //else - go to mainNav
         else {
             $state.transitionTo('mainNav');
         }
 
-    }
+    };
 
     //if there is homepage - send the group codetoserver
     $scope.sendGroupCode = function () {
@@ -350,7 +374,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         }
         else {
             $scope.groupCodeNotValid = true;
-            return
+            return;
         }
 
         request = {
@@ -359,7 +383,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 cid: cid,
                 groupCode: $scope.groupData.onlyGroupCode
             }
-        }
+        };
 
         server.request(request)
         .then(function (data) {
@@ -380,10 +404,10 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             else {
                 $timeout(function () {
                     $scope.loginError = true;
-                    $scope.loginErrorMsg = 'קוד הקבוצה אינו קיים';
-                }, 0)
+                    $scope.loginErrorMsg = $filter('localizedFilter')('_noGroupCode_');
+                }, 0);
             }
-        })
-    }
+        });
+    };
 
 } ]);

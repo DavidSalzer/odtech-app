@@ -37,15 +37,9 @@ odtechApp.directive('points', ['$rootScope', 'server', function ($rootScope, ser
                 scope.globalPoints = 0;
             });
 
-
-            scope.initPoints = function (tasks) {
-              
-
-            }
+            scope.setGlobalPoints();
             //add the score when mission finished
             scope.$on('finishMission', function (event, data) {
-
-
 
                 scope.setGlobalPoints();
             });

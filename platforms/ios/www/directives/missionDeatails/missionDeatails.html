@@ -11,7 +11,7 @@
         <!--<div class="triangle triangle-pc"></div>-->
         <div class="x" data-ng-click="showDeatails=false">
         </div>
-        <h2 class="popup-title">תקציר משימה</h2>
+        <h2 class="popup-title">{{(cid === 3 ? '_missionBriefOrpan_' : '_missionBrief_') |localizedFilter }}</h2>
         <!--<span>
             <img style="max-width: 70%" data-ng-show="task.imgUrl" class="img-missionPopUpImage" src="{{imgDomain+task.imgUrl}}" data-ng-click="openLargeImage()" />
             <large-image url="{{imgDomain+task.imgUrl}}"></large-image>

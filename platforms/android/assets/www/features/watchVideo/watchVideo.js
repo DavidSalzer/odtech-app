@@ -1,15 +1,15 @@
 var mainPlayer;
 var player;
-odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $timeout) {
+odtechApp.directive('watchVideo', ['$window', '$timeout', '$filter', function ($window, $timeout, $filter) {
     return {
         restrict: 'E',
         templateUrl: './features/watchVideo/watchVideo.html',
         link: function (scope, el, attrs) {
             scope.missionData = scope.task;
             scope.results = {};
-            scope.results.answer;
+            scope.results.answer =[];
             scope.results.points = 0;
-            scope.uploadText = "הסרטון בטעינה, אנא המתן"
+            scope.uploadText = $filter('localizedFilter')('_videoIsLoading_');
             //if the mission has been made
             if (scope.missionData.status == 'answer') {
             }
@@ -99,6 +99,7 @@ odtechApp.directive('watchVideo', ['$window', '$timeout', function ($window, $ti
                         scope.endMovie = true;
                     }
                     else {
+
                         scope.endMovie = true;
                     }
                    

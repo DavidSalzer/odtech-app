@@ -1,5 +1,5 @@
 .main-barcode {
-      height: 77%;
+    height: 77%;
     width: 50%;
     position: absolute;
     color: #fff;
@@ -16,6 +16,14 @@
     left: 0px;
     border-radius: 15px;
     max-height: 350px;
+}
+
+.data-text .popupText {
+       white-space: initial;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+    font-size: 20px;
 }
 
 .main-barcode span {
@@ -46,6 +54,59 @@
     margin-top: 1.8em;
 }
 
+.barcode-wrap {
+    height: 100%;
+    padding-top: 30px;
+    overflow-y: auto;
+}
+
+.scan-wrap {
+    padding: 0 14px;
+    width: 100%;
+    box-sizing: border-box;
+    height: auto;
+    white-space: normal;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.barcode-btn {
+    border-radius: 30px;
+    height: 36px;
+    overflow: hidden;
+    padding: 7px 10px;
+    padding-top: 8px;
+    display: block;
+    /* top: initial; */
+    width: 43%;
+    vertical-align: top;
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
+    background-color: #f05457;
+    color: white;
+    margin: auto;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.barcode-btn .text {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 19px;
+    top: -1px;
+}
+
+.barcode-btn .arrow {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 19px;
+    top: -1px;
+    width: 25px;
+    height: 25px;
+}
+
 @media all and (max-width: 736px) {
     .main-barcode {
         position: relative;
@@ -55,6 +116,7 @@
         left: 0px;
         width: 280px;
         height: 215px;
+        margin-top: 0;
     }
 
     .main-barcode span {
@@ -68,5 +130,28 @@
     .mission-tab-content {
         height: 100%;
         overflow-y: auto;
+    }
+}
+
+
+@media all and (min-width: 700px) {
+    .data-text span {
+        font-size: 3vh;
+        line-height: 4vh;
+    }
+
+    .barcode-btn .text {
+        height: 100%;
+        padding: 0;
+        line-height: 29px;
+        vertical-align: middle;
+    }
+
+    .barcode-btn .arrow {
+        vertical-align: middle;
+    }
+
+    .barcode-btn {
+        height: 44px;
     }
 }

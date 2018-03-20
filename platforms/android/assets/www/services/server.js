@@ -49,7 +49,6 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
                 }
 
 
-                //console.log(json);
             }).
             error(function (err) {
                 $rootScope.$broadcast('networkFail', {});
@@ -57,8 +56,6 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
                     self.request(data).then(function (json) { deferred.resolve(json); });
                 }, 5000)
 
-                //deferred.reject(data);
-                //console.log(data);
             });
             return deferred.promise;
         },
@@ -175,7 +172,7 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
         getMissionFromStorage: function (data) {
             item = 'mid' + data.req.mid;
             mission = JSON.parse(localStorage.getItem(item));
-            if (!mission || mission == null) {
+            if (!mission || mission == null || !mission.res) {
                 return false;
             }
             return mission;
@@ -293,10 +290,15 @@ odtechApp.factory('server', ['$rootScope', '$http', '$q', '$state', '$timeout', 
 
 
         clearMissionsInStorage: function () {
+            
             var pushKey = localStorage.getItem("pushToken")
             localStorage.clear();
+            $rootScope.missionsDetailsInit = undefined;
             //save the pushkey on storage
             localStorage.setItem("pushToken", pushKey);
+            //in logout - throw broadcast - for update relevant data by controllers/directives
+            $rootScope.initDataInLogout()
         }
+
     }
 } ]);

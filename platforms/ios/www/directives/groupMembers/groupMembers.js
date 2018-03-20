@@ -1,4 +1,4 @@
-odtechApp.directive('groupMembers', ['server', '$state', '$timeout','$rootScope', function (server, $state, $timeout,$rootScope) {
+odtechApp.directive('groupMembers', ['server', '$state', '$timeout', '$rootScope', function (server, $state, $timeout, $rootScope) {
     return {
         restrict: 'E',
         templateUrl: './directives/groupMembers/groupMembers.html',
@@ -7,17 +7,19 @@ odtechApp.directive('groupMembers', ['server', '$state', '$timeout','$rootScope'
             scope.$state = $state;
 
             scope.imgDomain = imgDomain;
-            scope.user = {}
+           // $rootScope.user = {}
+            console.log('33')
             scope.showMembers = false;
             scope.getUser = function (callback) {
+                console.log(' scope.getUser')
                 server.request({ "type": "getAppUser", "req": {} })
                 .then(function (data) {
                     if (data.res != null) {
                         if (parseInt(data.res.isStationArch)) {
                             $rootScope.isStationArch = true;
                         }
-                        scope.user = data.res;
-
+                        $rootScope.user = data.res;
+                        console.log('44')
                         if (callback) {
                             callback.call();
                         }
@@ -32,8 +34,11 @@ odtechApp.directive('groupMembers', ['server', '$state', '$timeout','$rootScope'
             }
             //click on members window
             scope.openDataMembers = function () {
-                //open the members window
-                scope.showMembers = !scope.showMembers;
+                if (!jQuery.isEmptyObject(scope.groupMembers)) {
+                    //open the members window
+                    scope.showMembers = !scope.showMembers;
+                }
+
                 //get the members 
                 scope.getMembers();
 
@@ -59,7 +64,7 @@ odtechApp.directive('groupMembers', ['server', '$state', '$timeout','$rootScope'
             scope.$on('joinToGroup', function () {
                 scope.initGroupMembers()
             });
-             scope.$on('userSignIn', function () {
+            scope.$on('userSignIn', function () {
                 scope.initGroupMembers()
             });
 

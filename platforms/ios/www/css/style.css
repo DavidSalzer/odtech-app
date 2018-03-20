@@ -104,6 +104,16 @@ body.keyboard {
     z-index: 10;
 }
 
+.loader {
+    position: fixed;
+    z-index: 1000;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
 /****************************** font size class ********************************/
 .fs-1 {
     font-size: 0.5em;
@@ -234,7 +244,7 @@ body.keyboard {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     overflow-y: auto;
     position: absolute;
     top: 0;
@@ -338,7 +348,7 @@ body.keyboard {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     padding-right: 75px;
-    -webkit-overflow-scrolling: touch;
+   /* -webkit-overflow-scrolling: touch;*/
 }
 
 #stage-menu {
@@ -379,6 +389,17 @@ body.keyboard {
     background-position: initial;
 }
 
+.stage-v {
+    background-image: url('../img/v-01.svg');
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    bottom: 14%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 
 .stage-menu-item.start .stage-menu-center {
     /*bottom: 2px;
@@ -398,13 +419,13 @@ body.keyboard {
 }
 
 .stage-menu-icon {
-    width: 175px;
-    height: 135px;
+    height: 100px;
+    width: 100px;
     position: absolute;
     right: -60px;
     background-repeat: no-repeat;
     background-position: center;
-    top: 10px;
+    top: 27px;
     z-index: 3;
     background-size: 100%;
 }
@@ -456,6 +477,90 @@ body.keyboard {
 }
 
 .no-stage-data {
+}
+
+.stage-popup {
+}
+
+.stage-popup .help-popup-container {
+    width: 65%;
+    min-height: 62%;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 17px;
+    max-height: 70%;
+}
+
+.stage-popup .help-title {
+    color: #488357;
+    font-size: 39px;
+}
+
+.stage-popup .help-desc {
+    text-align: center;
+    font-size: 29px;
+    margin-bottom: 60px;
+}
+
+.stage-popup .help-btn {
+    background-color: #488357;
+    width: 343px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    width: 316px;
+    font-size: 25px;
+    margin-top: 18px;
+    padding: 7px 0;
+}
+
+.stage-popup .help-popup-container .arrow {
+    width: 30px;
+    height: 35px;
+    float: left;
+    margin-left: 10px;
+    background-image: url('../img/svg/arrow/white.svg') !important;
+    margin-top: 0;
+}
+
+.stage-popup .inner-content {
+    background-color: white;
+    padding: 36px;
+    height: 100%;
+    position: relative;
+}
+
+.stage-popup .inner-content .text {
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.x-popup {
+    position: absolute;
+    background-image: url(../img/green-x.png);
+    width: 40px;
+    height: 40px;
+    background-size: 50%;
+    right: -23px;
+    top: -29px;
+    z-index: 1000;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    padding: 20px;
+    box-sizing: inherit;
+    border: 3px solid #488357;
+}
+
+.stage-popup .return {
+    background-color: #9B999A;
+}
+
+.stage-popup .help-desc, .stage-popup .help-title {
+    text-align: right;
 }
 /***********main nav*************/
 .stage-menu-item.done .stage-menu-center {
@@ -513,7 +618,7 @@ body.keyboard {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     padding-right: 75px;
-    -webkit-overflow-scrolling: touch;
+  /*  -webkit-overflow-scrolling: touch;*/
 }
 
 #mission-menu {
@@ -555,16 +660,13 @@ body.keyboard {
 }
 
 .mission-menu-item.start .mission-menu-center {
-    /*bottom: 2px;
-    margin: 0;   
-    box-sizing: border-box;
-    padding-right: 20px;
-    padding-left: 20px;
-    box-sizing: border-box;
-    right: initial;
-    top: initial;*/
     background-image: url("../img/nav_start_yibz.png");
     background-size: 100%;
+}
+
+.mission-menu-item.lockMiss .mission-menu-center {
+    background-image: url("../img/nav_lock.png");
+    background-size: 78px;
 }
 
 .brackets {
@@ -647,7 +749,10 @@ body.keyboard {
 /***********main nav*************/
 .mission-menu-item.done .mission-menu-center {
     background-size: 30%;
-    background-image: url('../img/v-01.svg');
+    background-image: url('../img/v-01.png');
+    background-position: initial;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .done .lock {
@@ -952,7 +1057,7 @@ body.keyboard {
     background-size: 100%;
     vertical-align: middle;
     background-position: center;
-        background-image: url('../img/svg/arrow/white.svg');
+    background-image: url('../img/svg/arrow/white.svg');
 }
 
 /********************* mission-deatails **************************/
@@ -1115,6 +1220,89 @@ body.keyboard {
     bottom: 21px;
 }
 
+.help {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+    background-size: 100% 100%;
+    left: 30px;
+    bottom: 0;
+    z-index: 9;
+    border-radius: 100%;
+    bottom: 21px;
+    background-image: url(../img/key.png);
+}
+
+.help-popup {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    background: rgba(0,0,0, 0.5);
+}
+
+.help-popup-container {
+    height: 396px;
+    width: 307px;
+    /* border: 2px solid purple; */
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    line-height: 35px;
+}
+
+.help-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 17px;
+}
+
+.help-desc {
+    text-align: center;
+    font-size: 23px;
+}
+
+.help-popup-container .arrow {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-left: 10px;
+    background-image: url('../img/svg/arrow/white.svg') !important;
+    margin-top: 6px;
+}
+
+.help-btn {
+    padding: 2px 0;
+    border-radius: 22px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.skip {
+    background-color: #DBDBDB;
+}
+
+.return {
+}
+
 .mission-repeat-popup h2 {
     font-size: 2em;
     display: inline-block;
@@ -1146,6 +1334,7 @@ body.keyboard {
 
 .mission-popup-didyou div {
     height: 100%;
+    overflow-y: auto;
 }
 
 .mission-popup-wrap .mission-popup-didyou {
@@ -1554,7 +1743,7 @@ footer {
     text-overflow: ellipsis;
     text-align: center;
     left: 43px;
-    width: 60px;
+    width: 66px;
 }
 
 .open-user-data #main-score {
@@ -1595,14 +1784,15 @@ header {
     background-color: #fff;
     background-size: 75px 66px;
 }
-.capture
-{
-        width: 100%;
+
+.capture {
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     right: 0;
 }
+
 .mission-popup-didyou h2 {
     margin-bottom: 10px;
 }
@@ -1696,7 +1886,7 @@ header {
 .menu-item-wrap {
     background-color: #fff;
     padding: 10px 29.5px 10px 20px;
-        position: relative;
+    position: relative;
 }
 
 .menu-img {
@@ -1720,8 +1910,29 @@ header {
     background-image: url('../img/score.png');
 }
 
+.staticMap{
+    width:100%;height: 100%;
+}
+.mapdisplay-wrap
+{
+        padding-top: 60px;
+    height: 100%;
+}
+
+#map_canvas{
+        width: 100%;
+    height: 100%;
+}
 .map .menu-img {
     background-image: url('../img/map.png');
+}
+.load-status {
+     height: 3vh;
+    font-size: 2vh;
+    text-align: center;
+    line-height: 3.5vh;
+    background-color: rgb(72, 113, 128);
+    color: white;
 }
 
 .capture .menu-img {
@@ -1739,6 +1950,7 @@ header {
 .logout .menu-img {
     background-image: url('../img/log_out.png');
 }
+
 .main .menu-img {
     background-image: url('../img/home-icon.png');
 }
@@ -1823,6 +2035,12 @@ section.audio {
     background-image: url(../img/icon-audio.png);
 }
 
+.marker_labels {
+    color: #57054C;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /*@media all and (max-width: 600px) {*/
 @media all and (max-width: 736px) and (max-height: 960px) {
     html, body {
@@ -1905,6 +2123,7 @@ section.audio {
     .menu-img {
         width: 35px;
         height: 38px;
+        background-size: 100%;
     }
 
     .menu-item-name {
@@ -1959,6 +2178,7 @@ section.audio {
         /*padding-bottom: 60px;*/
         min-height: 280px;
         height: 100%;
+        overflow-y: hidden;
         /*
         height: 100%;
         overflow-y: scroll;
@@ -2294,6 +2514,14 @@ section.audio {
         position: relative;
     }
 
+    .done .mission-menu-center {
+        background-size: 40px !important;
+    }
+
+    .mission-menu-item.lockMiss .mission-menu-center {
+        background-size: 44px !important;
+    }
+
     .mission-menu-icon {
         width: 52%;
         height: auto;
@@ -2318,6 +2546,17 @@ section.audio {
         webkit-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
         -moz-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
         box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .help {
+        width: 35px;
+        height: 35px;
+        z-index: 100;
+        width: 35px;
+        height: 38px;
+        /* top: initial; */
+        bottom: 8px;
+        left: 18px;
     }
 
     #main-help {
@@ -2518,12 +2757,69 @@ section.audio {
         font-size: 15px;
     }
 
+    .stage-v {
+        width: 40px;
+        height: 40px;
+        bottom: 29%;
+    }
+
     .audio-func {
         bottom: 0px;
         width: 20px;
         height: 20px;
         left: 5px;
         background-size: 120%;
+    }
+
+    .help-popup-container {
+        width: 279px;
+        height: 378px;
+    }
+
+    .stage-popup .help-popup-container {
+        width: 81%;
+        height: 80%;
+        padding: 12px;
+    }
+
+    .stage-popup .inner-content {
+        padding: 20px;
+    }
+
+    .stage-popup .help-btn {
+        width: 100%;
+        font-size: 18px;
+        padding: 2px 0;
+        height: initial;
+    }
+
+    .stage-popup .help-popup-container .arrow {
+        width: 25px;
+        height: 25px;
+        margin-top: 5px;
+    }
+
+    .x-popup {
+        width: 28px;
+        height: 28px;
+        padding: 16px;
+    }
+
+    .stage-popup .help-title {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+
+    .stage-popup .help-desc {
+        font-size: 22px;
+    }
+
+    .help-title {
+        font-size: 27px;
+    }
+
+    .help-desc {
+        font-size: 23px;
     }
 }
 

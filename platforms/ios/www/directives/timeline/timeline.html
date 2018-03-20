@@ -1,0 +1,8 @@
+<div class="timeline-wrap" >
+    <ol class="wizard-progress clearfix" >
+        <li ng-repeat="point in stages" ng-class="{'done-point':stages[$index].stationStatus != 0}" ng-click="active($index)">
+            <span class="visuallyhidden"></span><span class="step-num-wrap"><span class="number" ng-hide="stages[$index].stationStatus != 0">{{$index+1}}</span><span ng-show="stages[$index].stationStatus != 0" class="v"></span></span>
+        </li>
+    </ol>
+
+</div>

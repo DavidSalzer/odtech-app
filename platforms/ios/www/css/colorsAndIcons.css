@@ -85,7 +85,7 @@ header {
     background-image: url("../img/navigation.png");
 }
 
-.navigation .popup, .navigation .item-number {
+.navigation .popup, .navigation .item-number, .navigation .help-title {
     color: #e21d91;
 }
 
@@ -194,7 +194,7 @@ header {
 }
 
 
-.takePhoto .popup, .takePhoto .item-number {
+.takePhoto .popup, .takePhoto .item-number, .navigation .help-title {
     color: #408fb0;
 }
 
@@ -284,7 +284,7 @@ header {
     font-size: 1em !important;
 }
 
-.takeVideo .popup, .takeVideo .item-number {
+.takeVideo .popup, .takeVideo .item-number, .navigation .help-title {
     color: #46c4b4;
 }
 
@@ -370,7 +370,7 @@ header {
     background-image: url("../img/watchVideo.png");
 }
 
-.watchVideo .popup, .watchVideo .item-number {
+.watchVideo .popup, .watchVideo .item-number, .navigation .help-title {
     color: #a985e6;
 }
 
@@ -437,7 +437,7 @@ header {
     background-color: rgba(255,153,0,0.8);
 }
 
-.multiQuestion .popup, .multiQuestion .item-number {
+.multiQuestion .popup, .multiQuestion .item-number, .navigation .help-title {
     color: #ff9900;
 }
 
@@ -523,7 +523,7 @@ header {
     background-color: rgba(237,242,130,0.64);
 }
 
-.medicine-basket .popup, .medicine-basket .item-number {
+.medicine-basket .popup, .medicine-basket .item-number, .navigation .help-title {
     color: #b5dc2d;
 }
 
@@ -586,7 +586,7 @@ header {
 }
 
 
-.openQuestion .popup, .openQuestion .item-number, .read-text .popup, .read-text .item-number, #read-text .permission.claim {
+.openQuestion .popup, .openQuestion .item-number, .read-text .popup, .read-text .item-number, #read-text .permission.claim, .navigation .help-title {
     color: #ffd200;
 }
 
@@ -705,30 +705,10 @@ header {
     background-image: url("../img/svg/clock/takePhoto-yellow.svg");
 }
 
-.takePhoto.yellow .item-number { /*.takePhoto .popup,*/
-    color: #ffcc00;
-}
 
-.takePhoto.yellow .mission-deatails-timer {
-    background-color: rgba(249,237,189,0.96);
-}
-
-.takePhoto.yellow #timer {
-    color: #ffcc00;
-}
 /*mission-popup*/
 
-.takePhoto.yellow .mission-popup-timer {
-    background-color: #f9edbd;
-}
 
-.takePhoto.yellow .mission-popup-header {
-    color: #ffcc00;
-}
-
-.takePhoto.yellow .popup, .takePhoto.yellow .item-number {
-    color: #ffcc00;
-}
 
 
 /*.takePhoto.yellow .mission-popup-scoring {
@@ -804,18 +784,7 @@ header {
 }
 
 /*****last-mission********************************************************************/
-.last-mission .mission-menu-center {
-    background-color: rgba(248,223,104,0.8);
-}
 
-
-.last-mission .popup, .last-mission .item-number, #last-mission .permission.claim {
-    color: #ffd200;
-}
-
-.last-mission .mission-icon {
-    background-color: #ffd200;
-}
 
 #popup.last-mission .mission-icon {
     background-image: url("../img/openQuestion.png");
@@ -865,7 +834,7 @@ header {
     background-color: rgba(101,225,209,0.9);
 }
 
-.qrCode .popup, .qrCode .item-number {
+.qrCode .popup, .qrCode .item-number , .navigation .help-title{
     color: #46c4b4;
 }
 
@@ -920,7 +889,7 @@ header {
 }
 
 /***** Trip Summary ************************************************************/
-.tripSummary .popup, .tripSummary .item-number {
+.tripSummary .popup, .tripSummary .item-number , .navigation .help-title{
     color: #d71e32;
 }
 
@@ -988,7 +957,7 @@ header {
     /*border-bottom: 4px solid #064566;*/
 }
 
-.compass .popup, .compass .item-number {
+.compass .popup, .compass .item-number, .navigation .help-title {
     color: #064566;
 }
 
@@ -1039,7 +1008,7 @@ header {
     background-color: rgba(101,225,209,0.9);
 }
 
-.scala .popup, .scala .item-number   {
+.scala .popup, .scala .item-number , .navigation .help-title  {
     /*color: #46c4b4;*/
 }
 

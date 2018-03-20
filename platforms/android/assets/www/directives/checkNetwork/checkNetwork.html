@@ -2,9 +2,7 @@
     <div class="mission-popup-didyou popup">
         <div class="feelings-popup popup">
             <h2>אירעה שגיאה</h2>
-            <p data-ng-show="contentNum == 0">בדקו חיבור לאינטרנט, ואנחנו ננסה להתחבר ממש עוד כמה שניות</p>
-            <p data-ng-show="contentNum == 1">ניסינו להתחבר, בדקו את החיבור ונחזור למשחק</p>
-            <p data-ng-show="contentNum == 2">אנחנו צריכים חיבור לאינטרנט, ונראה שהוא אבד.. ננסה שוב עוד מעט</p>
-        </div>
-    </div>
+            <p data-ng-show="contentNum == 0">{{'_networkError1_' | localizedFilter}}</p>
+            <p data-ng-show="contentNum == 1">{{'_networkError2_' | localizedFilter}}</p>
+            <p data-ng-show="contentNum == 2">{{'_networkError3_' | localizedFilter}}</div>
 </div>

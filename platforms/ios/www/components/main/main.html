@@ -1,0 +1,18 @@
+<div class="main-page-wrap general">
+    <div class="main-title">{{'_mainTitle_' | localizedFilter}}</div>
+    <div class="main-btns-wrap">
+        <div class="btn-item"> <single-capture type="main"></single-capture><div class="circle capture-btn"></div><div class="btn-text">{{'_takePictures_' | localizedFilter}}</div></div>
+        <div class="btn-item" ng-click="$state.transitionTo('login')"><div class="circle to-travel-btn"></div><div class="btn-text">{{'_socialNavigating_' | localizedFilter}}</div></div>
+        <div class="btn-item" ng-click="$state.transitionTo('pushMessages')"><div class="circle messages-btn"></div><div class="btn-text">{{'_messages_' | localizedFilter}}</div></div>
+        
+    </div>
+
+    <div class="main-links-wrap">
+        <a ng-click="openLink('http://goo.gl/forms/Bk1aOt2EPm')"  target="_blank"><div class="link-item"><span class="questionnaire-item white-circle"></span><span class="link-text">{{'_questionnaire_' | localizedFilter}}</span></div></a>
+        <a ng-click="openLink('http://masaisraeli.co.il/%D7%9E%D7%A1%D7%A2-%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99-%D7%91%D7%91%D7%AA%D7%99%D7%A1/%D7%A9%D7%90%D7%9C%D7%95%D7%9F-%D7%9E%D7%A9%D7%95%D7%91')"   target="_blank"><div class="link-item"><span class="questionnaire-item white-circle"></span><span class="link-text">{{'_journeyFeedback_' | localizedFilter}}</span></div></a>
+        <a ng-click="openLink('https://www.facebook.com/masa.yisraeli.mibereshit?ref=hl')" target="_blank"><div class="link-item"><span class="facebook-item white-circle"></span><span class="link-text">{{'_likeUs_' | localizedFilter}}</span></div></a>
+        <a  ng-click="openLink('https://instagram.com/masaisraeli/')"  target="_blank"><div class="link-item"><span class="instagram-item white-circle"></span><span class="link-text">{{'_shareExperience_' | localizedFilter}}</span></div></a>
+        <a   ng-click="openLink('http://masaisraeli.co.il')" target="_blank"><div class="link-item"  ><span class="website-item white-circle"></span><span class="link-text">{{'_visitWebsite_' | localizedFilter}}</span></div></a>
+       
+    </div>
+</div>

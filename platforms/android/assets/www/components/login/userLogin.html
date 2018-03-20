@@ -1,0 +1,52 @@
+
+<div class="userLogin-wrap">
+     <div class="login-welcome fs-10">{{'_welcome_' | localizedFilter}} {{'_toApp_' | localizedFilter}} {{appName}}</div>
+    <div class="loginInputDiv">
+       
+        <form name="loginForm">
+            <input name="emailBox" ng-show="firstLogin" class="login-input" type="email" placeholder="{{'_emailPlaceholder_' | localizedFilter}}" data-ng-model="email" ng-change="changeInput('mail')" required data-ng-class="{'not-valid': !loginForm.emailBox.$valid && mailnotValid}" />
+            <div class="login-error fs-5" data-ng-show="!loginForm.emailBox.$valid && mailnotValid">* {{'_emailError_' | localizedFilter}}</div>
+            <div ng-show="!firstLogin" class="login-inputs">
+                <input class="login-input" type="text" placeholder="{{'_fullName_' | localizedFilter}" ng-model="fullName" />
+                <input class="login-input" type="tel" placeholder="{{'_phonenumber' | localizedFilter}" ng-model="phoneNumber" />
+
+                <div class="login-input">
+                    <div class="arr"></div>
+                    <span class="select-text"></span>
+                                            <!--<span class="select-text">{{selectedCity}}</span>
+                                                                     <select class="main-select" ng-model="selectedCity" ng-init="selectedCity='עיר/ישוב'">
+                                                                         <option ng-repeat="item in cities" value="{{item.name}}">{{item.name}}</option>
+                                                                     </select>-->
+                    <span class="select-text">{{selectedCity}}</span>
+                    <select class="main-select" ng-model="selectedCity" ng-options="item as item for item in cities" ng-init="selectedCity='{{'_selectedCity_' | localizedFilter}}'"></select>
+                </div>
+                <div class="login-input">
+                    <div class="arr"></div>
+                    <span class="select-text">{{selectedRoles}}</span>
+                    <select class="main-select" ng-model="selectedRoles" ng-options="item as item for item in roles" ng-init="selectedRoles='{{'_selectedRoles_' | localizedFilter}}'"></select>
+                </div>
+                <div class="login-input">
+                    <div class="arr"></div>
+                    <span class="select-text">{{selectedDates}}</span>
+                    <select class="main-select" ng-model="selectedDates" ng-options="item as item for item in dates" ng-init="selectedDates='{{'_selectedDates_' | localizedFilter}}' "></select>
+                </div>
+                <div class="login-input">
+                    <div class="arr"></div>
+                    <span class="select-text">{{selectedInstitutions}}</span>
+                    <select class="main-select" ng-model="selectedInstitutions" ng-options="item as item for item in institutions" ng-init="selectedInstitutions='{{'_selectedInstitutions_' | localizedFilter}}''"></select>
+                </div>
+
+
+
+            </div>
+        </form>
+        <div class="mission-popup-continue" data-ng-click="sendLogin()" ng-bind="{{'_signIn_' | localizedFilter}">
+            <span class="arrow"></span>
+        </div>
+        <div class="initUser-wrap" ng-show="!firstLogin" ng-click="initUser()">
+            <span ng-bind="{{'_resetUser_' | localizedFilter}"></span>
+        </div>
+
+    </div>
+    <div class="loader" ng-show="showInitLoader"></div>
+</div>

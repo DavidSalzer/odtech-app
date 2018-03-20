@@ -2,16 +2,14 @@
     <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" data-ng-class="{'show-btn-of-bootom': showFinishQuestion==true}">
 
         <!--center photo-->
-        <div class="photoCenter photo" id="mainPhoto" style="background-image: url({{pictures['photoCenter'].uri}})">
+        <div class="photoCenter photo" id="mainPhoto" data-ng-click="clickOnImage();captureImage('photoCenter')" ng-style="{'background-image': pictures['photoCenter'].uri ? 'url(' + pictures['photoCenter'].uri + ')' : inherite,'background-size': pictures['photoCenter'].uri ? 'cover' : '25%' }" >
             <div data-ng-show="photoSaved['photoCenter']&&firstTime" class="deleteOrbit" pos="photoCenter" data-ng-click="deletePhoto('photoCenter')">X</div>
             <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoCenter">
                 <p data-ng-hide="photoSaved['photoCenter']||!firstTime">
-                    <span class="span-of-pic" data-ng-if="!isApp" data-ng-click="clickOnImage()">+
+                    <span class="span-of-pic" data-ng-if="!isApp">
                         <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoCenter')" class="user-upload-img" name="file">
                     </span>
-                    <span data-ng-if="isApp" data-ng-click="captureImage('photoCenter')">+</span>
-            לחצו להוספת תמונה
-                </p>
+                    <span data-ng-if="isApp" ></span>{{'_addImage_' | localizedFilter}}</p>
             </form>
         </div>
 
@@ -91,9 +89,9 @@
     <!--description popup-->
     <div data-ng-show="openImg" class="openImgDialog openImgDialog-wrapper" id="photo-title" style="background-image: url({{pictures[photoClicked].uri}})" style="display: none;">
         <div class="img-description">
-            <span>תנו לתמונה שם</span>
+            <span>{{'_addImageName_' | localizedFilter}}</span>
             <input type="text" accept="image/*" id="img-description" data-ng-model="description">
-            <div class="description-continue" id="description-continue" data-ng-click="addDescription()">שמור
+            <div class="description-continue" id="description-continue" data-ng-click="addDescription()">{{'_save_' | localizedFilter}}
                 <span class="arrow"> </span>
             </div>
 

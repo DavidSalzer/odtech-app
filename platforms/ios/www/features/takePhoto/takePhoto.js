@@ -1,4 +1,4 @@
-odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (camera, $timeout, $rootScope) {
+odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', '$filter', function (camera, $timeout, $rootScope, $filter) {
     return {
         restrict: 'E',
         templateUrl: './features/takePhoto/takePhoto.html',
@@ -21,7 +21,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             scope.results.answer = {};
             scope.results.points = 0;
             scope.firstTime = true;
-            scope.uploadText = "בהעלאה..";
+            scope.uploadText = $filter('localizedFilter')('_uploading_');
             scope.uploadTimeout = -1;
 
 
@@ -31,11 +31,11 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                 if (scope.firstTime) {
                     //for check if upload image crash
                     if (localStorage.getItem('startMission' + scope.missionData.mid) == 'start') {
-                        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה' });
+                        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: $filter('localizedFilter')('_uploadImageTip_')                    });
                     }
 
                 }
-            }
+            };
 
 
             scope.setData = function () {
@@ -47,9 +47,8 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                 scope.results.answer = {};
                 scope.results.points = 0;
                 scope.firstTime = true;
-                scope.uploadText = "בהעלאה..";
+                scope.uploadText = $filter('localizedFilter')('_uploading_');
                 scope.uploadTimeout = -1;
-
 
 
                 //set the  data for mission - parent or sub
@@ -59,6 +58,9 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                 else {
                     scope.missionData = scope.parentMissionData;
                 }
+                //set the minimal count photo if not exist
+                scope.missionData.countPhoto = scope.missionData.countPhoto != undefined && scope.missionData.countPhoto.length == 0 ? 1 :  scope.missionData.countPhoto && scope.missionData.countPhoto > 5 ? 5 :scope.missionData.countPhoto;
+
                 if (scope.missionData.status == 'answer') {
 
 
@@ -81,14 +83,14 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
 
 
 
-                        scope.checkImagesUploadCrashes()
+                        scope.checkImagesUploadCrashes();
 
-                    }, 0)
+                    }, 0);
 
 
                 }
 
-            }
+            };
             scope.setData();
 
 
@@ -137,57 +139,27 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                     }
                 }, 0);
 
-            }
+            };
 
             //after the user click on the finish question popup - upload to server
             scope.uploadImages = function () {
                 scope.showFinishQuestion = false;
-                //show the loader on upload
-                scope.showLoader = true;
-                /**change the uploader text**/
-                $timeout(function () {
-                    scope.uploadText = "ממשיך בהעלאה..";
-                }, 5000);
-                $timeout(function () {
-                    scope.uploadText = "ההעלאה נמשכת..";
-                }, 15000);
-                $timeout(function () {
-                    scope.uploadText = "התמונה שלך אכותית, ההעלאה תמשך עוד כמה שניות..";
-                }, 25000);
-                /**end change the uploader text**/
-                $timeout(function () {
-                    //if the upload not finished after 50 s - end the mission -the user get all the points
-                    if (scope.uploadTimeout == -1) {
-                        scope.results.points = scope.missionData.points;
-                        scope.results.answer = scope.pictures;
-                        scope.uploadTimeout = 1;
-                        console.log('endMission 1: ' + scope.results.points)
-                        scope.endMission(scope.results, scope.missionData);
-                    }
-                }, 50000);
+
                 //if this is a application version
                 if (isApp()) {
                     camera.uploadPhoto(scope.pictures, "img", scope.missionData.countPhoto)
                             .then(function (data) {
-                                //if the upload take  a long time - do nothing
-                                if (scope.uploadTimeout == -1) {
-                                    scope.uploadTimeout = 0;
-                                    scope.showLoader = false;
-                                    for (index in data) {
-                                        for (field in data[index]) {
-                                            scope.results.answer[field] = data[index][field];
-                                            //get point, if the answer was sent in time
-                                            if (!scope.endTimer) {
-                                                scope.results.points = scope.missionData.points;
-                                            }
-                                        }
-                                    }
-                                    console.log('endMission 2: ' + scope.results.points)
-                                    scope.endMission(scope.results, scope.missionData);
 
-                                }
 
                             });
+                    //set the images with the local path
+                    scope.results.answer = scope.pictures;
+                    //if not timeout - set the points
+                    if (!scope.endTimer) {
+                        scope.results.points = scope.missionData.points;
+                    }
+                    //end the mission without connection to the upload
+                    scope.endMission(scope.results, scope.missionData);
                 }
                 //else -if this is a browser version
                 else {
@@ -196,33 +168,18 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                     }
                     camera.uploadPhotoFormData(scope.pictures, "img", scope.missionData.countPhoto)
                             .then(function (data) {
-                                //if the upload take  a long time - do nothing
-                                if (scope.uploadTimeout == -1) {
-                                    scope.uploadTimeout = 1;
-                                    scope.showLoader = false;
-                                    for (index in data) {
-                                        for (field in data[index]) {
-                                            scope.results.answer[field] = data[index][field];
-                                            //get point, if the answer was sent in time
-                                            if (!scope.endTimer) {
-                                                scope.results.points = scope.missionData.points;
-                                            }
-                                        }
-                                    }
-                                    //if the upload failed - get the point - by timer
-                                    if(data.res ==false){
-                                        console.log('upload image failed')
-                                         //get point, if the answer was sent in time
-                                            if (!scope.endTimer) {
-                                                scope.results.points = scope.missionData.points;
-                                            }
-                                    }
-                                    console.log('endMission 3: ' + scope.results.points)
-                                    scope.endMission(scope.results, scope.missionData);
-                                }
+
 
 
                             });
+                    //set the images with the local path
+                    scope.results.answer = scope.pictures;
+                    //if not timeout - set the points
+                    if (!scope.endTimer) {
+                        scope.results.points = scope.missionData.points;
+                    }
+                    //end the mission without connection to the upload
+                    scope.endMission(scope.results, scope.missionData);
 
                 }
             }
@@ -235,10 +192,11 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
                     scope.photoSaved[scope.photoClicked] = true;
                     scope.countPhotos++;
                     if (scope.countPhotos == scope.missionData.countPhoto) {
-                        alert("סיימת את המשימה:)");
+                        alert(cid === 3? $filter('localizedFilter')('_missionAccomplishedOrpan_') : $filter('localizedFilter')('_missionAccomplished_')
+                    );
                     }
                 }, 0);
-            }
+            };
 
             // delete photo - the user click on X btn
             scope.deletePhoto = function (photoClicked) {
@@ -273,8 +231,6 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
                 //send answer to server if the current if this is the mission that close
                 if (scope.missionData.status == "notAnswer" && scope.missionData.mid == data.data.mid) {
-                    console.log('xxx5')
-                    console.log('endMission 4: ' + scope.results.points)
                     scope.endMission(scope.results, scope.missionData);
                     localStorage.removeItem('startMission' + scope.missionData.mid); //for check if upload image crash
                 }
@@ -296,8 +252,8 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', function (
             /*submission data*/
             //addon for submission because the controller is alive
             scope.$on('subMissionDataGet', function (event, data) {
-                 if(data.data.type == "takePhoto"){
-                     scope.setData()
+                if (data.data.type == "takePhoto") {
+                    scope.setData();
                 }
             });
         },

@@ -82,6 +82,10 @@
     font-size: 1.8em;
     /* background-image: url(../img/help.jpg); */
     margin: 68px auto 20px auto;
+    
+        background-image: url('../img/add-01.png');
+    background-size: 27%;
+    background-position: center;
   
 }
 

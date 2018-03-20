@@ -1,4 +1,4 @@
-odtechApp.directive('timer', ['$rootScope', '$timeout','server', function ($rootScope, $timeout,server) {
+odtechApp.directive('timer', ['$rootScope', '$timeout', 'server', function ($rootScope, $timeout, server) {
     return {
         restrict: 'E',
         templateUrl: './directives/timer/timer.html',
@@ -50,6 +50,7 @@ odtechApp.directive('timer', ['$rootScope', '$timeout','server', function ($root
                 //console.log('initTimer')
                 //init the current time value and display
                 if (scope.task) {
+                    scope.task.timer = scope.task.timer && scope.task.timer.length > 0 && scope.task.timer != "0" ? scope.task.timer : 1;
                     scope.currentTime = scope.task.timer * 60; //convert the minutes to seconds
                     scope.displayTimer(scope.currentTime);
 
@@ -84,8 +85,8 @@ odtechApp.directive('timer', ['$rootScope', '$timeout','server', function ($root
                     request = {
                         type: "missionStart",
                         req: {
-                              mid: scope.task.mid
-                           
+                            mid: scope.task.mid
+
                         }
                     }
 

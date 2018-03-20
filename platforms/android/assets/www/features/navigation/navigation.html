@@ -21,24 +21,24 @@
            <div>{{loadText}}</div>
     </div>
     <!--You have reached the destination popup-->
-    <div data-ng-show="isDestination" class="mission-repeat-popup popup navigation-popup" data-ng-click="sendDestination()">
-        <h2 class="popup-title">הגעת ליעד</h2>
+    <div data-ng-show="isDestination && missionData.status != 'answer'" class="mission-repeat-popup popup navigation-popup" data-ng-click="sendDestination()">
+        <h2 class="popup-title">{{'_destinationReached_' | localizedFilter}}</h2>
         <!--<p class="popup-text">{{destinationText}}</p>-->
         <div class="mission-popup-continue">
-            <span>לחצו כאן</span>
+            <span>{{'_pressHere_' | localizedFilter}}</span>
             <span class="arrow" > </span>
         </div>
     </div>
 
     <!--Unknown user location popup-->
-    <div data-ng-show="!isDestination && noLocation" class="mission-repeat-popup popup navigation-popup">
+    <div data-ng-show="!isDestination && noLocation && noLocationPopupDisplayCount < 15" class="mission-repeat-popup popup navigation-popup">
         <div class="x" data-ng-click="noLocation=false"></div>
-        <h2>המיקום שלכם לא התעדכן בזמן האחרון, נסו לשנות מיקום  </h2>
-        <p class="popup-text">אנא בידקו שה<span> GPS פועל או שהמכשיר מאפשר קבלת מיקום. </span><br><span>במידה וזה עדיין לא עובד נסו לכבות ולהדליק את הGPS במכשיר או להפעיל מחדש את המכשיר.</span></p>
+        <h2>{{'_changeLocation_' | localizedFilter}}</h2>
+        <p class="popup-text"><span>{{'_locationError1_' | localizedFilter}}</span><br><span>{{'_locationError2_' | localizedFilter}}</span></p>
 
-        <p class="popup-text" data-ng-show="longNoLocation > 3">האם ברצונכם לסיים את המשימה? הגיעו לנקודת היעד ולחצו על החץ</p>
+        <p class="popup-text" data-ng-show="longNoLocation > 3">{{(cid === 3 ? '_endMissionOrpan_' : '_endMission_') |localizedFilter }}</p>
         <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
-            <span>ליציאה לחצו כאן</span>
+            <span>{{'_clickToExit_' | localizedFilter}}</span>
             <span class="arrow"> </span>
         </div>
     </div>
@@ -47,7 +47,7 @@
          <h2></h2>
         <p  class="popup-text">{{interestPopuptext}}</p>
         <div class="mission-popup-continue"  data-ng-click="showInterestPopup = false">
-            <span>אישור</span>
+            <span>{{'_ok_' | localizedFilter}}</span>
             <span class="arrow"> </span>
         </div>
         <!--<div id="didyou-audio-wrap">
@@ -60,11 +60,11 @@
         <span>?</span>
     </div>
     <div class="photo-order" ng-show="showProblemPopup">
-            <h2>נתקעתם? </h2>
-        <span>(לא יתקבל ניקוד)</span>
+            <h2>{{'_stuck_' | localizedFilter}}</h2>
+        <span>{{'_youWontGetPoints_' | localizedFilter}}</span>
             <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
             <div class="photo-continue" ng-click="closeNavig()">
-                <span class="next-text">לחצו ליציאה</span>
+                <span class="next-text">{{'_clickToExit_' | localizedFilter}}</span>
                 <span class="arrow"></span>
             </div>
         </div>

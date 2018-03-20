@@ -2,7 +2,7 @@
 <section id="mission-movie" ng-init="showPoster=false">
 
     <div class="load" style="  margin: auto; width: 100px;font-size: 2em; position: absolute;top: 0;bottom: 0;left: 0; right: 0; height: 30px;text-align: center">
-            טוען את הסרטון...
+        {{'_loadingVideo_' | localizedFilter}}
     </div>
     <div class="poster" data-ng-if="showPoster" ng-style="getPoster()"></div>
     <!--show movie controls for play again or finish the mission-->

@@ -1,13 +1,14 @@
 <div class="mission-popup-wrap opacity-mask did-you-know-popup" data-ng-if="showDidYouKnow"><!--todo: did you know popup before end activity popup (now resolved by z-index)-->
     <div class="mission-popup-didyou popup">
         <div class="feelings-popup popup">
-            <h2>הידעת</h2>
+            <h2>{{(cid !== 3 ? '_none_' : '_didYouKnow_') | localizedFilter }}
+            </h2>
             <span data-ng-show="didYouKnowImg" class="missionPopUpImage img-missionPopUpImage" style="background-image:url('{{imgDomain+didYouKnowImg}}')" data-ng-click="openLargeImage()"> 
                 <large-image type="didyouknow" url="{{imgDomain+didYouKnowImg}}"></large-image>
             </span>
             <p ng-bind-html="didYouKnowText | newlines"></p>
             <div class="permission" id="permission-feel" data-ng-click="hideDidYouKnow()">
-                <span class="next-text">אישור</span>
+                <span class="next-text">{{'_ok_' | localizedFilter}}</span>
                 <span class="arrow"></span>
             </div>
         </div>
