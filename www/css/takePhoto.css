@@ -1,0 +1,525 @@
+#mission-photo {
+    height: 80%;
+}
+
+.takePhoto .photo-order {
+    position: relative;
+   
+    box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
+    padding-bottom: 25px;
+    top: 0px;
+    margin: auto;
+    border-radius: 100px;
+    display: block;
+    width: 255px;
+    z-index: 15;
+    padding: 11px;
+    /* display: none; */
+}
+
+#mission-photo .user-upload-img {
+}
+
+#mission-photo #mainPhoto p {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0;
+}
+
+
+
+.take-photo-wrap {
+    height: 100%;
+    /*overflow-y: auto;*/
+    position: relative;
+}
+
+.photo-continue {
+    /*color: #408fb0;*/
+    width: 240px;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    font-size: 30px;
+    font-size: 1.7em;
+    left: 7px;
+    line-height: 60px;
+    cursor: pointer;
+    text-indent: 65px;
+    /*text-align: center;*/
+}
+
+.photo-continue .arrow {
+    margin-right: 35px;
+    margin-right: 125px;
+    margin-bottom: 1px;
+}
+
+.photoCenter p span {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 85px;
+    font-size: 4.2em;
+    
+}
+
+.photoCenter p {
+    text-align: center;
+}
+
+.photoCenter {
+    /*background-color: rgba(122,199,234,.9);*/
+    height: 312px;
+    width: 425px;
+    max-height: 100%;
+    position: relative;
+    color: #fff;
+    font-size: 1.8em;
+    /* background-image: url(../img/help.jpg); */
+    margin: 68px auto 20px auto;
+    
+        background-image: url('../img/add-01.png');
+    background-size: 27%;
+    background-position: center;
+  
+}
+
+.deleteOrbit {
+    border-radius: 100%;
+    border-color: #408fb0;
+    width: 29px;
+    height: 30px;
+    position: absolute;
+    border: 4px solid #408fb0;
+    background-color: white;
+    color: #408fb0;
+    z-index: 12;
+    padding: 4px;
+    font-size: 9px;
+    font-size: 14px;
+    padding-right: 6PX;
+    font-family: arial;
+    font-weight: bold;
+    right: -10px;
+    top: -10px;
+}
+
+.photoLeft .deleteOrbit {
+    right: -7px;
+    left: initial;
+}
+
+.photoUp .deleteOrbit {
+    left: -6px;
+    right: initial;
+}
+
+#mission-photo .photo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.orbit {
+    background-size: 190px 157px;
+}
+
+.photoUp {
+    /*left: 375px;
+    position: absolute;
+    top: 130px;
+    color: #fff;
+    top: 130px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(169,226,250,.9); */
+    left: 160px;
+    position: absolute;
+    top: 270px;
+    color: #fff;
+    background-position: center;
+    width: 160px;
+    height: 120px;
+}
+
+.photoLeft {
+    /*top: 310px;
+    left: 150px;
+    position: absolute;
+    color: #fff;
+    top: 310px;
+    left: 150px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(165,225,250,.9); */
+    top: 310px;
+    left: 150px;
+    position: absolute;
+    color: #fff;
+    top: 195px;
+    left: 160px;
+    background-position: center;
+    width: 160px;
+    height: 120px;
+    right: initial;
+}
+
+
+.photoRight {
+    /*top: 345px;
+    left: 712px;
+    position: absolute;
+    color: #fff;
+    top: 345px;
+    left: 712px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(210,238,249,.9); */
+    top: 345px;
+    left: initial;
+    position: absolute;
+    color: #fff;
+    top: 195px;
+    right: 160px;
+    background-position: center;
+    width: 160px;
+    height: 120px;
+}
+
+.photoRight-up, .photoLeft-up {
+    top: 120px;
+}
+
+.photoDown {
+    /*bottom: 80px;
+    left: 425px;
+    color: #fff;
+    top: 510px;
+    left: 425px;
+    background-position: center;
+    width: 230px;
+    height: 190px;*/
+    /* background-color: rgba(178,219,236,.9); */
+    /* background-color: rgba(178,219,236,.9); */
+    bottom: 80px;
+    right: 160px;
+    color: #fff;
+    top: 270px;
+    background-position: center;
+    width: 160px;
+    height: 120px;
+    position: absolute;
+}
+
+.openImgDialog {
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/help.jpg);
+    background-size: cover;
+}
+
+.img-description {
+    background: #fff;
+    z-index: 5;
+    width: 100%;
+    height: 108px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.description-continue, #photo-title-edit .description-continue {
+    color: #46c4b4;
+    width: 120px;
+    height: 45px;
+    position: absolute;
+    bottom: 29px;
+    font-size: 33px;
+    font-size: 1.8em;
+    left: 40px;
+    cursor: pointer;
+}
+
+.openImgDialog .arrow, #photo-title-edit .arrow {
+    position: absolute;
+    /* left: 0; */
+    right: 10;
+    margin-right: 5%;
+    background-image: url("../img/svg/arrow/record-video.svg");
+    height: 40px;
+    width: 40px;
+    background-size: 100% 100%;
+}
+
+#img-description {
+    height: 33px;
+    position: absolute;
+    width: 60%;
+    margin-right: 20%;
+    display: inline-block;
+    bottom: 35%;
+    right: 0px;
+}
+
+.photoUp p span {
+    display: block;
+    text-align: center;
+    /*padding-top: 75px;*/
+    font-size: 85px;
+    font-size: 4.2em;
+}
+
+.photoDown p span {
+    display: block;
+    text-align: center;
+    /*padding-top: 75px;*/
+    font-size: 85px;
+    font-size: 4.2em;
+}
+
+.photoRight p span {
+    display: block;
+    text-align: center;
+    /*padding-top: 75px;*/
+    font-size: 85px;
+    font-size: 4.2em;
+}
+
+.photoLeft p span {
+    display: block;
+    text-align: center;
+    /*padding-top: 75px;*/
+    font-size: 85px;
+    font-size: 4.2em;
+}
+
+
+div.openImgDialog > div > span {
+    position: relative;
+    line-height: normal;
+    margin: 0px 5% 0px 0px;
+    top: 35%;
+    text-align: right;
+    color: #46c4b4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.photo-order h2 {
+    line-height: 38px;
+    text-indent: 60px;
+    font-size: 2em;
+}
+
+
+.upload-loader div {
+    margin: auto;
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    height: 6em;
+    z-index: 1000;
+}
+
+@media all and (max-width: 670px) {
+
+    .take-photo-wrap {
+        overflow-y: hidden;
+    }
+
+    .photo-endBtn-wrap {
+        height: 20%;
+        position: relative;
+    }
+
+    .takePhoto .photo-order {
+       
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        width: 40%;
+    }
+
+    .takePhoto #mission-photo .photo-order {
+    }
+
+    #mission-photo {
+        margin-top: 0px;
+        display: block;
+        overflow-y: auto;
+    }
+
+    #mission-photo.show-btn-of-bootom {
+        overflow-y: auto;
+height: 80%;
+    }
+
+    .photoCenter {
+        position: relative;
+        left: 0px;
+        top: 0px;
+        margin: 25px auto 15px auto;
+        width: 80%;
+        height: 215px;
+    }
+
+    #mission-photo .orbit.photo {
+        position: relative;
+        display: block;
+        margin: 0px auto 14px auto;
+        top: 0px;
+        left: 0px;
+        width: 80%;
+        height: 130px;
+    }
+
+    #mission-photo .orbit.photo.photoUp {
+        width: 70%;
+    }
+
+    #mission-photo .orbit.photo.photoDown {
+        width: 70%;
+    }
+
+    #mission-photo .orbit.photo.photoLeft {
+        width: 70%;
+    }
+
+    #mission-photo .orbit.photo.photoRight {
+        width: 70%;
+    }
+
+    .photoCenter p {
+        display: block;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        height: 100%;
+        padding-top: 30px;
+    }
+
+    .photoCenter p span {
+        margin: 0px;
+    }
+
+    .photoCenter p span {
+        margin: 0px;
+    }
+
+    .openImgDialog {
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 0px;
+        background-color: rgba(178,219,236,.9);
+        background-position: center;
+    }
+
+    .img-description {
+        height: 80px;
+        width: 100%;
+        margin: auto;
+        left: 0px;
+        right: 0px;
+    }
+
+    div.openImgDialog > div > span {
+        position: relative;
+        line-height: normal;
+        margin: 0px 10px 0px 0px;
+        text-align: right;
+        color: #46c4b4;
+        font-size: 20px;
+        font-weight: bold;
+        top: 5px;
+    }
+
+    #img-description {
+        position: absolute;
+        /* display: block; */
+        width: 60%;
+        margin-right: 10px;
+        bottom: 12px;
+        display: inline-block;
+        /* bottom: 12px; */
+        right: 0px;
+    }
+
+    .description-continue {
+        position: absolute;
+        left: 10px;
+        width: 30%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 23px;
+        bottom: 12px;
+        display: inline-block;
+    }
+
+    .photo-order {
+        left: 0;
+        width: 38%;
+        height: 7%;
+        z-index: 100000;
+        bottom: 90px;
+        top: initial;
+        right: 0;
+        margin: auto;
+        padding: 7px 10px;
+        height: 36px;
+    }
+
+    .photo-order h2 {
+        font-size: 20px;
+        text-indent: initial;
+        line-height: 18px;
+    }
+
+    .photo-continue {
+        left: 11px;
+        text-align: left;
+        width: 29px;
+        height: 32px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .photo-order .next-text {
+        font-size: 16px;
+    }
+
+    .photo-order .arrow {
+        width: 100%;
+        margin: 0px;
+        height: 100%;
+        display: block;
+            top: 0;
+    background-size: 100% 100%;
+    }
+
+    .photoLeft .deleteOrbit {
+        right: -10px;
+        left: initial;
+    }
+}

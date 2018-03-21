@@ -1,0 +1,14 @@
+<div class="group-score-container">
+    <div class="big-trophy"></div>
+    <div class="score-title">{{'_leaderboard_' | localizedFilter}}
+    </div>
+    <div class="group-score-wrap">
+        <div class="group-line" ng-repeat="group in groupsList">
+            <div class="index">{{$index+1}}.</div>
+            <div class="group-name">{{group.name}}</div>
+            <div class="score-num"><span>{{group.sumPoint}}</span></div>
+        </div>
+      
+    </div>
+   
+</div>

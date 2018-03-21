@@ -1,0 +1,12 @@
+<div class="mission-popup-wrap opacity-mask did-you-know-popup" data-ng-if="showGeneralPopup"><!--todo: did you know popup before end activity popup (now resolved by z-index)-->
+    <div class="mission-popup-didyou popup">
+        <div class="feelings-popup popup">
+            <!--<h2>שאלת בינגו!</h2>-->
+            <p>{{generalPopupText}}</p>
+            <div class="permission" id="permission-feel" data-ng-click="hideGeneralPopup()">
+                <span class="next-text">{{'_ok_' | localizedFilter}}</span>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+</div>

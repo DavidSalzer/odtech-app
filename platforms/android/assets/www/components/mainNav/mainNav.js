@@ -115,7 +115,7 @@ odtechApp.controller('mainNav', ['$rootScope', '$scope', '$state', 'missions', '
                 $rootScope.isEnglish = true;
                  localize.initLocalizedResources();
                 console.log('points: ' + $rootScope.withoutPoints);
-        }
+            }
             else {
                  $rootScope.isEnglish = false;
             }

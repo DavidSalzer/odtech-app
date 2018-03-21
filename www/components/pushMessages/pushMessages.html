@@ -1,0 +1,18 @@
+<div class="messages-wrap">
+    <div class="push-title">{{'_myMessages_' | localizedFilter}}</div>
+    <div class="messages-list-wrap">
+        <div class="push-item" ng-repeat="message in messagesList">
+            <div class="push-item-header">
+                <span class="envelope"></span>
+                <span class="date">{{message.time | date:'dd.MM.yyyy'}}</span>
+                <span class="hour">{{message.time | date:'HH:mm'}}</span>
+            </div>
+            <div class="push-item-content">
+            {{message.message}}
+            </div>
+        </div>
+
+        <div class="no-messages" ng-if="messagesList.length == 0">{{'_noMessages_' | localizedFilter}}</div>
+    </div>
+
+</div>

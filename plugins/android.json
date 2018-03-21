@@ -7,7 +7,13 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
     "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
     "cordova-plugin-media": {
@@ -23,12 +29,6 @@
       "PACKAGE_NAME": "com.cambium.odtech"
     },
     "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "com.cambium.odtech"
-    },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.cambium.odtech"
-    },
-    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.cambium.odtech"
     }
   },

@@ -1,0 +1,357 @@
+
+/*header {
+    display: none;
+}
+
+footer {
+    display: none;
+}
+
+#main-container {
+    padding-bottom: 0;
+}
+
+.animate-switch-container {
+    background-image: none;
+}
+
+.mission-popup {
+    top: 0;
+}
+
+.mission-deatails-menu {
+    display: none;
+}
+
+.animate-switch-container {
+    padding: 0;
+}
+
+.feature {
+    margin-top: 0;
+    border: none;
+}
+
+.mission-popup {
+    border: none;
+}
+
+.close {
+    display: none;
+}
+
+.mission-popup {
+    bottom: initial;
+    height: 100%;
+}
+
+.claim-text-wrap {
+    width: 67%;
+}
+
+.mission-popup-scoring {
+    width: 80%;
+}
+
+.mission-popup-timer {
+    display: none !important;
+}
+
+.photoDown {
+    top: 5%;
+    right: 4%;
+    bottom: initial;
+    left: initial;
+    position: absolute;
+}
+
+.photoRight {
+    top: 55%;
+    right: 3%;
+}
+
+.photoLeft {
+    top: 20%;
+    left: 4%;
+}
+
+.x {
+    width: 60px;
+    height: 50px;
+    background-size: 67%;
+    background-repeat: no-repeat;
+    background-position: center;
+}*/
+.subMissions-wrap {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 75%;
+    height: 54%;
+    /*top: 266px;
+    bottom: 90px;*/
+    bottom: initial;
+    overflow: hidden;
+    height: 100%;
+}
+
+.subMissions .feature, .submission-introduction {
+    border: 5px solid rgba(255, 254, 255, 0.5);
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.submission-introduction {
+    width: 75%;
+    height: 90%;
+}
+
+.submission-introduction .mission-popup-timer {
+    display: none;
+}
+
+.submission-introduction .timer-wrapper {
+    display: none;
+}
+
+.submission-introduction .intro-header-right {
+    width: 38%;
+}
+
+.submission-introduction .mission-popup-scoring {
+    width: 100%;
+}
+
+.subMissions-wrap .x {
+    z-index: 100;
+    left: 15px;
+    top: 15px;
+}
+
+.submission-introduction .x {
+    left: 10px;
+    top: 4px;
+}
+
+.subMissionItem {
+    width: 100%;
+    height: 100%;
+}
+
+.submission-introduction .mission-popup-continue {
+    width: 44%;
+}
+
+.subMissionsIcons-wrap {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+}
+
+.subMissionIconItem {
+    width: 15%;
+    /*height: 100%;*/
+    display: inline-block;
+    border: none;
+    margin: 0 5px;
+    position: relative;
+    /* max-height: 122px; */
+    vertical-align: bottom;
+    bottom: 0;
+}
+
+.opacityIcon.subMissionIconItem {
+    opacity: 0.5;
+}
+
+.subMissionIconItem {
+    /*position: relative;
+   
+    overflow: hidden;
+    background: #4679BD;*/
+}
+
+.subMissionIconItem:before {
+    content: "";
+    display: block;
+    padding-top: 70%;
+}
+
+.subMisIcon {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+}
+
+.takePhoto .subMisIcon {
+    background-image: url('../img/takePhoto.png');
+}
+
+.takeVideo .subMisIcon {
+    background-image: url('../img/takeVideo.png');
+}
+
+.openQuestion .subMisIcon {
+    background-image: url('../img/openQuestion.png');
+    background-position-y: 2px;
+}
+
+.subMisV {
+    background-image: url('../img/v-01.svg');
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    /* left: 0; */
+    right: 3px;
+    top: 3px;
+    background-size: 100%;
+}
+
+.subMissions {
+    position: absolute;
+    bottom: 23px;
+    right: 30px;
+    left: initial;
+    z-index: 400;
+    background-clip: padding-box;
+    width: 100%;
+    height: 19%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    right: 0;
+    /* box-shadow: 0 0 0px 7px rgba(255,255,255,.35); */
+    /* box-sizing: border-box; */
+}
+
+.subMissions .x {
+    background-image: url("../img/svg/x/white.svg") !important;
+}
+
+
+.subMissions.long {
+    height: 100%;
+}
+
+.submission-introduction .mission-description-wrap {
+    padding: 113px 0 80px;
+}
+
+@media (max-width: 670px) {
+    #mission-photo .photo {
+        right: 0;
+    }
+
+    .photoCenter {
+        width: 98%;
+    }
+
+    .main-video {
+        width: 98%;
+    }
+
+    .photo-order {
+        display: block !important;
+        left: 9%;
+        right: initial;
+        position: fixed;
+        bottom: 4%;
+    }
+
+    .subMissions {
+        height: 100%;
+        width: 18%;
+        left: initial;
+        right: 8px;
+        bottom: 21px;
+        top: initial;
+        max-height: 40%;
+        z-index: 0;
+        max-width: 75px;
+    }
+
+    .subMissions.long {
+        width: 101%;
+        height: 100%;
+        top: 0px;
+        left: 0;
+        right: 0;
+        max-height: initial;
+        max-width: initial;
+        z-index: 1000;
+    }
+
+    .submission-introduction .mission-popup-continue {
+        width: 58%;
+    }
+
+    .subMissions.long .subMissionIconItem {
+        display: none;
+    }
+
+    .subMissionsIcons-wrap {
+        width: 100%;
+        /*height: 100%;*/
+        right: initial;
+    }
+
+    .subMissionIconItem {
+        /* width: 100%; */
+        display: block;
+        margin: 2px 0;
+        height: 22%;
+        width: 18vw;
+        min-width: 57px;
+    }
+
+    .subMissions .x {
+        width: 20px;
+        height: 20px;
+        left: initial;
+        top: 6px;
+        right: 4px;
+    }
+
+    .subMissionItem .openQuestion #mission-text .permission.claim {
+        width: 47%;
+    }
+
+    .subMisV {
+        width: 13px;
+        height: 13px;
+        right: 2px;
+        top: 3px;
+    }
+
+    .subMissions-wrap {
+        width: 89%;
+        height: 100%;
+        /* overflow: hidden; */
+        top: 0;
+        bottom: initial;
+    }
+
+    .submission-introduction {
+        width: 89%;
+        height: 100%;
+        /* overflow: hidden; */
+        top: 75px;
+        bottom: initial;
+    }
+
+    .submission-introduction .mission-description-wrap {
+        padding: 70px 0 0px 0;
+    }
+}

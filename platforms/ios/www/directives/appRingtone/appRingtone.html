@@ -1,6 +1,17 @@
 <section class="audio">
 
-    <!--<audio id="timeOver" controls>
+        <audio id="failBuzzer" controls>
+                <source src="{{ scope.sorcesuccess}}"  type="audio/mp3">
+                          Your browser does not support the audio tag.
+            </audio>
+        
+            <audio id="success" controls>
+                <source src="{{scope.sorcefailBuzzer}}"  type="audio/mp3">
+                          Your browser does not support the audio tag.
+            </audio>
+       
+<!--
+    <audio id="timeOver" controls>
         <source  src="{{sorcetimeOver|trustedurl}}" type="audio/mpeg">
                   Your browser does not support the audio tag.
     </audio>
@@ -18,7 +29,7 @@
     <audio id="success" controls>
         <source src="{{sorcesuccess|trustedurl}}"  type="audio/mpeg">
                   Your browser does not support the audio tag.
-    </audio>-->
+    </audio>
    
-
+-->
 </section>

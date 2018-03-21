@@ -3,7 +3,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
         restrict: 'E',
         templateUrl: './directives/appRingtone/appRingtone.html',
         link: function (scope, el, attrs) {
-            //   $rootScope.my_media = null;
+            // $rootScope.my_media = null;
             scope.imgDomain = imgDomain;
             $rootScope.mediaToPlay = null;
             $timeout(function () {
@@ -14,7 +14,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                 scope.sorceapplause = imgDomain + 'upload/tada.mp3';
                 scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
 
-                if (isUsingDefaultSounds){
+                if (!isUsingDefaultSounds){
                     console.log('GETTING DEFAULT SOUNDS');
                     scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer.mp3';
                     scope.sorcesuccess = imgDomain + 'upload/magic-chime.mp3';
@@ -25,17 +25,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                     scope.sorcesuccess = imgDomain + 'upload/magic-chime-orpan.mp3';
                 }
              }, 0);
-            try {
 
-                $rootScope.successMedia = $rootScope.successMedia == undefined ? new Media(scope.sorcesuccess, scope.success, scope.error) : $rootScope.successMedia;
-                $rootScope.failBuzzerMedia = $rootScope.failBuzzerMedia == undefined ? new Media(scope.sorcefailBuzzer, scope.success, scope.error) : $rootScope.failBuzzerMedia;
-                $rootScope.timeoverMedia = $rootScope.timeoverMedia == undefined ? new Media(scope.sorcetimeOver, scope.success, scope.error) : $rootScope.timeoverMedia;
-                $rootScope.applauseMedia = $rootScope.applauseMedia == undefined ? new Media(scope.sorceapplause, scope.success, scope.error) : $rootScope.applauseMedia;
-                $rootScope.applauseMedia = new Media(scope.sorceapplause, scope.success, scope.error);
-
-            }
-
-            catch(e){}
             //multi Question Answer Right
             scope.$on('multiQuestionAnswerRight', function () {
                 scope.play("success");
@@ -70,47 +60,49 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
 
 
             scope.play = function (type) {
-                var src = "";
-
+                var src = '';
                 //set the src file audio by type
                 switch (type) {
                     case "success":
-                        // src = scope.sorcesuccess;
-                        $rootScope.mediaToPlay = $rootScope.successMedia;
+                         src = scope.sorcesuccess;
+                        //$rootScope.mediaToPlay = $rootScope.successMedia;
+                        console.log('success ' + src);
                         break;
                     case "timeover":
-                        // src = scope.sorcetimeOver;
-                        $rootScope.mediaToPlay = $rootScope.timeoverMedia;
+                         src = scope.sorcetimeOver;
+                        //$rootScope.mediaToPlay = $rootScope.timeoverMedia;
                         break;
                     case "applause":
-                        // src = scope.sorceapplause;
-                        $rootScope.mediaToPlay = $rootScope.applauseMedia;
+                         src = scope.sorceapplause;
+                        //$rootScope.mediaToPlay = $rootScope.applauseMedia;
                         break;
                     case "failBuzzer":
-                        // src = scope.sorcefailBuzzer;
-                        $rootScope.mediaToPlay = $rootScope.failBuzzerMedia;
+                         src = scope.sorcefailBuzzer;
+                        //$rootScope.mediaToPlay = $rootScope.failBuzzerMedia;
+                        console.log('fail ' + src);
                         break;
+                        
                 }
-
-
                 try {
                     //if the media is null -init the element, else - play without init before
-                    //  if ($rootScope.my_media == null) {
-                    // $rootScope.my_media = new Media(src, scope.success, scope.error)
-                    //  }
+                     if ($rootScope.mediaToPlay == null) {
+                             $rootScope.mediaToPlay = new Media(src, scope.success, scope.error)
+                     }
 
                     // Play audio
-                    //$rootScope.my_media.play();
-                    $rootScope.mediaToPlay.play();
+                    
+                    $rootScope.mediaToPlay.stop();
+                    $rootScope.mediaToPlay.play(src);
+                    $rootScope.mediaInit();
                 }
                 catch (e) { }
             };
-            scope.success = function () {
+            scope.success = function (success) {
                 console.log("playAudio():Audio Success");
             };
             scope.error = function (error) {
-                console.log("playAudio():Error!!");
-            };
+                     console.log("playAudio():Error!!" + error.code + error.message);
+             };
             scope.mediaInit = function () {
                 if ($rootScope.mediaToPlay != null) {
                     $rootScope.mediaToPlay.release();

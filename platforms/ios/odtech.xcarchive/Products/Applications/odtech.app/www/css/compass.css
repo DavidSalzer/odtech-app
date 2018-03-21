@@ -1,0 +1,209 @@
+
+
+.compass-wrap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.north-pointer-box {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+.north-pointer-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+}
+
+#northPointer {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: yellow;
+    position: absolute;
+}
+
+.pointer {
+    height: 0;
+    width: 0;
+    border-left: 3em solid transparent;
+    border-right: 3em solid transparent;
+    border-bottom: 12em solid black;
+    margin: -10px 0 0 -40px;
+    top: 40%;
+    left: 50%;
+    position: absolute;
+}
+
+.n {
+    top: 20%;
+    left: 50%;
+    position: absolute;
+    font: 8em Helvetica;
+    margin: 0 0 0 -40px;
+}
+/* the initial rotation value */
+#compass {
+    transform: rotate(0deg); /* in case someone creates a compliant browser */
+    -ms-transform: rotate(0deg); /* WP7 */
+    -webkit-transform: rotate(0deg); /* iOS and Android */
+    -webkit-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    transition: transform 0.5s;
+    width: 43%;
+}
+
+.compass-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding-top: 35px;
+    color: #fff;
+    z-index: 3;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    text-align: center;
+    display: block;
+}
+
+.main-compass {
+    padding: 35px 0;
+    border-radius: 18px;
+    width: 35%;
+    position: relative;
+    margin: auto;
+    padding-top: 25px;
+}
+
+.main-compass p {
+    font-size: 50px;
+    margin-bottom: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 15px;
+}
+
+.compass .photo-order {
+    position: relative;
+    margin: 8px auto 0 auto;
+    background: transparent;
+    box-shadow: none;
+    top: 0px;
+    left: 0px;
+     display: block;
+    width: 255px;
+    height: 49px;
+    z-index: 15;
+    padding: 11px;
+    font-size: 1.5em;
+    /* display: none; */
+    border-radius: 30px;
+    padding: 7px 17px;
+}
+
+.compass .photo-order span {
+    vertical-align: middle;
+    position: relative;
+        top: initial;
+   
+}
+
+.compass .photo-order .arrow {
+    width: 40px;
+    height: 40px;
+    /*left: 12px;
+    right: initial;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;*/
+}
+
+.direction-arrow {
+    display: inline-block;
+    width: 55px;
+    height: 47px;
+    background-repeat: no-repeat;
+    position: relative;
+    /* bottom: -10px; */
+    background-size: 100%;
+    vertical-align: middle;
+    background-position: center;
+}
+
+.compass .popup.mission-repeat-popup {
+    background-color: #fff;
+    z-index: 16;
+}
+
+.compass .opacity-mask {
+    z-index: 15;
+}
+
+.compass .photo-order .arrow {
+    right: 42px;
+    top: -2px;
+}
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+    .compass-wrap {
+        height: 100%;
+        background: #fff;
+    }
+
+    .compass-container {
+        padding-top: 4px;
+    }
+
+    .main-compass {
+        width: 80%;
+        padding: 17px 0;
+    }
+
+    .main-compass p {
+        font-size: 25px;
+        margin-bottom: 7px;
+    }
+
+    .direction-arrow {
+        width: 40px;
+        height: 34px;
+    }
+
+    .compass .photo-order {
+        height: 36px;
+        width: 60%;
+    }
+
+    .photo-order span {
+        font-size: 1.5em;
+        line-height: 22px;
+        /* vertical-align: top; */
+        position: relative;
+        top: -4px;
+    }
+
+    .compass .photo-order .arrow {
+        width: 34px;
+        height: 34px;
+        left: 12px;
+        right: initial;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+}

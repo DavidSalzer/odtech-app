@@ -1,0 +1,39 @@
+
+<div class="barcode-wrap">
+
+    <div class="main-barcode" data-ng-click="scancode()" ng-show="firstTime && !showDataPopup">
+
+        <p>
+            <span data-ng-show="showPlus">+</span>
+            {{'_scanBarcode_' | localizedFilter}} 
+        </p>
+    </div>
+    <div class="scan-wrap data-text" ng-show="firstTime && showDataPopup">
+        <span class="popupText" ng-show="showTextData">
+            {{popupText}}
+        </span>
+        <div class="barcode-btn"  ng-click="taskEnd()">
+            <span class="text">{{'_imDone_' | localizedFilter}}</span>
+            <span class="arrow"></span>
+        </div>
+    </div>
+
+    <div class="main-barcode second-scan-wrap" ng-show="!firstTime">
+
+        <p>
+    {{secondTimeText}}
+        </p>
+    </div>
+
+
+    <div ng-show="showAnswerIndication" class="opacity-mask">
+        <div class="message-text-popup popup">
+            <div class="textMessage">
+                <h2 ng-show="showAnswerIndication">{{'_wrongScan_' | localizedFilter}}</h2>
+                <p ng-show="showAnswerIndication">{{'_lookForBarcode_' | localizedFilter}}</p>
+
+                <app-ringtone></app-ringtone>
+            </div>
+        </div>
+    </div>
+</div>

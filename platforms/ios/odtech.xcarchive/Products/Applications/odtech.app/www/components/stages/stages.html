@@ -1,0 +1,45 @@
+    <!--<div id="day-description" data-ng-show="showDescription" class="general"> 
+            <div class="day-description-img"></div>   
+            <p class="pOffDay-description"  data-ng-if="description" ng-bind-html="description | newlines"></p>
+            <p data-ng-show="!description"><br> בטעינה...</p>
+            <div class="next" data-ng-click="closeDescription()">
+                <div class="next-text-wrapper" data-ng-show="description">
+                    <span class="next-text">להמשך</span>
+                    <span class="arrow"></span>
+                 </div>
+            </div>
+    
+            <odtech-audio data-ng-if="showDescription && audioUrl" audio-src="{{audioUrl}}"></odtech-audio>
+        </div>-->
+<!-- main nav  -->
+<section id="stage-container" data-ng-hide="showDayDescription" data-ng-class="{'blur':blurAll}"><!--data-ng-hide="showDescription"-->
+    <div id="-wrap" class="mainnav-wrap" ng-show="stages.length > 0">
+        <div class="stage-wrap">
+            <div id="stage-menu">
+                <!-- mission item -->
+                <div data-index="{{$index+1}}" data-ng-repeat="stage in stages" class="mission-menu-item not-visited navigation" data-ng-class="{'done':stage.stationStatus != 0}" data-ng-click="goToStageMissions(stage)">
+                    <!--<div style="position: absolute;top: 0;left: 0;    font-size: 42px;">{{stage.status}}</div>-->
+                    <div class="stage-menu-center" ng-class="{'logoAsBackground':!stage.imgUrl}" style="background-image:url('{{imgDomain+stage.imgUrl}}')">
+
+                        <div class="stage-v" ng-if="stage.stationStatus != 0"></div>
+                        <div class="stage-menu-name"><span>{{stage.name}}</span></div>
+                        <span class="stage-item-number">[{{$index+1 > "9" ? $index+1 :'0' +($index+1) }}]</span>
+                    </div>
+
+                    <div class="stage-menu-icon stage-icon">
+                        <img src="img/navigation.png" alt="" />
+                    </div>
+                    <!-- mission number -->
+                </div>
+            </div>
+        </div>
+        <timeline></timeline>
+    </div>
+    <!-- no missions popup -->
+    <div class="no-stage-wrap" ng-show="stages && stages.length == 0">
+        <div class="no-stage-data">{{'_noMissionData_' | localizedFilter}}</div>
+    </div>
+  
+
+</section>
+<!---->

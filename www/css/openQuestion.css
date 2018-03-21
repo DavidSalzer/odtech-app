@@ -1,0 +1,59 @@
+.next-main-content {
+    width: 70%;
+    left: 0;
+    right: 0;
+}
+
+.mission-write-text .permission.claim {
+    position: relative;
+    top: 0px;
+    display: block;
+    float: initial;
+    bottom: 0px;
+    margin: 79px auto 0px !important;
+    border-radius: 100px;
+    height: 57px;
+    padding: 11px;
+    width: 255px;
+    font-size: 2.2em;
+    line-height: 37px;
+}
+
+.openQuestion #mission-text .arrow {
+    margin-left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 6px;
+        position: relative;
+    float: left;
+}
+
+@media (max-height: 736px) and (max-width: 736px) {
+
+    #mission-text {
+        overflow-y: auto;
+        border: 0px;
+        margin: 0px;
+    }
+
+    .openQuestion #mission-text .permission.claim {
+        margin-top: 62px !important;
+        margin-bottom: 20px !important;
+        height: 36px;
+        width: 40%;
+        text-indent: initial;
+        font-size: 22px;
+        line-height: 16px;
+    }
+
+    .next-main-content {
+        width: 100%;
+    }
+
+    .openQuestion #mission-text .arrow {
+        width: 30px;
+        height: 30px;
+            top: -7px;
+    }
+}

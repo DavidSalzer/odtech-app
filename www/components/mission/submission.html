@@ -1,0 +1,48 @@
+<div class="subMissions" ng-if="subMissionsData.length > 0" ng-show="showMissionTab" ng-class="{'long opacity-mask':subMissionOpen != -1}">
+    <div class="subMissions-wrap {{subMissionOpen.type}}" ng-show="showSubMisison">
+        <div class="mission-header">
+            <div class="instructions-item mission-popup-timer active-tab" ng-class="{'active-tab':!subShowMissionTab}" ng-click="goToInstructionTab()">
+                <div class="tab-title-wrap">
+                    <span class="icon"></span>
+                    <span class="mission-header-text">{{'_instructions_' | localizedFilter}}</span>
+                </div>
+            </div>
+            <div class="instructions-item mission-popup-timer mission-tab" ng-class="{'active-tab':subShowMissionTab}" ng-click="goToMissionTab()">
+
+                <div class="tab-title-wrap">
+                    <span class="mission-icon"></span>
+                    <span class="mission-header-text">{{(cid === 3 ? '_missionOrpan_' : '_mission_') | localizedFilter }}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="x" ng-click="closeSubMission()"></div>
+        <div class="content-tabs-wrap" ng-class="{'missionActive':subShowMissionTab}">
+            <div class="instructions-tab-content">
+                <mission-introduction></mission-introduction>
+
+            </div>
+            <div class="mission-tab-content">
+                <div class="subMissionItem" ng-repeat="subMis in subMissionsData" ng-show="subMissionOpen.mid == subMis.mid">
+                    <multi-question ng-if="subMis.type == 'multiQuestion'"></multi-question>
+                    <navigation ng-if="subMis.type == 'navigation'"></navigation>
+                    <open-question ng-if="subMis.type == 'openQuestion'"></open-question>
+                    <take-photo ng-if="subMis.type == 'takePhoto'"></take-photo>
+                    <take-video ng-if="subMis.type == 'takeVideo'"></take-video>
+                    <watch-video ng-if="subMis.type == 'watchVideo'"></watch-video>
+                    <qr-code ng-if="subMis.type == 'qrCode'"></qr-code>
+                    <scala ng-if="subMis.type == 'scala'"></scala>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="subMissionsIcons-wrap">
+        <div class="subMissionIconItem {{subMis.type}}" ng-repeat="subMis in subMissionsData" ng-click="enterSubMission(subMis.mid)" ng-class="{'green':subMis.status == 'answer','opacityIcon': loaderVisible}">
+            <div class="subMisV" ng-show="subMis.status == 'answer'"></div>
+            <div class="subMisIcon"></div>
+        </div>
+
+    </div>
+</div>

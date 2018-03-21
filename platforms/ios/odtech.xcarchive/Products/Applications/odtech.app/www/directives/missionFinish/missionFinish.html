@@ -1,0 +1,20 @@
+<section id="mission-finish" class="timeUp" data-ng-class="{'finish':successMission}" data-ng-show="finishMission" ng-init="finishMission=false">
+    <div class="message-time">
+        <span class="time-icon"  data-ng-hide="successMission">
+        </span>
+        <span class="time-result" data-ng-if="task.points" data-ng-show="successMission">
+               {{recievedpoints}}
+        </span>
+
+        <div class="timeText">
+            <h2>{{finishMissionTitle}}</h2>
+            <p>
+                         {{finishMissionL1}}<br>
+                        {{finishMissionL2}}
+            </p>
+        </div>
+
+        <app-ringtone></app-ringtone>
+    </div>
+
+</section>

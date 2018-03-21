@@ -1,46 +1,199 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html data-ng-app="odtechApp">
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Odtech</title>
+        <!--<meta content="width=device-width, initial-scale=1.0" name="viewport" />-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        
+        <link href="css/reset.css" rel="stylesheet" />
+        <link href="css/colorsAndIcons.css" rel="stylesheet" />
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://mts1.googleapis.com https://maps.gstatic.com https://www.youtube.com https://s.ytimg.com 'unsafe-inline' 'unsafe-eval'">-->
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/splash.css" rel="stylesheet" />
+        <link href="css/subMissions.css" rel="stylesheet" />
+        <link href="css/navigation.css" rel="stylesheet" />
+
+        <link href="css/multiQuestions.css" rel="stylesheet" />
+
+        <link href="css/qrCode.css" rel="stylesheet" />
+
+        <!-- directives style-->
+        <link href="css/timer.css" rel="stylesheet" />
+        <link href="css/missionFinish.css" rel="stylesheet" />
+        <link href="css/info.css" rel="stylesheet" />
+
+        <!-- features style-->
+        <link href="css/takePhoto.css" rel="stylesheet" />
+        <link href="css/takeVideo.css" rel="stylesheet" />
+        <link href="css/watchVideo.css" rel="stylesheet" />
+        <!--<link href="css/mainQ.css" rel="stylesheet" />-->
+        <link href="css/login.css" rel="stylesheet" />
+        <link href="css/openQuestion.css" rel="stylesheet" />
+        <link href="css/scala.css" rel="stylesheet" />
+        <link href="css/dragging.css" rel="stylesheet" />
+        <link href="css/compass.css" rel="stylesheet" />
+        <link href="css/groups.css" rel="stylesheet" />
+        <link href="css/groupMembers.css" rel="stylesheet" />
+        <link href="css/timeline.css" rel="stylesheet" />
+        <link href="css/stages.css" rel="stylesheet" />
+        <link href="css/misisonTabs.css" rel="stylesheet" />
+        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/pushMessages.css" rel="stylesheet" />
+
+         <link href="css/english.css" rel="stylesheet" />
+        <!--<link href="css/colorsAndIconsMasa.css" rel="stylesheet" />-->
+                    <!--<link href="css/colorsAndIconsYIBZ.css" rel="style
+                    sheet" />-->
+        <!--<link href="css/colorsAndIconsRothschild.css" rel="stylesheet" />-->
+        <script src="cordova.js"></script>
+        
+
     </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body ng-class="{english : isEnglish == true}">
+
+        <!-- BEGIN PAGE CONTENT-->
+        <ng-include src="'components/splash/splash.html'"></ng-include><!--client splash-->
+        <div id="main-container" ng-show="!showSplash">
+            <ng-include src="'components/header/header.html'"></ng-include><!--header-logo-->
+            <menu></menu>
+            <day-description></day-description>
+            <!--group member and profile-->
+            <!--main content-->
+            <div id="main-view" class="main-view" data-ui-view="main"></div>
+                            <!--<audio id="odtech-audio-silence">
+                                                                <source src="http://adminqa.odtech.co.il/upload/143271010397845260.mp3" type="audio/mp3">
+                                                            </audio>-->
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
+        <!--score button-->
+        <!--<ng-include src="'components/group/groupScoreButton.html'"></ng-include>-->
+        <ng-include src="'components/popup/popup.html'"></ng-include><!--popup-->
+        <ng-include src="'components/footer/footer.html'"></ng-include><!--footer-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=true&language=he"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>
+        <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+                    <!--<script>
+                                                                                                            function onYouTubePlayerAPIReady() {
+                                                                                                                alert("player");
+                                                                                                            }
+                                                                                                </script>-->
+        <!-- Jquery -->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+
+        <!-- Angular -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-ui-router.min.js"></script>
+        
+        <script src="js/lodash.js"></script>
+        <script src="js/angular-google-maps.js"></script>
+        <script src="js/jquery.sglide.2.1.2.min.js"></script>
+        <script src="js/angular-animate.js"></script>
+        <script src="js/angular-ios9-uiwebview.patch.js"></script>
+        <script src="app.js"></script>
+         <script src="components/splash/splash.js"></script>
+        <script src="globals.js"></script>
+        <script src="clientData.js"></script><!--script that exist in application only - with the client data-->
+        <script src="deviceLoction.js"></script>
+        <script src="js/angular-sanitize.js"></script>
+        <script src="js/angular-animate.js"></script>
+        <script src="js/ngDraggable.js"></script>
+        <!-- odtech  services-->
+        <script src="./services/server.js"></script>
+        <script src="./services/missions.js"></script>
+        <script src="./services/localize.js"></script>
+         <script src="./dec.js"></script>
+        <script src="./services/maps.js"></script>
+        <script src="./services/camera.js"></script>
+
+
+        <!-- odtech  components-->
+       
+        <script src="components/login/login.js"></script>
+        <script src="components/login/userLogin.js"></script>
+        <script src="components/pushMessages/pushMessages.js"></script>
+        <script src="components/group/group.js"></script>
+        <script src="components/group/groupsScore.js"></script>
+        <!--<script src="components/dayDescription/dayDescription.js"></script>-->
+        <script src="components/mainNav/mainNav.js"></script>
+        <script src="directives/missionDeatails/missionDeatails.js"></script>
+        <script src="directives/missionIntroduction/missionIntroduction.js"></script>
+        <script src="components/mission/mission.js"></script>
+        <script src="components/mission/submission.js"></script>
+        <script src="components/mission/parentmission.js"></script>
+        <script src="components/footer/footer.js"></script>
+        <script src="components/header/header.js"></script>
+        <script src="components/stages/stages.js"></script>
+        <script src="components/info/info.js"></script>
+        <script src="components/mapDisplay/mapDisplay.js"></script>
+        <script src="components/main/main.js"></script>
+
+        <!-- odtech  directives-->
+        <script src="directives/checkNetwork/checkNetwork.js"></script>
+        <script src="directives/didYouKnow/didYouKnow.js"></script>
+        <script src="directives/missionFinish/missionFinish.js"></script>
+        <script src="directives/menu/menu.js"></script>
+        <script src="directives/monitor/monitor.js"></script>
+        <script src="directives/points/points.js"></script>
+        <script src="directives/timer/timer.js"></script>
+        <script src="directives/groupMembers/groupMembers.js"></script>
+        <script src="directives/endActivity/endActivity.js"></script>
+        <script src="directives/generalPopup/generalPopup.js"></script>
+        <script src="directives/onLongPress/onLongPress.js"></script>
+        <script src="directives/largeImage/largeImage.js"></script>
+        <script src="directives/odtechAudio/odtechAudio.js"></script>
+        <script src="directives/appRingtone/appRingtone.js"></script>
+        <script src="directives/timeline/timeline.js"></script>
+        <script src="directives/dayDescription/dayDescription.js"></script>
+        <script src="directives/singleCapture/singleCapture.js"></script>
+        <script src="directives/endStage/endStage.js"></script>
+
+
+        <!-- odtech  features-->
+        <script src="features/multiQuestion/multiQuestion.js"></script>
+        <script src="features/navigation/navigation.js"></script>
+        <script src="features/openQuestion/openQuestion.js"></script>
+        <script src="features/takePhoto/takePhoto.js"></script>
+        <script src="features/takeVideo/takeVideo.js"></script>
+        <script src="features/watchVideo/watchVideo.js"></script>
+        <script src="features/qrCode/qrCode.js"></script>
+        <script src="features/scala/scala.js"></script>
+        <script src="features/dragging/dragging.js"></script>
+        <script src="features/compass/compass.js"></script>
+        <script src="initPushwoosh.js"></script>
+        
+                <!--phonegap on ready scripts- can be moved to app.run()-->
+        <script type="text/javascript" charset="utf-8">
+
+            /*detect environment*/
+            var agent = navigator.userAgent;
+            var isWebkit = (agent.indexOf("AppleWebKit") > 0);
+            var isIPad = (agent.indexOf("iPad") > 0);
+            var isIOS = (agent.indexOf("iPhone") > 0 || agent.indexOf("iPod") > 0);
+            var isAndroid = (agent.indexOf("Android") > 0);
+            var isNewBlackBerry = (agent.indexOf("AppleWebKit") > 0 && agent.indexOf("BlackBerry") > 0);
+            var isWebOS = (agent.indexOf("webOS") > 0);
+            var isWindowsMobile = (agent.indexOf("IEMobile") > 0);
+            var isSmallScreen = (screen.width < 767 || (isAndroid && screen.width < 1000));
+            var isUnknownMobile = (isWebkit && isSmallScreen);
+            var isMobile = (isIOS || isAndroid || isNewBlackBerry || isWebOS || isWindowsMobile || isUnknownMobile);
+            var isTablet = (isIPad || (isMobile && !isSmallScreen));
+            var isBrowser = document.URL.indexOf('http://') !== -1 || document.URL.indexOf('https://') !== -1;
+            var isDevelopment = document.URL.indexOf('localhost') !== -1;
+            if (isBrowser && isMobile && !isDevelopment) {
+                thisUrl = window.location.href;
+                var localUrl = thisUrl.replace(siteOrigin, '');
+                localUrl = localUrl.replace('#/', '');
+                //window.location.replace(siteOrigin + 'land.html?url=' + localUrl);
+            }
         </script>
+
+
+        <!-- END JAVASCRIPTS -->
     </body>
+    <!-- END BODY -->
 </html>

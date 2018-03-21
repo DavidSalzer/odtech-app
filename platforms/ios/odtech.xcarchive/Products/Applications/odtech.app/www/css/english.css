@@ -1,0 +1,19 @@
+.english #day-description p.pOffDay-description{
+    direction: ltr;
+}
+
+.english .mission-popup p{
+     direction: ltr;
+}
+
+.english  .mission-popup-didyou div{
+    text-align: left
+}
+
+.english .next-question-scroll{
+    text-align: left;
+}
+
+.english .mission-popup-continue{
+    text-align: center;
+}

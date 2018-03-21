@@ -1,0 +1,100 @@
+<div class="take-photo-wrap">
+    <section data-ng-hide="openImg" id="mission-photo" style="display: block;" class="feature" data-ng-class="{'show-btn-of-bootom': showFinishQuestion==true}">
+
+        <!--center photo-->
+        <div class="photoCenter photo" id="mainPhoto" data-ng-click="clickOnImage();captureImage('photoCenter')" ng-style="{'background-image': pictures['photoCenter'].uri ? 'url(' + pictures['photoCenter'].uri + ')' : inherite,'background-size': pictures['photoCenter'].uri ? 'cover' : '25%' }" >
+            <div data-ng-show="photoSaved['photoCenter']&&firstTime" class="deleteOrbit" pos="photoCenter" data-ng-click="deletePhoto('photoCenter')">X</div>
+            <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoCenter">
+                <p data-ng-hide="photoSaved['photoCenter']||!firstTime">
+                    <span class="span-of-pic" data-ng-if="!isApp">
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoCenter')" class="user-upload-img" name="file">
+                    </span>
+                    <span data-ng-if="isApp" ></span>{{'_addImage_' | localizedFilter}}</p>
+            </form>
+        </div>
+
+
+
+        <!-- for browsers -->
+        <!--<input type="file" ng-model="uploadImg"  onchange="angular.element(this).scope().imageChosen(this)" class="user-upload-img" name="img" />-->
+        <!--center photo-->
+        <div data-ng-if="missionData.countPhoto>1" class="photoLeft orbit photo" id="photoLeft" style="z-index: 1; background-image: url({{pictures['photoLeft'].uri}})">
+            <div data-ng-show="photoSaved['photoLeft']&&firstTime" class="deleteOrbit" id="delphotoLeft" pos="photoLeft" data-ng-click="deletePhoto('photoLeft')">X</div>
+            <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoLeft">
+                <p data-ng-hide="photoSaved['photoLeft']||!firstTime">
+                    <span data-ng-if="!isApp">+
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoLeft')" class="user-upload-img" name="file">
+                    </span>
+                    <span data-ng-if="isApp" data-ng-click="captureImage('photoLeft')">+</span>
+                </p>
+            </form>
+        </div>
+
+        <!--right photo-->
+        <div data-ng-if="missionData.countPhoto>2" class="photoRight orbit photo" id="photoRight" style="z-index: 1; background-image: url({{pictures['photoRight'].uri}})">
+            <div data-ng-show="photoSaved['photoRight']&&firstTime" class="deleteOrbit" id="delphotoRight" pos="photoRight" data-ng-click="deletePhoto('photoRight')">X</div>
+            <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoRight">
+                <p data-ng-hide="photoSaved['photoRight']||!firstTime">
+                    <span data-ng-if="!isApp">+
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoRight')" class="user-upload-img" name="file">
+
+                    </span>
+                    <span data-ng-if="isApp" data-ng-click="captureImage('photoRight')">+</span>
+                </p>
+            </form>
+        </div>
+
+        <!--down photo-->
+        <div data-ng-if="missionData.countPhoto>3" class="photoDown orbit photo" id="photoDown" style="z-index: 1; background-image: url({{pictures['photoDown'].uri}})">
+            <div data-ng-show="photoSaved['photoDown']&&firstTime" class="deleteOrbit" id="delphotoDown" pos="photoDown" data-ng-click="deletePhoto('photoDown')">X</div>
+            <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoDown">
+                <p data-ng-hide="photoSaved['photoDown']||!firstTime">
+                    <span data-ng-if="!isApp">+
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoDown')" class="user-upload-img" name="file">
+
+                    </span>
+                    <span data-ng-if="isApp" data-ng-click="captureImage('photoDown')">+</span>
+                </p>
+            </form>
+        </div>
+
+        <!--up photo-->
+        <div data-ng-if="missionData.countPhoto>4" class="photoUp orbit photo" id="photoUp" style="z-index: 1; background-image: url({{pictures['photoUp'].uri}})">
+            <div data-ng-show="photoSaved['photoUp']&&firstTime" class="deleteOrbit" id="delphotoUp" pos="photoUp" data-ng-click="deletePhoto('photoUp')">X</div>
+            <form enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post" name="photoUp">
+                <p data-ng-hide="photoSaved['photoUp']||!firstTime">
+                    <span data-ng-if="!isApp">+
+                        <input type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().browserCaptureImage(this.files, 'photoUp')" class="user-upload-img" name="file">
+                    </span>
+                    <span data-ng-if="isApp" data-ng-click="captureImage('photoUp')">+</span>
+                </p>
+            </form>
+        </div>
+
+        <div class="upload-loader" ng-show="showLoader">
+            <div>{{uploadText}}</div>
+        </div>
+    </section>
+    <div class="photo-endBtn-wrap">
+        <!--popup end mission-->
+        <div class="photo-order" ng-show="showFinishQuestion"  ng-click="uploadImages()">
+            <h2>סיימתי</h2>
+            <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
+            <div class="photo-continue">
+                <!--<span class="next-text">לחצו לאישור</span>-->
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </div>
+    <!--description popup-->
+    <div data-ng-show="openImg" class="openImgDialog openImgDialog-wrapper" id="photo-title" style="background-image: url({{pictures[photoClicked].uri}})" style="display: none;">
+        <div class="img-description">
+            <span>{{'_addImageName_' | localizedFilter}}</span>
+            <input type="text" accept="image/*" id="img-description" data-ng-model="description">
+            <div class="description-continue" id="description-continue" data-ng-click="addDescription()">{{'_save_' | localizedFilter}}
+                <span class="arrow"> </span>
+            </div>
+
+        </div>
+    </div>
+</div>

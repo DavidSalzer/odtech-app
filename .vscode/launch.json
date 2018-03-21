@@ -52,7 +52,7 @@
             "request": "launch",
             "platform": "android",
             "target": "emulator",
-            "port": 9222,
+            "port": 9220,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
             "ionicLiveReload": false

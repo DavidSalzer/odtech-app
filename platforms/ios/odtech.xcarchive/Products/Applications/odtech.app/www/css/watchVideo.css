@@ -1,0 +1,162 @@
+#mission-movie .fullMovie {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    /*min-width: 300px;
+    min-height: 300px;*/
+    width: 100%;
+    height:90%;
+    z-index: 0;
+    overflow: hidden;
+    left: 0;
+    top: initial;
+    bottom: 0
+}
+
+.writeClaim {
+    background-image: url(../img/stop.png);
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 100px;
+    /*left: 55%;
+    top: 37%;*/
+    cursor: pointer;
+    background-size: 100% 100%;
+    /*position: absolute;*/
+    display: inline-block;
+    /* float: right; */
+    margin: auto;
+}
+
+.movieCtl .writeClaim {
+    margin-top: 50px;
+}
+
+.playAgain {
+    background-image: url(../img/play.png);
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 100px;
+    /*top: 37%;
+    left: 30%;*/
+    cursor: pointer;
+    background-size: 100% 100%;
+    /*position: absolute;*/
+    display: inline-block;
+    /* float: left; */
+    margin: auto;
+    /*background-position: -8px;*/
+    /*display: none;*/
+}
+
+.blur {
+    /*-webkit-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-transform: translate3d(0, 0, 0);*/
+}
+
+.movieCtl {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 251px;
+    max-width: 784px;
+    width: 76%;
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0 0 0px 7px rgba(255,255,255,.35);
+    max-width: 500px;
+    padding-bottom: 25px;
+    border-radius: 7px;
+    background-color: white;
+    padding-bottom: 0;
+}
+
+.watch-video.write-claim .mission-bottom-menu {
+    margin-top: 79px;
+    margin-left: 20px;
+    bottom: initial;
+}
+
+#popup.watch-video.write-claim .mission-repeat-popup {
+    position: fixed;
+    background: #fff;
+    box-shadow: 0 0 0px 8px rgba(255,255,255,.35);
+    width: 365px;
+    padding-bottom: 25px;
+    bottom: 484px;
+    right: 500px;
+    border-radius: 8px;
+    display: none;
+}
+
+#popup.watch-video.write-claim .triangle {
+    -webkit-transform: rotateZ(0deg);
+    bottom: 115px;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+}
+
+.playButton {
+    background-image: url("../img/redplay.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: 100%;
+}
+
+.poster {
+    /*background-image: url(http://img.youtube.com/vi/OzQBvC3EWzI/0.jpg);*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+}
+
+#mission-movie {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.youtube-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+    .movieCtl .writeClaim {
+        margin: auto;
+        top: 176px;
+        left: 0px;
+        right: 0px;
+        margin-top: 24px;
+        display: block;
+    }
+.movieCtl{
+    width: 240px
+}
+}

@@ -1,0 +1,60 @@
+.mission-deatails-menu .clock {
+    background-size: 100% 100%;
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mission-deatails-menu .mission-popup-timer {
+    vertical-align: middle;
+    position: relative;
+    top: 0px;
+    display: inline-block;
+    background-color: transparent !important;
+    margin-right: 10px;
+    height: 50%;
+    min-width: 50px;
+}
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+    .timer-wrap .mission-deatails-menu {
+        width: 54%;
+    }
+
+    .timer-wrap span.mission-popup-timer {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-top: -2px;
+        height: 80%;
+        font-size: 21px;
+    }
+
+    .timer-wrap span.clock {
+        display: inline-block;
+        margin-right: 0;
+        vertical-align: middle;
+        padding: 0;
+        width: 30px;
+        height: 100%;
+        /* background-position-x: -4px; */
+    }
+
+    .timer-wrap span.mission-deatails-timer {
+        width: 37%;
+        height: 41px;
+    }
+
+    .mission-deatails-timer .timer-wrapper {
+        margin-top: -11px;
+    }
+
+    .timer-wrap .mission-icon {
+        background-size: contain;
+        width: 25%;
+    }
+
+    .timer-wrap.mission-deatails-menu {
+        z-index: 305;
+    }
+}
