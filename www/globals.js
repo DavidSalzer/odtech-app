@@ -14,8 +14,7 @@ var appName = "ODTech";
 var allowPushWoosh = false;
 var isPersonalCode = false;
 var isUsingDefaultSounds = false;
-//var isEnglish = false;
-//var stringsFile = isEnglish? './strings/resources-locale_en-US.js' : './strings/resources-locale_default.js';
+var allowUploadImgOnSignUp = false;
 /********!1client number!!************/
 var app = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
@@ -26,7 +25,6 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
     $rootScope.failBuzzerMedia;
     $rootScope.timeoverMedia;
     $rootScope.applauseMedia;
-    //  localize.initLocalizedResources();
 
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
@@ -38,7 +36,6 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
     $rootScope.appName = appName;
     $rootScope.cid = cid;
     $rootScope.imgDomain = imgDomain;
-    //  $rootScope.stringsFile = stringsFile;
 
     // $rootScope.appName = 'ODTech';
     $rootScope.isPreLoginPage = isPreLoginPage;
