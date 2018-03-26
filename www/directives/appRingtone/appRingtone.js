@@ -44,9 +44,12 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             scope.$on('finishMission', function (event, data) {
                 //if the mission finished and the time not overed
                 //and the user get points
-                if (data.timeOver == false && data.results.points > 0) {
-                    scope.play("applause");
+                if (!$rootScope.withoutPoints){
+                    if (data.timeOver == false && data.results.points > 0) {
+                        scope.play("applause");
+                    }
                 }
+             
 
             });
 
@@ -85,13 +88,13 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                      $rootScope.mediaToPlay = new Media(src, 
                         function () {
                                     console.log("playAudio():Audio Success");
+                                    scope.mediaInit();
                                 },
                                 // error callback
                         function (err) {
                                     console.log("playAudio():Audio Error: " + err);
                                     //alert("oops" + err.code);
                                 }); 
-            
                          $rootScope.mediaToPlay.play();
                             }
                  // }
@@ -113,7 +116,6 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             //the events that cause the media audio stop
             scope.$on('closeMissionAndSendAnswer ', function () {
                 scope.mediaInit();
-
             });
 
         },
