@@ -1,8 +1,8 @@
-var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-var imgDomain = "http://adminqa.odtech.co.il/";
+// var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+// var imgDomain = "http://adminqa.odtech.co.il/";
 
-//  var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
-//  var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
+ var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+ var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
 //var cid = 8; // production -masa
@@ -25,6 +25,10 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
     $rootScope.failBuzzerMedia;
     $rootScope.timeoverMedia;
     $rootScope.applauseMedia;
+
+    document.addEventListener("pause", function() {
+        $rootScope.$broadcast('stopMusic');
+    });
 
     $rootScope.getAndoidVersion = function () {
         var ua = ua || navigator.userAgent;
@@ -52,6 +56,7 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
             $rootScope.stageDescPopupShowed = [];
         }, 0);
     };
+    
 });
 
 
@@ -120,7 +125,9 @@ $(document).on('keypress', 'input[type=text],input[type=email], textarea', funct
 /************************/
 //Disable Device Back button
 var start = 0;
+
 document.addEventListener("deviceready", onDeviceReady, false);
+
 function onDeviceReady() {
     document.addEventListener("backbutton", function (e) {
         e.preventDefault();
