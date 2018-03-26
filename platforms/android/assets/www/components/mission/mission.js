@@ -113,7 +113,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
             }, 0);
 
-        })
+        });
         //if the timer NOT ended
         //set data and display popup finish mission
         if (!$scope.endTimer) {
@@ -166,10 +166,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             //if the activity is withput points - the timeout is 100. else- 4000
             var timeoutDuration;
             if ($rootScope.withoutPoints != true) {
-                timeoutDuration = 4000
+                timeoutDuration = 4000;
             }
             else{
-                timeoutDuration = 100
+                timeoutDuration = 100;
             }
             $scope.finishTimeout = $timeout(function () {
                 $timeout(function () {
@@ -182,9 +182,11 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
                 //if need to go to next mission automatically.
                 //$scope.next = missions.directlyNext($scope.task.mid);
-                $scope.next = missions.directlyNext(missionData.mid);
-                if ($scope.next) {
-                    $state.transitionTo('mission', { missionId: $scope.next });
+                if (!$rootScope.delayStartMissionAudio){
+                    $scope.next = missions.directlyNext(missionData.mid);
+                    if ($scope.next) {
+                        $state.transitionTo('mission', { missionId: $scope.next });
+                    }
                 }
                 else {
                     //if the mission that finished is parentMission
@@ -214,8 +216,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
 
     };
-
-
+    
     //if the timer ended
     $scope.$on('endTimer', function (event, data) {
         $timeout(function () {
@@ -229,7 +230,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 $timeout(function () {
                     //play the wrong sound
                     $rootScope.$broadcast('endMissionTimer', {});
-                }, 0)
+                }, 0);
 
                 if ($rootScope.withoutPoints != true) {
                     $scope.finishMission = true;

@@ -19,15 +19,7 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
                     $rootScope.showDayDescription = true;
                     $rootScope.dayDescriptionWasShown = true;
                 }
-
-                //check if its english or not
-                //if (isEnglish == '1') {
-
-                //    $rootScope.isEnglish = true;
-                //    console.log('points: ' + $rootScope.withoutPoints);
-                //}
               
-
             });
             scope.$on('getMissionsData', function (event, data) {
 
@@ -52,11 +44,7 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
                     $rootScope.showDayDescription = false;
 
                 }, 0);
-
-
-
             },
-
 
             scope.$on('logout', function () {
                 $rootScope.showDayDescription = false;
@@ -65,7 +53,5 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
         },
         replace: true
     };
-
-
 
 } ]);
