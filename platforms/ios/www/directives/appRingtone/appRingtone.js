@@ -3,7 +3,6 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
         restrict: 'E',
         templateUrl: './directives/appRingtone/appRingtone.html',
         link: function (scope, el, attrs) {
-            // $rootScope.my_media = null;
             scope.imgDomain = imgDomain;
             $rootScope.mediaToPlay = null;
             $timeout(function () {
@@ -14,10 +13,10 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                 scope.sorceapplause = imgDomain + 'upload/tada.mp3';
                 scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
 
-                if (!isUsingDefaultSounds){
+                if (isUsingDefaultSounds){
                     console.log('GETTING DEFAULT SOUNDS');
-                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer.mp3';
-                    scope.sorcesuccess = imgDomain + 'upload/magic-chime.mp3';
+                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer-orpan.mp3';
+                    scope.sorcesuccess = imgDomain + 'upload/magic-chime-orpan.mp3';
                 }
                 else {
                     console.log('GETTING CUSTOME SOUNDS');
@@ -45,9 +44,12 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             scope.$on('finishMission', function (event, data) {
                 //if the mission finished and the time not overed
                 //and the user get points
-                if (data.timeOver == false && data.results.points > 0) {
-                    scope.play("applause");
+                if (!$rootScope.withoutPoints){
+                    if (data.timeOver == false && data.results.points > 0) {
+                        scope.play("applause");
+                    }
                 }
+             
 
             });
 
@@ -81,28 +83,29 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                         //$rootScope.mediaToPlay = $rootScope.failBuzzerMedia;
                         console.log('fail ' + src);
                         break;
-                        
                 }
                 try {
-                    //if the media is null -init the element, else - play without init before
-                     if ($rootScope.mediaToPlay == null) {
-                             $rootScope.mediaToPlay = new Media(src, scope.success, scope.error)
-                     }
-
-                    // Play audio
-                    
-                    $rootScope.mediaToPlay.stop();
-                    $rootScope.mediaToPlay.play(src);
-                    $rootScope.mediaInit();
-                }
+                     $rootScope.mediaToPlay = new Media(src, 
+                        function () {
+                                    console.log("playAudio():Audio Success");
+                                    scope.mediaInit();
+                                },
+                                // error callback
+                        function (err) {
+                                    console.log("playAudio():Audio Error: " + err);
+                                    //alert("oops" + err.code);
+                                }); 
+                         $rootScope.mediaToPlay.play();
+                            }
+                 // }
                 catch (e) { }
             };
-            scope.success = function (success) {
-                console.log("playAudio():Audio Success");
-            };
-            scope.error = function (error) {
-                     console.log("playAudio():Error!!" + error.code + error.message);
-             };
+            // scope.success = function (success) {
+            //     console.log("playAudio():Audio Success");
+            // };
+            // scope.error = function (error) {
+            //          console.log("playAudio():Error!!" + error.code + error.message);
+            //  };
             scope.mediaInit = function () {
                 if ($rootScope.mediaToPlay != null) {
                     $rootScope.mediaToPlay.release();
@@ -113,9 +116,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             //the events that cause the media audio stop
             scope.$on('closeMissionAndSendAnswer ', function () {
                 scope.mediaInit();
-
             });
-
 
         },
         replace: true

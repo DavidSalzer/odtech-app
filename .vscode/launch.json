@@ -62,7 +62,7 @@
             "type": "cordova",
             "request": "launch",
             "platform": "ios",
-            "target": "emulator",
+            "target": "iPhone-6, 11.2",
             "port": 9220,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",

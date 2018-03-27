@@ -19,21 +19,14 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
                     $rootScope.showDayDescription = true;
                     $rootScope.dayDescriptionWasShown = true;
                 }
-
-                //check if its english or not
-                //if (isEnglish == '1') {
-
-                //    $rootScope.isEnglish = true;
-                //    console.log('points: ' + $rootScope.withoutPoints);
-                //}
               
-
             });
             scope.$on('getMissionsData', function (event, data) {
+
                 scope.dayDescriptionText = data.data.res.description;
                 scope.topImg = data.data.res.superActivity.imgMap;
                 scope.bgImg = data.data.res.superActivity.imgBackground;
-                scope.dayDescriptionAudio = data.data.res.routeAudioUrl;
+                scope.dayDescriptionAudio = data.data.res.superActivity.routeAudioUrl;
                 console.log(scope.topImg);
 
                 if ($rootScope.dayDescriptionWasShown == false) {
@@ -41,19 +34,17 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
                     $rootScope.dayDescriptionWasShown = true;
                 }
             });
+
             scope.closeDescription = function () {
+                $rootScope.$broadcast('startDayClick', {audio: scope.dayDescriptionAudio});
+
                 //   $state.transitionTo('homePage');
 
                 $timeout(function () {
                     $rootScope.showDayDescription = false;
 
                 }, 0);
-
-                $rootScope.$broadcast('startDayClick');
-
-
             },
-
 
             scope.$on('logout', function () {
                 $rootScope.showDayDescription = false;
@@ -62,7 +53,5 @@ odtechApp.directive('dayDescription', ['$timeout', '$interval', '$rootScope', fu
         },
         replace: true
     };
-
-
 
 } ]);

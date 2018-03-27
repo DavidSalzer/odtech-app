@@ -1,4 +1,4 @@
-odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', function ($rootScope, $stateParams, $q, $http) {
+odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$timeout', function ($rootScope, $stateParams, $q, $http, $timeout) {
 
     /*write what the function does.
     write main function
@@ -250,6 +250,8 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
 
             var file = video;
             var videoFileName = '' + new Date().getTime(); // I suggest a uuid
+           
+            $timeout(function(){
 
             VideoEditor.transcodeVideo(
                 videoTranscodeSuccess,
@@ -273,6 +275,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', functi
                     }
                 }
             );
+        },100);
         //}
 
         function videoTranscodeSuccess(result) {

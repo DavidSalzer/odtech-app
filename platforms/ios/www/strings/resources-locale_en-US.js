@@ -552,62 +552,62 @@
 
  {
     "key":"_missionOrpan_",
-    "value":"Mission",
+    "value":"Station",
     "description":"mission"
 },
 {
     "key":"_startFromMissionOrpan_",
-    "value":"Click on the first mission to begin",
+    "value":"Click on the first station to begin",
     "description":"visit website"
 },
 {
     "key":"_missionCompletedOrpan_",
-    "value":"You have successfully completed the mission",
+    "value":"You have successfully completed the station",
     "description":"mission completed successfully"
 },
 {
     "key":"_missionTimeIsUpOrpan_",
-    "value":"The time you have for this mission is up",
+    "value":"The time you have for this station is up",
     "description":"mission time's up"
 },
 {
     "key":"_tryNextMissionOrpan_",
-    "value":"Try again with the next mission...",
+    "value":"Try again with the next station...",
     "description":"try next mission"
 },
 {
     "key":"_skipMissionMessageOrpan_",
-    "value":"You can skip this mission, if you chose to do so you will not get points for it and won’t be able to come back to it in the future. ",
+    "value":"You can skip this station, if you chose to do so you will not get points for it and won’t be able to come back to it in the future. ",
     "description":"skip mission message"
 },
 {
     "key":"_skipMissionOrpan_",
-    "value":"Skip Mission",
+    "value":"Skip Station",
     "description":"skip mission"
 },
 {
     "key":"_returnToMissionOrpan_",
-    "value":"Back to Mission",
+    "value":"Back to Station",
     "description":"get back to mission"
 },
 {
     "key":"_missionBriefOrpan_",
-    "value":"Mission Brief",
+    "value":"Station Brief",
     "description":"mission brief"
 },
 {
     "key":"_endMissionOrpan_",
-    "value":"Would you like to end the mission? Get to your destination and tap the arrow",
+    "value":"Would you like to end the station? Get to your destination and tap the arrow",
     "description":"end mission"
 },
 {
     "key":"_missionAccomplishedOrpan_",
-    "value":"You have finished the mission :)",
+    "value":"You have finished the station :)",
     "description":"finished the mission"
 },
 {
     "key":"_allMissionsOrpan_",
-    "value":"All Missions",
+    "value":"All Stations",
     "description":"all missions"
 }
     

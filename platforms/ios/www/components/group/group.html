@@ -32,7 +32,7 @@
     <div class="group-name">
         <input type="text" placeholder="{{'_enterGroupName_' | localizedFilter}}" ng-model="groupNameByInput"  ng-change="inStep1 =true">
     </div>
-    <div class="img-plus" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')"></div>
+    <div class="img-plus" ng-if="allowUploadImgOnSignUp" data-ng-class="{'default': user.imgUrl == null || user.imgUrl == ''}" style="background-image:url('{{imgDomain+user.imgUrl}}')"></div>
     <div class="step1" ng-show="inStep1">
         <div class="join" ng-click="joinToGroup()">
             <div class="text">{{'_join_' | localizedFilter}}

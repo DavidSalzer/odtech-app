@@ -26,6 +26,10 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
     $rootScope.timeoverMedia;
     $rootScope.applauseMedia;
 
+    $timeout(function () {
+        navigator.splashscreen.hide();
+    }, 0);
+    
     document.addEventListener("pause", function() {
         $rootScope.$broadcast('stopMusic');
     });
