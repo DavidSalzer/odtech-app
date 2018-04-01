@@ -80,6 +80,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <allow-navigation href="https://*youtube.com/*" />
     </platform>
     <plugin name="cordova-plugin-file" spec="~2.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen" />
