@@ -43,7 +43,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
             if (isIOS || isIPad) {
                 navigator.camera.getPicture(onImageSuccess, onFail, //take photo options and use plugin
                 {
-                quality: 85,
+                quality: 45,
                 destinationType: navigator.camera.DestinationType.FILE_URI,
                  targetWidth: 584,
                 correctOrientation: true,
@@ -55,7 +55,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
         else {
             navigator.camera.getPicture(onImageSuccess, onFail, //take photo options and use plugin
                 {
-                quality: 85,
+                quality: 45,
                 destinationType: navigator.camera.DestinationType.FILE_URI,
                 //  targetWidth: 584,
                 correctOrientation: true,
@@ -89,7 +89,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
             deferred.reject(message);
         }
 
-        navigator.device.capture.captureVideo(onVideoSuccess, onFail, { limit: 1,quality: 70 });
+        navigator.device.capture.captureVideo(onVideoSuccess, onFail, { limit: 1,quality: 35 });
 
         // return a promise
         return deferred.promise;
@@ -122,7 +122,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
 
         var options = new FileUploadOptions();
         options.fileKey = "file";
-        options.chunkedMode = true;
+        options.chunkedMode = false;
         if (type == "img") {
             options.mimeType = "image/jpeg";
         } else if (type == "video") {
@@ -130,7 +130,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
         }
         var params = new Object();
         options.params = params;
-        options.chunkedMode = true;
+        options.chunkedMode = false;
 
         var ft = new FileTransfer();
         for (p in pictures) {
@@ -418,7 +418,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
                              if (isIOS || isIPad) {
                              // set some default options
                              defaultOptions = {
-                             quality: 85,
+                             quality: 45,
                              //sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
                              destinationType: navigator.camera.DestinationType.FILE_URI,
                              mediaType: navigator.camera.MediaType.PICTURE,
@@ -435,7 +435,7 @@ odtechApp.factory('camera', ['$rootScope', '$stateParams', '$q', '$http', '$time
 
                              // set some default options
                              defaultOptions = {
-                             quality: 85,
+                             quality: 45,
                              //sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
                              destinationType: navigator.camera.DestinationType.FILE_URI,
                              mediaType: navigator.camera.MediaType.PICTURE,

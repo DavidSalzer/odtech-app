@@ -15,10 +15,10 @@
 }
 
 .english .mission-popup-continue{
-    text-align: right;
+    text-align: center;
 }
 
-.mission-popup-didyou .permission .arrow {
+.english .mission-popup-didyou .permission .arrow {
     vertical-align: bottom;
     left: 30%;
 }
