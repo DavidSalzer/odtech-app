@@ -59,15 +59,16 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
             scope.setMyPosition = function () {
                 $timeout(function () {
                          if($rootScope.latLocation != -1 && $rootScope.lngLocation != -1){
-                    scope.myMarker.coords.latitude = $rootScope.latLocation
-                         scope.myMarker.coords.longitude = $rootScope.lngLocation;
+                            scope.myMarker.coords.latitude = $rootScope.latLocation;
+                            scope.myMarker.coords.longitude = $rootScope.lngLocation;
                          }
                     scope.noLocation = false;
                     //init thzze map center by user location
                     scope.map = { center: { latitude: $rootScope.latLocation, longitude: $rootScope.lngLocation}, zoom: 14 };
-                }, 0)
+                    
+                }, 0);
 
-            }
+            };
             //error in get user location.
             scope.errorGetLocation = function () {
 
@@ -76,21 +77,21 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                     if (!scope.map) {
                         scope.map = { center: { latitude: scope.missionData.Latitude, longitude: scope.missionData.Longitude }, zoom: 14 };
                     }
-                         scope.noLocationPopupDisplayCount++;
-                    scope.noLocation = true;
+                        scope.noLocationPopupDisplayCount++;
+                        scope.noLocation = true;
                         
-                }, 0)
+                }, 1000);
 
-            }
+            };
 
             //get current location of user - one time?
             scope.getCurrentLocation = function () {
 
                 if ($rootScope.lngLocation != -1) {
-                   scope.setMyPosition()
+                   scope.setMyPosition();
                 }
                 else {
-                   scope.errorGetLocation()
+                   scope.errorGetLocation();
                 }
 
                 //if (navigator.geolocation) {
@@ -98,7 +99,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                 //} else {
 
                 //}
-            }
+            };
             scope.getCurrentLocation();
 
 
@@ -157,9 +158,9 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                     //console.log(scope.myMarker);
                     scope.noLocation = false;
                     checkDistance(scope.destinationMarker);
-                }, 0)
+                }, 0);
 
-            }
+            };
 
 
             //scope.getLocation();
@@ -186,7 +187,7 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
 
                         scope.isDestination = true;
 
-                    }, 0)
+                    }, 0);
 
                 }
 
@@ -234,8 +235,8 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
                         scope.endMission(scope.results, scope.missionData);
                     }
                     scope.isDestination = false;
-                }, 0)
-            }
+                }, 0);
+            };
 
             scope.$on('hideIntroduction', function () {
                 //if the map not init until now- init its. -to prevent duplicate handlers,interval,etc
@@ -254,10 +255,10 @@ odtechApp.directive('navigation', ['$timeout', '$interval', 'uiGmapIsReady', '$r
 
                         //  navigator.geolocation.getCurrentPosition(scope.showPosition, scope.errorGetLocation, { maximumAge: 60000, timeout: 5000, enableHighAccuracy: true })
                         if ($rootScope.lngLocation != -1) {
-                            scope.showPosition()
+                            scope.showPosition();
                         }
                         else {
-                            scope.errorGetLocation()
+                            scope.errorGetLocation();
                         }
 
                     }, 3000);
