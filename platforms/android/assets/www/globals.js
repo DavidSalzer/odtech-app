@@ -1,13 +1,13 @@
-// var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-// var imgDomain = "http://adminqa.odtech.co.il/";
+var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+var imgDomain = "http://adminqa.odtech.co.il/";
 
- var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
- var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
+//  var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+//  var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
 //var cid = 8; // production -masa
 //var cid = 1; // -odtech
-var cid = 3; // QA
+var cid = 0; // QA
 var isPreLoginPage = false;
 var isMapDisplay = false;
 var appName = "ODTech";
@@ -26,6 +26,10 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
     $rootScope.timeoverMedia;
     $rootScope.applauseMedia;
 
+    $timeout(function () {
+        navigator.splashscreen.hide();
+    }, 0);
+    
     document.addEventListener("pause", function() {
         $rootScope.$broadcast('stopMusic');
     });
@@ -38,7 +42,7 @@ odtechApp.run(function ($rootScope, $timeout, localize) {
 
     $rootScope.androidVersion = $rootScope.getAndoidVersion();
     $rootScope.appName = appName;
-    $rootScope.cid = cid;
+    $rootScope.cid = localStorage.getItem('realCid');
     $rootScope.imgDomain = imgDomain;
 
     // $rootScope.appName = 'ODTech';

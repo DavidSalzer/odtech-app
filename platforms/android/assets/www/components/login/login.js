@@ -113,6 +113,10 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         server.request(request)
         .then(function (data) {
             console.log(data);
+            $rootScope.cid = data.res.realCid;
+            localStorage.setItem('realCid', data.res.realCid);
+            console.log('realCid' + data.res.realCid);
+            console.log('CID' + $rootScope.cid);
             //if success.
             if (!data.res.error) {
                 //if it old user go to groups page else update user details. 
@@ -135,7 +139,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                     $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
                     //set the text on login btn by travel type
                     if ($rootScope.isGroupTravel) {
-                        $scope.registerBtnText =  _signUp_;//$filter('localizedFilter')('_signUp_');
+                        $scope.registerBtnText =  'הירשם';//$filter('localizedFilter')('_signUp_');
                     }
                     else {
                         $scope.registerBtnText =  $filter('localizedFilter')('_letsGo_');

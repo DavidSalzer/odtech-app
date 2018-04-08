@@ -17,7 +17,7 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
 
         //Geolocation watch position.
         if (navigator.geolocation) {
-            watchLocation = navigator.geolocation.watchPosition($rootScope.showPosition, $rootScope.errorGetLocation, { timeout: 5000, enableHighAccuracy: true, maximumAge: 10000 });
+            watchLocation = navigator.geolocation.watchPosition($rootScope.showPosition, $rootScope.errorGetLocation, { enableHighAccuracy: true});
         } else {
 
         }
@@ -35,7 +35,7 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
                 server.request(locationRequest)
                 .then(function (data) {
 
-                })
+                });
             }
         }, 30000);
     });
@@ -43,8 +43,8 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
     //Success callback of watch position.
     $rootScope.showPosition = function (loc) {
         pos = loc;
-        $rootScope.lngLocation = loc.coords.longitude
-        $rootScope.latLocation = loc.coords.latitude
+        $rootScope.lngLocation = loc.coords.longitude;
+        $rootScope.latLocation = loc.coords.latitude;
         //   console.log(new Date());
         //   console.log(loc);
     }
@@ -52,8 +52,8 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
     //Error callback of watch position.
     $rootScope.errorGetLocation = function (err) {
         pos = err;
-        $rootScope.lngLocation = -1
-        $rootScope.latLocation = -1
+        $rootScope.lngLocation = -1;
+        $rootScope.latLocation = -1;
         console.log(new Date());
         console.log(err);
     }
@@ -65,6 +65,7 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
         }
         if (watchLocation) {
             navigator.geolocation.clearWatch(watchLocation);
+            watchLocation = null;
         }
     });
 
