@@ -25,11 +25,11 @@
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.cambium.odtech"
-    },
     "cordova-plugin-media": {
       "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO",
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.cambium.odtech"
     }
   },

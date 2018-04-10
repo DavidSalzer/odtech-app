@@ -15,10 +15,10 @@
       "phonegap-plugin-barcodescanner": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-camera": {},
-      "cordova-plugin-geolocation": {},
       "cordova-plugin-media": {
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
-      }
+      },
+      "cordova-plugin-geolocation": {}
     }
   },
   "dependencies": {
