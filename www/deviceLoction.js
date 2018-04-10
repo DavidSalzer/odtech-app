@@ -17,13 +17,14 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
 
         //Geolocation watch position.
         if (navigator.geolocation) {
-            watchLocation = navigator.geolocation.watchPosition($rootScope.showPosition, $rootScope.errorGetLocation, { enableHighAccuracy: true});
+            watchLocation = navigator.geolocation.watchPosition($rootScope.showPosition, $rootScope.errorGetLocation, {maximumAge : 3000, enableHighAccuracy: true});
         } else {
 
         }
 
         //All x time, send device location to server.
         sendLocation = $interval(function () {
+            console.log('position sent ' + pos);
             if (pos && pos.coords) {
                 locationRequest = {
                     type: "updateLocation",
@@ -42,6 +43,8 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
 
     //Success callback of watch position.
     $rootScope.showPosition = function (loc) {
+        console.log('watcher success ' + loc);
+
         pos = loc;
         $rootScope.lngLocation = loc.coords.longitude;
         $rootScope.latLocation = loc.coords.latitude;
@@ -51,6 +54,8 @@ odtechApp.run(['$rootScope', 'server', '$q', '$interval', function ($rootScope, 
 
     //Error callback of watch position.
     $rootScope.errorGetLocation = function (err) {
+        console.log('watcher failed ' + err);
+
         pos = err;
         $rootScope.lngLocation = -1;
         $rootScope.latLocation = -1;
