@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>odtech</string>
+	<string>ODTech</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -21,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>2.0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -34,17 +34,19 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow taking pictures to play the game</string>
+	<string>אשרו צילום תמונות על מנת לשחק את המשחק</string>
 	<key>NSMainNibFile</key>
 	<string></string>
 	<key>NSMainNibFile~ipad</key>
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>אשרו צילום תמונות על מנת לשחק במשחק</string>
+	<string>אשרו העלאת תמונות מהגלריה על מנת לשחק במשחק</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>אשרו לשמור תמונות מהמשחק על המכשיר</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>אשרו מיקרופון לצילום וידאו כדי לשחק במשחק</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>אנא אשרו שירותי מיקום על מנת לשחק את המשחק</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
