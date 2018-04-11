@@ -25,10 +25,11 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "phonegap-plugin-barcodescanner": {
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "cordova-plugin-geolocation": {
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "com.cambium.odtech"
     }
   },

@@ -12,13 +12,15 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-media-capture": {},
       "cordova-plugin-file-transfer": {},
-      "phonegap-plugin-barcodescanner": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-media": {
         "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
       },
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     }
   },
   "dependencies": {
@@ -33,6 +35,6 @@
     "cordova-plugin-media-capture": "~3.0.1",
     "cordova-plugin-splashscreen": "https://github.com/apache/cordova-plugin-splashscreen",
     "cordova-plugin-whitelist": "~1.3.3",
-    "phonegap-plugin-barcodescanner": "https://github.com/wildabeast/BarcodeScanner.git"
+    "phonegap-plugin-barcodescanner": "^7.1.1"
   }
 }

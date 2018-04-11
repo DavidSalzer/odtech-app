@@ -19,9 +19,6 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
-    "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "com.cambium.odtech"
-    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.cambium.odtech"
     },
@@ -30,6 +27,9 @@
       "PACKAGE_NAME": "com.cambium.odtech"
     },
     "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.cambium.odtech"
+    },
+    "phonegap-plugin-barcodescanner": {
       "PACKAGE_NAME": "com.cambium.odtech"
     }
   },
