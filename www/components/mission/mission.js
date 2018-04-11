@@ -78,9 +78,10 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             }
 
         });
-    }
+    };
 
     $scope.getMission($stateParams.missionId);
+
 
     //this function is performed in the end of mission. 
     $scope.endMission = function (results, missionData) {
@@ -206,6 +207,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                         $rootScope.$broadcast('closeSubMission');
                     }
                 }
+            
                 $timeout.cancel($scope.finishTimeout);
                 $scope.finishTimeout = 0;
 
