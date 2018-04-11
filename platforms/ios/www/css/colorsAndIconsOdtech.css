@@ -472,7 +472,7 @@ header {
 }
 
 .qrCode .popup, .qrCode .item-number {
-    color: #a4cc16;
+    color: #add22d;
 }
 
 .qrCode .mission-popup-timer {
@@ -517,7 +517,7 @@ header {
     background-image: url("../img/svg/clock/compass2.svg") !important;
 }
 
-.compass .popup, .qrCode .item-number {
+.compass .popup .item-number {
     color: #064566;
 }
 
