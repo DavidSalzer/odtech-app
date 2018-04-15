@@ -260,14 +260,6 @@ module.exports = [
     ]
   },
   {
-    "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
-    "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
-    "pluginId": "phonegap-plugin-barcodescanner",
-    "clobbers": [
-      "cordova.plugins.barcodeScanner"
-    ]
-  },
-  {
     "id": "cordova-plugin-camera.Camera",
     "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
     "pluginId": "cordova-plugin-camera",
@@ -297,6 +289,22 @@ module.exports = [
     "pluginId": "cordova-plugin-camera",
     "clobbers": [
       "CameraPopoverHandle"
+    ]
+  },
+  {
+    "id": "cordova-plugin-media.MediaError",
+    "file": "plugins/cordova-plugin-media/www/MediaError.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.MediaError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-media.Media",
+    "file": "plugins/cordova-plugin-media/www/Media.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.Media"
     ]
   },
   {
@@ -332,19 +340,11 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-media.MediaError",
-    "file": "plugins/cordova-plugin-media/www/MediaError.js",
-    "pluginId": "cordova-plugin-media",
+    "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+    "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+    "pluginId": "phonegap-plugin-barcodescanner",
     "clobbers": [
-      "window.MediaError"
-    ]
-  },
-  {
-    "id": "cordova-plugin-media.Media",
-    "file": "plugins/cordova-plugin-media/www/Media.js",
-    "pluginId": "cordova-plugin-media",
-    "clobbers": [
-      "window.Media"
+      "cordova.plugins.barcodeScanner"
     ]
   }
 ];
@@ -356,10 +356,10 @@ module.exports.metadata =
   "cordova-plugin-media-capture": "3.0.1",
   "cordova-plugin-splashscreen": "5.0.3-dev",
   "cordova-plugin-whitelist": "1.3.3",
-  "phonegap-plugin-barcodescanner": "4.0.1",
   "cordova-plugin-camera": "4.0.2",
+  "cordova-plugin-media": "5.0.2",
   "cordova-plugin-geolocation": "4.0.1",
-  "cordova-plugin-media": "5.0.2"
+  "phonegap-plugin-barcodescanner": "7.1.0"
 };
 // BOTTOM OF METADATA
 });

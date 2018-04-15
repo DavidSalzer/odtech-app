@@ -35,6 +35,6 @@
     "cordova-plugin-media-capture": "~3.0.1",
     "cordova-plugin-splashscreen": "https://github.com/apache/cordova-plugin-splashscreen",
     "cordova-plugin-whitelist": "~1.3.3",
-    "phonegap-plugin-barcodescanner": "^7.1.1"
+    "phonegap-plugin-barcodescanner": "^7.1.0"
   }
 }

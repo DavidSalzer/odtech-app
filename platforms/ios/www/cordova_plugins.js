@@ -359,7 +359,7 @@ module.exports.metadata =
   "cordova-plugin-camera": "4.0.2",
   "cordova-plugin-media": "5.0.2",
   "cordova-plugin-geolocation": "4.0.1",
-  "phonegap-plugin-barcodescanner": "7.1.1"
+  "phonegap-plugin-barcodescanner": "7.1.0"
 };
 // BOTTOM OF METADATA
 });

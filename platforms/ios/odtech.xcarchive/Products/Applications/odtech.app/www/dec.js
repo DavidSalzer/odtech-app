@@ -19,7 +19,7 @@ englishDic = {
     "_homePage_": "Home Page",
     "_allStages_": "All Stages",
     "_allMissions_": "All Missions",
-    "_allMissionsOrpan_":'All Missions',
+    "_allMissionsOrpan_":'All Stations',
     "_map_": "Map",
     "_leaderboard_": "Leaderboard",
     "_takePicture_": "Take Picture",

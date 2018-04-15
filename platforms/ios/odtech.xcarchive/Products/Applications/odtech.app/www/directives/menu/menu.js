@@ -38,7 +38,8 @@ odtechApp.directive('menu', ['$state', 'server', 'camera', '$rootScope', '$timeo
                         $rootScope.missionIdLastShown = 0;
 
                     });
-
+                    
+                $rootScope.$broadcast('stopMusic');
                 $rootScope.$broadcast('logout');
             }
             var goRight = true;

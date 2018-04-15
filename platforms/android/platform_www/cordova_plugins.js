@@ -347,7 +347,7 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.3-dev",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-geolocation": "4.0.1",
-  "phonegap-plugin-barcodescanner": "7.1.1"
+  "phonegap-plugin-barcodescanner": "7.1.0"
 };
 // BOTTOM OF METADATA
 });

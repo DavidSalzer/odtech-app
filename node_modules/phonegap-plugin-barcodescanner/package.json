@@ -1,27 +1,27 @@
 {
-  "_from": "phonegap-plugin-barcodescanner@7.1.1",
-  "_id": "phonegap-plugin-barcodescanner@7.1.1",
+  "_from": "phonegap-plugin-barcodescanner@7.1.0",
+  "_id": "phonegap-plugin-barcodescanner@7.1.0",
   "_inBundle": false,
-  "_integrity": "sha512-isalqbPfxGlfhY520vjQbjCt6kIqwZZP2VyXx6BF0VXFaEfH0KYl2VcdQCeJ6E/fo337XZEEU2OHC8igy8g+0g==",
+  "_integrity": "sha512-E9cn3qZ6/DMwOT8P/TMkp3Js1kHzp2mRkvqQM/p4/TUiLRo29YN0+9APG5u3KeKNKBGp0fmH8Dtf76aHn0Cteg==",
   "_location": "/phonegap-plugin-barcodescanner",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "phonegap-plugin-barcodescanner@7.1.1",
+    "raw": "phonegap-plugin-barcodescanner@7.1.0",
     "name": "phonegap-plugin-barcodescanner",
     "escapedName": "phonegap-plugin-barcodescanner",
-    "rawSpec": "7.1.1",
+    "rawSpec": "7.1.0",
     "saveSpec": null,
-    "fetchSpec": "7.1.1"
+    "fetchSpec": "7.1.0"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/phonegap-plugin-barcodescanner/-/phonegap-plugin-barcodescanner-7.1.1.tgz",
-  "_shasum": "dbe825cee43e2dff001d3422864f723204949d1a",
-  "_spec": "phonegap-plugin-barcodescanner@7.1.1",
+  "_resolved": "https://registry.npmjs.org/phonegap-plugin-barcodescanner/-/phonegap-plugin-barcodescanner-7.1.0.tgz",
+  "_shasum": "6a52d13feb5c5197a7ab55ca18562b022e5f7d98",
+  "_spec": "phonegap-plugin-barcodescanner@7.1.0",
   "_where": "/Users/einatkidron/Documents/Cambium/ODTech/odtech-app",
   "author": {
     "name": "Adobe PhoneGap Team"
@@ -79,5 +79,5 @@
   "scripts": {
     "test": "jasmine-node --color spec"
   },
-  "version": "7.1.1"
+  "version": "7.1.0"
 }

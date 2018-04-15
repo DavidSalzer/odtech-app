@@ -8,7 +8,7 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', 'missions
             scope.didYouKnowText = "";
             $rootScope.didyouKnowsArray = [];
             $rootScope.missionIdLastShown = 0; // the mission id that the 'did you know' text was display. 
-            $rootScope.delayStartMissionAudio = true;
+          //  $rootScope.delayStartMissionAudio = true;
 
             scope.hideDidYouKnow = function () {
                 //hide did you know
@@ -47,12 +47,12 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', 'missions
                             scope.didYouKnowImg = task.imgUrlDyk;
                             scope.audioUrl = task.audioUrl2;
                             scope.showDidYouKnow = true;
-                            if (scope.audioUrl){
-                                $rootScope.delayStartMissionAudio = true;
-                            }
-                            else {
-                                $rootScope.delayStartMissionAudio = false;
-                            }
+                            // if (scope.audioUrl){
+                            //     $rootScope.delayStartMissionAudio = true;
+                            // }
+                            // else {
+                            //     $rootScope.delayStartMissionAudio = false;
+                            // }
                         }, 0);
                     }
 

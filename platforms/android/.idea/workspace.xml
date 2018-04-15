@@ -2,743 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ea91584-e9c6-4e86-871d-5c4a725e0273" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon24x24@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon27.5x27.5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon29x29@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon29x29@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon40x40@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon44x44@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon86x86@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/AppIcon98x98@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-1024.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-20@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-20@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-40.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-40@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-50.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-50@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-60@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-60@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-72.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-72@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-76.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-76@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-83.5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-small@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon-small@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech/Images.xcassets/AppIcon.appiconset/icon@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/123.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/applause-1__.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/applause-1_old.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/clock-ticking-2.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/fail-buzzer.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/magic-chime.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/misc258.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/silence1sec.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/audio/tada.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/footer/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/footer/footer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/group/group.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/group/group.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/group/groupScoreButton.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/group/groupsScore.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/group/groupsScore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/header/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/header/header.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/info/info.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/info/info.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/login/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/login/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/login/userLogin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/login/userLogin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/main/main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/main/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mainNav/mainNav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mainNav/mainNav.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mapDisplay/mapDisplay.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mapDisplay/mapDisplay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/mission.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/mission.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/parentmission.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/parentmission.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/submission.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/mission/submission.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/popup/popup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/popup/popup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/pushMessages/pushMessages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/pushMessages/pushMessages.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/splash/splash.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/splash/splash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/stages/stages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/components/stages/stages.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova-js-src/exec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova-js-src/platform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova-js-src/plugin/ios/console.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova-js-src/plugin/ios/logger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/cordova_plugins.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/colorsAndIcons.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/colorsAndIconsMasa.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/colorsAndIconsOdtech.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/colorsAndIconsRothschild.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/colorsAndIconsYIBZ.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/compass.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/designUpdates.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/dragging.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/english.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/font/FbProza-Black.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/font/FbProza-Bold.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/font/FbProza-Light.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/font/FbProza-Regular.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/groupMembers.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/groups.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/info.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/leaflet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/login.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/misisonTabs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/missionFinish.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/multiQuestions - Copy.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/multiQuestions.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/navigation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/openQuestion.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/pushMessages.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/qrCode.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/scala.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/splash.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/stages.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/subMissions.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/takePhoto.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/takeVideo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/timeline.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/timer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/css/watchVideo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/css/normalize.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/css/swiper.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bold-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bolditalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bolditalic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bolditalic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-bolditalic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabold-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabolditalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabolditalic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabolditalic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-extrabolditalic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-italic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-italic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-italic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-italic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-light-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-light-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-light-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-light-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-lightitalic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-lightitalic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-lightitalic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-lightitalic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-regular-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-regular-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-regular-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/font/opensanshebrew-regular-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object (13).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object copy (6).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object copy 2 (7).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object copy 3 (3).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object copy 3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/Vector Smart Object.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/big-head-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/bodyBG.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/down_.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/gallery2(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/hand-bottom.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/hand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/header-img.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon_splash_ybz.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/icon_splash_ybz_light.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/logo_odtech.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/next.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/odtechLogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/pause.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/playbtn.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/playbtn_.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/prev.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/red-head.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/share.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/share__.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/stop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/up.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/x@x2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/yellow-hed.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/הורד.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/img/פלטה.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/js/Script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/js/masonry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/js/swiper.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/js/youtube.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/daySummary/share.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/dec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/deviceLoction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/appRingtone/appRingtone.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/appRingtone/appRingtone.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/checkNetwork/checkNetwork.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/checkNetwork/checkNetwork.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/dayDescription/dayDescription.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/dayDescription/dayDescription.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/didYouKnow/didYouKnow.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/didYouKnow/didYouKnow.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/endActivity/endActivity.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/endActivity/endActivity.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/endStage/endStage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/endStage/endStage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/generalPopup/generalPopup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/generalPopup/generalPopup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/groupMembers/groupMembers.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/groupMembers/groupMembers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/largeImage/largeImage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/largeImage/largeImage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/menu/menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/menu/menu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionDeatails/missionDeatails.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionDeatails/missionDeatails.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionFinish/missionFinish.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionFinish/missionFinish.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionIntroduction/missionIntroduction.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/missionIntroduction/missionIntroduction.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/monitor/monitor.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/monitor/monitor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/odtechAudio/odtechAudio.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/odtechAudio/odtechAudio.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/onLongPress/onLongPress.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/points/global-points.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/points/points.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/points/single-points.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/singleCapture/singleCapture.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/singleCapture/singleCapture.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/timeline/timeline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/timeline/timeline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/timer/timer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/directives/timer/timer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/compass/compass.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/compass/compass.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/dragging/dragging.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/dragging/dragging.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/multiQuestion/multiQuestion.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/multiQuestion/multiQuestion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/navigation/navigation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/navigation/navigation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/navigation/navigationBeforeJumpPopup-ybz.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/openQuestion/openQuestion.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/openQuestion/openQuestion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/qrCode/qrCode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/qrCode/qrCode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/scala/scala.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/scala/scala.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/takePhoto/takePhoto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/takePhoto/takePhoto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/takeVideo/takeVideo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/takeVideo/takeVideo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/watchVideo/watchVideo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/features/watchVideo/watchVideo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/globals.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/CLOCK.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Group 6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Main_Background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Main_Nav.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ODTech_Logo _black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/PopUp-add.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Vector Smart Object copy (9).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Vector Smart Object copy 3 (6).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/Vector Smart Object.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/add-01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/add-01_.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/add-01green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/addToFolder.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/arrowClose.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/back.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/capture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/clock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/compass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/compass320.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/dragImg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/envelope.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/grading_scale.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/green-x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/help.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/home-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/home.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/i.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/icon-audio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/icon_splash_ybz.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/info.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/instagram.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/key.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/last-mission.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/loading.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/log_out.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/logoMasa.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/logo_roth.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/logo_rotshild.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/magni.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/main-capture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/main-compass.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/main-facebook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/main-ques.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mainBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mainBackgroundYibz.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPointDone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mapDisPoint_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/medicine-basket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/menu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/messages.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/multiQuestion.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/multiQuestion_old.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/mute1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/nav-wrap-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/nav-wrap.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/nav_lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/nav_start.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/nav_start_yibz.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/navigation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/new-login-cover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/north.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/odtech_info_logos.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/openQuestion.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/people icon.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/play.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/21.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/22.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/24.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/25.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/26.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/27.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/28.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/29.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/30.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/points/mapDisPointDone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/position2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/position2_old.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/position4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/positionIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/positionIcon_.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/poster.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/qrCode.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ques.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/redplay.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/samplesArrHe.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/scala.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/score.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/shadow_big.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/shadow_big_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/splash_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/splash_ybz.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/stage_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/stage_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/stage_3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/stop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/subposition.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/add-01.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/addImg/add.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/compass_arrow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/compass_arrow_mobile.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/general.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/info.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/record-video.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/white-arrow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/arrow/white.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/compass2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/multiQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/navigation2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/openQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/qrCode2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/scala2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/takePhoto2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/takeVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/tripSummary2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/watchVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/clock/x/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/text.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svg/x/white.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/add-01.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/addImg/add.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/compass_arrow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/compass_arrow_mobile.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/dragging.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/general.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/record-video.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/take-video-white-people.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/arrow/white.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/compass2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/multiQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/navigation2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/openQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/qrCode2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/scala2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/takePhoto2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/takeVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/tripSummary2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/clock/watchVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/dragging.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/text.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgMasa/x/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/add-01.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/addImg/add.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/compass_arrow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/compass_arrow_mobile.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/dragging.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/general.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/record-video.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/take-video-green-people.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/arrow/white.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/compass2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/multiQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/navigation2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/openQuestion2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/qrCode2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/scala2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/takePhoto2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/takeVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/tripSummary2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/clock/watchVideo2.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/compass.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/feelings.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/medicine-basket.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/multiQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/navigation.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/openQuestion.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/qrCode.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/scala.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/take-photo-negative.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/take-photo-pink.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/take-photo-yellow.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/takePhoto.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/text.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/trip-summary.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/svgYIBZ/x/watchVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/take-video-people.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/takePhoto.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/takeVideo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/takeVideo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/timeline-active.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/transparent.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/travel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/tripSummary.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/trophy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/trophy2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/user.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/v-01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/v-01.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/v.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/vertical_info.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/watchVideo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/watchVideo_old.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/website.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/white-x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ybz_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ybz_logo_small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ybz_main_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/ybzstages-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/img/yibz+.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/initPushwoosh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-drag-and-drop-lists.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-drag-and-drop-lists.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-google-maps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-ios9-uiwebview.patch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-sanitize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular-ui-router.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/angular.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/jquery-1.8.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/leaflet.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/lodash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/js/ngDraggable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-camera/www/Camera.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file-transfer/www/FileTransfer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file-transfer/www/FileTransferError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/DirectoryEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/DirectoryReader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/Entry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/File.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileEntry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileReader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileSystem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileUploadOptions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileUploadResult.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/FileWriter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/Flags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/LocalFileSystem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/Metadata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/ProgressEvent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/browser/isChrome.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/fileSystemPaths.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/fileSystems-roots.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/fileSystems.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/ios/FileSystem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/requestFileSystem.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-file/www/resolveLocalFileSystemURI.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-geolocation/www/Coordinates.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-geolocation/www/Position.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-geolocation/www/PositionError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-geolocation/www/geolocation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/CaptureError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/CaptureVideoOptions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/MediaFile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/MediaFileData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/capture.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media-capture/www/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media/www/Media.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-media/www/MediaError.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/cordova-plugin-splashscreen/www/splashscreen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/.pgbomit" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/android/icon-36-ldpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/android/icon-48-mdpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/android/icon-72-hdpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/android/icon-96-xhdpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/bada-wac/icon-48-type5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/bada-wac/icon-50-type3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/bada-wac/icon-80-type4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/bada/icon-128.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/blackberry/icon-80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-1024.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-40.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-57-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-57.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-60@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-72-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-72.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-76.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/ios/icon-76@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/tizen/icon-128.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/webos/icon-64.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/windows-phone/icon-173-tile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/windows-phone/icon-48.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/icon/windows-phone/icon-62-tile.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/android/screen-hdpi-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/android/screen-ldpi-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/android/screen-mdpi-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/android/screen-xhdpi-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/bada-wac/screen-type3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/bada-wac/screen-type4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/bada-wac/screen-type5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/bada/screen-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/blackberry/screen-225.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-ipad-landscape-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-ipad-landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-ipad-portrait-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-ipad-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-iphone-portrait-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-iphone-portrait-568h-2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-iphone-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/ios/screen-iphoneX-portrait.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/tizen/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/webos/screen-64.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/res/screen/windows-phone/screen-portrait.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/services/camera.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/services/localize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/services/maps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/services/missions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/services/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/helper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/lib/jasmine-1.2.0/MIT.LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/lib/jasmine-1.2.0/jasmine-html.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/lib/jasmine-1.2.0/jasmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/spec/lib/jasmine-1.2.0/jasmine.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/strings/resources-locale_default.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/www/strings/resources-locale_en-US.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____Users_einatkidron_Documents_Cambium_ODTech_odtech_app_platforms_android_libs_com_google_zxing_client_android_captureactivity_jar_unspecified_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_annotations_24_1_1_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_24_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-hdpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-ldpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-mdpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-xhdpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-landscape-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-landscape.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
@@ -753,17 +26,115 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaBridge.class" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaBridge.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaResourceApi.class" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaResourceApi.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/intermediate-jars/debug/classes.jar" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/intermediate-jars/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon57x57.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon57x57.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon57x57@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon57x57@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon72x72@2x~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon72x72@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon72x72~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/AppIcon72x72~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/Assets.car" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/Assets.car" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVBarcodeScanner.bundle/beep.caf" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVBarcodeScanner.bundle/beep.caf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/Info.plist" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-568h@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-568h@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-568h@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-568h@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Landscape@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Landscape~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Landscape~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Portrait~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-700@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-667h@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-667h@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-Landscape-736h@3x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-Landscape-736h@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-Portrait-736h@3x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-800-Portrait-736h@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Landscape@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Landscape~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Landscape~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Portrait~ipad.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage@2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/LaunchImage@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/MainViewController.nib" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/MainViewController.nib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/embedded.mobileprovision" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/embedded.mobileprovision" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/odtech" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/odtech" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/scannerOverlay.nib" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/scannerOverlay.nib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-36-ldpi.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-36-ldpi.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-48-mdpi.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-48-mdpi.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-72-hdpi.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-72-hdpi.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-96-xhdpi.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/android/icon-96-xhdpi.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-57-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-57-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-57.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-57.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-72-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-72-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-72.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/icon/ios/icon-72.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-hdpi-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-hdpi-portrait.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-ldpi-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-ldpi-portrait.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-mdpi-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-mdpi-portrait.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-xhdpi-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/android/screen-xhdpi-portrait.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-landscape-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-landscape-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-landscape.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-landscape.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-portrait-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-portrait-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-ipad-portrait.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait-568h-2x.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait-568h-2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait.png" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/res/screen/ios/screen-iphone-portrait.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcodeproj/project.xcworkspace/xcuserdata/einatkidron.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../ios/odtech.xcodeproj/project.xcworkspace/xcuserdata/einatkidron.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../config.xml" afterPath="$PROJECT_DIR$/../../config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/package.json" afterPath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/plugin.xml" afterPath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/src/ios/CDVBarcodeScanner.mm" afterPath="$PROJECT_DIR$/../../node_modules/phonegap-plugin-barcodescanner/src/ios/CDVBarcodeScanner.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../package-lock.json" afterPath="$PROJECT_DIR$/../../package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../package.json" afterPath="$PROJECT_DIR$/../../package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/android.iml" afterPath="$PROJECT_DIR$/.idea/android.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/CordovaLib.iml" afterPath="$PROJECT_DIR$/CordovaLib/CordovaLib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CordovaLib/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterPath="$PROJECT_DIR$/CordovaLib/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android.json" afterPath="$PROJECT_DIR$/android.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/www/components/mission/mission.js" afterPath="$PROJECT_DIR$/assets/www/components/mission/mission.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/assets/www/cordova_plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/xml/config.xml" afterPath="$PROJECT_DIR$/res/xml/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/www/directives/didYouKnow/didYouKnow.js" afterPath="$PROJECT_DIR$/assets/www/directives/didYouKnow/didYouKnow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platform_www/cordova_plugins.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/einatkidron.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/../ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/einatkidron.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/frameworks.json" afterPath="$PROJECT_DIR$/../ios/frameworks.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/ios.json" afterPath="$PROJECT_DIR$/../ios/ios.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Info.plist" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/_CodeSignature/CodeResources" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/_CodeSignature/CodeResources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/config.xml" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/group/group.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/group/group.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/login/login.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/login/login.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/login/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/mission/mission.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/components/mission/mission.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/colorsAndIconsOdtech.css" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/colorsAndIconsOdtech.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/english.css" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/english.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/style.css" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/dec.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/dec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/deviceLoction.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/deviceLoction.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/appRingtone/appRingtone.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/appRingtone/appRingtone.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/appRingtone/appRingtone.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/appRingtone/appRingtone.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/dayDescription/dayDescription.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/dayDescription/dayDescription.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/didYouKnow/didYouKnow.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/didYouKnow/didYouKnow.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/didYouKnow/didYouKnow.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/didYouKnow/didYouKnow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/menu/menu.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/menu/menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/missionIntroduction/missionIntroduction.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/missionIntroduction/missionIntroduction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/odtechAudio/odtechAudio.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/directives/odtechAudio/odtechAudio.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/features/navigation/navigation.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/features/navigation/navigation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/features/takePhoto/takePhoto.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/features/takePhoto/takePhoto.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/globals.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/globals.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/index.html" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/services/camera.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/services/camera.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/strings/resources-locale_en-US.js" afterPath="$PROJECT_DIR$/../ios/odtech.xcarchive/Products/Applications/odtech.app/www/strings/resources-locale_en-US.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ios/odtech.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech.xcodeproj/xcuserdata/einatkidron.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/../ios/odtech.xcodeproj/xcuserdata/einatkidron.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech/Plugins/phonegap-plugin-barcodescanner/CDVBarcodeScanner.mm" afterPath="$PROJECT_DIR$/../ios/odtech/Plugins/phonegap-plugin-barcodescanner/CDVBarcodeScanner.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/odtech/odtech-Info.plist" afterPath="$PROJECT_DIR$/../ios/odtech/odtech-Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../ios/platform_www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/www/components/mission/mission.js" afterPath="$PROJECT_DIR$/../ios/www/components/mission/mission.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/www/components/splash/splash.js" afterPath="$PROJECT_DIR$/../ios/www/components/splash/splash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../ios/www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ios/www/directives/didYouKnow/didYouKnow.js" afterPath="$PROJECT_DIR$/../ios/www/directives/didYouKnow/didYouKnow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../plugins/fetch.json" afterPath="$PROJECT_DIR$/../../plugins/fetch.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/package.json" afterPath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/plugin.xml" afterPath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/src/ios/CDVBarcodeScanner.mm" afterPath="$PROJECT_DIR$/../../plugins/phonegap-plugin-barcodescanner/src/ios/CDVBarcodeScanner.mm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -790,14 +161,12 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="69" lean-forward="false" selection-start-line="1" selection-start-column="69" selection-end-line="1" selection-end-column="69" />
+            <state relative-caret-position="14">
+              <caret line="1" column="98" lean-forward="false" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
               <folding>
-                <marker date="1523364958000" expanded="false" signature="577:595" ph="&quot;odtech&quot;" />
-                <marker date="1523364958000" expanded="false" signature="734:757" ph="&quot;@string/launcher_name&quot;" />
-                <marker date="1523364958000" expanded="false" signature="965:988" ph="&quot;@string/app_name&quot;" />
-                <marker date="1523364958000" expanded="false" signature="1747:1767" ph="&quot;Share via barcode&quot;" />
-                <marker date="1523364958000" expanded="false" signature="2108:2128" ph="&quot;Share via barcode&quot;" />
+                <element signature="e#580#598#0" expanded="true" />
+                <element signature="e#737#760#0" expanded="true" />
+                <element signature="e#968#991#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -806,14 +175,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arrays.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+      <file leaf-file-name="mission.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/www/components/mission/mission.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="e#53#705#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="108">
+              <caret line="183" column="39" lean-forward="false" selection-start-line="183" selection-start-column="35" selection-end-line="183" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -825,23 +192,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preferences.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="deviceLoction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/www/deviceLoction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
+            <state relative-caret-position="780">
               <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding />
             </state>
@@ -850,8 +204,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>next</find>
+    </findStrings>
+  </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$USER_HOME$/Downloads/odtechKeystore" />
+    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../../odtechKeystore" />
     <option name="KEY_ALIAS" value="odtechapp" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
@@ -2898,7 +2257,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -2916,9 +2275,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -2950,8 +2306,59 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mission" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3049,7 +2456,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523370143867" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523809471672" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3149,7 +2556,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523370143867" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523809471673" />
       </method>
     </configuration>
     <list size="1">
@@ -3191,64 +2598,40 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="716" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5413534" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32715008" sideWeight="0.5226171" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4940978" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966273" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.49676898" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32715008" sideWeight="0.47738287" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4940978" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39966273" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.45864663" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.53288364" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4940978" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32666665" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5420792" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32666665" sideWeight="0.50646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4940978" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.46711636" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.4579208" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4940978" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3259,11 +2642,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#580#598#0" expanded="true" />
+            <element signature="e#737#760#0" expanded="true" />
+            <element signature="e#968#991#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/www/deviceLoction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3271,7 +2673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3291,7 +2692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3311,21 +2711,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml" />
     <entry file="file://$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -3373,7 +2762,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/www/deviceLoction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
+        <state relative-caret-position="780">
           <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding />
         </state>
@@ -3381,14 +2770,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="69" lean-forward="false" selection-start-line="1" selection-start-column="69" selection-end-line="1" selection-end-column="69" />
+        <state relative-caret-position="14">
+          <caret line="1" column="98" lean-forward="false" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
           <folding>
-            <marker date="1523364958000" expanded="false" signature="577:595" ph="&quot;odtech&quot;" />
-            <marker date="1523364958000" expanded="false" signature="734:757" ph="&quot;@string/launcher_name&quot;" />
-            <marker date="1523364958000" expanded="false" signature="965:988" ph="&quot;@string/app_name&quot;" />
-            <marker date="1523364958000" expanded="false" signature="1747:1767" ph="&quot;Share via barcode&quot;" />
-            <marker date="1523364958000" expanded="false" signature="2108:2128" ph="&quot;Share via barcode&quot;" />
+            <element signature="e#580#598#0" expanded="true" />
+            <element signature="e#737#760#0" expanded="true" />
+            <element signature="e#968#991#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3396,13 +2783,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml" />
+    <entry file="file://$PROJECT_DIR$/assets/www/components/mission/mission.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#705#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="183" column="39" lean-forward="false" selection-start-line="183" selection-start-column="35" selection-end-line="183" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

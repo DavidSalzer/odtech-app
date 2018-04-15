@@ -2,7 +2,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
     $scope.loginFirstPage = true;
     $rootScope.isStationArch = false;
     $scope.userName = '';
-    $scope.btn_text = $filter('localizedFilter')('_signUp_');
+    $scope.btn_text = 'הירשם';//$filter('localizedFilter')('_signUp_');
 
     $rootScope.$broadcast('stopLocationWatcher', {});
 
@@ -58,7 +58,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
             $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
             //set the tet on login btn by travel type
             if ($rootScope.isGroupTravel) {
-                $scope.registerBtnText = $filter('localizedFilter')('_signUp_');
+                $scope.registerBtnText = 'הירשם';//$filter('localizedFilter')('_signUp_');
             }
             else {
                 $scope.registerBtnText = $filter('localizedFilter')('_letsGo_');
@@ -96,7 +96,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                     cid: cid,
                     personalGroupCode: $scope.groupCode
                 }
-            }
+            };
         }
         else {
             request = {
@@ -113,6 +113,10 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         server.request(request)
         .then(function (data) {
             console.log(data);
+            $rootScope.cid = data.res.realCid;
+            localStorage.setItem('realCid', data.res.realCid);
+            console.log('realCid' + data.res.realCid);
+            console.log('CID' + $rootScope.cid);
             //if success.
             if (!data.res.error) {
                 //if it old user go to groups page else update user details. 
@@ -135,7 +139,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                     $rootScope.isGroupTravel = !parseInt(data.res.isSuperActivitySingle);
                     //set the text on login btn by travel type
                     if ($rootScope.isGroupTravel) {
-                        $scope.registerBtnText =  $filter('localizedFilter')('_signUp_');
+                        $scope.registerBtnText =  'הירשם';//$filter('localizedFilter')('_signUp_');
                     }
                     else {
                         $scope.registerBtnText =  $filter('localizedFilter')('_letsGo_');
@@ -163,10 +167,10 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 $scope.loginError = true;
                 $scope.loginErrorMsg = $scope.errorMsg.generalError;
             }, 0);
-        })
+        });
 
         $("input").blur();
-    }
+    };
     $scope.showLoader = false;
 
     //Send user details (userName and image) to server.
@@ -180,7 +184,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
         else if (!$scope.imgServerUrl && $scope.imgurl) {
             $scope.showLoader = true;
             $timeout(function () {
-                $scope.sendUsername()
+                $scope.sendUsername();
             }, 100);
             return;
         }
@@ -257,12 +261,12 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 camera.uploadPhoto($scope.pictures, "img", 1)
                 .then(function (data) {
                     $scope.imgServerUrl = data[0][0];
-                    $scope.btn_text = $filter('localizedFilter')('_signIn_');
+                    $scope.btn_text = 'היכנס';//$filter('localizedFilter')('_signIn_');
                 });
             }, 0);
         });
         }
-    }
+    };
 
     $scope.email = '';
     $scope.groupCode = '';
@@ -316,7 +320,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                     $scope.imgServerUrl = data[0][0];
 
                 });
-        $scope.btn_text = $filter('localizedFilter')('_signUp_');
+        $scope.btn_text = 'הירשם';//$filter('localizedFilter')('_signUp_');
         //}
     };
     //set the preview image after the user chose an image
@@ -335,7 +339,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
 
     //for check if upload image crash
     if (localStorage.getItem('userProfile') == 'start') {
-        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: $filter('localizedFilter')('_signUp_')});
+        $rootScope.$broadcast('displayGeneralPopup', { generalPopupText: 'הירשם'});//$filter('localizedFilter')('_signUp_')});
         $rootScope.generalPopupArgs = { generalPopupText: $filter('localizedFilter')('_tip_') + $filter('localizedFilter')('_uploadImageTip_'), generalPopupEvent: true };
         //alert('אם לא הצלחתם לצלם תמונה, נסו להעלות תמונה מהגלריה');
     }
@@ -396,7 +400,7 @@ odtechApp.controller('login', ['$rootScope', '$scope', '$state', 'server', '$tim
                 }
                 else {
                     $rootScope.$broadcast('userSignIn', {});
-                    $scope.transitionByArch(data)
+                    $scope.transitionByArch(data);
                 }
 
             }
