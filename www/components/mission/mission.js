@@ -183,11 +183,11 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
 
                 //if need to go to next mission automatically.
                 //$scope.next = missions.directlyNext($scope.task.mid);
-                if (!$rootScope.delayStartMissionAudio){
+               // if (!$rootScope.delayStartMissionAudio){
                     $scope.next = missions.directlyNext(missionData.mid);
                     if ($scope.next) {
                         $state.transitionTo('mission', { missionId: $scope.next });
-                    }
+                  //  }
                 }
                 else {
                     //if the mission that finished is parentMission
