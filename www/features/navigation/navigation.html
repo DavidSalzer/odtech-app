@@ -1,109 +1,113 @@
 <div class="navigation-container">
 
-    <div id="map_canvas" ng-if="initMap" ng-style="{opacity:hideMap? 0 : 1}">
-        <!--display map directive-->
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
-            <!--display my position on map-->
-            <ui-gmap-marker coords="myMarker.coords" idkey="myMarker.id" icon="myMarker.icon">
-            </ui-gmap-marker>
-            <!--display destination position-->
-            <ui-gmap-marker ng-if="!$last" ng-repeat="point in destinationMarkerArray" coords="point" idkey="destinationMarkerId" icon="subdestinationMarkerIcon"></ui-gmap-marker>
-            <ui-gmap-marker coords="destinationMarkerArray[destinationMarkerArray.length-1]" idkey="destinationMarkerId" icon="destinationMarkerIcon"></ui-gmap-marker>
-            <ui-gmap-marker click="interestPointClick($index)" ng-repeat="point in interestMarkerArray" coords="point" idkey="interestMarkerId" icon="interestMarkerIcon">
+    <div class="ngMap-wrapper" ng-if="initMap" ng-style="{opacity:hideMap? 0 : 1}">
 
-            </ui-gmap-marker>
-                            <!--<ui-gmap-marker coords="destinationMarkerArray[1].coords" idkey="destinationMarkerArray[1].id" icon="destinationMarkerArray[1].icon">
-                                      <ui-gmap-marker coords="destinationMarkerArray[2].coords" idkey="destinationMarkerArray[2].id" icon="destinationMarkerArray[2].icon">-->
-        </ui-gmap-google-map>
-    </div>
-    <div class="imgReplaceMap" ng-if="hideMap" style="background-image:url('{{imgDomain+missionData.imgUrl}}')"></div>
-    <div class="upload-loader" ng-show="showLoader">
-           <div>{{loadText}}</div>
-    </div>
-    <!--You have reached the destination popup-->
-    <div data-ng-show="isDestination && missionData.status != 'answer'" class="mission-repeat-popup popup navigation-popup" data-ng-click="sendDestination()">
-        <h2 class="popup-title">{{'_destinationReached_' | localizedFilter}}</h2>
-        <!--<p class="popup-text">{{destinationText}}</p>-->
-        <div class="mission-popup-continue">
-            <span>{{'_pressHere_' | localizedFilter}}</span>
-            <span class="arrow" > </span>
-        </div>
-    </div>
+        <!-- maybe we'd want to pass keys no in the index.html so this is how
+            map-lazy-load="https://maps.google.com/maps/api/js"
+        map-lazy-load-params="AIzaSyDVqYLnwoPYNwdxq1NVk5CIS2-o6GbJwCA"> -->
+        <ng-map id="ngMap" map-initialized="mapLoaded(map)" center='{{center}}' zoom="{{mapZoom}}">
+            <custom-marker id="{{myMarker.id}}" position="{{myMarker.coords.latitude}},{{myMarker.coords.longitude}}">
+                <img src="./img/position2.png" alt="my position marker icon" width="50" height="50" />
+            </custom-marker>
 
-    <!--Unknown user location popup-->
-    <div data-ng-show="!isDestination && noLocation && noLocationPopupDisplayCount < 15" class="mission-repeat-popup popup navigation-popup">
-        <div class="x" data-ng-click="noLocation=false"></div>
-        <h2>{{'_changeLocation_' | localizedFilter}}</h2>
-        <p class="popup-text"><span>{{'_locationError1_' | localizedFilter}}</span><br><span>{{'_locationError2_' | localizedFilter}}</span></p>
+            <custom-marker position="{{destinationMarkerArray[destinationMarkerArray.length - 1].latitude}}, {{destinationMarkerArray[destinationMarkerArray.length - 1].longitude}}"
+                id="destinationMarkerId">
+                <img src="./img/position4.png" alt="final destination marker icon" width="38" height="47" ng-style="{opacity:destinationsPointsHide == 0 ? 0 : 1}"
+                />
+            </custom-marker>
 
-        <p class="popup-text" data-ng-show="longNoLocation > 3">{{(cid === 3 ? '_endMissionOrpan_' : '_endMission_') |localizedFilter }}</p>
-        <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
-            <span>{{'_clickToExit_' | localizedFilter}}</span>
-            <span class="arrow"> </span>
-        </div>
-    </div>
-    <div class="mission-repeat-popup popup" id="interest-point-popup" ng-show="showInterestPopup">
-         <div class="x" data-ng-click="showInterestPopup = false"></div>
-         <h2></h2>
-        <p  class="popup-text">{{interestPopuptext}}</p>
-        <div class="mission-popup-continue"  data-ng-click="showInterestPopup = false">
-            <span>{{'_ok_' | localizedFilter}}</span>
-            <span class="arrow"> </span>
-        </div>
-        <!--<div id="didyou-audio-wrap">
-            <audio id="didyou-audio" controls>
-                <source src="audio/cartoon067.mp3" type="audio/mpeg">
-            </audio>
-        </div>-->
-    </div>
-    <div id="navig-help-btn" ng-show="showHelp" ng-click="showProblemPopup = !showProblemPopup">
-        <span>?</span>
-    </div>
-    <div class="photo-order" ng-show="showProblemPopup">
-            <h2>{{'_stuck_' | localizedFilter}}</h2>
-        <span>{{'_youWontGetPoints_' | localizedFilter}}</span>
-            <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
-            <div class="photo-continue" ng-click="closeNavig()">
-                <span class="next-text">{{'_clickToExit_' | localizedFilter}}</span>
-                <span class="arrow"></span>
+            <custom-marker ng-if="!$last" ng-repeat="point in destinationMarkerArray" position="{{point.latitude}},{{point.longitude}}"
+                id="destinationMarkerId">
+                <img src="./img/subposition.png" alt="sub destination marker icon" width="22" height="25" ng-style="{opacity:destinationsPointsHide == 0? 0 : 1}"
+                />
+            </custom-marker>
+
+            <custom-marker ng-repeat="point in interestMarkerArray" position="{{point.latitude}},{{point.longitude}}" on-click="interestPointClick($index)"
+                id="interestMarkerId">
+                <img ng-src="{{interestMarkerIcon}}" alt="interest point marker icon" width="12" height="20" ng-style="{opacity:interestPointsHide? 0 : 1}"
+                />
+            </custom-marker>
+
+            <div class=" imgReplaceMap " ng-if="hideMap " style="background-image:url(
+                    '{{imgDomain+missionData.imgUrl}}') "></div>
+            <div class="upload-loader " ng-show="showLoader ">
+                <div>{{loadText}}</div>
             </div>
+
+            <!--You have reached the destination popup-->
+            <div data-ng-show="isDestination && missionData.status !='answer' " class="mission-repeat-popup popup navigation-popup
+                    " data-ng-click="sendDestination() ">
+                <h2 class="popup-title ">{{'_destinationReached_' | localizedFilter}}</h2>
+                <!--<p class="popup-text ">{{destinationText}}</p>-->
+                <div class="mission-popup-continue ">
+                    <span>{{'_pressHere_' | localizedFilter}}</span>
+                    <span class="arrow "> </span>
+                </div>
+            </div>
+
+            <!--Unknown user location popup-->
+            <div data-ng-show="!isDestination && noLocation && noLocationPopupDisplayCount < 15 " class="mission-repeat-popup
+                    popup navigation-popup ">
+                <div class="x " data-ng-click="noLocation=false "></div>
+                <h2>{{'_changeLocation_' | localizedFilter}}</h2>
+                <p class="popup-text ">
+                    <span>{{'_locationError1_' | localizedFilter}}</span>
+                    <br>
+                    <span>{{'_locationError2_' | localizedFilter}}</span>
+                </p>
+
+                <p class="popup-text " data-ng-show="longNoLocation> 3">{{(cid === 3 ? '_endMissionOrpan_' : '_endMission_') |localizedFilter }}</p>
+                <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
+                    <span>{{'_clickToExit_' | localizedFilter}}</span>
+                    <span class="arrow"> </span>
+                </div>
+            </div>
+            <div class="mission-repeat-popup popup" id="interest-point-popup" ng-if="showInterestPopup">
+                <div class="x" data-ng-click="hideInterestPointPopup()"></div>
+                <h2></h2>
+                <p class="popup-text">{{interestPopuptext}}</p>
+                <div class="mission-popup-continue" data-ng-click="hideInterestPointPopup()">
+                    <span>{{'_ok_' | localizedFilter}}</span>
+                    <span class="arrow"> </span>
+                </div>
+            </div>
+            <div id="navig-help-btn" ng-show="showHelp" ng-click="showProblemPopup = !showProblemPopup">
+                <span>?</span>
+            </div>
+            <div class="photo-order" ng-show="showProblemPopup">
+                <h2>{{'_stuck_' | localizedFilter}}</h2>
+                <span>{{'_youWontGetPoints_' | localizedFilter}}</span>
+                <!--<p>גררו את התמונה הטובה  ביותר למרכז ולחצו לאישור</p>-->
+                <div class="photo-continue" ng-click="closeNavig()">
+                    <span class="next-text">{{'_clickToExit_' | localizedFilter}}</span>
+                    <span class="arrow"></span>
+                </div>
+        </ng-map>
         </div>
+
+    </div>
     <style type="text/css">
-        html, body, #map_canvas, .navigation-container {
+        html,
+        body,
+        #map_canvas,
+        .navigation-container {
             height: 100%;
             width: 100%;
             margin: 0px;
         }
+
         #map_canvas {
             position: relative;
         }
-        .angular-google-map-container {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-        }
-        
-        .destination-btn{
+
+        .destination-btn {
             position: absolute;
             left: 5px;
             bottom: 5px;
         }
-        
-        /*.navigation-container .mission-popup-continue .arrow {
-            background-image: url("../img/svg/arrow/navigation.svg");
-        }*/
-        
-        
+
         .mission-repeat-popup.navigation-popup {
             z-index: 4;
         }
-        
-        /*.mission-repeat-popup.navigation-popup .close {
-            background-image: url("../img/svg/x/navigation.svg");
-        }*/
-        
-        
     </style>
 </div>
