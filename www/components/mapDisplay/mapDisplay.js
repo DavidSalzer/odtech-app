@@ -52,6 +52,12 @@ odtechApp.controller('mapDisplay', [
 
     $scope.onMapLoaded = function() {
       console.log('MAP IS loaded event?');
+      $rootScope.map.setOptions({
+        controls: {
+          myLocationButton: true,
+          myLocation: true
+        }
+      });
       $rootScope.map.setClickable($scope.showLive);
       //add markers. this way is important because of the ansychronalize between js and native
       $scope.addMarkers($scope.stages, function(markers) {});

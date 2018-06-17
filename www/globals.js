@@ -49,6 +49,7 @@ odtechApp.run(function($rootScope, $timeout, localize) {
   // $rootScope.appName = 'ODTech';
   $rootScope.isPreLoginPage = isPreLoginPage;
   $rootScope.isMapDisplay = isMapDisplay;
+  $rootScope.allowUploadImgOnSignUp = allowUploadImgOnSignUp;
   $rootScope.showDescription = false;
   //$rootScope.isLinear = false;
   $.browser.isSmartphone =
