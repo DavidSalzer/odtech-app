@@ -56,7 +56,7 @@
                     <span>{{'_locationError2_' | localizedFilter}}</span>
                 </p>
 
-                <p class="popup-text " data-ng-show="longNoLocation> 3">{{(cid === 3 ? '_endMissionOrpan_' : '_endMission_') |localizedFilter }}</p>
+                <p class="popup-text " data-ng-show="longNoLocation> 3">{{(cid == 3 ? '_endMissionOrpan_' : '_endMission_') |localizedFilter }}</p>
                 <div class="mission-popup-continue" data-ng-show="longNoLocation > 3" data-ng-click="closeMission()">
                     <span>{{'_clickToExit_' | localizedFilter}}</span>
                     <span class="arrow"> </span>
