@@ -28,7 +28,7 @@
     <div class="login-page" data-ng-show="!loginFirstPage && !isPreLoginPage">
         <div class="login-wrap">
             <form name="userForm" enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post">
-                <div class="img-plus" ng-click="captureImage()" data-ng-class="{'hidePlus':showPreviewSrc}">
+                <div class="img-plus" ng-if="allowUploadImgOnSignUp" ng-click="captureImage()" data-ng-class="{'hidePlus':showPreviewSrc}">
                     <!--<input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0) || !isApp" type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().imageChosen(this)" data-ng-click="clickOnImage()" class="user-upload-img" name="file" />
                     <input data-ng-if="androidVersion.indexOf('4.4.2') === 0 && isApp" type="file" accept="image/*" name="img" data-ng-click="captureImage()" class="user-upload-img" />-->
                     <div class="preview-img" style="background-image:url('{{previewSrc}}')" data-ng-show="showPreviewSrc">
