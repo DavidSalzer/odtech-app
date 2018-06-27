@@ -277,10 +277,10 @@ input[type='range']:focus::-ms-fill-upper {
   }
 
   .scala-wrap {
-    height: 100%;
+    height: 80%;
     top: initial;
     bottom: initial;
-    height: 120%;
+    /* height: 120%; */
   }
 
   .mobile-down-input {
