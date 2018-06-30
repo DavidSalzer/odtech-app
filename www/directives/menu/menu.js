@@ -61,6 +61,7 @@ odtechApp.directive('menu', [
             scope.showMenu = !scope.showMenu;
           }, 0);
           $rootScope.clearMap();
+          $rootScope.$broadcast('stopMusic');
           $state.transitionTo('groupsScore');
         };
 
@@ -68,6 +69,7 @@ odtechApp.directive('menu', [
           $timeout(function() {
             scope.showMenu = !scope.showMenu;
           }, 0);
+          $rootScope.$broadcast('stopMusic');
           $state.transitionTo('map');
         };
 
@@ -85,6 +87,7 @@ odtechApp.directive('menu', [
           else {
             $state.transitionTo('mainNav');
           }
+          $rootScope.$broadcast('stopMusic');
           $rootScope.clearMap();
         };
         scope.goToStagesPage = function() {
@@ -92,6 +95,7 @@ odtechApp.directive('menu', [
             scope.showMenu = !scope.showMenu;
           }, 0);
           $state.transitionTo('stages');
+          $rootScope.$broadcast('stopMusic');
           $rootScope.clearMap();
         };
         scope.goToMainPage = function() {
@@ -99,6 +103,7 @@ odtechApp.directive('menu', [
             scope.showMenu = !scope.showMenu;
           }, 0);
           $state.transitionTo('main');
+          $rootScope.$broadcast('stopMusic');
           $rootScope.clearMap();
         };
         scope.pictures = {};
