@@ -1,25 +1,28 @@
-<div class="mission-popup popup {{subMissionOpen.type}}" ng-class="{'submission-introduction': subMissionOpen != -1}"><!--data-ng-hide="showIntroduction == false"-->
+<div class="mission-popup popup {{subMissionOpen.type}}" ng-class="{'submission-introduction': subMissionOpen != -1}">
+    <!--data-ng-hide="showIntroduction == false"-->
     <!--<div class="x" ng-click="closeSubMission()" ng-show="subMissionOpen != -1"></div>-->
     <!--<div class="mission-popup-help-text">לאורך ביצוע המשימה יש באפשרותכם לקבל תקציר משימה על ידי לחיצה על איקון המשימה</div>-->
     <div class="mission-description-wrap-scroll">
         <span data-ng-show="introductionData.imgUrl">
-            <span data-ng-show="introductionData.imgUrl" class="missionPopUpImage" style="background-image:url('{{imgDomain+introductionData.imgUrl}}')" data-ng-click="openLargeImage()">
+            <span data-ng-show="introductionData.imgUrl" class="missionPopUpImage" style="background-image:url('{{imgDomain+introductionData.imgUrl}}')"
+                data-ng-click="openLargeImage()">
                 <large-image url="{{imgDomain+introductionData.imgUrl}}"></large-image>
             </span>
         </span>
         <!--<span data-ng-show="true" class="missionPopUpImage"><span class="magnifying-glass" data-ng-click="openLargeImage()">לחץ להגדלה</span> </span>-->
         <p ng-bind-html="introductionData.description | newlines" data-ng-if="introductionData.description"></p>
-        <p data-ng-show="introductionData.description == undefined "><br>{{'_loading_' | localizedFilter}}</p>
+        <p data-ng-show="introductionData.description == undefined ">
+            <br>{{'_loading_' | localizedFilter}}</p>
 
     </div>
     <div class="mission-popup-header">
         <div class="intro-header-right">
             <points class="footer-item" type="single">{{subMissionOpen.time}}</points>
             <timer class="footer-item" type="introductionTimer"></timer>
-          
+
         </div>
 
-          <span class="pipe-wrapper" ng-hide="withoutPoints">|</span>
+        <span class="pipe-wrapper" ng-hide="withoutPoints">|</span>
         <div class="mission-popup-continue" data-ng-click="hideIntroductionPage()" ng-hide="introductionData.status != 'notAnswer'">
             <span class="go-text">{{'_letsGo_' | localizedFilter}}
             </span>
@@ -29,8 +32,9 @@
     </div>
 
 
-    <odtech-audio class="mission-introduction" data-ng-if="introductionData.audioUrl && introductionData.status == 'notAnswer'" audio-src="{{introductionData.audioUrl}}"></odtech-audio>
+    <odtech-audio class="mission-introduction" data-ng-if="!showMissionTab && introductionData.audioUrl && introductionData.status == 'notAnswer'"
+        audio-src="{{introductionData.audioUrl}}"></odtech-audio>
 
-    
+
 
 </div>
