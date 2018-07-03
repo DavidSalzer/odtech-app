@@ -30,3 +30,7 @@
 .playAgain {
   background-image: url(../img/play_english.png);
 }
+
+.english .scan-wrap {
+  direction: ltr;
+}
