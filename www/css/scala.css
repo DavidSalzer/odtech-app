@@ -327,8 +327,6 @@ input[type='range']:focus::-ms-fill-upper {
   }
 
   .multi .taskEnd-wrapper {
-    width: 40%;
-    position: relative;
   }
 
   .scala .taskEnd-wrapper .arrow {
@@ -445,4 +443,6 @@ input[type='range']:focus::-ms-fill-upper {
   .scala .opacity-mask {
     height: 150%;
   }
+        width: 40vw;
+        position: relative;
 }
