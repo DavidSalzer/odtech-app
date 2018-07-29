@@ -234,15 +234,12 @@ function appendItem(itemData, index) {
     }
 }
 
-
-
 function setDate(unix_timestamp) {
-    var date = new Date(parseInt(unix_timestamp));
-
-
-    // Will display time in 10:30:23 format
-    var formattedTime = date.getDay() + '.' + date.getDate() + '.' + date.getFullYear();
-    return formattedTime;
+  var date = new Date(parseInt(unix_timestamp));
+  var formattedTime =
+    date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
+  console.log('FORMATTED TIME ' + formattedTime);
+  return formattedTime;
 }
 var swiper;
 var rightswipe;

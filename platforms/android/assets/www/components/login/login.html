@@ -1,13 +1,16 @@
 <div class="login-container general">
     <!--login first page, enter email and group code-->
-    <div class="login-page" data-ng-show="loginFirstPage && !isPreLoginPage" >
+    <div class="login-page" data-ng-show="loginFirstPage && !isPreLoginPage">
         <div class="login-wrap">
             <div class="login-welcome fs-14">ברוכים הבאים</div>
             <div class="login-app-name  fs-9">לאפליקציית {{appName}}</div>
 
             <form name="loginForm">
-                <input name="emailBox" class="login-input" type="email" placeholder="הזן תיבת דואר אלקטרוני" data-ng-model="email" ng-change="changeInput('mail')" required data-ng-class="{'not-valid': !loginForm.emailBox.$valid && mailnotValid}" />
-                <input name="code" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupCode" ng-change="changeInput('code')" required data-ng-class="{'not-valid': !loginForm.code.$valid && codenotValid}" minlength="6" maxlength="6" />
+                <input name="emailBox" class="login-input" type="email" placeholder="הזן תיבת דואר אלקטרוני" data-ng-model="email" ng-change="changeInput('mail')"
+                    required data-ng-class="{'not-valid': !loginForm.emailBox.$valid && mailnotValid}" />
+                <input name="code" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupCode" ng-change="changeInput('code')"
+                    required data-ng-class="{'not-valid': !loginForm.code.$valid && codenotValid}" minlength="6" maxlength="6"
+                />
                 <!--validation-->
                 <div class="login-error fs-5" data-ng-show="!loginForm.emailBox.$valid && mailnotValid">* שדה דואר אלקטרוני לא הוזן כראוי</div>
                 <div class="login-error fs-5" data-ng-show="!loginForm.code.$valid && codenotValid">* שדה קוד קבוצה לא הוזן כראוי</div>
@@ -25,14 +28,15 @@
     <div class="login-page" data-ng-show="!loginFirstPage && !isPreLoginPage">
         <div class="login-wrap">
             <form name="userForm" enctype="multipart/form-data" data-ng-submit="uploadImages()" method="post">
-                <div class="img-plus" ng-if="allowUploadImgOnSignUp" ng-click="captureImage()"  data-ng-class="{'hidePlus':showPreviewSrc}">
+                <div class="img-plus" ng-if="allowUploadImgOnSignUp" ng-click="captureImage()" data-ng-class="{'hidePlus':showPreviewSrc}">
                     <!--<input data-ng-if="!(androidVersion.indexOf('4.4.2') === 0) || !isApp" type="file" accept="image/*" ng-model="uploadImg" onchange="angular.element(this).scope().imageChosen(this)" data-ng-click="clickOnImage()" class="user-upload-img" name="file" />
                     <input data-ng-if="androidVersion.indexOf('4.4.2') === 0 && isApp" type="file" accept="image/*" name="img" data-ng-click="captureImage()" class="user-upload-img" />-->
                     <div class="preview-img" style="background-image:url('{{previewSrc}}')" data-ng-show="showPreviewSrc">
                     </div>
                 </div>
                 <!--<div class="login-app-name fs-6">הוסף תמונה</div>-->
-                <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" ng-change="changeInput('name')" required data-ng-class="{'not-valid': !userForm.nickName.$valid && namenotValid}" />
+                <input name="nickName" class="login-input" type="text" placeholder="שם" data-ng-model="userName" ng-change="changeInput('name')"
+                    required data-ng-class="{'not-valid': !userForm.nickName.$valid && namenotValid}" />
                 <!--validation-->
                 <div class="login-error fs-5" data-ng-show="!userForm.nickName.$valid && namenotValid">* שדה שם לא הוזן כראוי</div>
             </form>
@@ -49,11 +53,12 @@
     <div class="login-page" ng-if="isPreLoginPage">
         <div class="login-wrap" ng-show="showGroupCodeField">
             <div class="login-app-name  fs-9">הכנס קוד קבוצה</div>
-            <input name="groupCode" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupData.onlyGroupCode" required data-ng-class="{'not-valid': groupCodeNotValid}"/>
+            <input name="groupCode" class="login-input" type="text" placeholder="הזן קוד קבוצה" data-ng-model="groupData.onlyGroupCode"
+                required data-ng-class="{'not-valid': groupCodeNotValid}" />
             <div class="login-error fs-5" ng-show="groupCodeNotValid">* שדה קוד קבוצה לא הוזן כראוי</div>
-             <div class="login-error fs-5" data-ng-show="loginError">* {{loginErrorMsg}}</div>
+            <div class="login-error fs-5" data-ng-show="loginError">* {{loginErrorMsg}}</div>
             <div class="mission-popup-continue" data-ng-click="sendGroupCode()">
-               הכנס
+                הכנס
                 <span class="arrow" data-ng-show="btn_text=='הירשם'"></span>
             </div>
         </div>

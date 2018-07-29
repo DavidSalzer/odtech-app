@@ -1,4 +1,5 @@
-<div class="animate-switch-container {{task.type}}" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow && !startMission}" data-ng-hide="finishMission">
+<div class="animate-switch-container {{task.type}}" data-ng-switch on="task.type" data-ng-class="{'blur':popupShow && !startMission}"
+    data-ng-hide="finishMission">
 
     <div class="mission-main-wrap">
         <div class="mission-header">
@@ -12,7 +13,7 @@
 
                 <div class="tab-title-wrap">
                     <span class="mission-icon"></span>
-                    <span class="mission-header-text">{{(cid === 3 ? '_missionOrpan_' : '_mission_') | localizedFilter }}</span>
+                    <span class="mission-header-text">{{(cid == 3 ? '_missionOrpan_' : '_mission_') | localizedFilter }}</span>
                 </div>
 
             </div>
@@ -42,12 +43,18 @@
         </div>
         <div class="help-popup" ng-show="showHelpPopup">
             <div class="help-popup-container">
-            <div class="help-title">{{'_headUp_' | localizedFilter}}</div>
-                <div class="help-desc">{{(cid === 3 ? '_skipMissionMessageOrpan_' : '_skipMissionMessage_') |localizedFilter }}
+                <div class="help-title">{{'_headUp_' | localizedFilter}}</div>
+                <div class="help-desc">{{(cid == 3 ? '_skipMissionMessageOrpan_' : '_skipMissionMessage_') |localizedFilter }}
                 </div>
-              
-                <div class="help-btn skip" ng-click="endMissionByHelp()"><span>{{(cid === 3 ? '_skipMissionOrpan_' : '_skipMission_') |localizedFilter }}</span><span class="arrow"></span></div>
-                <div class="help-btn return" ng-click="hideHelpPopup()"><span>{{(cid === 3 ? '_returnToMissionOrpan_' : '_returnToMission_') |localizedFilter }}</span><span class="arrow"></span></div>
+
+                <div class="help-btn skip" ng-click="endMissionByHelp()">
+                    <span>{{(cid == 3 ? '_skipMissionOrpan_' : '_skipMission_') |localizedFilter }}</span>
+                    <span class="arrow"></span>
+                </div>
+                <div class="help-btn return" ng-click="hideHelpPopup()">
+                    <span>{{(cid == 3 ? '_returnToMissionOrpan_' : '_returnToMission_') |localizedFilter }}</span>
+                    <span class="arrow"></span>
+                </div>
             </div>
         </div>
         <submission></submission>

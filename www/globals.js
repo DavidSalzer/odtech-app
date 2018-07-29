@@ -1,8 +1,8 @@
- var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
- var imgDomain = "http://adminqa.odtech.co.il/";
+ //var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+ //var imgDomain = "http://adminqa.odtech.co.il/";
 
-//var domain = 'http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php';
-//var imgDomain = 'http://odtech-v2-admin.co.il.tigris.nethost.co.il/';
+var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
 //var cid = 8; // production -masa
@@ -225,7 +225,7 @@ anodoidVersion();
 
 //add the css by client
 //var cssName = "colorsAndIconsYIBZ"
-var cssName = 'colorsAndIconsYIBZ';
+var cssName = 'colorsAndIconsOdtech';
 $(document).ready(function() {
   $('head').append(
     '<link rel="stylesheet" href="css/' + cssName + '.css" type="text/css" />'
