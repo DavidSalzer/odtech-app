@@ -1,26 +1,47 @@
-.english #day-description p.pOffDay-description{
+.english #day-description p.pOffDay-description {
     direction: ltr;
 }
 
-.english .mission-popup p{
-     direction: ltr;
+.english .mission-popup p {
+    direction: ltr;
 }
 
-.english  .mission-popup-didyou div{
-    text-align: left
-}
-
-.english .next-question-scroll{
+.english .mission-popup-didyou div {
     text-align: left;
 }
 
-.english .mission-popup-continue{
+.english .next-question-scroll {
+    text-align: left;
+}
+
+.english .mission-popup-continue {
     text-align: right;
 }
 
 .english .mission-popup-didyou .permission .arrow {
     vertical-align: bottom;
     left: 30%;
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
 
 
+.english #mission-quiz .main {
+    direction: ltr;
+}
+
+.english .mission-popup-didyou p {
+    direction: ltr;
+}
+
+.english .message-text-popup.popup {
+    direction: ltr;
+}
+
+.english .claimText {
+    direction: ltr;
+}
+
+.english .load {
+    direction: ltr;
+}

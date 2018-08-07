@@ -1,4 +1,4 @@
-<section id="mission-finish" class="timeUp" data-ng-class="{'finish':successMission}" data-ng-show="finishMission" ng-init="finishMission=false">
+<section id="mission-finish" class="timeUp" data-ng-class="{'finish':successMission, 'finishMissionShow':finishMission}"  ng-init="finishMission=false"><!--data-ng-show="finishMission"-->
     <div class="message-time">
         <span class="time-icon"  data-ng-hide="successMission">
         </span>
@@ -14,7 +14,7 @@
             </p>
         </div>
 
-        <app-ringtone></app-ringtone>
+        <app-ringtone ng-if="finishMission"></app-ringtone>
     </div>
 
 </section>

@@ -192,7 +192,7 @@ odtechApp.directive('takePhoto', ['camera', '$timeout', '$rootScope', '$filter',
                     scope.photoSaved[scope.photoClicked] = true;
                     scope.countPhotos++;
                     if (scope.countPhotos == scope.missionData.countPhoto) {
-                        alert(cid === 3? $filter('localizedFilter')('_missionAccomplishedOrpan_') : $filter('localizedFilter')('_missionAccomplished_')
+                        alert(cid == 3? $filter('localizedFilter')('_missionAccomplishedOrpan_') : $filter('localizedFilter')('_missionAccomplished_')
                     );
                     }
                 }, 0);

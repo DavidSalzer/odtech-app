@@ -1,223 +1,229 @@
 #mainnav-wrap {
-    /*background-image: url("../img/nav-wrap.jpg");*/
-    background-repeat: no-repeat;
-    background-size: cover;
+  /*background-image: url("../img/nav-wrap.jpg");*/
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #subMission {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 100000;
-    position: fixed;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100000;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 iframe {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .subMission-wrap {
-    width: 74%;
+  width: 74%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 60%;
+}
+
+#map_canvas,
+.navigation-container {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  /*position: relative;*/
+}
+
+#map_canvas {
+  position: relative;
+}
+
+.angular-google-map-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.ngMap-wrapper,
+#ngMap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.destination-btn {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+.navigation-container .mission-popup-continue {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  position: relative;
+  bottom: initial;
+  left: initial;
+  line-height: 30px;
+  vertical-align: top;
+  text-align: left;
+  width: initial;
+  font-size: 2em;
+  height: initial;
+  float: left;
+  margin-top: 20px;
+}
+
+.mission-repeat-popup.navigation-popup {
+  z-index: 4;
+}
+
+.submissionsBtns {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 18%;
+  width: 59%;
+  margin-right: 1%;
+  margin-bottom: 2%;
+}
+
+.submission-btn {
+  width: 28%;
+  height: auto;
+  display: inline-block;
+  height: 100%;
+  margin: -4px;
+  margin-right: 2%;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.camera-mission {
+  background-image: url('../img/takePhoto.png');
+}
+
+.openQuestion-mission {
+  background-image: url('../img/openQuestion.png');
+  background-position-y: 3px;
+}
+
+.video-mission {
+  background-image: url('../img/takeVideo.png');
+}
+
+.disable {
+  opacity: 0.8;
+}
+
+.checked {
+  background-image: url('../img/V.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+
+.frame-wrap {
+  height: 100%;
+  width: 100%;
+}
+
+#navig-help-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 6px;
+  box-sizing: border-box;
+  color: white;
+  display: none;
+}
+
+#navig-help-btn span {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.imgReplaceMap {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media all and (max-width: 736px) and (max-height: 960px) {
+  .submission-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    height: 33%;
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: 0;
+  }
+
+  .submissionsBtns {
+    height: 18%;
+    width: 33%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+    height: 53%;
+  }
+
+  .subMission-wrap {
+    width: 86%;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     margin: auto;
-    height: 60%;
-}
+    height: 66%;
+  }
 
-#map_canvas, .navigation-container {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    /*position: relative;*/
-}
+  .navigation-container .photo-order {
+    bottom: 50%;
+    position: absolute;
+    margin: auto;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 204px;
+    height: 90px;
+  }
 
-#map_canvas {
+  .navigation-container .photo-order .photo-continue {
     position: relative;
-}
-
-.angular-google-map-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-.destination-btn {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-}
-
-
-.navigation-container .mission-popup-continue {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    position: relative;
-    bottom: initial;
-    left: initial;
-    line-height: 30px;
-    vertical-align: top;
-    text-align: left;
-    width: initial;
-    font-size: 2em;
-    height: initial;
-    float: left;
-    margin-top: 20px;
-}
-
-.mission-repeat-popup.navigation-popup {
-    z-index: 4;
-}
-
-.submissionsBtns {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 18%;
-    width: 59%;
-    margin-right: 1%;
-    margin-bottom: 2%;
-}
-
-.submission-btn {
-    width: 28%;
-    height: auto;
-    display: inline-block;
-    height: 100%;
-    margin: -4px;
-    margin-right: 2%;
-    background-size: 100% auto;
-    background-position: center;
-}
-
-.camera-mission {
-    background-image: url('../img/takePhoto.png');
-}
-
-.openQuestion-mission {
-    background-image: url('../img/openQuestion.png');
-    background-position-y: 3px;
-}
-
-.video-mission {
-    background-image: url('../img/takeVideo.png');
-}
-
-.disable {
-    opacity: 0.8;
-}
-
-.checked {
-    background-image: url('../img/V.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-}
-
-.frame-wrap {
-    height: 100%;
     width: 100%;
-}
+    text-align: right;
+    text-indent: 0;
+    padding-right: 16px;
+  }
 
-#navig-help-btn {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
+  .navigation-container .photo-order .photo-continue .arrow {
+    width: 20px;
+    height: 20px;
     display: inline-block;
-    padding: 6px;
-    box-sizing: border-box;
-    color: white;
-    display: none;
-}
-
-#navig-help-btn span {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    vertical-align: top;
-}
-
-.imgReplaceMap {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-@media all and (max-width: 736px) and (max-height: 960px) {
-    .submission-btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        position: relative;
-        height: 33%;
-        background-repeat: no-repeat;
-        position: relative;
-        bottom: 0;
-    }
-
-    .submissionsBtns {
-        height: 18%;
-        width: 33%;
-        margin-right: 3%;
-        margin-bottom: 5%;
-        height: 53%;
-    }
-
-    .subMission-wrap {
-        width: 86%;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        height: 66%;
-    }
-
-    .navigation-container .photo-order {
-        bottom: 50%;
-        position: absolute;
-        margin: auto;
-        top: 0px;
-        bottom: 0px;
-        right: 0px;
-        left: 0px;
-        width: 204px;
-        height: 90px;
-    }
-
-    .navigation-container .photo-order .photo-continue {
-        position: relative;
-        width: 100%;
-        text-align: right;
-        text-indent: 0;
-        padding-right: 16px;
-    }
-
-    .navigation-container .photo-order .photo-continue .arrow {
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-    }
+  }
 }

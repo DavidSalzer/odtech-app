@@ -579,3 +579,9 @@ header {
     color: white;
 }
 /**end score **/
+
+
+#splash {
+    background-image: url('../img/splash_odtech.png');
+    background-position: bottom;
+}

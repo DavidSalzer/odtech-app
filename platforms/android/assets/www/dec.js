@@ -1,5 +1,5 @@
 hebrewDic = {
-    "_readAndApproved_": "קראתי ואני מאשר",
+    "_readAndApproved_": "קראתי ואני מאשר/ת",
     "_menu_": "תפריט",
     "_homePage_": "עמוד הבית",
     "_allStages_": "כל התחנות",

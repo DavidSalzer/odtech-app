@@ -1,14 +1,20 @@
 var size = window.innerWidth;
-//var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php"
-//var pureDomain = "http://adminqa.odtech.co.il/"
-var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php"
-var pureDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/"
+
 var howManyRight = 0;
 var cid;
 var groupCode;
 var clientName;
-
+var data;
+var clientTitle;
+var clientDescription;
+var clientImage;
+var clientLogo;
 var isSmartPhone = false;
+ //set the cid and group code
+cid = getParameterByName("cid");
+groupCode = getParameterByName("gcode");
+
+
 //detect if its smartphone: dont animate
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     if (screen.width < 700 || screen.height < 700) {
@@ -26,13 +32,12 @@ $(document).ready(function () {
     $("#arrow-down").click(function () {
         play();
     });
-    setClientData()
+   //etClientData()
     getImages();
     attachVideoEvent()
     //set the link url
-    $("#shareLink").attr('href', "https://www.facebook.com/sharer.php?u=" + location.hostname + "/summaryDay/share.php?cid=5")
-
-
+    //  $("#shareLink").attr('href', "https://www.facebook.com/sharer.php?u=" + location.hostname + "/summaryDay/share.php?cid="+getParameterByName("cid")+"&name="+encodeURI("שלום לך ארץ נהדרת") );
+    
 })
 
 function toggleAnimate() {
@@ -57,19 +62,25 @@ function setAudioFile(data) {
 }
 
 function setClientData() {
-    //set the cid and group code
-    cid = getParameterByName("cid")
-    groupCode = getParameterByName("gcode")
+   
     switch (cid) {
         case "3":
             clientName = "ODTech";
+            clientTitle = 'גם אני השתתפתי בסיור עם אפליקציית אודיטק! ביום פעילות ' + data.name;
+            clientImage = pureDomain + 'summaryDay/img/logo_odtech_share.jpg';
+            clientLogo = 'img/odtechLogo.png';
             break;
         case "4":
             clientName = "מסע ישראלי";
             break;
         case "5":
             clientName = "יד יצחק בן צבי";
+            clientTitle = 'גם אני השתתפתי בסיור של יד בן צבי! ביום פעילות ' + data.name;
+            clientImage = pureDomain + 'summaryDay/img/yad-ben-tzvi-share.jpg';
+            clientLogo = 'img/icon_splash_ybz.png';
             break;
+
+            
 
     }
 }
@@ -88,14 +99,17 @@ function getImages() {
     $.ajax({
         url: domain,
         method: "POST",
-        data: JSON.stringify({ "type": "getImageOfGroup", "req": { "cid": 5, "code": groupCode} }),
+        data: JSON.stringify({ "type": "getImageOfGroup", "req": { "cid": cid, "code": groupCode} }),
         success: function (result) {
-            var data = result.res;
+            data = result.res;
             console.log(data);
-            setGlobalData(data)
-            setImagesAndVideos(data.imgsArray)
+            setClientData()
+            setGlobalData(data);
+            setImagesAndVideos(data.imgsArray);
             //set the audio file
-            setAudioFile(data)
+            setAudioFile(data);
+
+
         },
         error: function (result) {
             var z;
@@ -129,6 +143,7 @@ function clearData(data) {
 
 setGlobalData = function (data) {
     $("#header_text span").text(data.name);
+    $("#logo").attr("src", clientLogo);
 
     document.title = clientName;
     $("#date").text(setDate(data.date))
@@ -196,7 +211,7 @@ function appendItem(itemData, index) {
     if (itemData && itemData.type == "img") {
         if (itemData.title) {
             return ' <div class="item  rotate' + index % 5 + '" style="background-image:url(' + pureDomain + itemData.url + ')">' +
-                     '<span class="item-title title'+getclassRandom()+'"><span>' + itemData.title + '</span><span class="title-icon"></span></span>' +
+                     '<span class="item-title title' + getclassRandom() + '"><span>' + itemData.title + '</span><span class="title-icon"></span></span>' +
                 '</div>';
         }
         else {
@@ -214,7 +229,7 @@ function appendItem(itemData, index) {
                 return ' <div  onclick="playBtnClick(event)" data-url="' + itemData.youtube + '" class="item video-item  rotate' + index % 5 + '" style="background-image:url(http://img.youtube.com/vi/' + itemData.youtube + '/0.jpg)"' + ')">' +
  ' <div  data-type="video" style="background-image:url(http://img.youtube.com/vi/' + itemData.youtube + '/2.jpg)">' +
                 '<span class="play-btn" ></span>' +
-               '<span class="item-title title'+getclassRandom()+'"><span>' + itemData.title + '</span><span class="title-icon"></span></span>' +
+               '<span class="item-title title' + getclassRandom() + '"><span>' + itemData.title + '</span><span class="title-icon"></span></span>' +
                 '</div>' +
                 '</div>';
 
@@ -234,14 +249,11 @@ function appendItem(itemData, index) {
     }
 }
 
-
-
 function setDate(unix_timestamp) {
     var date = new Date(parseInt(unix_timestamp));
-
-
-    // Will display time in 10:30:23 format
-    var formattedTime = date.getDay() + '.' + date.getDate() + '.' + date.getFullYear();
+    var formattedTime =
+    date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
+    console.log('FORMATTED TIME ' + formattedTime);
     return formattedTime;
 }
 var swiper;
@@ -275,7 +287,7 @@ function initSwiper() {
 
     });
     rightswipe = swiper.slideNext;
-    leftswipe= swiper.slidePrev;
+    leftswipe = swiper.slidePrev;
     //$(".swiper-container").click(pause)
 }
 
@@ -284,10 +296,10 @@ function play() {
     swiper.stopAutoplay();
     swiper.slideNext = rightswipe;
     swiper.slidePrev = leftswipe;
-   swiper.startAutoplay();
-     $("#audio")[0].play()
+    swiper.startAutoplay();
+    $("#audio")[0].play()
 
-    
+
 }
 function pause() {
     $("#arrow-stop").addClass('play');
@@ -298,11 +310,31 @@ function prev() {
     swiper.stopAutoplay();
     swiper.slideNext = leftswipe;
     swiper.slidePrev = rightswipe;
-   swiper.startAutoplay();
-   // $(".swiper-button-prev").click()
+    swiper.startAutoplay();
+    // $(".swiper-button-prev").click()
 }
 
 
-function getclassRandom(){
-  return   Math.floor((Math.random() * 5) + 1);
+function getclassRandom() {
+    return Math.floor((Math.random() * 5) + 1);
+}
+
+
+function share() {
+
+    FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        display: 'popup',
+        action_properties: JSON.stringify({
+            object: {
+                'og:url': location.href,
+                'og:title': clientTitle,
+                'og:image': clientImage
+            }
+        })
+    }, function (response) {
+        // Action after response
+    });
+
 }

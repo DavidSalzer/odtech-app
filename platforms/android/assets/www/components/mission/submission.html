@@ -11,7 +11,7 @@
 
                 <div class="tab-title-wrap">
                     <span class="mission-icon"></span>
-                    <span class="mission-header-text">{{(cid === 3 ? '_missionOrpan_' : '_mission_') | localizedFilter }}</span>
+                    <span class="mission-header-text">{{(cid == 3 ? '_missionOrpan_' : '_mission_') | localizedFilter }}</span>
                 </div>
 
             </div>
@@ -39,7 +39,8 @@
     </div>
 
     <div class="subMissionsIcons-wrap">
-        <div class="subMissionIconItem {{subMis.type}}" ng-repeat="subMis in subMissionsData" ng-click="enterSubMission(subMis.mid)" ng-class="{'green':subMis.status == 'answer','opacityIcon': loaderVisible}">
+        <div class="subMissionIconItem {{subMis.type}}" ng-repeat="subMis in subMissionsData" ng-click="enterSubMission(subMis.mid)"
+            ng-class="{'green':subMis.status == 'answer','opacityIcon': loaderVisible}">
             <div class="subMisV" ng-show="subMis.status == 'answer'"></div>
             <div class="subMisIcon"></div>
         </div>

@@ -8,6 +8,27 @@
          <link rel="stylesheet" href="css/swiper.min.css?v=3">
 
         <script src="js/swiper.min.js?v=1"></script>
+
+
+        <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '643283032717622',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.0'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
     </head>
     <body>
         <audio id="audio" controls autoplay>
@@ -16,10 +37,10 @@
                 <!--<source src="http://www.mfiles.co.uk/mp3-downloads/book1-prelude06.mp3" type="audio/mpeg">-->
         </audio>
         <div id="header">
-            <img src="img/icon_splash_ybz.png" class="image" id="logo">
+            <img src="" class="image" id="logo">
             <h1 id="header_text"> סיכום יום פעילות: <span> </span> </h1>
             <div id="facebook-wrapper">
-                <a id="shareLink"> <img alt="share" src="./img/share.png" /></a>
+                <a id="shareLink" onclick="share()"> <img alt="share" src="./img/share.png" /></a>
             </div>
         </div>
         <h1 id="text-in-head">
@@ -68,7 +89,7 @@
         </div>
 
         <img src="img/logo_odtech.png" id="logo_odtech">
-                                              
+        <script src="config.js?v=5"></script>              
         <script src="js/Script.js?v=5"></script>
         <!--<script src="js/main.js"></script>-->
     </body>
