@@ -45,3 +45,11 @@
 .english .load {
     direction: ltr;
 }
+
+.writeClaim {
+    background-image: url('../img/stop_english.png');
+}
+
+.playAgain {
+    background-image: url('../img/play_english.png')
+}

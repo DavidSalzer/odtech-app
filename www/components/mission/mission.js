@@ -184,8 +184,9 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                 //if need to go to next mission automatically.
                 //$scope.next = missions.directlyNext($scope.task.mid);
                // if (!$rootScope.delayStartMissionAudio){
-                    $scope.next = missions.directlyNext(missionData.mid);
-                    if ($scope.next) {
+                $scope.next = missions.directlyNext(missionData.mid);
+                //if need to go next directly and the mission doesnt has did you know - go to next mission
+                if ($scope.next && !missionData.didYouKnow) {
                         $state.transitionTo('mission', { missionId: $scope.next });
                   //  }
                 }
@@ -206,6 +207,8 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     else {
                         $rootScope.$broadcast('closeSubMission');
                     }
+
+                  
                 }
             
                 $timeout.cancel($scope.finishTimeout);
@@ -276,7 +279,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             //if need to go to next mission automatically.
             //if its not the first enter (first exit..)
             $scope.next = missions.directlyNext(missionData.mid);
-            if ($scope.next && !missionData.answer) {
+            if ($scope.next && !missionData.answer && !missionData.didYouKnow) {
                 $state.transitionTo('mission', { missionId: $scope.next });
             }
             else {

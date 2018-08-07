@@ -250,11 +250,11 @@ function appendItem(itemData, index) {
 }
 
 function setDate(unix_timestamp) {
-    var date = new Date(parseInt(unix_timestamp));
-    var formattedTime =
+  var date = new Date(parseInt(unix_timestamp));
+  var formattedTime =
     date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
-    console.log('FORMATTED TIME ' + formattedTime);
-    return formattedTime;
+  console.log('FORMATTED TIME ' + formattedTime);
+  return formattedTime;
 }
 var swiper;
 var rightswipe;

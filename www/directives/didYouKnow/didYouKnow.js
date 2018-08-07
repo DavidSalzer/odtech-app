@@ -17,11 +17,12 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', 'missions
                 next = missions.directlyNext($rootScope.missionIdLastShown);
                 if (next){
                     $state.transitionTo('mission', { missionId: next });
-                } else if ($rootScope.isStationArch) {
-                    $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
-                } else {
-                    $state.transitionTo('mainNav');
-                }
+                } 
+                //else if ($rootScope.isStationArch) {
+                //    $state.transitionTo('mainNav', { stageId: $rootScope.currentStage });
+                //} else {
+                //    $state.transitionTo('mainNav');
+                //}
             };
             //the did you know have to display after the finish popup display and hide
             //or when click on the x button on finish popup
@@ -33,7 +34,7 @@ odtechApp.directive('didYouKnow', ['$state', '$rootScope', '$timeout', 'missions
                 scope.toShowDidyouKnow(data.task);
             });
             scope.$on('closeMissionAndSendAnswer', function (event, data) {
-                scope.toShowDidyouKnow(data.data);
+              scope.toShowDidyouKnow(data.data);
             });
             scope.toShowDidyouKnow = function (task) {
                 //if there is didyouknow field and this did you know not showed

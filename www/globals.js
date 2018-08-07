@@ -1,9 +1,8 @@
-// var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
-// var imgDomain = "http://adminqa.odtech.co.il/";
+ //var domain = "http://adminqa.odtech.co.il/dataManagement/json.api.php";
+ //var imgDomain = "http://adminqa.odtech.co.il/";
 
-var domain =
-  'http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php';
-var imgDomain = 'http://odtech-v2-admin.co.il.tigris.nethost.co.il/';
+var domain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/dataManagement/json.api.php";
+var imgDomain = "http://odtech-v2-admin.co.il.tigris.nethost.co.il/";
 
 /********!1client number!!************/
 //var cid = 8; // production -masa
