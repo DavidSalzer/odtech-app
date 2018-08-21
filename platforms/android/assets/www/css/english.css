@@ -46,10 +46,15 @@
     direction: ltr;
 }
 
-.writeClaim {
-    background-image: url('../img/stop_english.png');
+.english .movieCtl .writeClaim{
+        background-image: url(../img/stop_english.png);
+    
 }
 
-.playAgain {
-    background-image: url('../img/play_english.png')
+.english .playAgain{
+        background-image: url(../img/play_english.png);
+    
+}
+.english .data-text{
+     direction: ltr;
 }

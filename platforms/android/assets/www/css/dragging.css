@@ -292,6 +292,7 @@ ul.draggable-objects:after {
     padding: 15px;
     font-size: 2em;
     text-align: center;
+    z-index: 1000
   }
 
   .inner-folder-wrap .x {

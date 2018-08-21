@@ -6,16 +6,20 @@
     position: absolute;
     height: 100%;
     width: 100%;
-     display: none;
+     display:  -webkit-box;;
 }
 
 .timeUp {
-    background: #ffd200;
+    /*background: #ffd200;*/
+     background: #408fb0;
    
 }
-#mission-finish.finishMissionShow{
-    display: -webkit-box;
+.timeUp.timeout{
+    background: #ffd200;
 }
+/*#mission-finish.finishMissionShow{
+    display: -webkit-box;
+}*/
 
 .timeUp.finish {
     background: #408fb0;

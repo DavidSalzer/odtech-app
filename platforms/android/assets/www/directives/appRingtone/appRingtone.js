@@ -15,8 +15,8 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                 //if the audios files is the default - 
                 if (isUsingDefaultSounds){
                     console.log('GETTING DEFAULT SOUNDS');
-                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer-orpan.mp3';
-                    scope.sorcesuccess = imgDomain + 'upload/magic-chime-orpan.mp3';
+                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer.mp3';
+                    scope.sorcesuccess = imgDomain + 'upload/magic-chime.mp3';
                     scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
                 }
                 //if the audios changed (by orpan)
@@ -52,7 +52,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                 if (!$rootScope.withoutPoints){
                     if (data.timeOver == false && data.results.points > 0) {
                         scope.play("applause");
-                          
+                         console.log('applause') 
                     }
                 }
              

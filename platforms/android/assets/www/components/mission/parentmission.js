@@ -38,6 +38,7 @@ odtechApp.directive('parentmission', ['$state', '$rootScope', '$timeout', functi
                 scope.showHelpPopup = false;
             }
              scope.endMissionByHelp = function () {
+                $rootScope.$broadcast('stopMusic');
                 scope.closeMission()
             }
 

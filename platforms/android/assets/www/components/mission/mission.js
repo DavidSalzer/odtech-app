@@ -120,11 +120,11 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
         if (!$scope.endTimer) {
             $timeout(function () {
                 $scope.successMission = true;
-            }, 0);
+           
             if ($rootScope.withoutPoints != true) {
                 $scope.finishMission = true;
             }
-
+            }, 0);
 
             //mission finished - throw broadcast
             $rootScope.$broadcast('finishMission', { results: results, timeOver: false });
@@ -132,7 +132,7 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
             //TODO:  להוציא את החלק הזה ל missionFinish
             if (results.points > 0) {
                 $scope.finishMissionTitle = $filter('localizedFilter')('_wellDone_');
-                $scope.finishMissionL1 = cid == 3 ? $filter('localizedFilter')('_missionCompletedOrpan_') : $filter('localizedFilter')('_missionCompleted_');
+                $scope.finishMissionL1 = cid === 3 ? $filter('localizedFilter')('_missionCompletedOrpan_') : $filter('localizedFilter')('_missionCompleted_');
                 $scope.finishMissionL2 = $filter('localizedFilter')('_earned_') +" "+ results.points+" " + $filter('localizedFilter')('_points_');
             }
             else {
@@ -241,8 +241,8 @@ odtechApp.controller('mission', ['$rootScope', '$scope', '$state', '$stateParams
                     $scope.finishMission = true;
                 }
                 $scope.finishMissionTitle = $filter('localizedFilter')('_timesUp_');
-                $scope.finishMissionL1 = cid == 3 ? $filter('localizedFilter')('_missionTimeIsUpOrpan_') : $filter('localizedFilter')('_missionTimeIsUp_');
-                $scope.finishMissionL2 = cid == 3 ? $filter('localizedFilter')('_tryNextMissionOrpan_') : $filter('localizedFilter')('_tryNextMission_');
+                $scope.finishMissionL1 = cid === 3 ? $filter('localizedFilter')('_missionTimeIsUpOrpan_') : $filter('localizedFilter')('_missionTimeIsUp_');
+                $scope.finishMissionL2 = cid === 3 ? $filter('localizedFilter')('_tryNextMissionOrpan_') : $filter('localizedFilter')('_tryNextMission_');
                 $scope.recievedpoints = 0;
 
             }

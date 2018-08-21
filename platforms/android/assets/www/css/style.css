@@ -1308,6 +1308,7 @@ body.keyboard {
 }
 
 .return {
+        background-color: #dbdbdb;
 }
 
 .mission-repeat-popup h2 {
@@ -1678,6 +1679,12 @@ body.keyboard {
   width: 94%;
   margin: auto;
   overflow: hidden;
+  
+  height: auto;
+    /* max-height: 50vh; */
+    top: 50%;
+    transform: translateY(-50%);
+    overflow-y: auto;
 }
 
 .message-text-popup h2 {
@@ -1693,7 +1700,8 @@ body.keyboard {
 .message-text-popup .textMessage p {
   font-size: 1.7em;
   margin-top: 1em;
-  height: 112px;
+  /*height: 112px;*/
+      white-space: initial;
   overflow: hidden;
 }
 
@@ -2790,7 +2798,7 @@ section.audio {
 
   .help-popup-container {
     width: 279px;
-    height: 378px;
+    height: 409px;
   }
 
   .stage-popup .help-popup-container {
