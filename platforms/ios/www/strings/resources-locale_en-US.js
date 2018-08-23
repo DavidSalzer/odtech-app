@@ -271,12 +271,12 @@
     },
     {
         "key":"_headUp_",
-        "value":"Heads up!!!",
+        "value":"Heads up",
         "description":"heads up"
     },
     {
         "key":"_skipMissionMessage_",
-        "value":"You can skip this mission, if you chose to do so you will not get points for it and won’t be able to come back to it in the future. ",
+        "value":"You can skip this mission if you chose to do so you will not get points for it and won’t be able to come back to it in the future. ",
         "description":"skip mission message"
     },
     {
@@ -577,7 +577,7 @@
 },
 {
     "key":"_skipMissionMessageOrpan_",
-    "value":"You can skip this station, if you chose to do so you will not get points for it and won’t be able to come back to it in the future. ",
+    "value":"You can skip this station. if you chose to do so you  won’t be able to come back to it in the future. ",
     "description":"skip mission message"
 },
 {

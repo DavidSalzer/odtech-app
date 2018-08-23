@@ -11,27 +11,32 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             }, 0);
             $timeout(function () {
                 scope.sorceapplause = imgDomain + 'upload/tada.mp3';
-                scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
-
+              
+                //if the audios files is the default - 
                 if (isUsingDefaultSounds){
                     console.log('GETTING DEFAULT SOUNDS');
-                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer-orpan.mp3';
-                    scope.sorcesuccess = imgDomain + 'upload/magic-chime-orpan.mp3';
+                    scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer.mp3';
+                    scope.sorcesuccess = imgDomain + 'upload/magic-chime.mp3';
+                    scope.sorcetimeOver = imgDomain + 'upload/misc258.mp3';
                 }
+                //if the audios changed (by orpan)
                 else {
                     console.log('GETTING CUSTOME SOUNDS');
                     scope.sorcefailBuzzer = imgDomain + 'upload/fail-buzzer-orpan.mp3';
                     scope.sorcesuccess = imgDomain + 'upload/magic-chime-orpan.mp3';
+                    scope.sorcetimeOver = imgDomain + 'upload/misc258-orpan.mp3';
                 }
              }, 0);
 
             //multi Question Answer Right
             scope.$on('multiQuestionAnswerRight', function () {
                 scope.play("success");
+                console.log('success')
             });
 
             //multi Question Answer Wrong
             scope.$on('multiQuestionAnswerWrong', function () {
+                console.log('failBuzzer')
                 scope.play("failBuzzer");
             });
 
@@ -47,6 +52,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
                 if (!$rootScope.withoutPoints){
                     if (data.timeOver == false && data.results.points > 0) {
                         scope.play("applause");
+                         console.log('applause') 
                     }
                 }
              
@@ -56,6 +62,7 @@ odtechApp.directive('appRingtone', ['$rootScope', '$timeout', function ($rootSco
             //reached The Destination
             scope.$on('reachedTheDestination', function () {
                 scope.play("success");
+                console.log('success')
             });
 
 

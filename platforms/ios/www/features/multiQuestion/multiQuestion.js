@@ -51,6 +51,7 @@ odtechApp.directive('multiQuestion', ['$rootScope', '$timeout', function ($rootS
                     scope.results.answer[scope.currentQuestion] = false;
 
                     //play the wrong sound
+                     console.log('broadcast multiQuestionAnswerWrong')
                     $rootScope.$broadcast('multiQuestionAnswerWrong', {});
                 }
 
